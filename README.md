@@ -1,1 +1,1 @@
-# CS243_Lab3_Online_Examination_System
+# CS243 Lab3 - Online Examination System
