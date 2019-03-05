@@ -1,0 +1,46 @@
+[
+		{
+			"section":"1",
+			"weight":2,
+			"TotalQuestions":3,
+			"questions":[
+				{
+					"Statement":"ASD",
+					"Answer": 2,
+					"Options": ["ASD","QWE","PQR","MNO"]
+				},
+				{
+					"Statement":"ASD",
+					"Answer": 2,
+					"Options": ["ASD","QWE","PQR","MNO"]
+				}
+			]
+		},
+		{
+			"section":"2",
+			"weight":3,
+			"TotalQuestions":2,
+			"questions":[
+				{
+					"Statement":"ASD",
+					"Answer": 2,
+					"Options": [
+							"ASD",
+							"QWE",
+							"PQR",
+							"MNO"
+							]
+				},
+				{
+					"Statement":"ASD",
+					"Answer": 2,
+					"Options": [
+							"ASD",
+							"QWE",
+							"PQR",
+							"MNO"
+							]
+				}
+			]
+		}
+]
