@@ -2,16 +2,17 @@
 		{
 			"section":"1",
 			"weight":2,
-			"TotalQuestions":3,
+			"TotalQuestions":2,
+			"NumberOfQuestionsGiven":1,
 			"questions":[
 				{
 					"Statement":"ASD",
-					"Answer": 2,
+					"Answer": [2,3],
 					"Options": ["ASD","QWE","PQR","MNO"]
 				},
 				{
 					"Statement":"ASD",
-					"Answer": 2,
+					"Answer": [2],
 					"Options": ["ASD","QWE","PQR","MNO"]
 				}
 			]
@@ -20,26 +21,17 @@
 			"section":"2",
 			"weight":3,
 			"TotalQuestions":2,
+			"NumberOfQuestionsGiven":2,
 			"questions":[
 				{
 					"Statement":"ASD",
-					"Answer": 2,
-					"Options": [
-							"ASD",
-							"QWE",
-							"PQR",
-							"MNO"
-							]
+					"Answer": [2,3],
+					"Options": ["ASD","QWE","PQR","MNO"]
 				},
 				{
 					"Statement":"ASD",
-					"Answer": 2,
-					"Options": [
-							"ASD",
-							"QWE",
-							"PQR",
-							"MNO"
-							]
+					"Answer": [2],
+					"Options": ["ASD","QWE","PQR","MNO"]
 				}
 			]
 		}

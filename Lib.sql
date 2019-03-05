@@ -3,12 +3,10 @@ USE `exam`;
 CREATE TABLE `exam` (
   `ExamCode` int(11) NOT NULL,
   `PassPercentage` int(3) DEFAULT NULL,
-  `MaxSusers_BEFORE_INSERTcore` int(3) DEFAULT NULL,
+  `MaxScore` int(3) DEFAULT NULL,
   `StartTime` timestamp NULL DEFAULT NULL,
   `ExamLength` int(5) DEFAULT NULL,
   `GroupID` json DEFAULT NULL,
-  `TotalQuestions` json DEFAULT NULL,
-  `GivenQuestions` json DEFAULT NULL,
   `QuestionSet` json DEFAULT NULL,
   `Standings` json DEFAULT NULL,
   PRIMARY KEY (`ExamCode`)
