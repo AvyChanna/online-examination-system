@@ -91,6 +91,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="ProfForm.cpp" />
+    <ClCompile Include="ProfProfile.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -103,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="ProfForm.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ProfProfile.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfForm.resx">
       <DependentUpon>ProfForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfProfile.resx">
+      <DependentUpon>ProfProfile.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentForm.resx">
       <DependentUpon>StudentForm.h</DependentUpon>
