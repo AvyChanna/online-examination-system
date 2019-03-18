@@ -36,6 +36,9 @@
     <ClCompile Include="ProfForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ProfProfile.cpp">
+	<Filter>Source Files</Filter>
+    </ClInclude>
     <ClCompile Include="StudentProfile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="ProfForm.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProfProfile.h">
+	<Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StudentProfile.h">
       <Filter>Header Files</Filter>

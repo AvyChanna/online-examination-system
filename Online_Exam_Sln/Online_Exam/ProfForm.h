@@ -1,4 +1,6 @@
+#include "ProfProfile.h"
 #pragma once
+
 
 namespace Online_Exam {
 
@@ -43,6 +45,9 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  btnPastTestsSet;
 	private: System::Windows::Forms::Button^  btnCreateTest;
 	private: System::Windows::Forms::Button^  btnAddGroup;
+	private: System::Windows::Forms::Panel^  profContentPanel;
+
+
 	protected:
 
 	private:
@@ -60,13 +65,14 @@ namespace Online_Exam {
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->btnMyProfileProf = (gcnew System::Windows::Forms::Button());
-			this->btnEditProfileProf = (gcnew System::Windows::Forms::Button());
-			this->btnAddGroup = (gcnew System::Windows::Forms::Button());
-			this->btnCreateTest = (gcnew System::Windows::Forms::Button());
-			this->btnPastTestsSet = (gcnew System::Windows::Forms::Button());
-			this->btnHelp = (gcnew System::Windows::Forms::Button());
 			this->btnLogOut = (gcnew System::Windows::Forms::Button());
+			this->btnHelp = (gcnew System::Windows::Forms::Button());
+			this->btnPastTestsSet = (gcnew System::Windows::Forms::Button());
+			this->btnCreateTest = (gcnew System::Windows::Forms::Button());
+			this->btnAddGroup = (gcnew System::Windows::Forms::Button());
+			this->btnEditProfileProf = (gcnew System::Windows::Forms::Button());
+			this->btnMyProfileProf = (gcnew System::Windows::Forms::Button());
+			this->profContentPanel = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -95,50 +101,14 @@ namespace Online_Exam {
 			this->panel1->Size = System::Drawing::Size(200, 533);
 			this->panel1->TabIndex = 2;
 			// 
-			// btnMyProfileProf
+			// btnLogOut
 			// 
-			this->btnMyProfileProf->Location = System::Drawing::Point(0, 0);
-			this->btnMyProfileProf->Name = L"btnMyProfileProf";
-			this->btnMyProfileProf->Size = System::Drawing::Size(200, 46);
-			this->btnMyProfileProf->TabIndex = 3;
-			this->btnMyProfileProf->Text = L"My Profile";
-			this->btnMyProfileProf->UseVisualStyleBackColor = true;
-			// 
-			// btnEditProfileProf
-			// 
-			this->btnEditProfileProf->Location = System::Drawing::Point(0, 50);
-			this->btnEditProfileProf->Name = L"btnEditProfileProf";
-			this->btnEditProfileProf->Size = System::Drawing::Size(200, 46);
-			this->btnEditProfileProf->TabIndex = 4;
-			this->btnEditProfileProf->Text = L"Edit Profile";
-			this->btnEditProfileProf->UseVisualStyleBackColor = true;
-			// 
-			// btnAddGroup
-			// 
-			this->btnAddGroup->Location = System::Drawing::Point(0, 100);
-			this->btnAddGroup->Name = L"btnAddGroup";
-			this->btnAddGroup->Size = System::Drawing::Size(200, 46);
-			this->btnAddGroup->TabIndex = 5;
-			this->btnAddGroup->Text = L"Create a Group";
-			this->btnAddGroup->UseVisualStyleBackColor = true;
-			// 
-			// btnCreateTest
-			// 
-			this->btnCreateTest->Location = System::Drawing::Point(0, 150);
-			this->btnCreateTest->Name = L"btnCreateTest";
-			this->btnCreateTest->Size = System::Drawing::Size(200, 46);
-			this->btnCreateTest->TabIndex = 6;
-			this->btnCreateTest->Text = L"Create a Test";
-			this->btnCreateTest->UseVisualStyleBackColor = true;
-			// 
-			// btnPastTestsSet
-			// 
-			this->btnPastTestsSet->Location = System::Drawing::Point(0, 200);
-			this->btnPastTestsSet->Name = L"btnPastTestsSet";
-			this->btnPastTestsSet->Size = System::Drawing::Size(200, 46);
-			this->btnPastTestsSet->TabIndex = 7;
-			this->btnPastTestsSet->Text = L"Past Tests Set";
-			this->btnPastTestsSet->UseVisualStyleBackColor = true;
+			this->btnLogOut->Location = System::Drawing::Point(0, 300);
+			this->btnLogOut->Name = L"btnLogOut";
+			this->btnLogOut->Size = System::Drawing::Size(200, 46);
+			this->btnLogOut->TabIndex = 9;
+			this->btnLogOut->Text = L"Log Out";
+			this->btnLogOut->UseVisualStyleBackColor = true;
 			// 
 			// btnHelp
 			// 
@@ -149,20 +119,65 @@ namespace Online_Exam {
 			this->btnHelp->Text = L"Help";
 			this->btnHelp->UseVisualStyleBackColor = true;
 			// 
-			// btnLogOut
+			// btnPastTestsSet
 			// 
-			this->btnLogOut->Location = System::Drawing::Point(0, 300);
-			this->btnLogOut->Name = L"btnLogOut";
-			this->btnLogOut->Size = System::Drawing::Size(200, 46);
-			this->btnLogOut->TabIndex = 9;
-			this->btnLogOut->Text = L"Log Out";
-			this->btnLogOut->UseVisualStyleBackColor = true;
+			this->btnPastTestsSet->Location = System::Drawing::Point(0, 200);
+			this->btnPastTestsSet->Name = L"btnPastTestsSet";
+			this->btnPastTestsSet->Size = System::Drawing::Size(200, 46);
+			this->btnPastTestsSet->TabIndex = 7;
+			this->btnPastTestsSet->Text = L"Past Tests Set";
+			this->btnPastTestsSet->UseVisualStyleBackColor = true;
+			// 
+			// btnCreateTest
+			// 
+			this->btnCreateTest->Location = System::Drawing::Point(0, 150);
+			this->btnCreateTest->Name = L"btnCreateTest";
+			this->btnCreateTest->Size = System::Drawing::Size(200, 46);
+			this->btnCreateTest->TabIndex = 6;
+			this->btnCreateTest->Text = L"Create a Test";
+			this->btnCreateTest->UseVisualStyleBackColor = true;
+			// 
+			// btnAddGroup
+			// 
+			this->btnAddGroup->Location = System::Drawing::Point(0, 100);
+			this->btnAddGroup->Name = L"btnAddGroup";
+			this->btnAddGroup->Size = System::Drawing::Size(200, 46);
+			this->btnAddGroup->TabIndex = 5;
+			this->btnAddGroup->Text = L"Create a Group";
+			this->btnAddGroup->UseVisualStyleBackColor = true;
+			// 
+			// btnEditProfileProf
+			// 
+			this->btnEditProfileProf->Location = System::Drawing::Point(0, 50);
+			this->btnEditProfileProf->Name = L"btnEditProfileProf";
+			this->btnEditProfileProf->Size = System::Drawing::Size(200, 46);
+			this->btnEditProfileProf->TabIndex = 4;
+			this->btnEditProfileProf->Text = L"Edit Profile";
+			this->btnEditProfileProf->UseVisualStyleBackColor = true;
+			// 
+			// btnMyProfileProf
+			// 
+			this->btnMyProfileProf->Location = System::Drawing::Point(0, 0);
+			this->btnMyProfileProf->Name = L"btnMyProfileProf";
+			this->btnMyProfileProf->Size = System::Drawing::Size(200, 46);
+			this->btnMyProfileProf->TabIndex = 3;
+			this->btnMyProfileProf->Text = L"My Profile";
+			this->btnMyProfileProf->UseVisualStyleBackColor = true;
+			this->btnMyProfileProf->Click += gcnew System::EventHandler(this, &ProfForm::btnMyProfileProf_Click);
+			// 
+			// profContentPanel
+			// 
+			this->profContentPanel->Location = System::Drawing::Point(206, 96);
+			this->profContentPanel->Name = L"profContentPanel";
+			this->profContentPanel->Size = System::Drawing::Size(903, 424);
+			this->profContentPanel->TabIndex = 3;
 			// 
 			// ProfForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1121, 532);
+			this->Controls->Add(this->profContentPanel);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label1);
 			this->Name = L"ProfForm";
@@ -173,5 +188,12 @@ namespace Online_Exam {
 
 		}
 #pragma endregion
-	};
+	private: System::Void btnMyProfileProf_Click(System::Object^  sender, System::EventArgs^  e) {
+				profContentPanel->Controls->Clear();
+				ProfProfile^ ref = gcnew ProfProfile();
+				profContentPanel->Controls->Add(ref);
+
+
+	}
+};
 }
