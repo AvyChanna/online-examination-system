@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "StudentForm.h"
+#include "ProfForm.h"
 
 using namespace Online_Exam;
 
@@ -13,6 +14,6 @@ int main(array<System::String ^> ^args)
 	Application::SetCompatibleTextRenderingDefault(false); 
 
 	// Create the main window and run it
-	Application::Run(gcnew StudentForm());
+	Application::Run(gcnew ProfForm());
 	return 0;
 }

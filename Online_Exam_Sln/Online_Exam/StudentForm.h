@@ -1,5 +1,6 @@
 #pragma once
-
+#include "ProfForm.h"
+#include "StudentProfile.h"
 namespace Online_Exam {
 
 	using namespace System;
@@ -49,6 +50,8 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  btnHelp;
 	private: System::Windows::Forms::Button^  btnCertificates;
 	private: System::Windows::Forms::Button^  btnEnroll;
+	private: System::Windows::Forms::Panel^  contentPanel;
+
 
 	private:
 		/// <summary>
@@ -65,6 +68,7 @@ namespace Online_Exam {
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->btnEnroll = (gcnew System::Windows::Forms::Button());
 			this->btnCertificates = (gcnew System::Windows::Forms::Button());
 			this->btnLogOut = (gcnew System::Windows::Forms::Button());
 			this->btnHelp = (gcnew System::Windows::Forms::Button());
@@ -73,7 +77,7 @@ namespace Online_Exam {
 			this->btnMyGroups = (gcnew System::Windows::Forms::Button());
 			this->btnUpcomingTests = (gcnew System::Windows::Forms::Button());
 			this->btnMyProfileStudent = (gcnew System::Windows::Forms::Button());
-			this->btnEnroll = (gcnew System::Windows::Forms::Button());
+			this->contentPanel = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -102,6 +106,15 @@ namespace Online_Exam {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(200, 533);
 			this->panel1->TabIndex = 1;
+			// 
+			// btnEnroll
+			// 
+			this->btnEnroll->Location = System::Drawing::Point(0, 250);
+			this->btnEnroll->Name = L"btnEnroll";
+			this->btnEnroll->Size = System::Drawing::Size(200, 46);
+			this->btnEnroll->TabIndex = 10;
+			this->btnEnroll->Text = L"Enroll to a Group";
+			this->btnEnroll->UseVisualStyleBackColor = true;
 			// 
 			// btnCertificates
 			// 
@@ -138,6 +151,7 @@ namespace Online_Exam {
 			this->btnEditProfileStudent->TabIndex = 6;
 			this->btnEditProfileStudent->Text = L"Edit Profile";
 			this->btnEditProfileStudent->UseVisualStyleBackColor = true;
+			this->btnEditProfileStudent->Click += gcnew System::EventHandler(this, &StudentForm::btnEditProfileStudent_Click);
 			// 
 			// btnPastTests
 			// 
@@ -147,6 +161,7 @@ namespace Online_Exam {
 			this->btnPastTests->TabIndex = 4;
 			this->btnPastTests->Text = L"Past Tests";
 			this->btnPastTests->UseVisualStyleBackColor = true;
+			this->btnPastTests->Click += gcnew System::EventHandler(this, &StudentForm::btnPastTests_Click);
 			// 
 			// btnMyGroups
 			// 
@@ -156,6 +171,7 @@ namespace Online_Exam {
 			this->btnMyGroups->TabIndex = 5;
 			this->btnMyGroups->Text = L"My Groups";
 			this->btnMyGroups->UseVisualStyleBackColor = true;
+			this->btnMyGroups->Click += gcnew System::EventHandler(this, &StudentForm::btnMyGroups_Click);
 			// 
 			// btnUpcomingTests
 			// 
@@ -165,6 +181,7 @@ namespace Online_Exam {
 			this->btnUpcomingTests->TabIndex = 3;
 			this->btnUpcomingTests->Text = L"Upcoming Tests";
 			this->btnUpcomingTests->UseVisualStyleBackColor = true;
+			this->btnUpcomingTests->Click += gcnew System::EventHandler(this, &StudentForm::btnUpcomingTests_Click);
 			// 
 			// btnMyProfileStudent
 			// 
@@ -174,21 +191,21 @@ namespace Online_Exam {
 			this->btnMyProfileStudent->TabIndex = 2;
 			this->btnMyProfileStudent->Text = L"My Profile";
 			this->btnMyProfileStudent->UseVisualStyleBackColor = true;
+			this->btnMyProfileStudent->Click += gcnew System::EventHandler(this, &StudentForm::btnMyProfileStudent_Click);
 			// 
-			// btnEnroll
+			// contentPanel
 			// 
-			this->btnEnroll->Location = System::Drawing::Point(0, 250);
-			this->btnEnroll->Name = L"btnEnroll";
-			this->btnEnroll->Size = System::Drawing::Size(200, 46);
-			this->btnEnroll->TabIndex = 10;
-			this->btnEnroll->Text = L"Enroll to a Group";
-			this->btnEnroll->UseVisualStyleBackColor = true;
+			this->contentPanel->Location = System::Drawing::Point(206, 96);
+			this->contentPanel->Name = L"contentPanel";
+			this->contentPanel->Size = System::Drawing::Size(903, 424);
+			this->contentPanel->TabIndex = 3;
 			// 
 			// StudentForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1121, 532);
+			this->Controls->Add(this->contentPanel);
 			this->Controls->Add(this->btnMyProfileStudent);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label1);
@@ -200,5 +217,23 @@ namespace Online_Exam {
 
 		}
 #pragma endregion
-	};
+private: System::Void btnEditProfileStudent_Click(System::Object^  sender, System::EventArgs^  e) {
+			 contentPanel->Controls->Clear();
+}
+
+private: System::Void btnMyProfileStudent_Click(System::Object^  sender, System::EventArgs^  e) {
+			 contentPanel->Controls->Clear();
+			 StudentProfile ^ usr = gcnew StudentProfile();
+			 contentPanel->Controls->Add(usr);
+}
+private: System::Void btnUpcomingTests_Click(System::Object^  sender, System::EventArgs^  e) {
+			 contentPanel->Controls->Clear();
+}
+private: System::Void btnPastTests_Click(System::Object^  sender, System::EventArgs^  e) {
+			 contentPanel->Controls->Clear();
+}
+private: System::Void btnMyGroups_Click(System::Object^  sender, System::EventArgs^  e) {
+			 contentPanel->Controls->Clear();
+}
+};
 }
