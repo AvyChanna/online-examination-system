@@ -1,7 +1,7 @@
 // Online_Exam.cpp : main project file.
 
 #include "stdafx.h"
-#include "Form1.h"
+#include "StudentForm.h"
 
 using namespace Online_Exam;
 
@@ -13,6 +13,6 @@ int main(array<System::String ^> ^args)
 	Application::SetCompatibleTextRenderingDefault(false); 
 
 	// Create the main window and run it
-	Application::Run(gcnew Form1());
+	Application::Run(gcnew StudentForm());
 	return 0;
 }
