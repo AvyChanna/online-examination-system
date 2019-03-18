@@ -17,7 +17,7 @@ namespace Database{
 		DataTable ^DBDT;
 
 		//Manage Query Paramters  --> Handling errors /SQL attacks
-		List<OleDbParameter^> ^ Params = gcnew List<OleDbParameter^>;
+		List<OleDbParameter^> ^ Params;
 
 		//Query Statistics
 		int RecordCount;
@@ -40,6 +40,7 @@ namespace Database{
 	{
 		DBCon = gcnew OleDbConnection();
 		DBCon->ConnectionString = "Provider=Microsoft.JET.OLEDB.4.0; Data Source=DatabaseLab.mdb";
+		Params = gcnew List<OleDbParameter^>;
 	}
 
 	OES::~OES()

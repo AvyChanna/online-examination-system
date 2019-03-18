@@ -19,7 +19,7 @@ namespace Online_Exam {
 		void Test()
 		{
 			OES ^Access = gcnew OES();
-			Access->ExecQuery("SELECT * FROM Exam WHERE PassPercentage='80'");
+			Access->ExecQuery("SELECT * FROM Exam WHERE PassPercentage=80");
 			if (Access->RecordCount > 0){
 				dgvTemp->DataSource = Access->DBDT;
 			}
@@ -82,6 +82,7 @@ namespace Online_Exam {
 			this->Text = L"Form1";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTemp))->EndInit();
+
 			this->ResumeLayout(false);
 
 		}

@@ -3,6 +3,8 @@
 #include "stdafx.h"
 #include "Form1.h"
 #include "Database.h"
+#include "StudentForm.h"
+#include "ProfForm.h"
 
 using namespace Online_Exam;
 using namespace Database;
@@ -15,7 +17,7 @@ int main(array<System::String ^> ^args)
 	Application::SetCompatibleTextRenderingDefault(false); 
 
 	// Create the main window and run it
-	Application::Run(gcnew Form1());
+	Application::Run(gcnew StudentForm());
 	
 	return 0;
 }
