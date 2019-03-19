@@ -112,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StudentEditProfile.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="StudentForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -132,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfProfile.resx">
       <DependentUpon>ProfProfile.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentEditProfile.resx">
+      <DependentUpon>StudentEditProfile.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentForm.resx">
       <DependentUpon>StudentForm.h</DependentUpon>
