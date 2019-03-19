@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Online_Exam.cpp" />
+    <ClCompile Include="ProfForm.cpp" />
+    <ClCompile Include="ProfProfile.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="StudentForm.cpp" />
+    <ClCompile Include="StudentProfile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Form1.h" />
+    <ClInclude Include="Database.h" />
+    <ClInclude Include="ProfForm.h" />
+    <ClInclude Include="ProfProfile.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StudentForm.h" />
+    <ClInclude Include="StudentProfile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resX" />
+    <EmbeddedResource Include="ProfForm.resx" />
+    <EmbeddedResource Include="ProfProfile.resx" />
+    <EmbeddedResource Include="StudentForm.resx" />
+    <EmbeddedResource Include="StudentProfile.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.ico" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>
