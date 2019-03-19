@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __form1__
+#define __form1__
 #include "Database.h"
 namespace Online_Exam {
 
@@ -93,3 +94,4 @@ namespace Online_Exam {
 	};
 }
 
+#endif

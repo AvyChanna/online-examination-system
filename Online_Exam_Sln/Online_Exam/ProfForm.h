@@ -1,5 +1,6 @@
+#ifndef __profform__
+#define __profform__
 #include "ProfProfile.h"
-#pragma once
 
 
 namespace Online_Exam {
@@ -10,7 +11,7 @@ namespace Online_Exam {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	//using namespace ProfProfile;
 	/// <summary>
 	/// Summary for ProfForm
 	/// </summary>
@@ -197,3 +198,4 @@ namespace Online_Exam {
 	}
 };
 }
+#endif

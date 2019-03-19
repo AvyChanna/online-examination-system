@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __database__
+#define __database__
 #include "stdafx.h"
 
 
@@ -85,4 +86,5 @@ namespace Database{
 		NewParam = gcnew OleDbParameter(Name, Value);
 		Params->Add(NewParam);
 	}
-};
+}
+#endif

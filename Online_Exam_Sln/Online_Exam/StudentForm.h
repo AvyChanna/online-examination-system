@@ -1,4 +1,7 @@
 #pragma once
+#ifndef __studentform__
+#define __studentform__
+#include "Database.h"
 #include "ProfForm.h"
 #include "StudentProfile.h"
 namespace Online_Exam {
@@ -9,7 +12,7 @@ namespace Online_Exam {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	//using namespace StudentProfile;
 	/// <summary>
 	/// Summary for StudentForm
 	/// </summary>
@@ -199,6 +202,7 @@ namespace Online_Exam {
 			this->contentPanel->Name = L"contentPanel";
 			this->contentPanel->Size = System::Drawing::Size(903, 424);
 			this->contentPanel->TabIndex = 3;
+			this->contentPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &StudentForm::contentPanel_Paint);
 			// 
 			// StudentForm
 			// 
@@ -235,5 +239,8 @@ private: System::Void btnPastTests_Click(System::Object^  sender, System::EventA
 private: System::Void btnMyGroups_Click(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
 }
+private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+}
 };
 }
+#endif

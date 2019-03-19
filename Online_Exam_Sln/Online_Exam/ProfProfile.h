@@ -1,5 +1,6 @@
 #pragma once
-
+#ifndef __profprofile__
+#define __profprofile__
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -123,3 +124,4 @@ namespace Online_Exam {
 #pragma endregion
 	};
 }
+#endif
