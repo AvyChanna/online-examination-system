@@ -1,8 +1,10 @@
+#pragma once
 #ifndef __profform__
 #define __profform__
 #include "ProfProfile.h"
+#include "ProfEditProfile.h"
+#include "CreateGroup.h"
 #include "CreateExam.h"
-
 
 namespace Online_Exam {
 
@@ -155,6 +157,7 @@ namespace Online_Exam {
 			this->btnAddGroup->TabIndex = 5;
 			this->btnAddGroup->Text = L"Create a Group";
 			this->btnAddGroup->UseVisualStyleBackColor = true;
+			this->btnAddGroup->Click += gcnew System::EventHandler(this, &ProfForm::btnAddGroup_Click);
 			// 
 			// btnEditProfileProf
 			// 
@@ -165,6 +168,7 @@ namespace Online_Exam {
 			this->btnEditProfileProf->TabIndex = 4;
 			this->btnEditProfileProf->Text = L"Edit Profile";
 			this->btnEditProfileProf->UseVisualStyleBackColor = true;
+			this->btnEditProfileProf->Click += gcnew System::EventHandler(this, &ProfForm::btnEditProfileProf_Click);
 			// 
 			// btnMyProfileProf
 			// 
@@ -196,6 +200,7 @@ namespace Online_Exam {
 			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"ProfForm";
 			this->Text = L"ProfForm";
+			this->Load += gcnew System::EventHandler(this, &ProfForm::ProfForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -209,6 +214,21 @@ namespace Online_Exam {
 
 
 	}
+private: System::Void btnEditProfileProf_Click(System::Object^  sender, System::EventArgs^  e) {
+			  profContentPanel->Controls->Clear();
+			  ProfEditProfile^ usr = gcnew ProfEditProfile();
+			 profContentPanel->Controls->Add(usr);
+}
+private: System::Void ProfForm_Load(System::Object^  sender, System::EventArgs^  e) {
+			 profContentPanel->Controls->Clear();
+			 ProfProfile^ ref = gcnew ProfProfile();
+			 profContentPanel->Controls->Add(ref);
+}
+private: System::Void btnAddGroup_Click(System::Object^  sender, System::EventArgs^  e) {
+			 profContentPanel->Controls->Clear();
+			 CreateGroup^ ref = gcnew CreateGroup();
+			 profContentPanel->Controls->Add(ref);
+}
 private: System::Void btnCreateTest_Click(System::Object^  sender, System::EventArgs^  e) {
 			 profContentPanel->Controls->Clear();
 			 CreateExam^ ref = gcnew CreateExam();

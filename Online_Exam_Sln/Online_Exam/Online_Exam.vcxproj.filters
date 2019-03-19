@@ -18,6 +18,8 @@
     <ClInclude Include="StudentProfile.h" />
     <ClInclude Include="GlobalVar.h" />
     <ClInclude Include="StudentEditProfile.h" />
+    <ClInclude Include="ProfEditProfile.h" />
+    <ClInclude Include="CreateGroup.h" />
     <ClInclude Include="CreateExam.h" />
   </ItemGroup>
   <ItemGroup>

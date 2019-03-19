@@ -59,8 +59,10 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Label^  lblRollDetail;
 	private: System::Windows::Forms::Label^  lblFullNameDetail;
 	private: System::Windows::Forms::Label^  lblUsernameDetail;
-	private: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  lblBranch;
+	private: System::Windows::Forms::Label^  lblBranchDetail;
+
+
 
 
 
@@ -92,8 +94,8 @@ namespace Online_Exam {
 			this->lblRollDetail = (gcnew System::Windows::Forms::Label());
 			this->lblFullNameDetail = (gcnew System::Windows::Forms::Label());
 			this->lblUsernameDetail = (gcnew System::Windows::Forms::Label());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->lblBranch = (gcnew System::Windows::Forms::Label());
+			this->lblBranchDetail = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// lblUsername
@@ -230,34 +232,34 @@ namespace Online_Exam {
 			this->lblUsernameDetail->TabIndex = 11;
 			this->lblUsernameDetail->Text = L"Username";
 			// 
-			// label1
+			// lblBranch
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblBranch->AutoSize = true;
+			this->lblBranch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(100, 350);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(74, 25);
-			this->label1->TabIndex = 12;
-			this->label1->Text = L"Branch";
+			this->lblBranch->Location = System::Drawing::Point(100, 350);
+			this->lblBranch->Name = L"lblBranch";
+			this->lblBranch->Size = System::Drawing::Size(74, 25);
+			this->lblBranch->TabIndex = 12;
+			this->lblBranch->Text = L"Branch";
 			// 
-			// label2
+			// lblBranchDetail
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblBranchDetail->AutoSize = true;
+			this->lblBranchDetail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(275, 350);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(102, 25);
-			this->label2->TabIndex = 13;
-			this->label2->Text = L"Username";
+			this->lblBranchDetail->Location = System::Drawing::Point(275, 350);
+			this->lblBranchDetail->Name = L"lblBranchDetail";
+			this->lblBranchDetail->Size = System::Drawing::Size(102, 25);
+			this->lblBranchDetail->TabIndex = 13;
+			this->lblBranchDetail->Text = L"Username";
 			// 
 			// StudentProfile
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->lblBranchDetail);
+			this->Controls->Add(this->lblBranch);
 			this->Controls->Add(this->lblUsernameDetail);
 			this->Controls->Add(this->lblFullNameDetail);
 			this->Controls->Add(this->lblRollDetail);
@@ -284,20 +286,20 @@ private: System::Void lblRollDetail_Click(System::Object^  sender, System::Event
 }
 private: System::Void StudentProfile_Load(System::Object^  sender, System::EventArgs^  e) {
 			 
-			 std::cout<<gVar::a;
-			 lblEmailDetail->Text = gVar::b;
+			 
+			
 
 			 OES ^Access = gcnew OES();
 			 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::b +"'");
 			 if (Access->RecordCount == 1 ){
 				 
-				 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0][0]);
-				 lblFullNameDetail->Text = Convert::ToString(Access->DBDT->Rows[0][1]);
-				 lblRollDetail->Text = Convert::ToString(Access->DBDT->Rows[0][8]);
-				 lblEmailDetail->Text = Convert::ToString(Access->DBDT->Rows[0][6]);
-				 lblPhoneDetail->Text = Convert::ToString(Access->DBDT->Rows[0][7]);
-				 lblIITGDetail->Text = Convert::ToString(Access->DBDT->Rows[0][10]);
-				 String ^s = Convert::ToString(Access->DBDT->Rows[0][10]);
+				 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Username"]);
+				 lblFullNameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["FullName"]);
+				 lblRollDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["RollNo"]);
+				 lblEmailDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Email"]);
+				 lblPhoneDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["PhoneNo"]);
+				 lblBranchDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Branch"]);
+				 String ^s = Convert::ToString(Access->DBDT->Rows[0]["IITG"]);
 				 if (s->CompareTo("True")==0)
 				 {
 					 lblIITGDetail->Text = "Yes";

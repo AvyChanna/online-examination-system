@@ -103,11 +103,17 @@
     <ClInclude Include="CreateExam.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="CreateGroup.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Database.h" />
     <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="ProfEditProfile.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="ProfForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -133,9 +139,15 @@
     <EmbeddedResource Include="CreateExam.resx">
       <DependentUpon>CreateExam.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateGroup.resx">
+      <DependentUpon>CreateGroup.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resX">
       <DependentUpon>Form1.h</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfEditProfile.resx">
+      <DependentUpon>ProfEditProfile.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfForm.resx">
       <DependentUpon>ProfForm.h</DependentUpon>

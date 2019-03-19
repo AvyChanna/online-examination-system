@@ -4,6 +4,7 @@
 #include "Database.h"
 #include "ProfForm.h"
 #include "StudentProfile.h"
+#include "StudentEditProfile.h"
 namespace Online_Exam {
 
 	using namespace System;
@@ -215,6 +216,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->label1);
 			this->Name = L"StudentForm";
 			this->Text = L"StudentForm";
+			this->Load += gcnew System::EventHandler(this, &StudentForm::StudentForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -223,6 +225,8 @@ namespace Online_Exam {
 #pragma endregion
 private: System::Void btnEditProfileStudent_Click(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
+			 StudentEditProfile ^ usr = gcnew StudentEditProfile();
+			 contentPanel->Controls->Add(usr);
 }
 
 private: System::Void btnMyProfileStudent_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -240,6 +244,11 @@ private: System::Void btnMyGroups_Click(System::Object^  sender, System::EventAr
 			 contentPanel->Controls->Clear();
 }
 private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+}
+private: System::Void StudentForm_Load(System::Object^  sender, System::EventArgs^  e) {
+			 contentPanel->Controls->Clear();
+			 StudentProfile ^ usr = gcnew StudentProfile();
+			 contentPanel->Controls->Add(usr);
 }
 };
 }
