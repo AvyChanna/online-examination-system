@@ -95,23 +95,21 @@ namespace Online_Exam {
 			this->lblBranch->AutoSize = true;
 			this->lblBranch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-
-			this->lblBranch->Location = System::Drawing::Point(100, 350);
+			this->lblBranch->Location = System::Drawing::Point(104, 318);
+			this->lblBranch->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblBranch->Name = L"lblBranch";
 			this->lblBranch->Size = System::Drawing::Size(74, 25);
 			this->lblBranch->TabIndex = 19;
 			this->lblBranch->Text = L"Branch";
-
 			// 
 			// lblIITG
 			// 
 			this->lblIITG->AutoSize = true;
 			this->lblIITG->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblIITG->Location = System::Drawing::Point(75, 244);
-			this->lblIITG->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lblIITG->Location = System::Drawing::Point(99, 264);
 			this->lblIITG->Name = L"lblIITG";
-			this->lblIITG->Size = System::Drawing::Size(102, 20);
+			this->lblIITG->Size = System::Drawing::Size(123, 25);
 			this->lblIITG->TabIndex = 18;
 			this->lblIITG->Text = L"IITG Student";
 			// 
@@ -120,10 +118,9 @@ namespace Online_Exam {
 			this->lblFullName->AutoSize = true;
 			this->lblFullName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblFullName->Location = System::Drawing::Point(75, 81);
-			this->lblFullName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lblFullName->Location = System::Drawing::Point(99, 64);
 			this->lblFullName->Name = L"lblFullName";
-			this->lblFullName->Size = System::Drawing::Size(80, 20);
+			this->lblFullName->Size = System::Drawing::Size(100, 25);
 			this->lblFullName->TabIndex = 17;
 			this->lblFullName->Text = L"Full Name";
 			// 
@@ -132,10 +129,9 @@ namespace Online_Exam {
 			this->lblPhone->AutoSize = true;
 			this->lblPhone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblPhone->Location = System::Drawing::Point(75, 203);
-			this->lblPhone->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lblPhone->Location = System::Drawing::Point(99, 214);
 			this->lblPhone->Name = L"lblPhone";
-			this->lblPhone->Size = System::Drawing::Size(115, 20);
+			this->lblPhone->Size = System::Drawing::Size(143, 25);
 			this->lblPhone->TabIndex = 16;
 			this->lblPhone->Text = L"Phone Number";
 			// 
@@ -144,10 +140,9 @@ namespace Online_Exam {
 			this->lblRoll->AutoSize = true;
 			this->lblRoll->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblRoll->Location = System::Drawing::Point(75, 122);
-			this->lblRoll->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lblRoll->Location = System::Drawing::Point(99, 114);
 			this->lblRoll->Name = L"lblRoll";
-			this->lblRoll->Size = System::Drawing::Size(64, 20);
+			this->lblRoll->Size = System::Drawing::Size(79, 25);
 			this->lblRoll->TabIndex = 15;
 			this->lblRoll->Text = L"Roll No.";
 			// 
@@ -156,10 +151,9 @@ namespace Online_Exam {
 			this->lblEmail->AutoSize = true;
 			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblEmail->Location = System::Drawing::Point(75, 162);
-			this->lblEmail->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lblEmail->Location = System::Drawing::Point(99, 163);
 			this->lblEmail->Name = L"lblEmail";
-			this->lblEmail->Size = System::Drawing::Size(48, 20);
+			this->lblEmail->Size = System::Drawing::Size(60, 25);
 			this->lblEmail->TabIndex = 14;
 			this->lblEmail->Text = L"Email";
 			// 
@@ -168,70 +162,78 @@ namespace Online_Exam {
 			this->lblUsername->AutoSize = true;
 			this->lblUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblUsername->Location = System::Drawing::Point(75, 41);
-			this->lblUsername->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lblUsername->Location = System::Drawing::Point(99, 14);
 			this->lblUsername->Name = L"lblUsername";
-			this->lblUsername->Size = System::Drawing::Size(83, 20);
+			this->lblUsername->Size = System::Drawing::Size(102, 25);
 			this->lblUsername->TabIndex = 13;
 			this->lblUsername->Text = L"Username";
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(350, 50);
+			this->txtUsername->Location = System::Drawing::Point(399, 14);
+			this->txtUsername->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->ReadOnly = true;
-			this->txtUsername->Size = System::Drawing::Size(173, 22);
+			this->txtUsername->Size = System::Drawing::Size(229, 22);
 			this->txtUsername->TabIndex = 20;
 			// 
 			// txtFullName
 			// 
-			this->txtFullName->Location = System::Drawing::Point(350, 100);
+			this->txtFullName->Location = System::Drawing::Point(399, 68);
+			this->txtFullName->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtFullName->Name = L"txtFullName";
-			this->txtFullName->Size = System::Drawing::Size(173, 22);
+			this->txtFullName->Size = System::Drawing::Size(229, 22);
 			this->txtFullName->TabIndex = 21;
 			// 
 			// txtRoll
 			// 
-			this->txtRoll->Location = System::Drawing::Point(350, 150);
+			this->txtRoll->Location = System::Drawing::Point(399, 118);
+			this->txtRoll->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtRoll->Name = L"txtRoll";
-			this->txtRoll->Size = System::Drawing::Size(173, 22);
+			this->txtRoll->Size = System::Drawing::Size(229, 22);
 			this->txtRoll->TabIndex = 22;
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(350, 200);
+			this->txtEmail->Location = System::Drawing::Point(399, 167);
+			this->txtEmail->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtEmail->Name = L"txtEmail";
-			this->txtEmail->Size = System::Drawing::Size(173, 22);
+			this->txtEmail->Size = System::Drawing::Size(229, 22);
 			this->txtEmail->TabIndex = 23;
 			// 
 			// txtPhone
 			// 
-			this->txtPhone->Location = System::Drawing::Point(350, 250);
+			this->txtPhone->Location = System::Drawing::Point(399, 218);
+			this->txtPhone->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtPhone->Name = L"txtPhone";
-			this->txtPhone->Size = System::Drawing::Size(173, 22);
+			this->txtPhone->ReadOnly = true;
+			this->txtPhone->Size = System::Drawing::Size(229, 22);
 			this->txtPhone->TabIndex = 24;
 			// 
 			// txtIITG
 			// 
-			this->txtIITG->Location = System::Drawing::Point(350, 300);
+			this->txtIITG->Location = System::Drawing::Point(399, 268);
+			this->txtIITG->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtIITG->Name = L"txtIITG";
 			this->txtIITG->ReadOnly = true;
-			this->txtIITG->Size = System::Drawing::Size(173, 22);
+			this->txtIITG->Size = System::Drawing::Size(229, 22);
 			this->txtIITG->TabIndex = 25;
 			// 
 			// txtBranch
 			// 
-			this->txtBranch->Location = System::Drawing::Point(350, 350);
+			this->txtBranch->Location = System::Drawing::Point(399, 318);
+			this->txtBranch->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtBranch->Name = L"txtBranch";
 			this->txtBranch->ReadOnly = true;
-			this->txtBranch->Size = System::Drawing::Size(173, 22);
+			this->txtBranch->Size = System::Drawing::Size(229, 22);
 			this->txtBranch->TabIndex = 26;
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(263, 386);
+			this->btnUpdate->Location = System::Drawing::Point(246, 368);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(149, 35);
+			this->btnUpdate->Size = System::Drawing::Size(199, 43);
 			this->btnUpdate->TabIndex = 27;
 			this->btnUpdate->Text = L"UPDATE";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -239,7 +241,7 @@ namespace Online_Exam {
 			// 
 			// StudentEditProfile
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->txtBranch);
@@ -256,11 +258,9 @@ namespace Online_Exam {
 			this->Controls->Add(this->lblRoll);
 			this->Controls->Add(this->lblEmail);
 			this->Controls->Add(this->lblUsername);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"StudentEditProfile";
-
-			this->Size = System::Drawing::Size(903, 424);
-
+			this->Size = System::Drawing::Size(903, 423);
 			this->Load += gcnew System::EventHandler(this, &StudentEditProfile::StudentEditProfile_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
