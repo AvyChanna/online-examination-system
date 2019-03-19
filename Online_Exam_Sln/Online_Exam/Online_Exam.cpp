@@ -20,7 +20,7 @@ int main(array<System::String ^> ^args)
 	gVar::a = 5;
 	gVar::b = "tushar";
 	// Create the main window and run it
-	Application::Run(gcnew StudentForm());
+	Application::Run(gcnew ProfForm());
 	
 	return 0;
 }

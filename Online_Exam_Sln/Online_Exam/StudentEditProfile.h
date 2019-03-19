@@ -95,20 +95,23 @@ namespace Online_Exam {
 			this->lblBranch->AutoSize = true;
 			this->lblBranch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+
 			this->lblBranch->Location = System::Drawing::Point(100, 350);
 			this->lblBranch->Name = L"lblBranch";
 			this->lblBranch->Size = System::Drawing::Size(74, 25);
 			this->lblBranch->TabIndex = 19;
 			this->lblBranch->Text = L"Branch";
+
 			// 
 			// lblIITG
 			// 
 			this->lblIITG->AutoSize = true;
 			this->lblIITG->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblIITG->Location = System::Drawing::Point(100, 300);
+			this->lblIITG->Location = System::Drawing::Point(75, 244);
+			this->lblIITG->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblIITG->Name = L"lblIITG";
-			this->lblIITG->Size = System::Drawing::Size(123, 25);
+			this->lblIITG->Size = System::Drawing::Size(102, 20);
 			this->lblIITG->TabIndex = 18;
 			this->lblIITG->Text = L"IITG Student";
 			// 
@@ -117,9 +120,10 @@ namespace Online_Exam {
 			this->lblFullName->AutoSize = true;
 			this->lblFullName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblFullName->Location = System::Drawing::Point(100, 100);
+			this->lblFullName->Location = System::Drawing::Point(75, 81);
+			this->lblFullName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblFullName->Name = L"lblFullName";
-			this->lblFullName->Size = System::Drawing::Size(100, 25);
+			this->lblFullName->Size = System::Drawing::Size(80, 20);
 			this->lblFullName->TabIndex = 17;
 			this->lblFullName->Text = L"Full Name";
 			// 
@@ -128,9 +132,10 @@ namespace Online_Exam {
 			this->lblPhone->AutoSize = true;
 			this->lblPhone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblPhone->Location = System::Drawing::Point(100, 250);
+			this->lblPhone->Location = System::Drawing::Point(75, 203);
+			this->lblPhone->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblPhone->Name = L"lblPhone";
-			this->lblPhone->Size = System::Drawing::Size(143, 25);
+			this->lblPhone->Size = System::Drawing::Size(115, 20);
 			this->lblPhone->TabIndex = 16;
 			this->lblPhone->Text = L"Phone Number";
 			// 
@@ -139,9 +144,10 @@ namespace Online_Exam {
 			this->lblRoll->AutoSize = true;
 			this->lblRoll->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblRoll->Location = System::Drawing::Point(100, 150);
+			this->lblRoll->Location = System::Drawing::Point(75, 122);
+			this->lblRoll->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblRoll->Name = L"lblRoll";
-			this->lblRoll->Size = System::Drawing::Size(79, 25);
+			this->lblRoll->Size = System::Drawing::Size(64, 20);
 			this->lblRoll->TabIndex = 15;
 			this->lblRoll->Text = L"Roll No.";
 			// 
@@ -150,9 +156,10 @@ namespace Online_Exam {
 			this->lblEmail->AutoSize = true;
 			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblEmail->Location = System::Drawing::Point(100, 200);
+			this->lblEmail->Location = System::Drawing::Point(75, 162);
+			this->lblEmail->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblEmail->Name = L"lblEmail";
-			this->lblEmail->Size = System::Drawing::Size(60, 25);
+			this->lblEmail->Size = System::Drawing::Size(48, 20);
 			this->lblEmail->TabIndex = 14;
 			this->lblEmail->Text = L"Email";
 			// 
@@ -161,9 +168,10 @@ namespace Online_Exam {
 			this->lblUsername->AutoSize = true;
 			this->lblUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblUsername->Location = System::Drawing::Point(100, 50);
+			this->lblUsername->Location = System::Drawing::Point(75, 41);
+			this->lblUsername->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblUsername->Name = L"lblUsername";
-			this->lblUsername->Size = System::Drawing::Size(102, 25);
+			this->lblUsername->Size = System::Drawing::Size(83, 20);
 			this->lblUsername->TabIndex = 13;
 			this->lblUsername->Text = L"Username";
 			// 
@@ -231,7 +239,7 @@ namespace Online_Exam {
 			// 
 			// StudentEditProfile
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->txtBranch);
@@ -248,8 +256,11 @@ namespace Online_Exam {
 			this->Controls->Add(this->lblRoll);
 			this->Controls->Add(this->lblEmail);
 			this->Controls->Add(this->lblUsername);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"StudentEditProfile";
+
 			this->Size = System::Drawing::Size(903, 424);
+
 			this->Load += gcnew System::EventHandler(this, &StudentEditProfile::StudentEditProfile_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -257,6 +268,7 @@ namespace Online_Exam {
 		}
 #pragma endregion
 	private: System::Void StudentEditProfile_Load(System::Object^  sender, System::EventArgs^  e) {
+
 				 OES ^Access = gcnew OES();
 				 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::b + "'");
 				 if (Access->RecordCount == 1){
@@ -289,6 +301,7 @@ private: System::Void btnUpdate_Click(System::Object^  sender, System::EventArgs
 			 MessageBox::Show("Profile Updated Successfully");
 			 
 }
+
 };
 }
 #endif

@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="CreateExam.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -99,6 +100,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CreateExam.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="CreateGroup.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -132,6 +136,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CreateExam.resx">
+      <DependentUpon>CreateExam.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateGroup.resx">
       <DependentUpon>CreateGroup.h</DependentUpon>
     </EmbeddedResource>
