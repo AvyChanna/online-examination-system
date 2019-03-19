@@ -1,12 +1,18 @@
 #pragma once
+#include "Database.h"
+#include "GlobalVar.h"
+#include <iostream>
 
+#ifndef __studentprofile__
+#define __studentprofile__
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-
+using namespace Database;
+using namespace Global_Var;
 
 namespace Online_Exam {
 
@@ -200,6 +206,7 @@ namespace Online_Exam {
 			this->lblRollDetail->Size = System::Drawing::Size(102, 25);
 			this->lblRollDetail->TabIndex = 9;
 			this->lblRollDetail->Text = L"Username";
+			this->lblRollDetail->Click += gcnew System::EventHandler(this, &StudentProfile::lblRollDetail_Click);
 			// 
 			// lblFullNameDetail
 			// 
@@ -265,6 +272,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->lblUsername);
 			this->Name = L"StudentProfile";
 			this->Size = System::Drawing::Size(903, 424);
+			this->Load += gcnew System::EventHandler(this, &StudentProfile::StudentProfile_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -272,5 +280,36 @@ namespace Online_Exam {
 #pragma endregion
 	private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
+private: System::Void lblRollDetail_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void StudentProfile_Load(System::Object^  sender, System::EventArgs^  e) {
+			 
+			 std::cout<<gVar::a;
+			 lblEmailDetail->Text = gVar::b;
+
+			 OES ^Access = gcnew OES();
+			 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::b +"'");
+			 if (Access->RecordCount == 1 ){
+				 
+				 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0][0]);
+				 lblFullNameDetail->Text = Convert::ToString(Access->DBDT->Rows[0][1]);
+				 lblRollDetail->Text = Convert::ToString(Access->DBDT->Rows[0][8]);
+				 lblEmailDetail->Text = Convert::ToString(Access->DBDT->Rows[0][6]);
+				 lblPhoneDetail->Text = Convert::ToString(Access->DBDT->Rows[0][7]);
+				 lblIITGDetail->Text = Convert::ToString(Access->DBDT->Rows[0][10]);
+				 String ^s = Convert::ToString(Access->DBDT->Rows[0][10]);
+				 if (s->CompareTo("True")==0)
+				 {
+					 lblIITGDetail->Text = "Yes";
+				 }
+				 else
+				 {
+					 lblIITGDetail->Text = "No";
+				 }
+				 
+			 }
+			 
+}
 };
 }
+#endif

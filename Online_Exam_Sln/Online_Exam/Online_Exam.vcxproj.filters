@@ -3,11 +3,8 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
-    <ClCompile Include="ProfForm.cpp" />
-    <ClCompile Include="ProfProfile.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="StudentForm.cpp" />
-    <ClCompile Include="StudentProfile.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h" />
@@ -18,6 +15,8 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StudentForm.h" />
     <ClInclude Include="StudentProfile.h" />
+    <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="StudentEditProfile.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

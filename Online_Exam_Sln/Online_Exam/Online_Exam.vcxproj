@@ -43,6 +43,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -53,6 +54,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -90,20 +92,18 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
-    <ClCompile Include="ProfForm.cpp" />
-    <ClCompile Include="ProfProfile.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="StudentForm.cpp" />
-    <ClCompile Include="StudentProfile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Database.h" />
+    <ClInclude Include="GlobalVar.h" />
     <ClInclude Include="ProfForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -112,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StudentEditProfile.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="StudentForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -132,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfProfile.resx">
       <DependentUpon>ProfProfile.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentEditProfile.resx">
+      <DependentUpon>StudentEditProfile.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentForm.resx">
       <DependentUpon>StudentForm.h</DependentUpon>
