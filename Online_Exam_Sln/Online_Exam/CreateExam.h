@@ -410,13 +410,13 @@ private: System::Void txtSesNo_TextChanged(System::Object^  sender, System::Even
 						 }
 					 }
 					 else{
-						 MessageBox::Show("Enter number of sessions from 1 to 5!");
+						 MessageBox::Show("Enter number of sessions from 1 to 5!", "Error");
 						 txtSesNo->Text = "";
 					 }
 				 
 			 }
 			 catch (Exception ^ex){
-				 MessageBox::Show("Enter number of sessions from 1 to 5!");
+				 MessageBox::Show("Enter number of sessions from 1 to 5!", "Error");
 				 txtSesNo->Text = "";
 			 }
 }
@@ -477,13 +477,13 @@ private: System::Void btnCreate_Click(System::Object^  sender, System::EventArgs
 				 return;
 			 }
 			 if (lstSel->Items->Count == 0){
-				 MessageBox::Show("Please select atleast one group.");
+				 MessageBox::Show("Please select atleast one group.", "Error");
 				 return;
 			 }
 			 int no = Convert::ToInt32(cmbStr->SelectedItem);
 			 for (int i = 0; i < no; i++){
 				 if (start[i] == ""){
-					 MessageBox::Show("Please add all starting session time slots.");
+					 MessageBox::Show("Please add all starting session time slots.", "Error");
 					 return;
 				 }
 			 }*/
@@ -494,7 +494,7 @@ private: System::Void btnCreate_Click(System::Object^  sender, System::EventArgs
 				 Pass = Convert::ToInt32(txtPass->Text);
 			 }
 			 catch (Exception ^ ex){
-				 MessageBox::Show("Please enter integer values in required fields.");
+				 MessageBox::Show("Please enter integer values in required fields.", "Error");
 				 return;
 			 }
 
