@@ -26,6 +26,15 @@ namespace Online_Exam {
 	{
 	public:
 		Map gID;
+		CreateExam(void)
+		{
+
+			start = gcnew array<System::String ^>{"0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00"};
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 	private: System::Windows::Forms::Button^  btnCreate;
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::TextBox^  txtExamLen;
@@ -34,17 +43,19 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Label^  label9;
 	public:
 		Map gSel;
-		array<System::String ^>^ start;
+	private: System::Windows::Forms::TextBox^  txtNoQDB;
+	public:
 
-		CreateExam(void)
-		{
+	public:
 
-			start = gcnew array<System::String ^>{"", "", "", "", "", ""};
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
+	public:
+	private: System::Windows::Forms::Label^  label10;
+	private: System::Windows::Forms::TextBox^  txtNoQAsk;
+
+	private: System::Windows::Forms::Label^  label11;
+			 array<System::String ^>^ start;
+
+		
 
 	protected:
 		/// <summary>
@@ -136,6 +147,10 @@ namespace Online_Exam {
 			this->txtExamLen = (gcnew System::Windows::Forms::TextBox());
 			this->btnSlot = (gcnew System::Windows::Forms::Button());
 			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->txtNoQDB = (gcnew System::Windows::Forms::TextBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->txtNoQAsk = (gcnew System::Windows::Forms::TextBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -143,7 +158,7 @@ namespace Online_Exam {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(237, 15);
+			this->label1->Location = System::Drawing::Point(243, 12);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(169, 24);
 			this->label1->TabIndex = 0;
@@ -152,7 +167,7 @@ namespace Online_Exam {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(85, 68);
+			this->label2->Location = System::Drawing::Point(47, 64);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(62, 13);
 			this->label2->TabIndex = 1;
@@ -161,7 +176,7 @@ namespace Online_Exam {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(548, 65);
+			this->label3->Location = System::Drawing::Point(540, 49);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(89, 13);
 			this->label3->TabIndex = 2;
@@ -170,25 +185,25 @@ namespace Online_Exam {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(86, 100);
+			this->label4->Location = System::Drawing::Point(47, 96);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(100, 13);
+			this->label4->Size = System::Drawing::Size(103, 13);
 			this->label4->TabIndex = 3;
-			this->label4->Text = L"Number of Sections";
+			this->label4->Text = L"Number of Sections:";
 			// 
 			// label5
 			// 
-			this->label5->Location = System::Drawing::Point(86, 124);
+			this->label5->Location = System::Drawing::Point(47, 126);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(115, 26);
+			this->label5->Size = System::Drawing::Size(138, 26);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Section Weightage (Hyphen Separated):";
 			// 
 			// label6
 			// 
-			this->label6->Location = System::Drawing::Point(86, 189);
+			this->label6->Location = System::Drawing::Point(374, 203);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(115, 29);
+			this->label6->Size = System::Drawing::Size(149, 16);
 			this->label6->TabIndex = 5;
 			this->label6->Text = L"Number of Sessions (Max 5):";
 			this->label6->Click += gcnew System::EventHandler(this, &CreateExam::label6_Click);
@@ -196,7 +211,7 @@ namespace Online_Exam {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(86, 255);
+			this->label7->Location = System::Drawing::Point(50, 266);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(115, 13);
 			this->label7->TabIndex = 6;
@@ -206,7 +221,7 @@ namespace Online_Exam {
 			// lblP
 			// 
 			this->lblP->AutoSize = true;
-			this->lblP->Location = System::Drawing::Point(85, 165);
+			this->lblP->Location = System::Drawing::Point(50, 231);
 			this->lblP->Name = L"lblP";
 			this->lblP->Size = System::Drawing::Size(91, 13);
 			this->lblP->TabIndex = 8;
@@ -214,7 +229,7 @@ namespace Online_Exam {
 			// 
 			// txtName
 			// 
-			this->txtName->Location = System::Drawing::Point(241, 65);
+			this->txtName->Location = System::Drawing::Point(229, 61);
 			this->txtName->Name = L"txtName";
 			this->txtName->Size = System::Drawing::Size(100, 20);
 			this->txtName->TabIndex = 9;
@@ -222,14 +237,14 @@ namespace Online_Exam {
 			// 
 			// txtPass
 			// 
-			this->txtPass->Location = System::Drawing::Point(241, 162);
+			this->txtPass->Location = System::Drawing::Point(229, 228);
 			this->txtPass->Name = L"txtPass";
 			this->txtPass->Size = System::Drawing::Size(100, 20);
 			this->txtPass->TabIndex = 11;
 			// 
 			// txtSesNo
 			// 
-			this->txtSesNo->Location = System::Drawing::Point(241, 191);
+			this->txtSesNo->Location = System::Drawing::Point(529, 199);
 			this->txtSesNo->Name = L"txtSesNo";
 			this->txtSesNo->Size = System::Drawing::Size(100, 20);
 			this->txtSesNo->TabIndex = 14;
@@ -237,22 +252,23 @@ namespace Online_Exam {
 			// 
 			// txtSectWgt
 			// 
-			this->txtSectWgt->Location = System::Drawing::Point(241, 130);
+			this->txtSectWgt->Location = System::Drawing::Point(229, 126);
 			this->txtSectWgt->Name = L"txtSectWgt";
 			this->txtSectWgt->Size = System::Drawing::Size(100, 20);
 			this->txtSectWgt->TabIndex = 15;
 			// 
 			// txtSectNo
 			// 
-			this->txtSectNo->Location = System::Drawing::Point(241, 97);
+			this->txtSectNo->Location = System::Drawing::Point(229, 93);
 			this->txtSectNo->Name = L"txtSectNo";
 			this->txtSectNo->Size = System::Drawing::Size(100, 20);
 			this->txtSectNo->TabIndex = 16;
 			// 
 			// cmbStr
 			// 
+			this->cmbStr->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cmbStr->FormattingEnabled = true;
-			this->cmbStr->Location = System::Drawing::Point(241, 251);
+			this->cmbStr->Location = System::Drawing::Point(229, 262);
 			this->cmbStr->Name = L"cmbStr";
 			this->cmbStr->Size = System::Drawing::Size(61, 21);
 			this->cmbStr->TabIndex = 18;
@@ -260,9 +276,9 @@ namespace Online_Exam {
 			// 
 			// calStr
 			// 
-			this->calStr->CustomFormat = L"dd-MM-yyyy HH:mm:ss";
+			this->calStr->CustomFormat = L"yyyy-MM-dd HH:mm:ss";
 			this->calStr->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->calStr->Location = System::Drawing::Point(325, 252);
+			this->calStr->Location = System::Drawing::Point(313, 263);
 			this->calStr->Name = L"calStr";
 			this->calStr->Size = System::Drawing::Size(138, 20);
 			this->calStr->TabIndex = 19;
@@ -270,7 +286,7 @@ namespace Online_Exam {
 			// 
 			// btnAddQ
 			// 
-			this->btnAddQ->Location = System::Drawing::Point(215, 302);
+			this->btnAddQ->Location = System::Drawing::Point(203, 301);
 			this->btnAddQ->Name = L"btnAddQ";
 			this->btnAddQ->Size = System::Drawing::Size(108, 23);
 			this->btnAddQ->TabIndex = 20;
@@ -280,14 +296,14 @@ namespace Online_Exam {
 			// lstUnsel
 			// 
 			this->lstUnsel->FormattingEnabled = true;
-			this->lstUnsel->Location = System::Drawing::Point(385, 83);
+			this->lstUnsel->Location = System::Drawing::Point(377, 67);
 			this->lstUnsel->Name = L"lstUnsel";
 			this->lstUnsel->Size = System::Drawing::Size(90, 121);
 			this->lstUnsel->TabIndex = 24;
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(481, 110);
+			this->btnAdd->Location = System::Drawing::Point(473, 94);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(57, 23);
 			this->btnAdd->TabIndex = 25;
@@ -297,7 +313,7 @@ namespace Online_Exam {
 			// 
 			// btnRem
 			// 
-			this->btnRem->Location = System::Drawing::Point(481, 155);
+			this->btnRem->Location = System::Drawing::Point(473, 139);
 			this->btnRem->Name = L"btnRem";
 			this->btnRem->Size = System::Drawing::Size(57, 23);
 			this->btnRem->TabIndex = 26;
@@ -308,14 +324,14 @@ namespace Online_Exam {
 			// lstSel
 			// 
 			this->lstSel->FormattingEnabled = true;
-			this->lstSel->Location = System::Drawing::Point(547, 83);
+			this->lstSel->Location = System::Drawing::Point(539, 67);
 			this->lstSel->Name = L"lstSel";
 			this->lstSel->Size = System::Drawing::Size(90, 121);
 			this->lstSel->TabIndex = 27;
 			// 
 			// btnCreate
 			// 
-			this->btnCreate->Location = System::Drawing::Point(367, 302);
+			this->btnCreate->Location = System::Drawing::Point(355, 301);
 			this->btnCreate->Name = L"btnCreate";
 			this->btnCreate->Size = System::Drawing::Size(108, 23);
 			this->btnCreate->TabIndex = 28;
@@ -326,7 +342,7 @@ namespace Online_Exam {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(85, 227);
+			this->label8->Location = System::Drawing::Point(374, 232);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(117, 13);
 			this->label8->TabIndex = 29;
@@ -334,14 +350,14 @@ namespace Online_Exam {
 			// 
 			// txtExamLen
 			// 
-			this->txtExamLen->Location = System::Drawing::Point(241, 220);
+			this->txtExamLen->Location = System::Drawing::Point(529, 229);
 			this->txtExamLen->Name = L"txtExamLen";
 			this->txtExamLen->Size = System::Drawing::Size(100, 20);
 			this->txtExamLen->TabIndex = 30;
 			// 
 			// btnSlot
 			// 
-			this->btnSlot->Location = System::Drawing::Point(481, 250);
+			this->btnSlot->Location = System::Drawing::Point(469, 261);
 			this->btnSlot->Name = L"btnSlot";
 			this->btnSlot->Size = System::Drawing::Size(65, 23);
 			this->btnSlot->TabIndex = 31;
@@ -352,16 +368,50 @@ namespace Online_Exam {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(382, 65);
+			this->label9->Location = System::Drawing::Point(374, 49);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(101, 13);
 			this->label9->TabIndex = 32;
 			this->label9->Text = L"Unselected Groups:";
 			// 
+			// txtNoQDB
+			// 
+			this->txtNoQDB->Location = System::Drawing::Point(229, 161);
+			this->txtNoQDB->Name = L"txtNoQDB";
+			this->txtNoQDB->Size = System::Drawing::Size(100, 20);
+			this->txtNoQDB->TabIndex = 34;
+			// 
+			// label10
+			// 
+			this->label10->Location = System::Drawing::Point(47, 160);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(157, 33);
+			this->label10->TabIndex = 33;
+			this->label10->Text = L"No. of Questions per Section in Database (Hyphen Separated):";
+			// 
+			// txtNoQAsk
+			// 
+			this->txtNoQAsk->Location = System::Drawing::Point(229, 196);
+			this->txtNoQAsk->Name = L"txtNoQAsk";
+			this->txtNoQAsk->Size = System::Drawing::Size(100, 20);
+			this->txtNoQAsk->TabIndex = 35;
+			// 
+			// label11
+			// 
+			this->label11->Location = System::Drawing::Point(50, 196);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(154, 33);
+			this->label11->TabIndex = 36;
+			this->label11->Text = L"No. of Questions Asked per Section (Hyphen Separated):";
+			// 
 			// CreateExam
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->txtNoQAsk);
+			this->Controls->Add(this->txtNoQDB);
+			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->btnSlot);
 			this->Controls->Add(this->txtExamLen);
@@ -397,12 +447,12 @@ namespace Online_Exam {
 #pragma endregion
 	private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
-private: System::Void txtSesNo_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-			 if (txtSesNo->Text == "")
-				 return;
-			 try{
-					int num = Convert::ToInt32(txtSesNo->Text);
-					 
+	private: System::Void txtSesNo_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 if (txtSesNo->Text == "")
+					 return;
+				 try{
+					 int num = Convert::ToInt32(txtSesNo->Text);
+
 					 if (num >= 1 && num <= 5){
 						 cmbStr->Items->Clear();
 						 for (int i = 1; i <= num; i++){
@@ -413,107 +463,160 @@ private: System::Void txtSesNo_TextChanged(System::Object^  sender, System::Even
 						 MessageBox::Show("Enter number of sessions from 1 to 5!", "Error");
 						 txtSesNo->Text = "";
 					 }
-				 
-			 }
-			 catch (Exception ^ex){
-				 MessageBox::Show("Enter number of sessions from 1 to 5!", "Error");
-				 txtSesNo->Text = "";
-			 }
-}
-private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void CreateExam_Load(System::Object^  sender, System::EventArgs^  e) {
-			 txtName->Text = "";
-			 txtPass->Text = "";
-			 txtSectNo->Text = "";
-			 txtSectWgt->Text = "";
-			 txtSesNo->Text = "";
-			 cmbStr->Items->Clear();
-			 lstSel->Items->Clear();
-			 lstUnsel->Items->Clear();
-			 OES^ Access = gcnew OES();
-			 Access->ExecQuery("SELECT GroupID, GroupName from Groups");
-			 for (int i = 0; i<5; i++){
-				 start[i] = "";
-			 }
-			 
-			 if (Access->RecordCount > 0){
-				 for (int i = 0; i < Access->RecordCount; i++){
-					 gID.Add(Convert::ToString(Access->DBDT->Rows[i]["GroupName"]), Convert::ToInt32(Access->DBDT->Rows[i]["GroupID"]));
-					 //gSel.Add(Convert::ToString(Access->DBDT->Rows[i]["GroupName"]), 0);
-					 lstUnsel->Items->Add(Convert::ToString(Access->DBDT->Rows[i]["GroupName"]));
+
 				 }
-			 }
-}
+				 catch (Exception ^ex){
+					 MessageBox::Show("Enter number of sessions from 1 to 5!", "Error");
+					 txtSesNo->Text = "";
+				 }
+	}
+	private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void CreateExam_Load(System::Object^  sender, System::EventArgs^  e) {
+				 txtName->Text = "";
+				 txtPass->Text = "";
+				 txtSectNo->Text = "";
+				 txtSectWgt->Text = "";
+				 txtSesNo->Text = "";
+				 cmbStr->Items->Clear();
+				 lstSel->Items->Clear();
+				 lstUnsel->Items->Clear();
+				 OES^ Access = gcnew OES();
+				 Access->ExecQuery("SELECT GroupID, GroupName from Groups");
+				 for (int i = 0; i<5; i++){
+					 start[i] = "0000-00-00 00:00:00";
+				 }
 
-private: System::Void btnAdd_Click(System::Object^  sender, System::EventArgs^  e) {
-			 String ^ selItemText = Convert::ToString(lstUnsel->SelectedItem);
-			 int selItemIndex = lstUnsel->SelectedIndex;
-			 lstSel->Items->Add(selItemText);
-			 if (lstUnsel->Items->Count!=0){
-				 lstUnsel->Items->RemoveAt(selItemIndex);
-			 }
-			 gSel[selItemText] = 1;
-}
-private: System::Void btnRem_Click(System::Object^  sender, System::EventArgs^  e) {
-			 String ^ selItemText = Convert::ToString(lstSel->SelectedItem);
-			 int selItemIndex = lstSel->SelectedIndex;
-			 lstUnsel->Items->Add(selItemText);
-			 if (lstSel->Items->Count != 0){
-				 lstSel->Items->RemoveAt(selItemIndex);
-			 }
-			 gSel[selItemText] = 0;
-}
-private: System::Void txtName_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void btnCreate_Click(System::Object^  sender, System::EventArgs^  e) {
+				 if (Access->RecordCount > 0){
+					 for (int i = 0; i < Access->RecordCount; i++){
+						 gID.Add(Convert::ToString(Access->DBDT->Rows[i]->default["GroupName"]), Convert::ToInt32(Access->DBDT->Rows[i]->default["GroupID"]));
+						 //gSel.Add(Convert::ToString(Access->DBDT->Rows[i]["GroupName"]), 0);
+						 lstUnsel->Items->Add(Convert::ToString(Access->DBDT->Rows[i]->default["GroupName"]));
+					 }
+				 }
+	}
 
-			/* if (txtExamLen->Text == "" || txtName->Text == "" || txtPass->Text == "" || txtSectNo->Text == "" || txtSectWgt->Text == "" || txtSesNo->Text == ""){
-				 MessageBox::Show("Please enter all fields.");
-				 return;
-			 }
-			 if (lstSel->Items->Count == 0){
-				 MessageBox::Show("Please select atleast one group.", "Error");
-				 return;
-			 }
-			 int no = Convert::ToInt32(cmbStr->SelectedItem);
-			 for (int i = 0; i < no; i++){
-				 if (start[i] == ""){
-					 MessageBox::Show("Please add all starting session time slots.", "Error");
+	private: System::Void btnAdd_Click(System::Object^  sender, System::EventArgs^  e) {
+				 if (lstUnsel->SelectedIndex == -1)
+					 return;
+				 String ^ selItemText = Convert::ToString(lstUnsel->SelectedItem);
+				 int selItemIndex = lstUnsel->SelectedIndex;
+				 lstSel->Items->Add(selItemText);
+				 if (lstUnsel->Items->Count != 0){
+					 lstUnsel->Items->RemoveAt(selItemIndex);
+				 }
+				 gSel[selItemText] = 1;
+	}
+	private: System::Void btnRem_Click(System::Object^  sender, System::EventArgs^  e) {
+				 if (lstSel->SelectedIndex == -1)
+					 return;
+				 String ^ selItemText = Convert::ToString(lstSel->SelectedItem);
+				 int selItemIndex = lstSel->SelectedIndex;
+				 lstUnsel->Items->Add(selItemText);
+				 if (lstSel->Items->Count != 0){
+					 lstSel->Items->RemoveAt(selItemIndex);
+				 }
+				 gSel[selItemText] = 0;
+	}
+	private: System::Void txtName_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void btnCreate_Click(System::Object^  sender, System::EventArgs^  e) {
+				 
+
+				 if (txtExamLen->Text->Trim() == "" || txtName->Text->Trim() == "" || txtPass->Text->Trim() == "" || txtSectNo->Text->Trim() == "" || txtSectWgt->Text->Trim() == "" || txtSesNo->Text->Trim() == "" || txtNoQAsk->Text->Trim() == "" || txtNoQDB->Text->Trim() == ""){
+					 MessageBox::Show("Please enter all fields.", "Error");
+					return;
+				 }
+				 if (lstSel->Items->Count == 0){
+					MessageBox::Show("Please select atleast one group.", "Error");
+					return;
+				 }
+				 int no = Convert::ToInt32(cmbStr->SelectedItem);
+				 for (int i = 0; i < no; i++){
+					if (start[i] == "0000-00-00 00:00:00"){
+						MessageBox::Show("Please add all starting session time slots.", "Error");
+						return;
+					}
+				 }
+				 int SectNo, ExamLen, Pass;
+				 try{
+					 SectNo = Convert::ToInt32(txtSectNo->Text);
+					 ExamLen = Convert::ToInt32(txtExamLen->Text);
+					 Pass = Convert::ToUInt32(txtPass->Text);
+					 if (Pass > 100){
+						 MessageBox::Show("Please enter pass percentage less than 100.", "Error");
+						 return;
+					 }
+				 }
+				 catch (Exception ^ ex){
+					 MessageBox::Show("Please enter integer values in required fields.", "Error");
 					 return;
 				 }
-			 }*/
-			 int SectNo, ExamLen, Pass;
-			 try{
-				 SectNo = Convert::ToInt32(txtSectNo->Text);
-				 ExamLen = Convert::ToInt32(txtExamLen->Text);
-				 Pass = Convert::ToInt32(txtPass->Text);
-			 }
-			 catch (Exception ^ ex){
-				 MessageBox::Show("Please enter integer values in required fields.", "Error");
-				 return;
-			 }
+
+				 String ^ SectWgt = txtSectWgt->Text;
+				 String ^ NoQDB = txtNoQDB->Text;
+				 String ^ NoQAsk = txtNoQAsk->Text;
+				 array<System::String ^>^ wgt = SectWgt->Split('-');
+				 array<System::String ^>^ qDB = NoQDB->Split('-');
+				 array<System::String ^>^ qAsk = NoQAsk->Split('-');
+				 Int32 MaxScore = 0;
+				 UInt32 SesNo = Convert::ToInt32(txtSesNo->Text);
+				 if (wgt->Length == SectNo){
+					 for (int i = 0; i<SectNo; i++){
+						 try{
+							 wgt[i] = wgt[i]->Trim();
+							 qDB[i] = qDB[i]->Trim();
+							 qAsk[i] = qAsk[i]->Trim();
+							 Convert::ToUInt32(wgt[i]);
+							 Convert::ToUInt32(qAsk[i]);
+							 Convert::ToUInt32(qDB[i]);
+							 if (Convert::ToUInt32(qAsk[i]) > Convert::ToUInt32(qDB[i]) / SesNo){
+								 MessageBox::Show("Not enough questions to split between sessions", "Error");
+								 return;
+							 }
+							 MaxScore += Convert::ToUInt32(qAsk[i])*Convert::ToUInt32(wgt[i]);
+						 }
+						 catch (Exception ^ex){
+							 MessageBox::Show("Enter integer weights and number of questions:", "Error");
+							 return;
+						 }
+					 }
+				 }
+				 else{
+					 MessageBox::Show("Enter correct number of weights, questions", "Error");
+					 return;
+				 }
 
 
-			 //Add condition to check Excel sheet is filled in
-			 String ^ SelGrp = "0";
-			 for (int i = 0; i < lstSel->Items->Count; i++){
-				 SelGrp += "-" + Convert::ToString(gID[Convert::ToString(lstSel->Items[i])]);
-			 }
-			 MessageBox::Show("INSERT Into Exam (ExamName, GroupID, NumSections, WgtSections) Values ('" + txtName->Text + "','" + SelGrp + "'," + SectNo + ",'" + txtSectWgt->Text + "')");
+				 //Add condition to check Excel sheet is filled in
+				 String ^ SelGrp = "0";
+				 for (int i = 0; i < lstSel->Items->Count; i++){
+					 SelGrp = SelGrp + "-" + Convert::ToString(gID[Convert::ToString(lstSel->Items[i])]);
+				 }
+				 
+				 
+				 OES^ Access = gcnew OES();
+				 Access->AddParam("@ExamName", txtName->Text->Trim());
+				 Access->AddParam("@GroupID", SelGrp);
+				 Access->AddParam("@WgtSections", txtSectWgt->Text->Trim());
+				 //Add link to QuestionSet
+				 Access->AddParam("@Ses1", start[0]);
+				 Access->AddParam("@Ses2", start[1]);
+				 Access->AddParam("@Ses3", start[2]);
+				 Access->AddParam("@Ses4", start[3]);
+				 Access->AddParam("@Ses5", start[4]);
+				 
+				 Access->ExecQuery("INSERT Into Exam (ExamName, GroupID, NumSections, WgtSections, ExamLength, MaxScore, PassPercentage, NumSessions, StartTimeSes1, StartTimeSes2, StartTimeSes3, StartTimeSes4, StartTimeSes5) Values (@ExamName, @GroupID, " + SectNo.ToString() + ", @WgtSections, " + ExamLen.ToString() + "," + MaxScore.ToString() + "," + Pass.ToString() + "," + SesNo.ToString() + ",@Ses1, @Ses2, @Ses3, @Ses4, @Ses5)");
+				 MessageBox::Show("Test " + txtName->Text + " successfully created!");
 
-			 //OES^ Access = gcnew OES();
-			 //Access->ExecQuery("INSERT Into Exam (ExamName, GroupID, NumSections, WgtSections) Values ('" + txtName->Text + "','" + SelGrp + "'," + SectNo + ",'" + txtSectWgt->Text + "')");
-
-			 
-}
+	}
 	private: System::Void btnSlot_Click(System::Object^  sender, System::EventArgs^  e) {
 				 int no = Convert::ToInt32(cmbStr->SelectedItem);
 				 start[no - 1] = Convert::ToString(calStr->Text);
 	}
-};
+	};
 }

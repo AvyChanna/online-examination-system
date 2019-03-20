@@ -60,7 +60,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>
       </AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="AddQuestions.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -110,6 +111,9 @@
     </ClInclude>
     <ClInclude Include="Database.h" />
     <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="AddQuestions.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="ProfEditProfile.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -144,6 +148,9 @@
     <EmbeddedResource Include="Form1.resX">
       <DependentUpon>Form1.h</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddQuestions.resx">
+      <DependentUpon>AddQuestions.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfEditProfile.resx">
       <DependentUpon>ProfEditProfile.h</DependentUpon>
