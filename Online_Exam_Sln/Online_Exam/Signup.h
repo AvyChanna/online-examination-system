@@ -38,27 +38,6 @@ namespace Online_Exam {
 				delete components;
 			}
 		}
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Button^  profBtn;
 

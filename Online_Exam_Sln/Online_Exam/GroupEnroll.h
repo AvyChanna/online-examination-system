@@ -152,7 +152,7 @@ namespace Online_Exam {
 				 if (Access->RecordCount > 0)
 				 {
 					  studGroup = Convert::ToString(Access->DBDT->Rows[0]["GroupID"]);
-					  Access1->ExecQuery("Select * from Users where Username = '" + gVar::b + "' and Groups Like '%-" + studGroup + "-%'");
+					  Access1->ExecQuery("Select * from Users where Username = '" + gVar::Username + "' and Groups Like '%-" + studGroup + "-%'");
 					//  MessageBox::Show("Select * from Users where Username = '" + gVar::b + "' and Groups Like '%-" + studGroup + "-%'");
 					  if (Access1->RecordCount > 0)
 					  {
@@ -161,10 +161,10 @@ namespace Online_Exam {
 					  else{
 						  if (txtEnroll->Text == Convert::ToString(Access->DBDT->Rows[0]["EnrollmentKey"]))
 						  {
-							  Access->ExecQuery("Select * from Users where Username= '" + gVar::b + "'");
+							  Access->ExecQuery("Select * from Users where Username= '" + gVar::Username + "'");
 							  cur_group = Convert::ToString(Access->DBDT->Rows[0]["Groups"]);
 							  cur_group = cur_group + "-" + studGroup + "-";
-							  Access->ExecQuery("UPDATE Users SET Groups='" + cur_group + "' WHERE Username = '" + gVar::b + "'");
+							  Access->ExecQuery("UPDATE Users SET Groups='" + cur_group + "' WHERE Username = '" + gVar::Username + "'");
 							  MessageBox::Show("successfully enrolled!");
 						  }
 						  else
