@@ -24,6 +24,7 @@
     <ClInclude Include="signup_student.h" />
     <ClInclude Include="prof_signup.h" />
     <ClInclude Include="GroupEnroll.h" />
+    <ClInclude Include="Unenroll.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -38,6 +39,7 @@
     <EmbeddedResource Include="CreateExam.resx" />
     <EmbeddedResource Include="CreateGroup.resx" />
     <EmbeddedResource Include="ProfEditProfile.resx" />
+    <EmbeddedResource Include="GroupEnroll.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
