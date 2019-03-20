@@ -42,8 +42,9 @@ namespace Online_Exam {
 	protected:
 	private: System::Windows::Forms::Label^  lblEnroll;
 	private: System::Windows::Forms::Button^  btnEnroll;
-	private: System::Windows::Forms::TextBox^  txtGroupName;
+
 	private: System::Windows::Forms::TextBox^  txtEnroll;
+	private: System::Windows::Forms::ComboBox^  comboGroupName;
 
 	private:
 		/// <summary>
@@ -61,8 +62,8 @@ namespace Online_Exam {
 			this->lblGroupName = (gcnew System::Windows::Forms::Label());
 			this->lblEnroll = (gcnew System::Windows::Forms::Label());
 			this->btnEnroll = (gcnew System::Windows::Forms::Button());
-			this->txtGroupName = (gcnew System::Windows::Forms::TextBox());
 			this->txtEnroll = (gcnew System::Windows::Forms::TextBox());
+			this->comboGroupName = (gcnew System::Windows::Forms::ComboBox());
 			this->SuspendLayout();
 			// 
 			// lblGroupName
@@ -93,15 +94,6 @@ namespace Online_Exam {
 			this->btnEnroll->UseVisualStyleBackColor = true;
 			this->btnEnroll->Click += gcnew System::EventHandler(this, &GroupEnroll::btnEnroll_Click);
 			// 
-			// txtGroupName
-			// 
-			this->txtGroupName->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
-			this->txtGroupName->Location = System::Drawing::Point(397, 94);
-			this->txtGroupName->Name = L"txtGroupName";
-			this->txtGroupName->Size = System::Drawing::Size(100, 20);
-			this->txtGroupName->TabIndex = 3;
-			this->txtGroupName->TextChanged += gcnew System::EventHandler(this, &GroupEnroll::txtGroupName_TextChanged);
-			// 
 			// txtEnroll
 			// 
 			this->txtEnroll->Location = System::Drawing::Point(397, 135);
@@ -109,12 +101,22 @@ namespace Online_Exam {
 			this->txtEnroll->Size = System::Drawing::Size(100, 20);
 			this->txtEnroll->TabIndex = 4;
 			// 
+			// comboGroupName
+			// 
+			this->comboGroupName->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
+			this->comboGroupName->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
+			this->comboGroupName->FormattingEnabled = true;
+			this->comboGroupName->Location = System::Drawing::Point(397, 91);
+			this->comboGroupName->Name = L"comboGroupName";
+			this->comboGroupName->Size = System::Drawing::Size(100, 21);
+			this->comboGroupName->TabIndex = 5;
+			// 
 			// GroupEnroll
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->Controls->Add(this->comboGroupName);
 			this->Controls->Add(this->txtEnroll);
-			this->Controls->Add(this->txtGroupName);
 			this->Controls->Add(this->btnEnroll);
 			this->Controls->Add(this->lblEnroll);
 			this->Controls->Add(this->lblGroupName);
@@ -127,20 +129,31 @@ namespace Online_Exam {
 		}
 #pragma endregion
 	private: System::Void GroupEnroll_Load(System::Object^  sender, System::EventArgs^  e) {
-		
+				 
+				 OES ^Access = gcnew OES();
+
+				 Access->ExecQuery("Select * from Groups ");
 			
+
+				 int numRecords = Access->RecordCount;
+
+				 for (int i = 0; i < numRecords; ++i)
+				 {
+					 comboGroupName->Items->Add(Convert::ToString(Access->DBDT->Rows[i]["GroupName"]));
+				 }
+				 
 	}
 	private: System::Void btnEnroll_Click(System::Object^  sender, System::EventArgs^  e) {
 				 OES ^Access = gcnew OES();
 				 OES ^Access1 = gcnew OES();
-				 Access->ExecQuery("Select * from Groups where GroupID = '" + txtGroupName->Text + "'");
+				 Access->ExecQuery("Select * from Groups where GroupName = '" + comboGroupName->Text + "'");
 				 String ^studGroup ;
 				 String ^cur_group;
 				 if (Access->RecordCount > 0)
 				 {
 					  studGroup = Convert::ToString(Access->DBDT->Rows[0]["GroupID"]);
 					  Access1->ExecQuery("Select * from Users where Username = '" + gVar::b + "' and Groups Like '%-" + studGroup + "-%'");
-					  MessageBox::Show("Select * from Users where Username = '" + gVar::b + "' and Groups Like '%-" + studGroup + "-%'");
+					//  MessageBox::Show("Select * from Users where Username = '" + gVar::b + "' and Groups Like '%-" + studGroup + "-%'");
 					  if (Access1->RecordCount > 0)
 					  {
 						  MessageBox::Show("You are already enrolled to the group");
@@ -168,19 +181,6 @@ namespace Online_Exam {
 				
 
 	}
-private: System::Void txtGroupName_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-			 /*OES ^Access = gcnew OES();
 
-			 Access->ExecQuery("Select * from Groups where GroupID Like '" + txtGroupName->Text + "'");
-			 AutoCompleteStringCollection ^col = gcnew AutoCompleteStringCollection();
-
-			 int numRecords = Access->RecordCount;
-
-			 for (int i = 0; i < numRecords; ++i)
-			 {
-				 col->Add(Convert::ToString(Access->DBDT->Rows[0]["GroupID"]));
-			 }
-			 txtGroupName->AutoCompleteCustomSource = col;*/
-}
 };
 }
