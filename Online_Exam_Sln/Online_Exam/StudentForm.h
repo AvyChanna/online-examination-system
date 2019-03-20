@@ -6,6 +6,7 @@
 #include "StudentProfile.h"
 #include "StudentEditProfile.h"
 #include "GroupEnroll.h"
+#include "Unenroll.h"
 namespace Online_Exam {
 
 	using namespace System;
@@ -46,7 +47,8 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  btnEditProfileStudent;
 
 	private: System::Windows::Forms::Button^  btnPastTests;
-	private: System::Windows::Forms::Button^  btnMyGroups;
+	private: System::Windows::Forms::Button^  btnUnenroll;
+
 	private: System::Windows::Forms::Button^  btnUpcomingTests;
 	private: System::Windows::Forms::Button^  btnMyProfileStudent;
 	private: System::Windows::Forms::Button^  btnLogOut;
@@ -79,7 +81,7 @@ namespace Online_Exam {
 			this->btnHelp = (gcnew System::Windows::Forms::Button());
 			this->btnEditProfileStudent = (gcnew System::Windows::Forms::Button());
 			this->btnPastTests = (gcnew System::Windows::Forms::Button());
-			this->btnMyGroups = (gcnew System::Windows::Forms::Button());
+			this->btnUnenroll = (gcnew System::Windows::Forms::Button());
 			this->btnUpcomingTests = (gcnew System::Windows::Forms::Button());
 			this->btnMyProfileStudent = (gcnew System::Windows::Forms::Button());
 			this->contentPanel = (gcnew System::Windows::Forms::Panel());
@@ -106,18 +108,18 @@ namespace Online_Exam {
 			this->panel1->Controls->Add(this->btnHelp);
 			this->panel1->Controls->Add(this->btnEditProfileStudent);
 			this->panel1->Controls->Add(this->btnPastTests);
-			this->panel1->Controls->Add(this->btnMyGroups);
+			this->panel1->Controls->Add(this->btnUnenroll);
 			this->panel1->Controls->Add(this->btnUpcomingTests);
 			this->panel1->Location = System::Drawing::Point(0, 0);
-			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(150, 433);
 			this->panel1->TabIndex = 1;
 			// 
 			// btnEnroll
 			// 
-			this->btnEnroll->Location = System::Drawing::Point(0, 203);
-			this->btnEnroll->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnEnroll->Location = System::Drawing::Point(2, 162);
+			this->btnEnroll->Margin = System::Windows::Forms::Padding(2);
 			this->btnEnroll->Name = L"btnEnroll";
 			this->btnEnroll->Size = System::Drawing::Size(150, 37);
 			this->btnEnroll->TabIndex = 10;
@@ -128,7 +130,7 @@ namespace Online_Exam {
 			// btnCertificates
 			// 
 			this->btnCertificates->Location = System::Drawing::Point(0, 244);
-			this->btnCertificates->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCertificates->Margin = System::Windows::Forms::Padding(2);
 			this->btnCertificates->Name = L"btnCertificates";
 			this->btnCertificates->Size = System::Drawing::Size(150, 37);
 			this->btnCertificates->TabIndex = 9;
@@ -138,7 +140,7 @@ namespace Online_Exam {
 			// btnLogOut
 			// 
 			this->btnLogOut->Location = System::Drawing::Point(0, 325);
-			this->btnLogOut->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnLogOut->Margin = System::Windows::Forms::Padding(2);
 			this->btnLogOut->Name = L"btnLogOut";
 			this->btnLogOut->Size = System::Drawing::Size(150, 37);
 			this->btnLogOut->TabIndex = 8;
@@ -148,7 +150,7 @@ namespace Online_Exam {
 			// btnHelp
 			// 
 			this->btnHelp->Location = System::Drawing::Point(0, 284);
-			this->btnHelp->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnHelp->Margin = System::Windows::Forms::Padding(2);
 			this->btnHelp->Name = L"btnHelp";
 			this->btnHelp->Size = System::Drawing::Size(150, 37);
 			this->btnHelp->TabIndex = 7;
@@ -158,7 +160,7 @@ namespace Online_Exam {
 			// btnEditProfileStudent
 			// 
 			this->btnEditProfileStudent->Location = System::Drawing::Point(0, 41);
-			this->btnEditProfileStudent->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnEditProfileStudent->Margin = System::Windows::Forms::Padding(2);
 			this->btnEditProfileStudent->Name = L"btnEditProfileStudent";
 			this->btnEditProfileStudent->Size = System::Drawing::Size(150, 37);
 			this->btnEditProfileStudent->TabIndex = 6;
@@ -169,7 +171,7 @@ namespace Online_Exam {
 			// btnPastTests
 			// 
 			this->btnPastTests->Location = System::Drawing::Point(0, 122);
-			this->btnPastTests->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnPastTests->Margin = System::Windows::Forms::Padding(2);
 			this->btnPastTests->Name = L"btnPastTests";
 			this->btnPastTests->Size = System::Drawing::Size(150, 37);
 			this->btnPastTests->TabIndex = 4;
@@ -177,21 +179,21 @@ namespace Online_Exam {
 			this->btnPastTests->UseVisualStyleBackColor = true;
 			this->btnPastTests->Click += gcnew System::EventHandler(this, &StudentForm::btnPastTests_Click);
 			// 
-			// btnMyGroups
+			// btnUnenroll
 			// 
-			this->btnMyGroups->Location = System::Drawing::Point(0, 162);
-			this->btnMyGroups->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->btnMyGroups->Name = L"btnMyGroups";
-			this->btnMyGroups->Size = System::Drawing::Size(150, 37);
-			this->btnMyGroups->TabIndex = 5;
-			this->btnMyGroups->Text = L"My Groups";
-			this->btnMyGroups->UseVisualStyleBackColor = true;
-			this->btnMyGroups->Click += gcnew System::EventHandler(this, &StudentForm::btnMyGroups_Click);
+			this->btnUnenroll->Location = System::Drawing::Point(2, 203);
+			this->btnUnenroll->Margin = System::Windows::Forms::Padding(2);
+			this->btnUnenroll->Name = L"btnUnenroll";
+			this->btnUnenroll->Size = System::Drawing::Size(150, 37);
+			this->btnUnenroll->TabIndex = 5;
+			this->btnUnenroll->Text = L"Unenroll me from a Group";
+			this->btnUnenroll->UseVisualStyleBackColor = true;
+			this->btnUnenroll->Click += gcnew System::EventHandler(this, &StudentForm::btnUnenroll_Click);
 			// 
 			// btnUpcomingTests
 			// 
 			this->btnUpcomingTests->Location = System::Drawing::Point(0, 81);
-			this->btnUpcomingTests->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnUpcomingTests->Margin = System::Windows::Forms::Padding(2);
 			this->btnUpcomingTests->Name = L"btnUpcomingTests";
 			this->btnUpcomingTests->Size = System::Drawing::Size(150, 37);
 			this->btnUpcomingTests->TabIndex = 3;
@@ -202,7 +204,7 @@ namespace Online_Exam {
 			// btnMyProfileStudent
 			// 
 			this->btnMyProfileStudent->Location = System::Drawing::Point(0, 0);
-			this->btnMyProfileStudent->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnMyProfileStudent->Margin = System::Windows::Forms::Padding(2);
 			this->btnMyProfileStudent->Name = L"btnMyProfileStudent";
 			this->btnMyProfileStudent->Size = System::Drawing::Size(150, 37);
 			this->btnMyProfileStudent->TabIndex = 2;
@@ -213,7 +215,7 @@ namespace Online_Exam {
 			// contentPanel
 			// 
 			this->contentPanel->Location = System::Drawing::Point(154, 78);
-			this->contentPanel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->contentPanel->Margin = System::Windows::Forms::Padding(2);
 			this->contentPanel->Name = L"contentPanel";
 			this->contentPanel->Size = System::Drawing::Size(677, 344);
 			this->contentPanel->TabIndex = 3;
@@ -228,7 +230,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->btnMyProfileStudent);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"StudentForm";
 			this->Text = L"StudentForm";
 			this->Load += gcnew System::EventHandler(this, &StudentForm::StudentForm_Load);
@@ -255,8 +257,10 @@ private: System::Void btnUpcomingTests_Click(System::Object^  sender, System::Ev
 private: System::Void btnPastTests_Click(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
 }
-private: System::Void btnMyGroups_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void btnUnenroll_Click(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
+			 Unenroll ^ usr = gcnew Unenroll();
+			 contentPanel->Controls->Add(usr);
 }
 private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 }
