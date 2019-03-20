@@ -72,6 +72,7 @@ namespace Online_Exam {
 			this->dgvTemp->Name = L"dgvTemp";
 			this->dgvTemp->Size = System::Drawing::Size(284, 261);
 			this->dgvTemp->TabIndex = 0;
+			this->dgvTemp->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dgvTemp_CellContentClick);
 			// 
 			// Form1
 			// 
@@ -83,13 +84,14 @@ namespace Online_Exam {
 			this->Text = L"Form1";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTemp))->EndInit();
-
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 				 Test();
+	}
+	private: System::Void dgvTemp_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 	}
 	};
 }

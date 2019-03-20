@@ -44,11 +44,7 @@ namespace Database{
 		Params = gcnew List<OleDbParameter^>;
 		CmdQuery = "";
 	}
-
-	OES::~OES()
-	{
-	}
-
+	OES::~OES(){}
 	void OES::ExecQuery(String^ Query){
 		//Reset query statistics
 		RecordCount = 0;
