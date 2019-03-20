@@ -115,6 +115,7 @@
     </ClInclude>
     <ClInclude Include="ProfEditProfile.h">
       <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -167,6 +168,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfEditProfile.resx">
       <DependentUpon>ProfEditProfile.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.h</DependentUpon>
     </EmbeddedResource>
