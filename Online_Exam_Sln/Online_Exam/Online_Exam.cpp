@@ -6,6 +6,8 @@
 #include "StudentForm.h"
 #include "ProfForm.h"
 #include "GlobalVar.h"
+#include "Signup.h"
+
 using namespace Online_Exam;
 using namespace Global_Var;
 //using namespace Database;
@@ -20,7 +22,7 @@ int main(array<System::String ^> ^args)
 	gVar::a = 5;
 	gVar::b = "tushar";
 	// Create the main window and run it
-	Application::Run(gcnew ProfForm());
+	Application::Run(gcnew Signup());
 	
 	return 0;
 }

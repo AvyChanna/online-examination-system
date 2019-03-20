@@ -120,7 +120,16 @@
     <ClInclude Include="ProfProfile.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="prof_signup.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Signup.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="signup_student.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StudentEditProfile.h">
       <FileType>CppControl</FileType>
@@ -154,6 +163,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfProfile.resx">
       <DependentUpon>ProfProfile.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="prof_signup.resx">
+      <DependentUpon>prof_signup.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Signup.resx">
+      <DependentUpon>Signup.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="signup_student.resx">
+      <DependentUpon>signup_student.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentEditProfile.resx">
       <DependentUpon>StudentEditProfile.h</DependentUpon>
