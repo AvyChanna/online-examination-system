@@ -20,6 +20,10 @@
     <ClInclude Include="ProfEditProfile.h" />
     <ClInclude Include="CreateGroup.h" />
     <ClInclude Include="CreateExam.h" />
+    <ClInclude Include="Signup.h" />
+    <ClInclude Include="signup_student.h" />
+    <ClInclude Include="prof_signup.h" />
+    <ClInclude Include="GroupEnroll.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
