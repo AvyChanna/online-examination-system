@@ -43,11 +43,7 @@ namespace Database{
 		DBCon->ConnectionString = "Provider=Microsoft.JET.OLEDB.4.0; Data Source=DatabaseLab.mdb";
 		Params = gcnew List<OleDbParameter^>;
 	}
-
-	OES::~OES()
-	{
-	}
-
+	OES::~OES(){}
 	void OES::ExecQuery(String^ Query){
 		//Reset query statistics
 		RecordCount = 0;
