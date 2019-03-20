@@ -6,7 +6,7 @@
 #include "StudentForm.h"
 #include "ProfForm.h"
 #include "GlobalVar.h"
-#include "Signup.h"
+#include "Form1.h"
 
 using namespace Online_Exam;
 using namespace Global_Var;
@@ -19,11 +19,9 @@ int main(array<System::String ^> ^args)
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
-	gVar::a = 5;
-	gVar::b = "tushar";
 	// Create the main window and run it
 
-	Application::Run(gcnew Signup());
+	Application::Run(gcnew Form1());
 
 	return 0;
 }
