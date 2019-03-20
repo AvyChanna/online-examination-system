@@ -22,7 +22,11 @@ int main(array<System::String ^> ^args)
 	gVar::a = 5;
 	gVar::b = "tushar";
 	// Create the main window and run it
+<<<<<<< HEAD
 	Application::Run(gcnew Signup());
+=======
+	Application::Run(gcnew StudentForm());
+>>>>>>> c0211174d93fd8d71b791b53868c3cb584c531cd
 	
 	return 0;
 }
