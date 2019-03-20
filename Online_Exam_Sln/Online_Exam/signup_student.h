@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Database.h"
-
+#include "Encryption.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -9,6 +9,7 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 using namespace Database;
+using namespace Encryption;
 
 namespace Online_Exam {
 
@@ -385,24 +386,28 @@ namespace Online_Exam {
 					 int check = 0;
 					 if (memChkBox->Checked)
 						 check = 1;
-					 if (!validate()){
-					
-					 }
-					 else{
+					 if (validate()){
 						 try{
-
 							// MessageBox::Show(Convert::ToString(memChkBox->Checked));
-							 Access->ExecQuery("insert into Users ([Username],[Fullname],[Email],[PhoneNo],[RollNo],[Branch],[Designation],[IITG])" +
-								 "Values('" + userTxt->Text + "','" + nameTxt->Text + "','" + mailTxt->Text + "','" + pNumTxt->Text + "','" + rNumTxt->Text + "','" + branchCb->Text + "','" + des + "','" + check + "') ");
+							 String ^ PassSalt = MakeSalt();
+							 String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
+
+							 Access->AddParam("@Username", userTxt->Text);
+							 Access->AddParam("@Fullname", nameTxt->Text);
+							 Access->AddParam("@Email", mailTxt->Text);
+							 Access->AddParam("@Phoneno", pNumTxt->Text);
+							 Access->AddParam("@Rollno", rNumTxt->Text);
+							 Access->AddParam("@Designation", des);
+							 Access->AddParam("@PasswordHash", PassHash);
+							 Access->AddParam("@PasswordSalt", PassSalt);
+							 Access->ExecQuery("insert into Users ([Username],[Fullname],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[RollNo],[Branch],[Designation],[IITG]) " \
+								 "Values(@Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@Phoneno,@Rollno,@Branch,@Designation,"+check+")");
 							 MessageBox::Show("Added");
 						 }
 						 catch (Exception^ ex){
 							 MessageBox::Show(ex->Message);
 						 }
-
 					 }
-
-
 		}
 
 private: System::Void pNumTxt_TextChanged(System::Object^  sender, System::EventArgs^  e) {

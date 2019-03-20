@@ -218,7 +218,7 @@ namespace Online_Exam {
 
 				 if (DBPasshash == EncryptPassword(Password, DBPasssalt)){
 					 //login successful
-					 gVar::b = DBUsername;
+					 gVar::Username = DBUsername;
 					 gVar::Fullname = DBFullname;
 					 gVar::Passhash = DBPasshash;
 					 gVar::Passsalt = DBPasssalt;
@@ -234,7 +234,7 @@ namespace Online_Exam {
 				 }
 				 if (DBPasshash == EncryptPassword(Password, DBTokenhash)){
 					 //reset password
-					 gVar::b = DBUsername;
+					 gVar::Username = DBUsername;
 					 gVar::Fullname = DBFullname;
 					 gVar::Passhash = DBPasshash;
 					 gVar::Passsalt = DBPasssalt;

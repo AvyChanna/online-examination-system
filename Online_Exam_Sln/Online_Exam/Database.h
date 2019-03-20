@@ -1,3 +1,4 @@
+#pragma once
 #ifndef __database__
 #define __database__
 #include "stdafx.h"
@@ -8,8 +9,7 @@ using namespace System::Data;
 using namespace System::Data::OleDb;
 using namespace System::Collections::Generic;
 namespace Database{
-	public ref class OES
-	{
+	public ref class OES{
 	public:
 		OES();
 		~OES();

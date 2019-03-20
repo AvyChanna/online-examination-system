@@ -226,7 +226,7 @@ namespace Online_Exam {
 	private: System::Void ProfProfile_Load(System::Object^  sender, System::EventArgs^  e) {
 
 				 OES ^Access = gcnew OES();
-				 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::b + "'");
+				 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::Username + "'");
 				 if (Access->RecordCount == 1){
 
 					 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Username"]);

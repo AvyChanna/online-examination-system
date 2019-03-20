@@ -28,7 +28,4 @@ namespace Global_Var{
 	};
 
 }
-
-
-
 #endif

@@ -42,6 +42,10 @@
     <EmbeddedResource Include="ProfEditProfile.resx" />
     <EmbeddedResource Include="GroupEnroll.resx" />
     <EmbeddedResource Include="Login.resx" />
+    <EmbeddedResource Include="prof_signup.resx" />
+    <EmbeddedResource Include="Signup.resx" />
+    <EmbeddedResource Include="signup_student.resx" />
+    <EmbeddedResource Include="Unenroll.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />

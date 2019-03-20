@@ -11,7 +11,7 @@ namespace Encryption{
 		for each(Byte ByteWord in ResultArray){
 			res += ByteWord.ToString("X2");
 		}
-		ShaObj->Dispose();
+		//ShaObj->Dispose();
 		return res;
 	}
 	String ^MakeSalt(){
@@ -24,7 +24,7 @@ namespace Encryption{
 		for each(Byte B in Bytes){
 			Salt += Chars[B%64].ToString();
 		}
-		RngObj->Dispose();
+		//RngObj->Dispose();
 		return Salt;
 	}
 	String ^EncryptPassword(String^ Password, String^ Salt){
