@@ -5,6 +5,7 @@
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="AddQuestions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h" />
@@ -20,6 +21,7 @@
     <ClInclude Include="ProfEditProfile.h" />
     <ClInclude Include="CreateGroup.h" />
     <ClInclude Include="CreateExam.h" />
+    <ClInclude Include="AddQuestions.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
