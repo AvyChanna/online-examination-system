@@ -5,7 +5,6 @@
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="CreateExam.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h" />
@@ -32,6 +31,9 @@
     <EmbeddedResource Include="StudentForm.resx" />
     <EmbeddedResource Include="StudentProfile.resx" />
     <EmbeddedResource Include="StudentEditProfile.resx" />
+    <EmbeddedResource Include="CreateExam.resx" />
+    <EmbeddedResource Include="CreateGroup.resx" />
+    <EmbeddedResource Include="ProfEditProfile.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
