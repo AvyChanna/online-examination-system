@@ -208,7 +208,7 @@ namespace Online_Exam {
 		}
 #pragma endregion
 	private: System::Void ProfEditProfile_Load(System::Object^  sender, System::EventArgs^  e) {
-
+				
 				 OES ^Access = gcnew OES();
 				 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::b + "'");
 				 if (Access->RecordCount == 1){

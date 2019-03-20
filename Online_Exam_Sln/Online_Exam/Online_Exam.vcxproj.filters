@@ -20,6 +20,8 @@
     <ClInclude Include="ProfEditProfile.h" />
     <ClInclude Include="CreateGroup.h" />
     <ClInclude Include="CreateExam.h" />
+    <ClInclude Include="AdminForm.h" />
+    <ClInclude Include="ApproveProf.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -34,6 +36,8 @@
     <EmbeddedResource Include="CreateExam.resx" />
     <EmbeddedResource Include="CreateGroup.resx" />
     <EmbeddedResource Include="ProfEditProfile.resx" />
+    <EmbeddedResource Include="AdminForm.resx" />
+    <EmbeddedResource Include="ApproveProf.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />

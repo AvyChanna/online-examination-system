@@ -99,6 +99,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdminForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ApproveProf.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="CreateExam.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -135,6 +141,12 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApproveProf.resx">
+      <DependentUpon>ApproveProf.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateExam.resx">
       <DependentUpon>CreateExam.h</DependentUpon>
     </EmbeddedResource>
