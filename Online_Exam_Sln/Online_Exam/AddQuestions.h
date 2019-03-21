@@ -13,15 +13,31 @@ namespace Online_Exam {
 	/// <summary>
 	/// Summary for MyUserControl
 	/// </summary>
+
+	
+
 	public ref class MyUserControl : public System::Windows::Forms::UserControl
 	{
 	public:
-		MyUserControl(void)
+		array<array<Questions ^>^> ^data;
+		MyUserControl(Int32 SC, array<Int32> ^SQ)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			CurrentSection = 0;
+			CurrentQuestion = 0;
+			SectionCount = SC;
+			SectionQues = gcnew array<int>(SC);
+			int i = 0;
+			for each(Int32 I in SQ)
+			{
+				SectionQues[i] = I;
+				i++;
+			}
+			data = gcnew array<array<Questions^>^>(SC);
+			for (i = 0; i < SC; i++)
+			{
+				data[i] = gcnew array<Questions^>(SectionQues[i]);
+			}
 		}
 
 	protected:
@@ -35,24 +51,56 @@ namespace Online_Exam {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataGridView^  dataGridView1;
+	private: System::Windows::Forms::TextBox^  textQuestion;
 	protected:
-	private: System::Windows::Forms::DataGridViewComboBoxColumn^  SectionNo;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Question;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  NoOfOptions;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Option1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Option2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Option3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Option4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Option5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Option6;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Option7;
 
+	private: System::Windows::Forms::DataGridView^  dgvOptions;
+	public: Int32 SectionCount;
+			array<Int32> ^SectionQues;
+			int CurrentSection;
+			int CurrentQuestion;
+	protected:
+
+
+
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::ComboBox^  cbSection;
+
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  OptionText;
+	private: System::Windows::Forms::DataGridViewCheckBoxColumn^  CorrectOption;
+	private: System::Windows::Forms::Button^  btnDone;
+
+	private: System::Windows::Forms::Button^  btnNext;
+
+	private: System::Windows::Forms::Button^  btnPrev;
+
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Label^  label6;
+
+
+	private: System::Windows::Forms::TextBox^  textAnswer;
+
+	private: System::Windows::Forms::RadioButton^  radioTrue;
+	private: System::Windows::Forms::RadioButton^  radioFalse;
+	private: System::Windows::Forms::TabControl^  tabControl1;
+	private: System::Windows::Forms::TabPage^  tabPage1;
+	private: System::Windows::Forms::TabPage^  tabPage2;
+	private: System::Windows::Forms::TabPage^  tabPage3;
+
+
+
+
+
+
+	private: System::ComponentModel::IContainer^  components;
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -61,100 +109,305 @@ namespace Online_Exam {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->SectionNo = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
-			this->Question = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->NoOfOptions = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Option1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Option2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Option3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Option4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Option5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Option6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Option7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->textQuestion = (gcnew System::Windows::Forms::TextBox());
+			this->dgvOptions = (gcnew System::Windows::Forms::DataGridView());
+			this->OptionText = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CorrectOption = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->cbSection = (gcnew System::Windows::Forms::ComboBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->btnDone = (gcnew System::Windows::Forms::Button());
+			this->btnNext = (gcnew System::Windows::Forms::Button());
+			this->btnPrev = (gcnew System::Windows::Forms::Button());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->textAnswer = (gcnew System::Windows::Forms::TextBox());
+			this->radioTrue = (gcnew System::Windows::Forms::RadioButton());
+			this->radioFalse = (gcnew System::Windows::Forms::RadioButton());
+			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOptions))->BeginInit();
+			this->tabControl1->SuspendLayout();
+			this->tabPage1->SuspendLayout();
+			this->tabPage2->SuspendLayout();
+			this->tabPage3->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// dataGridView1
+			// textQuestion
 			// 
-			this->dataGridView1->AllowUserToOrderColumns = true;
-			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(10) {
-				this->SectionNo,
-					this->Question, this->NoOfOptions, this->Option1, this->Option2, this->Option3, this->Option4, this->Option5, this->Option6,
-					this->Option7
+			this->textQuestion->Location = System::Drawing::Point(91, 67);
+			this->textQuestion->Multiline = true;
+			this->textQuestion->Name = L"textQuestion";
+			this->textQuestion->Size = System::Drawing::Size(469, 65);
+			this->textQuestion->TabIndex = 1;
+			// 
+			// dgvOptions
+			// 
+			this->dgvOptions->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->dgvOptions->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->OptionText,
+					this->CorrectOption
 			});
-			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->dataGridView1->Location = System::Drawing::Point(0, 0);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(907, 404);
-			this->dataGridView1->TabIndex = 0;
+			this->dgvOptions->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->dgvOptions->Location = System::Drawing::Point(3, 3);
+			this->dgvOptions->Name = L"dgvOptions";
+			this->dgvOptions->Size = System::Drawing::Size(455, 70);
+			this->dgvOptions->TabIndex = 2;
 			// 
-			// SectionNo
+			// OptionText
 			// 
-			this->SectionNo->HeaderText = L"Section Number";
-			this->SectionNo->Name = L"SectionNo";
+			this->OptionText->HeaderText = L"Option Text";
+			this->OptionText->Name = L"OptionText";
 			// 
-			// Question
+			// CorrectOption
 			// 
-			this->Question->HeaderText = L"Question Statement";
-			this->Question->Name = L"Question";
-			this->Question->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			this->Question->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+			this->CorrectOption->HeaderText = L"Correct Option";
+			this->CorrectOption->Name = L"CorrectOption";
 			// 
-			// NoOfOptions
+			// label1
 			// 
-			this->NoOfOptions->HeaderText = L"Number of options";
-			this->NoOfOptions->Name = L"NoOfOptions";
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(88, 51);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(72, 13);
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"Question No -";
+			this->label1->Click += gcnew System::EventHandler(this, &MyUserControl::label1_Click);
 			// 
-			// Option1
+			// label2
 			// 
-			this->Option1->HeaderText = L"Option1";
-			this->Option1->Name = L"Option1";
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(97, 153);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(47, 13);
+			this->label2->TabIndex = 3;
+			this->label2->Text = L"Answers";
+			this->label2->Click += gcnew System::EventHandler(this, &MyUserControl::label1_Click);
 			// 
-			// Option2
+			// cbSection
 			// 
-			this->Option2->HeaderText = L"Option2";
-			this->Option2->Name = L"Option2";
+			this->cbSection->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cbSection->FormattingEnabled = true;
+			this->cbSection->Location = System::Drawing::Point(173, 21);
+			this->cbSection->Name = L"cbSection";
+			this->cbSection->Size = System::Drawing::Size(121, 21);
+			this->cbSection->TabIndex = 4;
+			this->cbSection->SelectedIndexChanged += gcnew System::EventHandler(this, &MyUserControl::cbSection_SelectedIndexChanged);
 			// 
-			// Option3
+			// label3
 			// 
-			this->Option3->HeaderText = L"Option3";
-			this->Option3->Name = L"Option3";
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(88, 24);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(43, 13);
+			this->label3->TabIndex = 3;
+			this->label3->Text = L"Section";
+			this->label3->Click += gcnew System::EventHandler(this, &MyUserControl::label1_Click);
 			// 
-			// Option4
+			// btnDone
 			// 
-			this->Option4->HeaderText = L"Option4";
-			this->Option4->Name = L"Option4";
+			this->btnDone->Location = System::Drawing::Point(550, 292);
+			this->btnDone->Name = L"btnDone";
+			this->btnDone->Size = System::Drawing::Size(95, 35);
+			this->btnDone->TabIndex = 5;
+			this->btnDone->Text = L"Done";
+			this->btnDone->UseVisualStyleBackColor = true;
 			// 
-			// Option5
+			// btnNext
 			// 
-			this->Option5->HeaderText = L"Option5";
-			this->Option5->Name = L"Option5";
+			this->btnNext->Location = System::Drawing::Point(334, 292);
+			this->btnNext->Name = L"btnNext";
+			this->btnNext->Size = System::Drawing::Size(93, 35);
+			this->btnNext->TabIndex = 7;
+			this->btnNext->Text = L"Next";
+			this->btnNext->UseVisualStyleBackColor = true;
 			// 
-			// Option6
+			// btnPrev
 			// 
-			this->Option6->HeaderText = L"Option6";
-			this->Option6->Name = L"Option6";
+			this->btnPrev->Location = System::Drawing::Point(249, 292);
+			this->btnPrev->Name = L"btnPrev";
+			this->btnPrev->Size = System::Drawing::Size(79, 35);
+			this->btnPrev->TabIndex = 6;
+			this->btnPrev->Text = L"Prev";
+			this->btnPrev->UseVisualStyleBackColor = true;
+			this->btnPrev->Click += gcnew System::EventHandler(this, &MyUserControl::button2_Click);
 			// 
-			// Option7
+			// label4
 			// 
-			this->Option7->HeaderText = L"Option7";
-			this->Option7->Name = L"Option7";
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(344, 29);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(81, 13);
+			this->label4->TabIndex = 8;
+			this->label4->Text = L"Questions Left -";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(431, 29);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(13, 13);
+			this->label5->TabIndex = 9;
+			this->label5->Text = L"0";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(166, 51);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(13, 13);
+			this->label6->TabIndex = 10;
+			this->label6->Text = L"0";
+			// 
+			// textAnswer
+			// 
+			this->textAnswer->Location = System::Drawing::Point(25, 26);
+			this->textAnswer->Name = L"textAnswer";
+			this->textAnswer->Size = System::Drawing::Size(416, 20);
+			this->textAnswer->TabIndex = 12;
+			this->textAnswer->Visible = false;
+			// 
+			// radioTrue
+			// 
+			this->radioTrue->AutoSize = true;
+			this->radioTrue->Location = System::Drawing::Point(166, 28);
+			this->radioTrue->Name = L"radioTrue";
+			this->radioTrue->Size = System::Drawing::Size(47, 17);
+			this->radioTrue->TabIndex = 13;
+			this->radioTrue->Text = L"True";
+			this->radioTrue->UseVisualStyleBackColor = true;
+			this->radioTrue->Visible = false;
+			// 
+			// radioFalse
+			// 
+			this->radioFalse->AutoSize = true;
+			this->radioFalse->Location = System::Drawing::Point(239, 28);
+			this->radioFalse->Name = L"radioFalse";
+			this->radioFalse->Size = System::Drawing::Size(50, 17);
+			this->radioFalse->TabIndex = 14;
+			this->radioFalse->Text = L"False";
+			this->radioFalse->UseVisualStyleBackColor = true;
+			this->radioFalse->Visible = false;
+			// 
+			// tabControl1
+			// 
+			this->tabControl1->Controls->Add(this->tabPage1);
+			this->tabControl1->Controls->Add(this->tabPage2);
+			this->tabControl1->Controls->Add(this->tabPage3);
+			this->tabControl1->Location = System::Drawing::Point(91, 169);
+			this->tabControl1->Name = L"tabControl1";
+			this->tabControl1->SelectedIndex = 0;
+			this->tabControl1->Size = System::Drawing::Size(469, 102);
+			this->tabControl1->TabIndex = 15;
+			// 
+			// tabPage1
+			// 
+			this->tabPage1->Controls->Add(this->dgvOptions);
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(461, 76);
+			this->tabPage1->TabIndex = 0;
+			this->tabPage1->Text = L"MCQ";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// tabPage2
+			// 
+			this->tabPage2->Controls->Add(this->radioFalse);
+			this->tabPage2->Controls->Add(this->radioTrue);
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Name = L"tabPage2";
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage2->Size = System::Drawing::Size(461, 76);
+			this->tabPage2->TabIndex = 1;
+			this->tabPage2->Text = L"True/False";
+			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// tabPage3
+			// 
+			this->tabPage3->Controls->Add(this->textAnswer);
+			this->tabPage3->Location = System::Drawing::Point(4, 22);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Size = System::Drawing::Size(461, 76);
+			this->tabPage3->TabIndex = 2;
+			this->tabPage3->Text = L"One Word";
+			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
 			// MyUserControl
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->btnNext);
+			this->Controls->Add(this->btnPrev);
+			this->Controls->Add(this->btnDone);
+			this->Controls->Add(this->cbSection);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->textQuestion);
 			this->Name = L"MyUserControl";
-			this->Size = System::Drawing::Size(907, 404);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->Size = System::Drawing::Size(677, 344);
+			this->Load += gcnew System::EventHandler(this, &MyUserControl::MyUserControl_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOptions))->EndInit();
+			this->tabControl1->ResumeLayout(false);
+			this->tabPage1->ResumeLayout(false);
+			this->tabPage2->ResumeLayout(false);
+			this->tabPage2->PerformLayout();
+			this->tabPage3->ResumeLayout(false);
+			this->tabPage3->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
 
+private: System::Void MyUserControl_Load(System::Object^  sender, System::EventArgs^  e) {
+			if (CurrentQuestion == 0)
+				btnPrev->Enabled = true;
+			if (CurrentQuestion == SectionQues[CurrentSection-1])
+				btnNext->Enabled = true;
+			cbSection->Items->Clear();
+			for each(Int32 I in SectionQues){
+				cbSection->Items->Add(I);
+			}
+
+}
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void markAsCorrectOptionToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+			if (CurrentQuestion == 0)
+				return;
+			if (CurrentQuestion != SectionQues[CurrentSection - 1])
+				btnNext->Enabled = true;
+			data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
+			//data[CurrentSection][CurrentQuestion]->dt
+			for each(DataGridViewColumn ^col in dgvOptions->Columns)
+			{
+				data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
+			}
+
+}
+private: System::Void cbSection_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+
+}
+};
+public ref class Questions{
+public:
+	String ^ q;
+	DataTable ^dt;
+	Questions(){
+		q = "";
+		dt = gcnew DataTable();
+	}
 };
 }
