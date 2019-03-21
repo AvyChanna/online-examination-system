@@ -141,7 +141,7 @@ namespace Online_Exam {
 					 /*String ^ str = Convert::ToString(a);
 					 MessageBox::Show(str);*/
 					 OES ^Access = gcnew OES();
-					 Access->ExecQuery("Select * from Users where Username = '" + gVar::b + "'");
+					 Access->ExecQuery("Select * from Users where Username = '" + gVar::Username + "'");
 					 if (Access->RecordCount > 0)
 					 {
 						 String ^ str = Convert::ToString(Access->DBDT->Rows[0]["Groups"]);
@@ -155,7 +155,7 @@ namespace Online_Exam {
 						 for (int i = 0; i < a; i++) cur += str[i];
 						 for (int i = end; i < str->Length; i++) cur += str[i];
 						 OES ^Access = gcnew OES();
-						 Access->ExecQuery("UPDATE Users SET Groups='" + cur + "' WHERE Username = '" + gVar::b + "'");
+						 Access->ExecQuery("UPDATE Users SET Groups='" + cur + "' WHERE Username = '" + gVar::Username + "'");
 						 MessageBox::Show("Succesfully Unenrolled from the group");
 						 flowLayoutBtn->Controls->Clear();
 						 flowLayoutGroups->Controls->Clear();
