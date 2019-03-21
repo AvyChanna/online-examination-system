@@ -4,6 +4,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h" />
@@ -24,8 +25,6 @@
     <ClInclude Include="prof_signup.h" />
     <ClInclude Include="GroupEnroll.h" />
     <ClInclude Include="Unenroll.h" />
-    <ClInclude Include="Login.h" />
-    <ClInclude Include="Encryption.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -41,13 +40,9 @@
     <EmbeddedResource Include="CreateGroup.resx" />
     <EmbeddedResource Include="ProfEditProfile.resx" />
     <EmbeddedResource Include="GroupEnroll.resx" />
-    <EmbeddedResource Include="Login.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
     <None Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\Logo\logo_medium.png" />
   </ItemGroup>
 </Project>
