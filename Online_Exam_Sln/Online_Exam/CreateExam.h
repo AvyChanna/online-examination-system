@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include "GlobalVar.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -13,6 +14,7 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 using namespace Database;
+using namespace Global_Var;
 
 typedef System::Collections::Generic::Dictionary<System::String^, int> Map;
 
@@ -593,9 +595,9 @@ namespace Online_Exam {
 
 
 				 //Add condition to check Excel sheet is filled in
-				 String ^ SelGrp = "0";
+				 String ^ SelGrp = "";
 				 for (int i = 0; i < lstSel->Items->Count; i++){
-					 SelGrp = SelGrp + "-" + Convert::ToString(gID[Convert::ToString(lstSel->Items[i])]);
+					 SelGrp = SelGrp + "-" + Convert::ToString(gID[Convert::ToString(lstSel->Items[i])]) + "-";
 				 }
 				 
 				 
@@ -610,7 +612,7 @@ namespace Online_Exam {
 				 Access->AddParam("@Ses4", start[3]);
 				 Access->AddParam("@Ses5", start[4]);
 				 
-				 Access->ExecQuery("INSERT Into Exam (ExamName, GroupID, NumSections, WgtSections, ExamLength, MaxScore, PassPercentage, NumSessions, StartTimeSes1, StartTimeSes2, StartTimeSes3, StartTimeSes4, StartTimeSes5) Values (@ExamName, @GroupID, " + SectNo.ToString() + ", @WgtSections, " + ExamLen.ToString() + "," + MaxScore.ToString() + "," + Pass.ToString() + "," + SesNo.ToString() + ",@Ses1, @Ses2, @Ses3, @Ses4, @Ses5)");
+				 Access->ExecQuery("INSERT Into Exam (ExamName, Professor, GroupID, NumSections, WgtSections, ExamLength, MaxScore, PassPercentage, NumSessions, StartTimeSes1, StartTimeSes2, StartTimeSes3, StartTimeSes4, StartTimeSes5) Values (@ExamName,'" + gVar::Username + "',@GroupID, " + SectNo.ToString() + ", @WgtSections, " + ExamLen.ToString() + "," + MaxScore.ToString() + "," + Pass.ToString() + "," + SesNo.ToString() + ",@Ses1, @Ses2, @Ses3, @Ses4, @Ses5)");
 				 MessageBox::Show("Test " + txtName->Text + " successfully created!");
 
 	}
