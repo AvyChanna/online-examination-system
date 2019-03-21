@@ -138,6 +138,7 @@ namespace Online_Exam {
 			this->linkLabel1->TabIndex = 5;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"Forgot Password\?";
+			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel1_LinkClicked);
 			// 
 			// linkLabel2
 			// 
@@ -148,6 +149,7 @@ namespace Online_Exam {
 			this->linkLabel2->TabIndex = 6;
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"Don\'t have an account\? Signup here";
+			this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel2_LinkClicked);
 			// 
 			// pictureBox1
 			// 
@@ -258,5 +260,11 @@ namespace Online_Exam {
 
 	}
 
+private: System::Void linkLabel2_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
+			 //TODO: open signup
+}
+private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
+			 // TODO: open mailer
+}
 };
 }

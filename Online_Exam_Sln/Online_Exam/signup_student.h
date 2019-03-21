@@ -387,26 +387,24 @@ namespace Online_Exam {
 					 if (memChkBox->Checked)
 						 check = 1;
 					 if (validate()){
-						 try{
 							// MessageBox::Show(Convert::ToString(memChkBox->Checked));
 							 String ^ PassSalt = MakeSalt();
 							 String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
 
 							 Access->AddParam("@Username", userTxt->Text);
 							 Access->AddParam("@Fullname", nameTxt->Text);
+							 Access->AddParam("@PasswordHash", PassHash);
+							 Access->AddParam("@PasswordSalt", PassSalt);
 							 Access->AddParam("@Email", mailTxt->Text);
 							 Access->AddParam("@Phoneno", pNumTxt->Text);
 							 Access->AddParam("@Rollno", rNumTxt->Text);
+							 Access->AddParam("@Branch", branchCb->Text);
 							 Access->AddParam("@Designation", des);
-							 Access->AddParam("@PasswordHash", PassHash);
-							 Access->AddParam("@PasswordSalt", PassSalt);
-							 Access->ExecQuery("insert into Users ([Username],[Fullname],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[RollNo],[Branch],[Designation],[IITG]) " \
-								 "Values(@Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@Phoneno,@Rollno,@Branch,@Designation,"+check+")");
-							 MessageBox::Show("Added");
-						 }
-						 catch (Exception^ ex){
-							 MessageBox::Show(ex->Message);
-						 }
+
+							 //Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[RollNo],[Branch],[Designation] ) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@RollNo,@Branch,@Designation)");// , "+check+" )");
+							 Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[RollNo],[Branch],[Designation],[IITG]) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@RollNo,@Branch,@Designation, "+check+" )");
+							 		
+						//MessageBox::Show("Added");
 					 }
 		}
 
