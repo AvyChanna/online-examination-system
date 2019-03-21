@@ -1,26 +1,27 @@
 #pragma once
-
+#include"Questions.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
+using namespace Questions;
 
 
 namespace Online_Exam {
 
 	/// <summary>
-	/// Summary for MyUserControl
+	/// Summary for AddQuestions
 	/// </summary>
 
 	
 
-	public ref class MyUserControl : public System::Windows::Forms::UserControl
+	public ref class AddQuestions : public System::Windows::Forms::UserControl
 	{
 	public:
-		array<array<Questions ^>^> ^data;
-		MyUserControl(Int32 SC, array<Int32> ^SQ)
+		array<array<Ques^>^>^data;
+		AddQuestions(Int32 SC, array<Int32> ^SQ)
 		{
 			InitializeComponent();
 			CurrentSection = 0;
@@ -33,10 +34,14 @@ namespace Online_Exam {
 				SectionQues[i] = I;
 				i++;
 			}
-			data = gcnew array<array<Questions^>^>(SC);
+			data = gcnew array<array<Ques^>^>(SC);
 			for (i = 0; i < SC; i++)
 			{
-				data[i] = gcnew array<Questions^>(SectionQues[i]);
+				data[i] = gcnew array<Ques^>(SectionQues[i]);
+				for (int j = 0; j < SectionQues[i]; j++)
+				{
+					data[i][j] = gcnew Ques;
+				}
 			}
 		}
 
@@ -44,7 +49,7 @@ namespace Online_Exam {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~MyUserControl()
+		~AddQuestions()
 		{
 			if (components)
 			{
@@ -89,6 +94,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::TabPage^  tabPage1;
 	private: System::Windows::Forms::TabPage^  tabPage2;
 	private: System::Windows::Forms::TabPage^  tabPage3;
+	private: System::Windows::Forms::DataGridView^  dgvtemp;
 
 
 
@@ -130,11 +136,13 @@ namespace Online_Exam {
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->dgvtemp = (gcnew System::Windows::Forms::DataGridView());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOptions))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			this->tabPage3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvtemp))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textQuestion
@@ -176,7 +184,7 @@ namespace Online_Exam {
 			this->label1->Size = System::Drawing::Size(72, 13);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Question No -";
-			this->label1->Click += gcnew System::EventHandler(this, &MyUserControl::label1_Click);
+			this->label1->Click += gcnew System::EventHandler(this, &AddQuestions::label1_Click);
 			// 
 			// label2
 			// 
@@ -186,7 +194,7 @@ namespace Online_Exam {
 			this->label2->Size = System::Drawing::Size(47, 13);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Answers";
-			this->label2->Click += gcnew System::EventHandler(this, &MyUserControl::label1_Click);
+			this->label2->Click += gcnew System::EventHandler(this, &AddQuestions::label1_Click);
 			// 
 			// cbSection
 			// 
@@ -195,8 +203,9 @@ namespace Online_Exam {
 			this->cbSection->Location = System::Drawing::Point(173, 21);
 			this->cbSection->Name = L"cbSection";
 			this->cbSection->Size = System::Drawing::Size(121, 21);
+			this->cbSection->Sorted = true;
 			this->cbSection->TabIndex = 4;
-			this->cbSection->SelectedIndexChanged += gcnew System::EventHandler(this, &MyUserControl::cbSection_SelectedIndexChanged);
+			this->cbSection->SelectedIndexChanged += gcnew System::EventHandler(this, &AddQuestions::cbSection_SelectedIndexChanged);
 			// 
 			// label3
 			// 
@@ -206,7 +215,7 @@ namespace Online_Exam {
 			this->label3->Size = System::Drawing::Size(43, 13);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Section";
-			this->label3->Click += gcnew System::EventHandler(this, &MyUserControl::label1_Click);
+			this->label3->Click += gcnew System::EventHandler(this, &AddQuestions::label1_Click);
 			// 
 			// btnDone
 			// 
@@ -225,6 +234,7 @@ namespace Online_Exam {
 			this->btnNext->TabIndex = 7;
 			this->btnNext->Text = L"Next";
 			this->btnNext->UseVisualStyleBackColor = true;
+			this->btnNext->Click += gcnew System::EventHandler(this, &AddQuestions::btnNext_Click);
 			// 
 			// btnPrev
 			// 
@@ -234,25 +244,26 @@ namespace Online_Exam {
 			this->btnPrev->TabIndex = 6;
 			this->btnPrev->Text = L"Prev";
 			this->btnPrev->UseVisualStyleBackColor = true;
-			this->btnPrev->Click += gcnew System::EventHandler(this, &MyUserControl::button2_Click);
+			this->btnPrev->Click += gcnew System::EventHandler(this, &AddQuestions::button2_Click);
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(344, 29);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(81, 13);
+			this->label4->Size = System::Drawing::Size(143, 13);
 			this->label4->TabIndex = 8;
-			this->label4->Text = L"Questions Left -";
+			this->label4->Text = L"Total Question in this section";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(431, 29);
+			this->label5->Location = System::Drawing::Point(493, 29);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(13, 13);
 			this->label5->TabIndex = 9;
 			this->label5->Text = L"0";
+			this->label5->Click += gcnew System::EventHandler(this, &AddQuestions::label5_Click);
 			// 
 			// label6
 			// 
@@ -301,7 +312,7 @@ namespace Online_Exam {
 			this->tabControl1->Location = System::Drawing::Point(91, 169);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(469, 102);
+			this->tabControl1->Size = System::Drawing::Size(224, 102);
 			this->tabControl1->TabIndex = 15;
 			// 
 			// tabPage1
@@ -322,7 +333,7 @@ namespace Online_Exam {
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(461, 76);
+			this->tabPage2->Size = System::Drawing::Size(216, 76);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"True/False";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -337,10 +348,19 @@ namespace Online_Exam {
 			this->tabPage3->Text = L"One Word";
 			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
-			// MyUserControl
+			// dgvtemp
+			// 
+			this->dgvtemp->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvtemp->Location = System::Drawing::Point(317, 191);
+			this->dgvtemp->Name = L"dgvtemp";
+			this->dgvtemp->Size = System::Drawing::Size(328, 77);
+			this->dgvtemp->TabIndex = 16;
+			// 
+			// AddQuestions
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->Controls->Add(this->dgvtemp);
 			this->Controls->Add(this->tabControl1);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
@@ -353,9 +373,9 @@ namespace Online_Exam {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textQuestion);
-			this->Name = L"MyUserControl";
+			this->Name = L"AddQuestions";
 			this->Size = System::Drawing::Size(677, 344);
-			this->Load += gcnew System::EventHandler(this, &MyUserControl::MyUserControl_Load);
+			this->Load += gcnew System::EventHandler(this, &AddQuestions::AddQuestions_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOptions))->EndInit();
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
@@ -363,51 +383,110 @@ namespace Online_Exam {
 			this->tabPage2->PerformLayout();
 			this->tabPage3->ResumeLayout(false);
 			this->tabPage3->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvtemp))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 
-private: System::Void MyUserControl_Load(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void AddQuestions_Load(System::Object^  sender, System::EventArgs^  e) {
 			if (CurrentQuestion == 0)
 				btnPrev->Enabled = true;
-			if (CurrentQuestion == SectionQues[CurrentSection-1])
+			if (CurrentQuestion == SectionQues[CurrentSection])
 				btnNext->Enabled = true;
 			cbSection->Items->Clear();
-			for each(Int32 I in SectionQues){
-				cbSection->Items->Add(I);
-			}
-
+			for (int i = 0; i < SectionQues->Length;i++)
+				cbSection->Items->Add(i);
+			cbSection->SelectedIndex = 0;
+			btnPrev->Visible = false;
+			if (SectionQues[0] == 1)
+				btnNext->Visible = false;
+			label5->Text = Convert::ToString(SectionQues[0]);
 }
 private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void markAsCorrectOptionToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-			if (CurrentQuestion == 0)
-				return;
-			if (CurrentQuestion != SectionQues[CurrentSection - 1])
-				btnNext->Enabled = true;
+			btnNext->Visible = true;
+			if (CurrentQuestion >=2)
+				btnPrev->Visible = true;
+			else btnPrev->Visible = false;
+			/*if (CurrentQuestion == 0)
+				return;*/
 			data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
 			//data[CurrentSection][CurrentQuestion]->dt
+			data[CurrentSection][CurrentQuestion]->dt->Columns->Clear();
 			for each(DataGridViewColumn ^col in dgvOptions->Columns)
+				{
+					data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
+				}
+			
+					data[CurrentSection][CurrentQuestion]->dt->Rows->Clear();
+				for each(DataGridViewRow ^row in dgvOptions->Rows)
+				{
+
+					DataRow ^dr = data[CurrentSection][CurrentQuestion]->dt->NewRow();
+					for each(DataGridViewCell ^cell in row->Cells)
+					{
+						dr[cell->ColumnIndex] = cell->Value;
+					}
+					data[CurrentSection][CurrentQuestion]->dt->Rows->Add(dr);
+				}
+			CurrentQuestion--;
+			label6->Text = Convert::ToString(CurrentQuestion);
+			textQuestion->Text = data[CurrentSection][CurrentQuestion]->q;
+			dgvOptions->Rows->Clear();
+			dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
+			for each(DataGridViewRow ^drow in data[CurrentSection][CurrentQuestion]->dt->Rows)
 			{
-				data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
+				dgvOptions->Rows->Add(drow);
 			}
 
 }
 private: System::Void cbSection_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 
 }
+private: System::Void btnNext_Click(System::Object^  sender, System::EventArgs^  e) {
+			 if (CurrentQuestion < SectionQues[CurrentSection] - 2)
+				btnNext->Visible = true;
+			else btnNext->Visible = false;
+			btnPrev->Visible = true;
+			 /*if (CurrentQuestion == SectionQues[CurrentSection] - 1)
+				 return;*/
+			 data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
+			 //data[CurrentSection][CurrentQuestion]->dt
+			 data[CurrentSection][CurrentQuestion]->dt->Columns->Clear();
+				 for each(DataGridViewColumn ^col in dgvOptions->Columns)
+				 {
+					 data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
+				 }
+			 
+					 data[CurrentSection][CurrentQuestion]->dt->Rows->Clear();
+				 for each(DataGridViewRow ^row in dgvOptions->Rows)
+				 {
+					 DataRow ^dr = data[CurrentSection][CurrentQuestion]->dt->NewRow();
+					for each(DataGridViewCell ^cell in row->Cells)
+					{
+						dr[cell->ColumnIndex] = cell->Value;
+					}
+					data[CurrentSection][CurrentQuestion]->dt->Rows->Add(dr);
+				 }
+			 CurrentQuestion++;
+			 label6->Text = Convert::ToString(CurrentQuestion);
+
+			 textQuestion->Text = data[CurrentSection][CurrentQuestion]->q;
+			 dgvOptions->Rows->Clear();
+			 dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
+
+			 for each(DataGridView ^drow in data[CurrentSection][CurrentQuestion]->dt->Rows)
+			 {
+				 dgvOptions->Rows->Add(drow);
+			 }
+}
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
-public ref class Questions{
-public:
-	String ^ q;
-	DataTable ^dt;
-	Questions(){
-		q = "";
-		dt = gcnew DataTable();
-	}
-};
+
 }
