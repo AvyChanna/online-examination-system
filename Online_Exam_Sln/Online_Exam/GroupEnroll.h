@@ -166,8 +166,6 @@ namespace Online_Exam {
 							  cur_group = cur_group + "-" + studGroup + "-";
 							  Access->ExecQuery("UPDATE Users SET Groups='" + cur_group + "' WHERE Username = '" + gVar::b + "'");
 							  MessageBox::Show("successfully enrolled!");
-							  txtEnroll->Clear();
-							  comboGroupName->Text = "";
 						  }
 						  else
 						  {
