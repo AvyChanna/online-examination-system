@@ -14,6 +14,7 @@ namespace Global_Var{
 	public:
 		static int a;
 		static String^ b;
+		static String^ Username = L"tushar";
 		gVar();
 		~gVar();
 
