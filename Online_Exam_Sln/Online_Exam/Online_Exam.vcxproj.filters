@@ -4,7 +4,6 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="AddQuestions.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +28,7 @@
     <ClInclude Include="Unenroll.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="Encryption.h" />
+    <ClInclude Include="UpcomingTests.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -49,6 +49,7 @@
     <EmbeddedResource Include="Signup.resx" />
     <EmbeddedResource Include="signup_student.resx" />
     <EmbeddedResource Include="Unenroll.resx" />
+    <EmbeddedResource Include="AddQuestions.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
