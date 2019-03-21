@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "Form1.h"
+//#include "Signup.h"
 
 using namespace Online_Exam;
 
@@ -14,7 +15,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew Form1());
+	Application::Run(gcnew StudentForm());
 
 	return 0;
 }

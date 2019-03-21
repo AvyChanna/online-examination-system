@@ -262,6 +262,11 @@ private: System::Void btnUnenroll_Click(System::Object^  sender, System::EventAr
 			 Unenroll ^ usr = gcnew Unenroll();
 			 contentPanel->Controls->Add(usr);
 }
+public: System::Void refreshUnenroll() {
+			contentPanel->Controls->Clear();
+			contentPanel->Controls->Add(gcnew Unenroll);
+}
+
 private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 }
 private: System::Void StudentForm_Load(System::Object^  sender, System::EventArgs^  e) {
