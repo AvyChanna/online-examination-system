@@ -290,7 +290,7 @@ private: System::Void StudentProfile_Load(System::Object^  sender, System::Event
 			
 
 			 OES ^Access = gcnew OES();
-			 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::b +"'");
+			 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::Username +"'");
 			 if (Access->RecordCount == 1 ){
 				 
 				 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Username"]);

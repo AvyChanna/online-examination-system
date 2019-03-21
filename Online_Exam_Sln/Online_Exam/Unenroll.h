@@ -97,7 +97,7 @@ namespace Online_Exam {
 #pragma endregion
 	private: System::Void UnenrollUtility(){
 				 OES ^Access = gcnew OES();
-				 Access->ExecQuery("Select * from Users where Username = '" + gVar::b + "'");
+				 Access->ExecQuery("Select * from Users where Username = '" + gVar::Username + "'");
 				 if (Access->RecordCount > 0)
 				 {
 					 String ^grp = Convert::ToString(Access->DBDT->Rows[0]["Groups"]);

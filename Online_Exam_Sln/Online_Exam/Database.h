@@ -1,15 +1,14 @@
+#pragma once
 #ifndef __database__
 #define __database__
 #include "stdafx.h"
-
 
 using namespace System;
 using namespace System::Data;
 using namespace System::Data::OleDb;
 using namespace System::Collections::Generic;
 namespace Database{
-	public ref class OES
-	{
+	public ref class OES{
 	public:
 		OES();
 		~OES();
@@ -26,6 +25,7 @@ namespace Database{
 
 		void ExecQuery(String^ Query);
 		void AddParam(String^ Name, Object^ Value);
+		String^ CmdQuery;
 
 	private:
 		//Create a connection
@@ -42,12 +42,9 @@ namespace Database{
 		DBCon = gcnew OleDbConnection();
 		DBCon->ConnectionString = "Provider=Microsoft.JET.OLEDB.4.0; Data Source=DatabaseLab.mdb";
 		Params = gcnew List<OleDbParameter^>;
+		CmdQuery = "";
 	}
-
-	OES::~OES()
-	{
-	}
-
+	OES::~OES(){}
 	void OES::ExecQuery(String^ Query){
 		//Reset query statistics
 		RecordCount = 0;
@@ -66,6 +63,7 @@ namespace Database{
 			}
 			//Clear params list
 			Params->Clear();
+			this->CmdQuery = DBCmd->CommandText;
 
 			DBDT = gcnew DataTable();
 			DBDA = gcnew OleDbDataAdapter(DBCmd);
@@ -73,6 +71,7 @@ namespace Database{
 		}
 		catch (OleDbException ^ex){
 			Exception = ex->Message;
+			Console::WriteLine(CmdQuery);
 		}
 
 		//Close database connection
