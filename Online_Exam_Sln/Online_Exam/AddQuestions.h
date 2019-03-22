@@ -19,7 +19,7 @@ namespace Online_Exam {
 	public ref class MyUserControl : public System::Windows::Forms::UserControl
 	{
 	public:
-		array<array<Questions ^>^> ^data;
+		//array<array<Questions ^>^> ^data;
 		MyUserControl(Int32 SC, array<Int32> ^SQ)
 		{
 			InitializeComponent();
@@ -33,10 +33,10 @@ namespace Online_Exam {
 				SectionQues[i] = I;
 				i++;
 			}
-			data = gcnew array<array<Questions^>^>(SC);
+			//data = gcnew array<array<Questions^>^>(SC);
 			for (i = 0; i < SC; i++)
 			{
-				data[i] = gcnew array<Questions^>(SectionQues[i]);
+				//data[i] = gcnew array<Questions^>(SectionQues[i]);
 			}
 		}
 
@@ -389,11 +389,11 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 				return;
 			if (CurrentQuestion != SectionQues[CurrentSection - 1])
 				btnNext->Enabled = true;
-			data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
+			//data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
 			//data[CurrentSection][CurrentQuestion]->dt
 			for each(DataGridViewColumn ^col in dgvOptions->Columns)
 			{
-				data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
+				//data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
 			}
 
 }
