@@ -227,6 +227,7 @@ namespace Online_Exam {
 
 				 OES ^Access = gcnew OES();
 				 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::Username + "'");
+				// MessageBox::Show("SELECT * FROM Users WHERE Username='" + gVar::Username + "'");
 				 if (Access->RecordCount == 1){
 
 					 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Username"]);

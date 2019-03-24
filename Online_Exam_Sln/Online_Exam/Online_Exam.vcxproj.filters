@@ -29,6 +29,7 @@
     <ClInclude Include="Login.h" />
     <ClInclude Include="Encryption.h" />
     <ClInclude Include="UpcomingTests.h" />
+    <ClInclude Include="PastTestsSet.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -50,6 +51,7 @@
     <EmbeddedResource Include="signup_student.resx" />
     <EmbeddedResource Include="Unenroll.resx" />
     <EmbeddedResource Include="AddQuestions.resx" />
+    <EmbeddedResource Include="UpcomingTests.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />

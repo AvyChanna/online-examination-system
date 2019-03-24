@@ -109,35 +109,48 @@ namespace Online_Exam {
 				 if (grp->Length > 0)
 				 {
 					 Access->ExecQuery("SELECT * FROM Exam WHERE " + query);
+					 //MessageBox::Show("SELECT * FROM Exam WHERE " + query);
 					 for (int i = 0; i < Access->RecordCount; i++)
 					 {
 						 PictureBox^ border = gcnew PictureBox();
 						 Label^ lblExamName = gcnew Label();
 						 Label^ lblProfName = gcnew Label();
+						 Label ^ lblExam = gcnew Label();
+						 Label ^lblProf = gcnew Label();
 						 border->Width = 400;
 						 border->Height = 100;
 						 lblProfName->Width = 100;
 						 lblProfName->Height = 20;
+						 lblProf->Width = 150;
+						 lblProf->Height = 20;
 						 lblExamName->Width = 100;
 						 lblExamName->Height = 20;
+						 lblExam->Width = 150;
+						 lblExam->Height = 20;
+						 lblExam->Text = "Exam Name: ";
+						 lblProf->Text = "Set By: ";
 						 lblExamName->Text = Convert::ToString(Access->DBDT->Rows[i]["ExamName"]);
 						 lblProfName->Text = Convert::ToString(Access->DBDT->Rows[i]["Professor"]);
-						 border->BackColor = Color::White;
+						 /*border->BackColor = Color::White;
 						 lblProfName->BackColor = Color::Black;
 						 lblExamName->BackColor = Color::Black;
 						 lblExamName->ForeColor = Color::White;
-						 lblProfName->ForeColor = Color::White;
+						 lblProfName->ForeColor = Color::White;*/
 						 //MessageBox::Show(lblExamName->Text);
 						 //Point ^ pt = gcnew Point(x + 50, y + 5);
-						 border->Location =Point(x + 50, y + 5);
-						 lblExamName->Location = Point(x + 55, y + 10);
-						 lblProfName->Location = Point(x + 55, y + 40);
+						 //border->Location =Point(x + 50, y + 5);
+						 lblExamName->Location = Point(x +175, y + 10);
+						 lblProfName->Location = Point(x + 175, y + 40);
+						 lblExam->Location = Point(x + 20, y + 10);
+						 lblProf->Location = Point(x + 20, y + 40);
 						 lblExamName->AutoEllipsis = true;
 						 lblProfName->AutoEllipsis = true;
-						 border->SendToBack();
+						 /*border->SendToBack();*/
 						 contentPanel->Controls->Add(lblExamName);
 						 contentPanel->Controls->Add(lblProfName);
-						 contentPanel->Controls->Add(border);
+						 //contentPanel->Controls->Add(border);
+						 contentPanel->Controls->Add(lblExam);
+						 contentPanel->Controls->Add(lblProf);
 						 y += 105;
 					 }
 					 //MessageBox::Show(query);
