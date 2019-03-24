@@ -221,14 +221,37 @@ namespace Online_Exam {
 
 				 }
 	}
+
+	private:bool validate(){
+
+
+				if (txtPhone->TextLength != 10){
+					MessageBox::Show("Phone Number Length should be 10");
+					return false;
+				}
+				
+				if (txtFullName->Text->Trim() == ""){
+					MessageBox::Show("Name can not be Empty");
+					return false;
+				}
+				if (txtEmail->Text->Trim() == ""){
+					MessageBox::Show("Email Field can not be Empty");
+					return false;
+				}
+
+				return true;
+
+	}
 private: System::Void btnUpdate_Click(System::Object^  sender, System::EventArgs^  e) {
 
 			 OES ^Access = gcnew OES();
-			 Access->ExecQuery("UPDATE Users SET FullName='" + txtFullName->Text + "', Email='" + txtEmail->Text + "',  PhoneNo='" + txtPhone->Text +  "' WHERE Username = '" + txtUsername->Text + "'");
+			 if (validate()){
+				 Access->ExecQuery("UPDATE Users SET FullName='" + txtFullName->Text + "', Email='" + txtEmail->Text + "',  PhoneNo='" + txtPhone->Text + "' WHERE Username = '" + txtUsername->Text + "'");
 
 
-			 //MessageBox::Show("UPDATE Users SET FullName='" + txtFullName->Text + "' WHERE Username = '" + txtUsername->Text + "'");
-			 MessageBox::Show("Profile Updated Successfully");
+				 //MessageBox::Show("UPDATE Users SET FullName='" + txtFullName->Text + "' WHERE Username = '" + txtUsername->Text + "'");
+				 MessageBox::Show("Profile Updated Successfully");
+			 }
 }
 };
 }

@@ -357,7 +357,7 @@ namespace Online_Exam {
 						 return false;
 					 }
 					 if (rNumTxt->TextLength != 9){
-						 MessageBox::Show("Roll Number Length should be 10");
+						 MessageBox::Show("Roll Number Length should be 9");
 							 return false;
 					 }
 					 if (userTxt->Text->Trim() == ""){
@@ -404,7 +404,7 @@ namespace Online_Exam {
 							 //Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[RollNo],[Branch],[Designation] ) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@RollNo,@Branch,@Designation)");// , "+check+" )");
 							 Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[RollNo],[Branch],[Designation],[IITG]) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@RollNo,@Branch,@Designation, "+check+" )");
 							 		
-						//MessageBox::Show("Added");
+						MessageBox::Show("Signup Successfull");
 					 }
 		}
 
