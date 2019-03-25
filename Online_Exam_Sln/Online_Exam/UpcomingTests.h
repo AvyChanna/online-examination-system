@@ -65,18 +65,21 @@ namespace Online_Exam {
 			// contentPanel
 			// 
 			this->contentPanel->AutoScroll = true;
-			this->contentPanel->Location = System::Drawing::Point(15, 16);
+			this->contentPanel->Location = System::Drawing::Point(11, 13);
+			this->contentPanel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->contentPanel->Name = L"contentPanel";
-			this->contentPanel->Size = System::Drawing::Size(874, 395);
+			this->contentPanel->Size = System::Drawing::Size(656, 321);
 			this->contentPanel->TabIndex = 0;
+			
 			// 
 			// UpcomingTests
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->contentPanel);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"UpcomingTests";
-			this->Size = System::Drawing::Size(903, 423);
+			this->Size = System::Drawing::Size(677, 344);
 			this->Load += gcnew System::EventHandler(this, &UpcomingTests::UpcomingTests_Load);
 			this->ResumeLayout(false);
 
@@ -117,6 +120,11 @@ namespace Online_Exam {
 						 Label^ lblProfName = gcnew Label();
 						 Label ^ lblExam = gcnew Label();
 						 Label ^lblProf = gcnew Label();
+						 Button ^bsession1 = gcnew Button();
+						 Button ^bsession2 = gcnew Button();
+						 Button ^bsession3 = gcnew Button();
+						 Button ^bsession4 = gcnew Button();
+						 Button ^bsession5 = gcnew Button();
 						 border->Width = 400;
 						 border->Height = 100;
 						 lblProfName->Width = 100;
@@ -139,23 +147,42 @@ namespace Online_Exam {
 						 //MessageBox::Show(lblExamName->Text);
 						 //Point ^ pt = gcnew Point(x + 50, y + 5);
 						 //border->Location =Point(x + 50, y + 5);
-						 lblExamName->Location = Point(x +175, y + 10);
-						 lblProfName->Location = Point(x + 175, y + 40);
-						 lblExam->Location = Point(x + 20, y + 10);
-						 lblProf->Location = Point(x + 20, y + 40);
+						 lblExamName->Location = Point(x +175, y + 30);
+						 lblProfName->Location = Point(x + 175, y + 60);
+						 lblExam->Location = Point(x + 20, y + 30);
+						 lblProf->Location = Point(x + 20, y + 60);
 						 lblExamName->AutoEllipsis = true;
 						 lblProfName->AutoEllipsis = true;
+						 bsession1->AutoEllipsis = true;
+						 bsession1->Text = "Session1";
+						 bsession2->Text = "Session2";
+						 bsession3->Text = "Session3";
+						 bsession4->Text = "Session4";
+						 bsession5->Text = "Session5";
+						 
+						 bsession1->Location = Point(x + 400, y + 10);
+						 bsession2->Location = Point(x + 400, y + 31);
+						 bsession3->Location = Point(x + 400, y + 52);
+						 bsession4->Location = Point(x + 400, y + 73);
+						 bsession5->Location = Point(x + 400, y + 94);
+						 
 						 /*border->SendToBack();*/
 						 contentPanel->Controls->Add(lblExamName);
 						 contentPanel->Controls->Add(lblProfName);
 						 //contentPanel->Controls->Add(border);
 						 contentPanel->Controls->Add(lblExam);
 						 contentPanel->Controls->Add(lblProf);
-						 y += 105;
+						 contentPanel->Controls->Add(bsession1);
+						 contentPanel->Controls->Add(bsession2);
+						 contentPanel->Controls->Add(bsession3);
+						 contentPanel->Controls->Add(bsession4);
+						 contentPanel->Controls->Add(bsession5);
+						 y += 120;
 					 }
 					 //MessageBox::Show(query);
 					 //dg1->DataSource = Access->DBDT;
 				 }
 	}
-	};
+	
+};
 }

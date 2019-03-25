@@ -73,6 +73,7 @@ namespace Online_Exam {
 			this->flowLayoutBtn->Name = L"flowLayoutBtn";
 			this->flowLayoutBtn->Size = System::Drawing::Size(188, 290);
 			this->flowLayoutBtn->TabIndex = 0;
+			
 			// 
 			// flowLayoutGroups
 			// 
@@ -162,5 +163,6 @@ namespace Online_Exam {
 						 UnenrollUtility();
 					 }
 		}
-	};
+	
+};
 }
