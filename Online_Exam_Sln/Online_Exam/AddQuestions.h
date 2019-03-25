@@ -73,8 +73,8 @@ namespace Online_Exam {
 	private: System::Windows::Forms::ComboBox^  cbSection;
 
 	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  OptionText;
-	private: System::Windows::Forms::DataGridViewCheckBoxColumn^  CorrectOption;
+
+
 	private: System::Windows::Forms::Button^  btnDone;
 
 	private: System::Windows::Forms::Button^  btnNext;
@@ -95,6 +95,10 @@ namespace Online_Exam {
 	private: System::Windows::Forms::TabPage^  tabPage2;
 	private: System::Windows::Forms::TabPage^  tabPage3;
 	private: System::Windows::Forms::DataGridView^  dgvtemp;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  OptionText;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  CorrectOption;
+
+
 
 
 
@@ -117,8 +121,6 @@ namespace Online_Exam {
 		{
 			this->textQuestion = (gcnew System::Windows::Forms::TextBox());
 			this->dgvOptions = (gcnew System::Windows::Forms::DataGridView());
-			this->OptionText = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->CorrectOption = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->cbSection = (gcnew System::Windows::Forms::ComboBox());
@@ -137,6 +139,8 @@ namespace Online_Exam {
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			this->dgvtemp = (gcnew System::Windows::Forms::DataGridView());
+			this->OptionText = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CorrectOption = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOptions))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -163,18 +167,8 @@ namespace Online_Exam {
 			this->dgvOptions->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->dgvOptions->Location = System::Drawing::Point(3, 3);
 			this->dgvOptions->Name = L"dgvOptions";
-			this->dgvOptions->Size = System::Drawing::Size(455, 70);
+			this->dgvOptions->Size = System::Drawing::Size(210, 70);
 			this->dgvOptions->TabIndex = 2;
-			// 
-			// OptionText
-			// 
-			this->OptionText->HeaderText = L"Option Text";
-			this->OptionText->Name = L"OptionText";
-			// 
-			// CorrectOption
-			// 
-			this->CorrectOption->HeaderText = L"Correct Option";
-			this->CorrectOption->Name = L"CorrectOption";
 			// 
 			// label1
 			// 
@@ -205,7 +199,6 @@ namespace Online_Exam {
 			this->cbSection->Size = System::Drawing::Size(121, 21);
 			this->cbSection->Sorted = true;
 			this->cbSection->TabIndex = 4;
-			this->cbSection->SelectedIndexChanged += gcnew System::EventHandler(this, &AddQuestions::cbSection_SelectedIndexChanged);
 			// 
 			// label3
 			// 
@@ -321,7 +314,7 @@ namespace Online_Exam {
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(461, 76);
+			this->tabPage1->Size = System::Drawing::Size(216, 76);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"MCQ";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -343,7 +336,7 @@ namespace Online_Exam {
 			this->tabPage3->Controls->Add(this->textAnswer);
 			this->tabPage3->Location = System::Drawing::Point(4, 22);
 			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(461, 76);
+			this->tabPage3->Size = System::Drawing::Size(216, 76);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"One Word";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -355,6 +348,18 @@ namespace Online_Exam {
 			this->dgvtemp->Name = L"dgvtemp";
 			this->dgvtemp->Size = System::Drawing::Size(328, 77);
 			this->dgvtemp->TabIndex = 16;
+			// 
+			// OptionText
+			// 
+			this->OptionText->HeaderText = L"Option Text";
+			this->OptionText->Name = L"OptionText";
+			// 
+			// CorrectOption
+			// 
+			this->CorrectOption->HeaderText = L"Correct Option";
+			this->CorrectOption->Name = L"CorrectOption";
+			this->CorrectOption->Resizable = System::Windows::Forms::DataGridViewTriState::True;
+			this->CorrectOption->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
 			// AddQuestions
 			// 
@@ -391,10 +396,6 @@ namespace Online_Exam {
 #pragma endregion
 
 private: System::Void AddQuestions_Load(System::Object^  sender, System::EventArgs^  e) {
-			if (CurrentQuestion == 0)
-				btnPrev->Enabled = true;
-			if (CurrentQuestion == SectionQues[CurrentSection])
-				btnNext->Enabled = true;
 			cbSection->Items->Clear();
 			for (int i = 0; i < SectionQues->Length;i++)
 				cbSection->Items->Add(i);
@@ -413,77 +414,64 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			if (CurrentQuestion >=2)
 				btnPrev->Visible = true;
 			else btnPrev->Visible = false;
-			/*if (CurrentQuestion == 0)
-				return;*/
-			data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
-			//data[CurrentSection][CurrentQuestion]->dt
-			data[CurrentSection][CurrentQuestion]->dt->Columns->Clear();
-			for each(DataGridViewColumn ^col in dgvOptions->Columns)
-				{
-					data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
-				}
-			
-					data[CurrentSection][CurrentQuestion]->dt->Rows->Clear();
-				for each(DataGridViewRow ^row in dgvOptions->Rows)
-				{
 
-					DataRow ^dr = data[CurrentSection][CurrentQuestion]->dt->NewRow();
-					for each(DataGridViewCell ^cell in row->Cells)
-					{
-						dr[cell->ColumnIndex] = cell->Value;
-					}
-					data[CurrentSection][CurrentQuestion]->dt->Rows->Add(dr);
-				}
+			data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
+			// clear dt
+			data[CurrentSection][CurrentQuestion]->dt->Columns->Clear();
+			data[CurrentSection][CurrentQuestion]->dt->Rows->Clear();
+			// add col in dt
+			//for each(DataGridViewColumn ^col in dgvOptions->Columns)
+			data[CurrentSection][CurrentQuestion]->dt->Columns->Add("OptionName");
+			data[CurrentSection][CurrentQuestion]->dt->Columns->Add("CorrectOption");
+			//add rows in dt
+			for each(DataGridViewRow ^row in dgvOptions->Rows)
+			{
+				DataRow ^dr = data[CurrentSection][CurrentQuestion]->dt->NewRow();
+				for each(DataGridViewCell ^cell in row->Cells)
+					dr[cell->ColumnIndex] = cell->Value;
+				data[CurrentSection][CurrentQuestion]->dt->Rows->Add(dr);
+			}
 			CurrentQuestion--;
 			label6->Text = Convert::ToString(CurrentQuestion);
 			textQuestion->Text = data[CurrentSection][CurrentQuestion]->q;
+			// clear
 			dgvOptions->Rows->Clear();
+			dgvOptions->Refresh();
 			dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
-			for each(DataGridViewRow ^drow in data[CurrentSection][CurrentQuestion]->dt->Rows)
-			{
-				dgvOptions->Rows->Add(drow);
-			}
-
-}
-private: System::Void cbSection_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-
+			//dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
+			/*for each(DataGridViewRow ^drow in data[CurrentSection][CurrentQuestion]->dt->Rows)
+				dgvOptions->Rows->Add(drow);*/
 }
 private: System::Void btnNext_Click(System::Object^  sender, System::EventArgs^  e) {
-			 if (CurrentQuestion < SectionQues[CurrentSection] - 2)
+			if (CurrentQuestion < SectionQues[CurrentSection] - 2)
 				btnNext->Visible = true;
 			else btnNext->Visible = false;
 			btnPrev->Visible = true;
-			 /*if (CurrentQuestion == SectionQues[CurrentSection] - 1)
-				 return;*/
-			 data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
-			 //data[CurrentSection][CurrentQuestion]->dt
-			 data[CurrentSection][CurrentQuestion]->dt->Columns->Clear();
-				 for each(DataGridViewColumn ^col in dgvOptions->Columns)
-				 {
-					 data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
-				 }
-			 
-					 data[CurrentSection][CurrentQuestion]->dt->Rows->Clear();
-				 for each(DataGridViewRow ^row in dgvOptions->Rows)
-				 {
-					 DataRow ^dr = data[CurrentSection][CurrentQuestion]->dt->NewRow();
-					for each(DataGridViewCell ^cell in row->Cells)
-					{
-						dr[cell->ColumnIndex] = cell->Value;
-					}
-					data[CurrentSection][CurrentQuestion]->dt->Rows->Add(dr);
-				 }
-			 CurrentQuestion++;
-			 label6->Text = Convert::ToString(CurrentQuestion);
+			data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
+			data[CurrentSection][CurrentQuestion]->dt->Rows->Clear();
+			data[CurrentSection][CurrentQuestion]->dt->Columns->Clear();
+			//String ^s;
 
-			 textQuestion->Text = data[CurrentSection][CurrentQuestion]->q;
-			 dgvOptions->Rows->Clear();
-			 dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
+			for each(DataGridViewColumn ^col in dgvOptions->Columns)
+				data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
+			for each(DataGridViewRow ^row in dgvOptions->Rows)
+			{
+				DataRow ^dr = data[CurrentSection][CurrentQuestion]->dt->NewRow();
+			for each(DataGridViewCell ^cell in row->Cells)
+				dr[cell->ColumnIndex] = cell->Value;
+			data[CurrentSection][CurrentQuestion]->dt->Rows->Add(dr);
+			}
+			CurrentQuestion++;
 
-			 for each(DataGridView ^drow in data[CurrentSection][CurrentQuestion]->dt->Rows)
-			 {
-				 dgvOptions->Rows->Add(drow);
-			 }
+			label6->Text = Convert::ToString(CurrentQuestion);
+			textQuestion->Text = data[CurrentSection][CurrentQuestion]->q;
+
+			dgvOptions->Rows->Clear();
+			dgvOptions->Refresh();
+			dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
+			//dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
+			/* for each(DataGridView ^drow in data[CurrentSection][CurrentQuestion]->dt->Rows)
+				dgvOptions->Rows->Add(drow);*/
 }
 private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
 }
