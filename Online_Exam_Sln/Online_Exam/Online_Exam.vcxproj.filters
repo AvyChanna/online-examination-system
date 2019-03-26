@@ -5,6 +5,7 @@
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="AddQuestions.cpp" />
+    <ClCompile Include="GlobalSuppressions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h" />
@@ -30,6 +31,11 @@
     <ClInclude Include="Encryption.h" />
     <ClInclude Include="UpcomingTests.h" />
     <ClInclude Include="PastTestsSet.h" />
+    <ClInclude Include="AdminForm.h" />
+    <ClInclude Include="ApproveProf.h" />
+    <ClInclude Include="StudentEditAdmin.h" />
+    <ClInclude Include="Questions.h" />
+    <ClInclude Include="json.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -52,6 +58,9 @@
     <EmbeddedResource Include="Unenroll.resx" />
     <EmbeddedResource Include="AddQuestions.resx" />
     <EmbeddedResource Include="UpcomingTests.resx" />
+    <EmbeddedResource Include="AdminForm.resx" />
+    <EmbeddedResource Include="ApproveProf.resx" />
+    <EmbeddedResource Include="AddQuestions.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />

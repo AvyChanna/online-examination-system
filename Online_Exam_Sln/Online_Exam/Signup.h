@@ -1,7 +1,9 @@
 #pragma once
 
+
 #include "prof_signup.h"
 #include "signup_student.h"
+
 
 
 namespace Online_Exam {
@@ -44,6 +46,8 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  studBtn;
 
 	private: System::Windows::Forms::Panel^  signupPanel;
+	private: System::Windows::Forms::Button^  loginBtn;
+
 
 	private:
 		/// <summary>
@@ -59,6 +63,7 @@ namespace Online_Exam {
 		void InitializeComponent(void)
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->loginBtn = (gcnew System::Windows::Forms::Button());
 			this->profBtn = (gcnew System::Windows::Forms::Button());
 			this->studBtn = (gcnew System::Windows::Forms::Button());
 			this->signupPanel = (gcnew System::Windows::Forms::Panel());
@@ -67,12 +72,23 @@ namespace Online_Exam {
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->loginBtn);
 			this->panel1->Controls->Add(this->profBtn);
 			this->panel1->Controls->Add(this->studBtn);
 			this->panel1->Location = System::Drawing::Point(2, 3);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(183, 487);
 			this->panel1->TabIndex = 40;
+			// 
+			// loginBtn
+			// 
+			this->loginBtn->Location = System::Drawing::Point(3, 208);
+			this->loginBtn->Name = L"loginBtn";
+			this->loginBtn->Size = System::Drawing::Size(177, 52);
+			this->loginBtn->TabIndex = 43;
+			this->loginBtn->Text = L"Login";
+			this->loginBtn->UseVisualStyleBackColor = true;
+			this->loginBtn->Click += gcnew System::EventHandler(this, &Signup::loginBtn_Click);
 			// 
 			// profBtn
 			// 
@@ -126,6 +142,12 @@ private: System::Void profBtn_Click(System::Object^  sender, System::EventArgs^ 
 			 signupPanel->Controls->Clear();
 			 prof_signup ^ ref = gcnew prof_signup();
 			 signupPanel->Controls->Add(ref);
+}
+private: System::Void loginBtn_Click(System::Object^  sender, System::EventArgs^  e) {
+			
+			
+			 
+			 
 }
 };
 }

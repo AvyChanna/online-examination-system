@@ -1,5 +1,6 @@
 #pragma once
 #include "Database.h"
+#include "Encryption.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -7,6 +8,7 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 using namespace Database;
+using namespace Encryption;
 
 namespace Online_Exam {
 
@@ -350,22 +352,31 @@ namespace Online_Exam {
 				 if (memChkBox->Checked)
 					 check = 1;
 
-				 if (!validate()){
-
-				 }
-				 else{
+				 if (validate()){
 					 try{
+						 String ^ PassSalt = MakeSalt();
+						 String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
 
-						 // MessageBox::Show(Convert::ToString(memChkBox->Checked));
-						 Access->ExecQuery("insert into Users ([Username],[Fullname],[Email],[PhoneNo],[Branch],[Designation],[IITG])" +
-							 "Values('" + userTxt->Text + "','" + nameTxt->Text + "','" + mailTxt->Text + "','" + pNumTxt->Text + "','" + branchCb->Text + "','" + des + "','" + check + "') ");
-						 MessageBox::Show("Added");
+						 Access->AddParam("@Username", userTxt->Text);
+						 Access->AddParam("@Fullname", nameTxt->Text);
+						 Access->AddParam("@PasswordHash", PassHash);
+						 Access->AddParam("@PasswordSalt", PassSalt);
+						 Access->AddParam("@Email", mailTxt->Text);
+						 Access->AddParam("@Phoneno", pNumTxt->Text);
+						 Access->AddParam("@Branch", branchCb->Text);
+						 Access->AddParam("@Designation", des);
+
+						 //Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[Branch],[Designation] ) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@RollNo,@Branch,@Designation)");// , "+check+" )");
+						 Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[Branch],[Designation],[IITG]) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@Branch,@Designation, " + check + " )");
+
+						
+						 MessageBox::Show("Signup Successful");
 					 }
 					 catch (Exception^ ex){
 						 MessageBox::Show(ex->Message);
 					 }
-
 				 }
+				 
 
 
 

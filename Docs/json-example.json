@@ -1,38 +1,44 @@
-[
+{
+	"Data":[ // (array) obj.Data 
 		{
-			"section":"1",
-			"weight":2,
-			"TotalQuestions":2,
-			"NumberOfQuestionsGiven":1,
-			"questions":[
+			"Section":1, //obj.Data[0].Section
+			"Weight":2, //obj.Data[0].Weight
+			"TotalQuestions":2, //obj.Data[0].TotalQuestions
+			"NumberOfQuestionsGiven":1, // obj.Data[0].NumberOfQuestionsGiven
+			"Questions":[ // (array) obj.Data[0].Questions
 				{
-					"Statement":"ASD",
-					"Answer": [2,3],
-					"Options": ["ASD","QWE","PQR","MNO"]
+					"Statement":"ASD", // obj.Data[0].Questions[0].Statement
+					"AnswerType": 0, // obj.Data[0].Questions[0].AnswerType
+					"Answer": [2,3], // obj.Data[0].Questions[0].Answer
+					"Options": ["ASD", "QWE", "PQR", "MNO"] // obj.Data[0].Questions[0].Options[0-3]
 				},
 				{
 					"Statement":"ASD",
-					"Answer": [2],
-					"Options": ["ASD","QWE","PQR","MNO"]
+					"AnswerType": 1,
+					"Answer": [0],
+					"Options": ["FALSE", "TRUE"]
 				}
 			]
 		},
 		{
-			"section":"2",
+			"section":2,
 			"weight":3,
 			"TotalQuestions":2,
 			"NumberOfQuestionsGiven":2,
 			"questions":[
 				{
 					"Statement":"ASD",
-					"Answer": [2,3],
-					"Options": ["ASD","QWE","PQR","MNO"]
+					"AnswerType": 2,
+					"Answer": [0],
+					"Options": ["3.14"]
 				},
 				{
 					"Statement":"ASD",
+					"AnswerType": 1,
 					"Answer": [2],
-					"Options": ["ASD","QWE","PQR","MNO"]
+					"Options": ["TRUE", "FALSE"]
 				}
 			]
 		}
-]
+	]
+}

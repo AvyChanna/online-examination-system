@@ -2,6 +2,10 @@
 #include"Database.h"
 #include"Encryption.h"
 #include"GlobalVar.h"
+#include "Signup.h"
+#include "ProfForm.h"
+#include "StudentForm.h"
+
 namespace Online_Exam {
 
 	using namespace System;
@@ -81,9 +85,10 @@ namespace Online_Exam {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(283, 8);
+			this->label1->Location = System::Drawing::Point(377, 10);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(113, 26);
+			this->label1->Size = System::Drawing::Size(139, 31);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Username";
 			// 
@@ -92,9 +97,10 @@ namespace Online_Exam {
 			this->textUsername->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textUsername->Location = System::Drawing::Point(288, 37);
+			this->textUsername->Location = System::Drawing::Point(384, 46);
+			this->textUsername->Margin = System::Windows::Forms::Padding(4);
 			this->textUsername->Name = L"textUsername";
-			this->textUsername->Size = System::Drawing::Size(273, 26);
+			this->textUsername->Size = System::Drawing::Size(363, 30);
 			this->textUsername->TabIndex = 0;
 			// 
 			// label2
@@ -102,9 +108,10 @@ namespace Online_Exam {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(283, 82);
+			this->label2->Location = System::Drawing::Point(377, 101);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(108, 26);
+			this->label2->Size = System::Drawing::Size(134, 31);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Password";
 			// 
@@ -113,17 +120,20 @@ namespace Online_Exam {
 			this->textPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textPassword->Location = System::Drawing::Point(288, 111);
+			this->textPassword->Location = System::Drawing::Point(384, 137);
+			this->textPassword->Margin = System::Windows::Forms::Padding(4);
 			this->textPassword->Name = L"textPassword";
-			this->textPassword->Size = System::Drawing::Size(273, 26);
+			this->textPassword->Size = System::Drawing::Size(363, 30);
 			this->textPassword->TabIndex = 1;
+			this->textPassword->UseSystemPasswordChar = true;
 			// 
 			// btnLogin
 			// 
 			this->btnLogin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnLogin->Location = System::Drawing::Point(387, 191);
+			this->btnLogin->Location = System::Drawing::Point(516, 235);
+			this->btnLogin->Margin = System::Windows::Forms::Padding(4);
 			this->btnLogin->Name = L"btnLogin";
-			this->btnLogin->Size = System::Drawing::Size(75, 23);
+			this->btnLogin->Size = System::Drawing::Size(100, 28);
 			this->btnLogin->TabIndex = 2;
 			this->btnLogin->Text = L"Login";
 			this->btnLogin->UseVisualStyleBackColor = true;
@@ -132,30 +142,35 @@ namespace Online_Exam {
 			// linkLabel1
 			// 
 			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->Location = System::Drawing::Point(469, 140);
+			this->linkLabel1->Location = System::Drawing::Point(625, 172);
+			this->linkLabel1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(92, 13);
+			this->linkLabel1->Size = System::Drawing::Size(122, 17);
 			this->linkLabel1->TabIndex = 5;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"Forgot Password\?";
+			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel1_LinkClicked);
 			// 
 			// linkLabel2
 			// 
 			this->linkLabel2->AutoSize = true;
-			this->linkLabel2->Location = System::Drawing::Point(333, 236);
+			this->linkLabel2->Location = System::Drawing::Point(444, 290);
+			this->linkLabel2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->linkLabel2->Name = L"linkLabel2";
-			this->linkLabel2->Size = System::Drawing::Size(182, 13);
+			this->linkLabel2->Size = System::Drawing::Size(239, 17);
 			this->linkLabel2->TabIndex = 6;
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"Don\'t have an account\? Signup here";
+			this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel2_LinkClicked);
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.InitialImage")));
-			this->pictureBox1->Location = System::Drawing::Point(30, 15);
+			this->pictureBox1->Location = System::Drawing::Point(40, 18);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(236, 222);
+			this->pictureBox1->Size = System::Drawing::Size(315, 273);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 7;
 			this->pictureBox1->TabStop = false;
@@ -163,9 +178,9 @@ namespace Online_Exam {
 			// Login
 			// 
 			this->AcceptButton = this->btnLogin;
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(581, 259);
+			this->ClientSize = System::Drawing::Size(775, 319);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->linkLabel2);
 			this->Controls->Add(this->linkLabel1);
@@ -175,6 +190,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"Login";
@@ -199,9 +215,11 @@ namespace Online_Exam {
 				 Access->AddParam("@Username", Username);
 				 Access->ExecQuery("Select Username, FullName, PasswordHash, PasswordSalt, TokenHash, TokenSalt, Email, PhoneNo, RollNo, Groups, IITG, Branch, Designation from Users where Username = @Username");
 				 if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length){
-					 MessageBox::Show("Error logging in! Try Again");
+					 MessageBox::Show("Username\\Password is wrong");
 					 return;
 				 }
+				
+
 				 String ^DBUsername = Access->DBDT->Rows[0]->default[0]->ToString();
 				 String ^DBFullname = Access->DBDT->Rows[0]->default[1]->ToString();
 				 String ^DBPasshash = Access->DBDT->Rows[0]->default[2]->ToString();
@@ -231,7 +249,24 @@ namespace Online_Exam {
 					 gVar::IITG = DBIITG;
 					 gVar::Branch = DBBranch;
 					 gVar::Designation = DBDesignation;
+					 if (DBDesignation == "Student"){
+						 Login::Hide();
+						 StudentForm^ form = gcnew StudentForm();
+						 form->Show();
+
+					 }
+					 else{
+						 Login::Hide();
+						 ProfForm^ form = gcnew ProfForm();
+						 form->Show();
+
+					 }
+							
 				 }
+				 else{
+					 MessageBox::Show("Username\\Password is wrong");
+				 }
+
 				 if (DBPasshash == EncryptPassword(Password, DBTokenhash)){
 					 //reset password
 					 gVar::Username = DBUsername;
@@ -258,5 +293,14 @@ namespace Online_Exam {
 
 	}
 
+private: System::Void linkLabel2_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
+			 //TODO: open signup
+			 Login::Hide();
+			 Signup^ form = gcnew Signup();
+			 form->Show();
+}
+private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
+			 // TODO: open mailer
+}
 };
 }

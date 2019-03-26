@@ -171,7 +171,7 @@ namespace Online_Exam {
 			// txtUsername
 			// 
 			this->txtUsername->Location = System::Drawing::Point(399, 14);
-			this->txtUsername->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtUsername->Margin = System::Windows::Forms::Padding(4);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->ReadOnly = true;
 			this->txtUsername->Size = System::Drawing::Size(229, 22);
@@ -180,7 +180,7 @@ namespace Online_Exam {
 			// txtFullName
 			// 
 			this->txtFullName->Location = System::Drawing::Point(399, 68);
-			this->txtFullName->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtFullName->Margin = System::Windows::Forms::Padding(4);
 			this->txtFullName->Name = L"txtFullName";
 			this->txtFullName->Size = System::Drawing::Size(229, 22);
 			this->txtFullName->TabIndex = 21;
@@ -188,7 +188,7 @@ namespace Online_Exam {
 			// txtRoll
 			// 
 			this->txtRoll->Location = System::Drawing::Point(399, 118);
-			this->txtRoll->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtRoll->Margin = System::Windows::Forms::Padding(4);
 			this->txtRoll->Name = L"txtRoll";
 			this->txtRoll->Size = System::Drawing::Size(229, 22);
 			this->txtRoll->TabIndex = 22;
@@ -196,7 +196,7 @@ namespace Online_Exam {
 			// txtEmail
 			// 
 			this->txtEmail->Location = System::Drawing::Point(399, 167);
-			this->txtEmail->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtEmail->Margin = System::Windows::Forms::Padding(4);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(229, 22);
 			this->txtEmail->TabIndex = 23;
@@ -204,16 +204,15 @@ namespace Online_Exam {
 			// txtPhone
 			// 
 			this->txtPhone->Location = System::Drawing::Point(399, 218);
-			this->txtPhone->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtPhone->Margin = System::Windows::Forms::Padding(4);
 			this->txtPhone->Name = L"txtPhone";
-			this->txtPhone->ReadOnly = true;
 			this->txtPhone->Size = System::Drawing::Size(229, 22);
 			this->txtPhone->TabIndex = 24;
 			// 
 			// txtIITG
 			// 
 			this->txtIITG->Location = System::Drawing::Point(399, 268);
-			this->txtIITG->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtIITG->Margin = System::Windows::Forms::Padding(4);
 			this->txtIITG->Name = L"txtIITG";
 			this->txtIITG->ReadOnly = true;
 			this->txtIITG->Size = System::Drawing::Size(229, 22);
@@ -222,7 +221,7 @@ namespace Online_Exam {
 			// txtBranch
 			// 
 			this->txtBranch->Location = System::Drawing::Point(399, 318);
-			this->txtBranch->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtBranch->Margin = System::Windows::Forms::Padding(4);
 			this->txtBranch->Name = L"txtBranch";
 			this->txtBranch->ReadOnly = true;
 			this->txtBranch->Size = System::Drawing::Size(229, 22);
@@ -231,7 +230,7 @@ namespace Online_Exam {
 			// btnUpdate
 			// 
 			this->btnUpdate->Location = System::Drawing::Point(246, 368);
-			this->btnUpdate->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(4);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(199, 43);
 			this->btnUpdate->TabIndex = 27;
@@ -291,14 +290,41 @@ namespace Online_Exam {
 
 				 }
 	}
+
+	private:bool validate(){
+	
+				
+				if (txtPhone->TextLength != 10){
+					MessageBox::Show("Phone Number Length should be 10");
+					return false;
+				}
+				if (txtRoll->TextLength != 9){
+					MessageBox::Show("Roll Number Length should be 9");
+					return false;
+				}
+				
+				if (txtFullName->Text->Trim() == ""){
+					MessageBox::Show("Name can not be Empty");
+					return false;
+				}
+				if (txtEmail->Text->Trim() == ""){
+					MessageBox::Show("Email Field can not be Empty");
+					return false;
+				}
+				
+				return true;
+
+	}
 private: System::Void btnUpdate_Click(System::Object^  sender, System::EventArgs^  e) {
 
 			 OES ^Access = gcnew OES();
-			 Access->ExecQuery("UPDATE Users SET FullName='" + txtFullName->Text + "', Email='" + txtEmail->Text + "',  PhoneNo='" + txtPhone->Text + "', RollNo='" + txtRoll->Text + "' WHERE Username = '" + txtUsername->Text + "'");
-			 
+			 if (validate()){
+				 Access->ExecQuery("UPDATE Users SET FullName='" + txtFullName->Text + "', Email='" + txtEmail->Text + "',  PhoneNo='" + txtPhone->Text + "', RollNo='" + txtRoll->Text + "' WHERE Username = '" + txtUsername->Text + "'");
+				 MessageBox::Show("Profile Updated Successfully");
+			 }
 			 
 			 //MessageBox::Show("UPDATE Users SET FullName='" + txtFullName->Text + "' WHERE Username = '" + txtUsername->Text + "'");
-			 MessageBox::Show("Profile Updated Successfully");
+			 
 			 
 }
 
