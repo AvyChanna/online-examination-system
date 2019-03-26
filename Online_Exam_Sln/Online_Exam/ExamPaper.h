@@ -1,5 +1,5 @@
 #pragma once
-//#include"json.h"
+#include"json.h"
 #include"Database.h"
 
 
@@ -342,8 +342,9 @@ namespace Online_Exam {
 			OES ^Access = gcnew OES();
 			Access->ExecQuery("select * from Exam where ExamCode = " + ExamCode.ToString());
 			if (Access->RecordCount == 1){
-				//JString^ QSet = JsonConvert::DeserializeObject<JString>(Convert::ToString(Access->DBDT->Rows[0]["QuestionSet"]));
-				//Console::WriteLine(QSet->ToString());
+				JsonSerializerSettings ^s = gcnew JsonSerializerSettings();
+				JExam^ QSet = JsonConvert::DeserializeObject<JExam^>(Convert::ToString(Access->DBDT->Rows[0]->default["QuestionSet"]), s);
+				Console::WriteLine(QSet->Data[0]->Questions[0]->Statement);
 				MinRem = Convert::ToInt32(Access->DBDT->Rows[0]->default["ExamLength"]);
 				SecRem = 0;
 				lblTimer->Text = MinRem.ToString() + ":0" + SecRem.ToString();
