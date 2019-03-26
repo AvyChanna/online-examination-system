@@ -1,6 +1,6 @@
 #pragma once
 #include"Questions.h"
-
+//#include"json.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -8,6 +8,8 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 using namespace Questions;
+using namespace Newtonsoft::Json;
+
 namespace Online_Exam {
 
 	/// <summary>
@@ -433,113 +435,118 @@ namespace Online_Exam {
 #pragma endregion
 
 private: System::Void AddQuestions_Load(System::Object^  sender, System::EventArgs^  e) {
-			cbSection->Items->Clear();
-			for (int i = 0; i < SectionQues->Length;i++)
-				cbSection->Items->Add(i+1);
-			cbSection->SelectedIndex = 0;
-			btnPrev->Visible = false;
-			if (SectionQues[0] == 1)
-				btnNext->Visible = false;
-			label5->Text = Convert::ToString(SectionQues[0]);
+	cbSection->Items->Clear();
+	for (int i = 0; i < SectionQues->Length;i++)
+		cbSection->Items->Add(i+1);
+	cbSection->SelectedIndex = 0;
+	btnPrev->Visible = false;
+	if (SectionQues[0] == 1)
+		btnNext->Visible = false;
+	label5->Text = Convert::ToString(SectionQues[0]);
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-			btnNext->Visible = true;
-			if (CurrentQuestion >=2)
-				btnPrev->Visible = true;
-			else btnPrev->Visible = false;
+	btnNext->Visible = true;
+	if (CurrentQuestion >=2)
+		btnPrev->Visible = true;
+	else btnPrev->Visible = false;
 
-			SaveData(CurrentSection, CurrentQuestion);
-			CurrentQuestion--;
-			LoadData(CurrentSection, CurrentQuestion);
+	SaveData(CurrentSection, CurrentQuestion);
+	CurrentQuestion--;
+	LoadData(CurrentSection, CurrentQuestion);
 }
 private: System::Void btnNext_Click(System::Object^  sender, System::EventArgs^  e) {
-			if (CurrentQuestion < SectionQues[CurrentSection] - 2)
-				btnNext->Visible = true;
-			else btnNext->Visible = false;
-			btnPrev->Visible = true;
+	if (CurrentQuestion < SectionQues[CurrentSection] - 2)
+		btnNext->Visible = true;
+	else btnNext->Visible = false;
+	btnPrev->Visible = true;
 
-			SaveData(CurrentSection, CurrentQuestion);
-			CurrentQuestion++;
-			LoadData(CurrentSection, CurrentQuestion);
+	SaveData(CurrentSection, CurrentQuestion);
+	CurrentQuestion++;
+	LoadData(CurrentSection, CurrentQuestion);
 }
 
 private: System::Void cbSection_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-			 SaveData(CurrentSection, CurrentQuestion);
-			 CurrentSection= cbSection->SelectedIndex;
-			 CurrentQuestion = 0;
-			 LoadData(CurrentSection, CurrentQuestion);
+	SaveData(CurrentSection, CurrentQuestion);
+	CurrentSection= cbSection->SelectedIndex;
+	CurrentQuestion = 0;
+	LoadData(CurrentSection, CurrentQuestion);
 }
 public: System::Void SaveData(int sect, int ques)
 {
-		// save question statement
-		data[sect][ques]->q = textQuestion->Text;
-		// save options
-		data[sect][ques]->lc->Clear();
-		data[sect][ques]->li->Clear();
-		data[sect][ques]->type = tcAnswerType->SelectedIndex;
-		if (tcAnswerType->SelectedIndex == 0)
-		{
-			array<String ^> ^delim = { "\r", "\n", "\r\n", "\n\r" };
-			for each(String^ s in textCorrectOpt->Text->Split(delim, StringSplitOptions::RemoveEmptyEntries))
-			if (!String::IsNullOrEmpty(s->Trim()))
-				data[sect][ques]->lc->Add(s);
-			for each(String^ s in textIncorrectOpt->Text->Split(delim, StringSplitOptions::RemoveEmptyEntries))
-			if (!String::IsNullOrEmpty(s->Trim()))
-				data[sect][ques]->li->Add(s);
-		}
-		else if (tcAnswerType->SelectedIndex == 1)
-		{
-			if (radioTrue->Checked)
-				data[sect][ques]->tf = 1;
-			else data[sect][ques]->tf = 0;
-		}
-		else if (tcAnswerType->SelectedIndex == 2)
-		{
-			data[sect][ques]->ow = textAnswer->Text;
-		}
+	// save question statement
+	data[sect][ques]->q = textQuestion->Text;
+	// save options
+	data[sect][ques]->lc->Clear();
+	data[sect][ques]->li->Clear();
+	data[sect][ques]->type = tcAnswerType->SelectedIndex;
+	if (tcAnswerType->SelectedIndex == 0)
+	{
+		array<String ^> ^delim = { "\r", "\n", "\r\n", "\n\r" };
+		for each(String^ s in textCorrectOpt->Text->Split(delim, StringSplitOptions::RemoveEmptyEntries))
+		if (!String::IsNullOrEmpty(s->Trim()))
+			data[sect][ques]->lc->Add(s);
+		for each(String^ s in textIncorrectOpt->Text->Split(delim, StringSplitOptions::RemoveEmptyEntries))
+		if (!String::IsNullOrEmpty(s->Trim()))
+			data[sect][ques]->li->Add(s);
+	}
+	else if (tcAnswerType->SelectedIndex == 1)
+	{
+		if (radioTrue->Checked)
+			data[sect][ques]->tf = 1;
+		else data[sect][ques]->tf = 0;
+	}
+	else if (tcAnswerType->SelectedIndex == 2)
+		data[sect][ques]->ow = textAnswer->Text;
 }
 public: System::Void LoadData(int sect, int ques)
 {
-		// display ques
-		textQuestion->Text = data[sect][ques]->q;
-		textCorrectOpt->Text = "";
-		textIncorrectOpt->Text = "";
-		// display options
-		label6->Text = Convert::ToString(ques+1);
-		label5->Text = Convert::ToString(SectionQues[CurrentSection]);
-		if (data[sect][ques]->type == -1) tcAnswerType->SelectedIndex = 0;
-		else tcAnswerType->SelectedIndex = data[sect][ques]->type;
-		tcAnswerType->Refresh();
-		if (data[sect][ques]->type == 0)
+	// display ques
+	textQuestion->Text = data[sect][ques]->q;
+	textCorrectOpt->Text = "";
+	textIncorrectOpt->Text = "";
+	// display options
+	label6->Text = Convert::ToString(ques+1);
+	label5->Text = Convert::ToString(SectionQues[CurrentSection]);
+	if (data[sect][ques]->type == -1) tcAnswerType->SelectedIndex = 0;
+	else tcAnswerType->SelectedIndex = data[sect][ques]->type;
+	tcAnswerType->Refresh();
+	if (data[sect][ques]->type == 0)
+	{
+		for each(String ^s in data[sect][ques]->lc)
+			textCorrectOpt->AppendText(s + Environment::NewLine);
+		for each(String ^s in data[sect][ques]->li)
+			textIncorrectOpt->AppendText(s + Environment::NewLine);
+	}
+	else if (data[sect][ques]->type == 1)
+	{
+		if (data[sect][ques]->tf)
 		{
-			for each(String ^s in data[sect][ques]->lc)
-				textCorrectOpt->AppendText(s + Environment::NewLine);
-			for each(String ^s in data[sect][ques]->li)
-				textIncorrectOpt->AppendText(s + Environment::NewLine);
+			radioFalse->Checked = false;
+			radioTrue->Checked = true;
 		}
-		else if (data[sect][ques]->type == 1)
+		else
 		{
-			if (data[sect][ques]->tf)
-			{
-				radioFalse->Checked = false;
-				radioTrue->Checked = true;
-			}
-			else
-			{
-				radioTrue->Checked = false;
-				radioFalse->Checked = true;
-			}
+			radioTrue->Checked = false;
+			radioFalse->Checked = true;
 		}
-		else if (data[sect][ques]->type == 2)
-		{
-			textAnswer->Text = data[sect][ques]->ow;
-		}
-}
-private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^  e) {
-
+	}
+	else if (data[sect][ques]->type == 2)
+		textAnswer->Text = data[sect][ques]->ow;
 }
 private: System::Void btnSave_Click(System::Object^  sender, System::EventArgs^  e) {
-			 SaveData(CurrentSection, CurrentQuestion);
+	SaveData(CurrentSection, CurrentQuestion);
+	textAnswer->Text = "";
+	textQuestion->Text = "";
+	textCorrectOpt->Text = "";
+	textIncorrectOpt->Text = "";
+	radioTrue->Checked = false;
+	radioFalse->Checked = false;
+	LoadData(CurrentSection, CurrentQuestion);
+}
+private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^  e) {
+			// TODO: Check if all fields are done for.
+			//JString
+
 }
 };
 }

@@ -129,6 +129,7 @@
     <ClInclude Include="GroupEnroll.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="json.h" />
     <ClInclude Include="Questions.h" />
     <ClInclude Include="ProfEditProfile.h">
       <FileType>CppControl</FileType>

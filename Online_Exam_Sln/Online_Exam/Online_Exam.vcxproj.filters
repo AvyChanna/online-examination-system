@@ -30,6 +30,7 @@
     <ClInclude Include="Login.h" />
     <ClInclude Include="Encryption.h" />
     <ClInclude Include="Questions.h" />
+    <ClInclude Include="json.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
