@@ -9,7 +9,7 @@
 				{
 					"Statement":"ASD", // obj.Data[0].Questions[0].Statement
 					"AnswerType": 0, // obj.Data[0].Questions[0].AnswerType
-					"Answer": [2,3], // obj.Data[0].Questions[0].Answer
+					"Answer": [1,2], // obj.Data[0].Questions[0].Answer
 					"Options": ["ASD", "QWE", "PQR", "MNO"] // obj.Data[0].Questions[0].Options[0-3]
 				},
 				{

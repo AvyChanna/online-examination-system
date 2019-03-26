@@ -1,33 +1,28 @@
 #pragma once
 namespace Online_Exam{
 	using namespace System;
-	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 	using namespace Newtonsoft::Json;
-	public ref class JString{
+	public ref class JQuestions{
 	public:
-		JString(){ Sessions = 0; Data = gcnew }
-		~JString(){}
-		int Sessions;
-		List<JData^> ^Data;
+		JQuestions(){ Statement = ""; AnswerType = 0; Answer = gcnew List<int>(); Options = gcnew List<String^>(); }
+		String ^Statement;
+		int AnswerType;
+		List<int> ^Answer;
+		List<String^> ^Options;
 	};
-	public ref class JData{
+	public ref class JSection{
 	public:
-		JData(){}
-		~JData(){}
+		JSection(){ Section = 0; Weight = 0; TotalQuestions = 0; NumberOfQuestionsGiven = 0; Questions = gcnew List<JQuestions^>(); }
 		int Section;
 		int Weight;
 		int TotalQuestions;
 		int NumberOfQuestionsGiven;
-		array<JQues^> ^Questions;
+		List<JQuestions^> ^Questions;
 	};
-	public ref class JQues{
+	public ref class JExam{
 	public:
-		JQues(){}
-		~JQues(){}
-		String ^Statement;
-		int AnswerType;
-		array<int> ^Answer;
-		array<String^> ^Options;
+		JExam(){ Data = gcnew List<JSection^>(); }
+		List<JSection^> ^Data;
 	};
 }
-Jstring deserializedProduct = JsonConvert.DeserializeObject<Jstring>("[data:[awvfwegvewbv ]]");

@@ -565,7 +565,8 @@ namespace Online_Exam {
 				 array<System::String ^>^ wgt = SectWgt->Split('-');
 				 array<System::String ^>^ qDB = NoQDB->Split('-');
 				 array<System::String ^>^ qAsk = NoQAsk->Split('-');
-				 Int32 MaxScore = 0;
+				 UInt32 MaxScore;
+				 MaxScore = 0;
 				 UInt32 SesNo = Convert::ToInt32(txtSesNo->Text);
 				 if (wgt->Length == SectNo){
 					 for (int i = 0; i<SectNo; i++){
@@ -612,6 +613,7 @@ namespace Online_Exam {
 				 Access->AddParam("@Ses4", start[3]);
 				 Access->AddParam("@Ses5", start[4]);
 				 
+#pragma warning(suppress: 6011)
 				 Access->ExecQuery("INSERT Into Exam (ExamName, Professor, GroupID, NumSections, WgtSections, ExamLength, MaxScore, PassPercentage, NumSessions, StartTimeSes1, StartTimeSes2, StartTimeSes3, StartTimeSes4, StartTimeSes5) Values (@ExamName,'" + gVar::Username + "',@GroupID, " + SectNo.ToString() + ", @WgtSections, " + ExamLen.ToString() + "," + MaxScore.ToString() + "," + Pass.ToString() + "," + SesNo.ToString() + ",@Ses1, @Ses2, @Ses3, @Ses4, @Ses5)");
 				 MessageBox::Show("Test " + txtName->Text + " successfully created!");
 
