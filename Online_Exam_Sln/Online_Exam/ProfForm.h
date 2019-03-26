@@ -267,10 +267,19 @@ private: System::Void btnPastTestsSet_Click(System::Object^  sender, System::Eve
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 profContentPanel->Controls->Clear();
 			 array<Int32> ^arr = gcnew array<Int32>(3);
-			 arr[0] = 3;
+			 array<Int32> ^arr1 = gcnew array<Int32>(3);
+			 array<Int32> ^arr2 = gcnew array<Int32>(3);
+
+			 arr2[0] = 3;//arr2=no of q to give to each student
+			 arr2[1] = 2;
+			 arr2[2] = 1;
+			 arr1[0] = 3;//arr1=weight of each q in a seciton
+			 arr1[1] = 2;
+			 arr1[2] = 1;
+			 arr[0] = 3;// arr=no of q in each section
 			 arr[1] = 2;
 			 arr[2] = 1;
-			 AddQuestions^ ref = gcnew AddQuestions(3,arr);
+			 AddQuestions^ ref = gcnew AddQuestions(3,arr,arr1,arr2);
 			 profContentPanel->Controls->Add(ref);
 }
 };
