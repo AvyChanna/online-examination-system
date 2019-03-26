@@ -131,7 +131,7 @@ namespace Online_Exam {
 #pragma endregion
 	private: System::Void StudentEditAdmin_Load(System::Object^  sender, System::EventArgs^  e) {
 				 Access = gcnew OES();
-				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(AccessLevel = 'Student')");
+				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(Designation = 'Student')");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Users");
 				 profList->DataSource = dsa->Tables[0];
@@ -142,14 +142,14 @@ namespace Online_Exam {
 	}
 	private: System::Void radioButton1_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 				 Access = gcnew OES();
-				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(AccessLevel = 'Student')");
+				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(Designation = 'Student')");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Users");
 				 profList->DataSource = dsa->Tables[0];
 	}
 private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			 Access = gcnew OES();
-			 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(AccessLevel = 'Prof')");
+			 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(Designation = 'Professor')");
 			 dsa = gcnew DataSet();
 			 Access->DBDA->Fill(dsa, "Users");
 			 profList->DataSource = dsa->Tables[0];

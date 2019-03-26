@@ -5,6 +5,7 @@
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="AddQuestions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h" />
@@ -20,6 +21,14 @@
     <ClInclude Include="ProfEditProfile.h" />
     <ClInclude Include="CreateGroup.h" />
     <ClInclude Include="CreateExam.h" />
+    <ClInclude Include="AddQuestions.h" />
+    <ClInclude Include="Signup.h" />
+    <ClInclude Include="signup_student.h" />
+    <ClInclude Include="prof_signup.h" />
+    <ClInclude Include="GroupEnroll.h" />
+    <ClInclude Include="Unenroll.h" />
+    <ClInclude Include="Login.h" />
+    <ClInclude Include="Encryption.h" />
     <ClInclude Include="AdminForm.h" />
     <ClInclude Include="ApproveProf.h" />
     <ClInclude Include="StudentEditAdmin.h" />
@@ -37,11 +46,20 @@
     <EmbeddedResource Include="CreateExam.resx" />
     <EmbeddedResource Include="CreateGroup.resx" />
     <EmbeddedResource Include="ProfEditProfile.resx" />
+    <EmbeddedResource Include="GroupEnroll.resx" />
+    <EmbeddedResource Include="Login.resx" />
+    <EmbeddedResource Include="prof_signup.resx" />
+    <EmbeddedResource Include="Signup.resx" />
+    <EmbeddedResource Include="signup_student.resx" />
+    <EmbeddedResource Include="Unenroll.resx" />
     <EmbeddedResource Include="AdminForm.resx" />
     <EmbeddedResource Include="ApproveProf.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
     <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Logo\logo_medium.png" />
   </ItemGroup>
 </Project>

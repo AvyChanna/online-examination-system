@@ -108,7 +108,7 @@ namespace Online_Exam {
 	}
 	private: System::Void ApproveProf_Load(System::Object^  sender, System::EventArgs^  e) {
 				 Access = gcnew OES(); 
-				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(AccessLevel = 'Prof') AND(isApproved = False)");
+				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(Designation = 'Professor') AND(isApproved = False)");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Users");
 				 profList->DataSource = dsa->Tables[0];
