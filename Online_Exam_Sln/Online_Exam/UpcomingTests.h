@@ -6,6 +6,7 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
+using namespace System::Globalization;
 
 
 namespace Online_Exam {
@@ -186,7 +187,18 @@ namespace Online_Exam {
 							 y += 120;
 
 							 //getting the dates of all sessions
-							// DateTime ses1Date = Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes1"]);
+							
+							 //DateTime.TryParseExact(dateValue, pattern, null,DateTimeStyles.None, out parsedDate)
+
+							 DateTime ses1Date;
+							 //= Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes1"], ));
+							 if (DateTime::TryParseExact(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes1"]),"yyyyMMddHHmmss", nullptr, DateTimeStyles::None, ses1Date))
+								 Console::WriteLine("Converted '{0}' to {1:O}.", Access->DBDT->Rows[i]["StartTimeSes1"], ses1Date);
+							 else
+								 Console::WriteLine("Unable to convert '{0}' to a date and time.", Access->DBDT->Rows[i]["StartTimeSes1"]);
+
+							 DateTime curDate = DateTime::Now;
+							 Console::WriteLine(DateTime::Compare(ses1Date, curDate));
 							// DateTime ses2Date = Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes2"]);
 							// DateTime ses3Date = Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes3"]);
 							// DateTime ses4Date = Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes4"]);
