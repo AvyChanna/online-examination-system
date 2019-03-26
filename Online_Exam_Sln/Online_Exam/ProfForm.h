@@ -252,11 +252,11 @@ private: System::Void btnCreateTest_Click(System::Object^  sender, System::Event
 			 CreateExam^ ref = gcnew CreateExam();
 			 profContentPanel->Controls->Add(ref);
 }
-private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs^  e) {
-			 this->Hide();
-			 AdminForm ^ af = gcnew AdminForm();
-			 af->Show();
-			 
+	private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs^  e) {
+				 this->Hide();
+				 AdminForm ^ af = gcnew AdminForm();
+				 af->Show();
+	}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 profContentPanel->Controls->Clear();
 			 array<Int32> ^arr = gcnew array<Int32>(3);
