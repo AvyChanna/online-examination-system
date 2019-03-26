@@ -1,6 +1,6 @@
 #pragma once
 #include"Questions.h"
-//#include"json.h"
+#include"json.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -22,14 +22,32 @@ namespace Online_Exam {
 	{
 	public:
 		array<array<Ques^>^>^data;
-		AddQuestions(Int32 SC, array<Int32> ^SQ)
+		AddQuestions()
+		{
+			InitializeComponent();
+		}
+		AddQuestions(Int32 SC, array<Int32> ^SQ, array<Int32> ^SW, array<Int32>^SGQ)
 		{
 			InitializeComponent();
 			CurrentSection = 0;
 			CurrentQuestion = 0;
 			SectionCount = SC;
 			SectionQues = gcnew array<int>(SC);
+			SectionWeight = gcnew array<int>(SC);
+			SectionTotalQuesGiven = gcnew array<int>(SC);
 			int i = 0;
+			for each(Int32 I in SGQ)
+			{
+				SectionTotalQuesGiven[i] = I;
+				i++;
+			}
+			i = 0;
+			for each(Int32 I in SW)
+			{
+				SectionWeight[i] = I;
+				i++;
+			}
+			i = 0;
 			for each(Int32 I in SQ)
 			{
 				SectionQues[i] = I;
@@ -62,6 +80,8 @@ namespace Online_Exam {
 			array<Int32> ^SectionQues;
 			int CurrentSection;
 			int CurrentQuestion;
+			array<Int32> ^SectionWeight;
+			array<Int32> ^SectionTotalQuesGiven;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::ComboBox^  cbSection;
@@ -470,6 +490,11 @@ private: System::Void cbSection_SelectedIndexChanged(System::Object^  sender, Sy
 	CurrentSection= cbSection->SelectedIndex;
 	CurrentQuestion = 0;
 	LoadData(CurrentSection, CurrentQuestion);
+
+	btnPrev->Visible = false;
+	if (SectionQues[CurrentSection] == 1)
+		btnNext->Visible = false;
+	else btnNext->Visible = true;
 }
 public: System::Void SaveData(int sect, int ques)
 {
@@ -544,9 +569,48 @@ private: System::Void btnSave_Click(System::Object^  sender, System::EventArgs^ 
 	LoadData(CurrentSection, CurrentQuestion);
 }
 private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^  e) {
-			// TODO: Check if all fields are done for.
-			//JString
+	// TODO: Check if all fields are done for.
+			 SaveData(CurrentSection, CurrentQuestion);
+	JExam ^js = gcnew JExam();
+	for (int i = 0; i < SectionCount; i++)
+	{
+		JSection ^jsd = gcnew JSection();
+		jsd->TotalQuestions = SectionQues[i];
+		jsd->Section = i+1;
+		jsd->Weight = SectionWeight[i];
+		jsd->NumberOfQuestionsGiven = SectionTotalQuesGiven[i];
+		for (int j = 0; j < SectionQues[i]; j++)
+		{
+			JQuestions ^jsq = gcnew JQuestions();
+			jsq->Statement = data[i][j]->q;
+			jsq->AnswerType = data[i][j]->type;
 
+			if(data[i][j]->type == 0)
+			{
+				for (int k = 1; k <= data[i][j]->lc->Count; k++)
+					jsq->Answer->Add(k);
+				for (int k = 0; k < data[i][j]->lc->Count; k++)
+					jsq->Options->Add(data[i][j]->lc[k]);
+				for (int k = 0; k < data[i][j]->li->Count; k++)
+					jsq->Options->Add(data[i][j]->li[k]);
+			}
+			else if (data[i][j]->type == 1)
+			{
+				jsq->Answer->Add(data[i][j]->tf);
+				jsq->Options->Add("False");
+				jsq->Options->Add("True");
+			}
+			else if (data[i][j]->type == 1)
+			{
+				jsq->Answer->Add(0);
+				jsq->Options->Add(data[i][j]->ow);
+			}
+			jsd->Questions->Add(jsq);
+		}
+		js->Data->Add(jsd);
+	}
+	String ^output = JsonConvert::SerializeObject(js, Formatting::Indented);
+	Console::WriteLine(output);
 }
 };
 }
