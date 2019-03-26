@@ -18,19 +18,12 @@ namespace Online_Exam {
 	public ref class ApproveProf : public System::Windows::Forms::UserControl
 	{
 	public:
-		OES ^Access;
-		DataSet ^ds;
+		OES ^ Access; 
+		DataSet ^dsa;
+		OleDbCommandBuilder^ cmdb;
 		ApproveProf(void)
 		{
-			Access = gcnew OES();
-			ds = gcnew DataSet();
 			InitializeComponent();
-			Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved \
-				FROM     Users \
-				WHERE(AccessLevel = 'Prof') AND(isApproved = False)");
-			ds->Tables->Add("Table");
-			Access->DBDA->Fill(ds->Tables["Table"]);
-			this->profList->DataSource = ds->Tables["Table"];
 		}
 
 	protected:
@@ -72,9 +65,11 @@ namespace Online_Exam {
 			// 
 			// profList
 			// 
+			this->profList->AllowUserToAddRows = false;
 			this->profList->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->profList->Location = System::Drawing::Point(67, 153);
 			this->profList->Name = L"profList";
+			//this->profList->ReadOnly = true;
 			this->profList->RowTemplate->Height = 24;
 			this->profList->Size = System::Drawing::Size(542, 281);
 			this->profList->TabIndex = 0;
@@ -97,14 +92,33 @@ namespace Online_Exam {
 			this->Controls->Add(this->profList);
 			this->Name = L"ApproveProf";
 			this->Size = System::Drawing::Size(658, 499);
+			this->Load += gcnew System::EventHandler(this, &ApproveProf::ApproveProf_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profList))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void btnUpdate_Click(System::Object^  sender, System::EventArgs^  e) {
-				 Access->DBDA->Update(ds);
-				 ds->AcceptChanges();
+				 cmdb = gcnew OleDbCommandBuilder(Access->DBDA);
+				 Access->DBDA->Update(dsa, "Users");
+				 dsa->Clear();
+				 Access->DBDA->Fill(dsa, "Users");
+				 //this->profList->Columns["isApproved"]->ReadOnly = false;
+				 
 	}
-	};
+	private: System::Void ApproveProf_Load(System::Object^  sender, System::EventArgs^  e) {
+				 Access = gcnew OES(); 
+				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(AccessLevel = 'Prof') AND(isApproved = False)");
+				 dsa = gcnew DataSet();
+				 Access->DBDA->Fill(dsa, "Users");
+				 profList->DataSource = dsa->Tables[0];
+				 this->profList->Columns["Username"]->ReadOnly = true;
+				 this->profList->Columns["FullName"]->ReadOnly = true; 
+				 this->profList->Columns["Email"]->ReadOnly = true;
+				 this->profList->Columns["PhoneNo"]->ReadOnly = true;
+				 this->profList->Columns["IITG"]->ReadOnly = true;
+				 this->profList->Columns["Branch"]->ReadOnly = true;
+
+	}
+};
 }

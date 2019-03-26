@@ -1,6 +1,7 @@
 #pragma once
 #include "Database.h"
 #include "ApproveProf.h"
+#include "StudentEditAdmin.h"
 
 namespace Online_Exam {
 
@@ -39,6 +40,7 @@ namespace Online_Exam {
 		}
 	private: System::Windows::Forms::Button^  BtnApproveProf;
 	private: System::Windows::Forms::Panel^  adminPanel;
+	private: System::Windows::Forms::Button^  Students;
 	protected:
 
 
@@ -57,6 +59,7 @@ namespace Online_Exam {
 		{
 			this->BtnApproveProf = (gcnew System::Windows::Forms::Button());
 			this->adminPanel = (gcnew System::Windows::Forms::Panel());
+			this->Students = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// BtnApproveProf
@@ -76,11 +79,22 @@ namespace Online_Exam {
 			this->adminPanel->Size = System::Drawing::Size(658, 499);
 			this->adminPanel->TabIndex = 1;
 			// 
+			// Students
+			// 
+			this->Students->Location = System::Drawing::Point(63, 150);
+			this->Students->Name = L"Students";
+			this->Students->Size = System::Drawing::Size(121, 61);
+			this->Students->TabIndex = 2;
+			this->Students->Text = L"Students";
+			this->Students->UseVisualStyleBackColor = true;
+			this->Students->Click += gcnew System::EventHandler(this, &AdminForm::Students_Click);
+			// 
 			// AdminForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(921, 593);
+			this->Controls->Add(this->Students);
 			this->Controls->Add(this->adminPanel);
 			this->Controls->Add(this->BtnApproveProf);
 			this->Name = L"AdminForm";
@@ -92,6 +106,11 @@ namespace Online_Exam {
 	private: System::Void BtnApproveProf_Click(System::Object^  sender, System::EventArgs^  e) {
 				 adminPanel->Controls->Clear();
 				 ApproveProf ^ usr = gcnew ApproveProf();
+				 adminPanel->Controls->Add(usr);
+	}
+	private: System::Void Students_Click(System::Object^  sender, System::EventArgs^  e) {
+				 adminPanel->Controls->Clear();
+				 StudentEditAdmin ^ usr = gcnew StudentEditAdmin();
 				 adminPanel->Controls->Add(usr);
 	}
 	};
