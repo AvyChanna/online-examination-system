@@ -127,11 +127,7 @@ namespace Online_Exam {
 							 Label ^ lblExam = gcnew Label();
 							 Label ^lblProf = gcnew Label();
 							 //creating session buttons
-							 Button ^bsession1 = gcnew Button();
-							 Button ^bsession2 = gcnew Button();
-							 Button ^bsession3 = gcnew Button();
-							 Button ^bsession4 = gcnew Button();
-							 Button ^bsession5 = gcnew Button();
+							
 							 border->Width = 400;
 							 border->Height = 100;
 							 lblProfName->Width = 100;
@@ -160,18 +156,9 @@ namespace Online_Exam {
 							 lblProf->Location = Point(x + 20, y + 60);
 							 lblExamName->AutoEllipsis = true;
 							 lblProfName->AutoEllipsis = true;
-							 bsession1->AutoEllipsis = true;
-							 bsession1->Text = "Session1";
-							 bsession2->Text = "Session2";
-							 bsession3->Text = "Session3";
-							 bsession4->Text = "Session4";
-							 bsession5->Text = "Session5";
 
-							 bsession1->Location = Point(x + 400, y + 10);
-							 bsession2->Location = Point(x + 400, y + 31);
-							 bsession3->Location = Point(x + 400, y + 52);
-							 bsession4->Location = Point(x + 400, y + 73);
-							 bsession5->Location = Point(x + 400, y + 94);
+							 int button_x = x + 400;
+							 int button_y = y + 10;
 
 							 /*border->SendToBack();*/
 							 contentPanel->Controls->Add(lblExamName);
@@ -179,45 +166,51 @@ namespace Online_Exam {
 							 //contentPanel->Controls->Add(border);
 							 contentPanel->Controls->Add(lblExam);
 							 contentPanel->Controls->Add(lblProf);
-							 contentPanel->Controls->Add(bsession1);
-							 contentPanel->Controls->Add(bsession2);
-							 contentPanel->Controls->Add(bsession3);
-							 contentPanel->Controls->Add(bsession4);
-							 contentPanel->Controls->Add(bsession5);
 							 y += 120;
-
-							 //getting the dates of all sessions
-							
-							 //DateTime.TryParseExact(dateValue, pattern, null,DateTimeStyles.None, out parsedDate)
-
-							 DateTime ses1Date;
-							 //= Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes1"], ));
-							 if (DateTime::TryParseExact(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes1"]),"yyyyMMddHHmmss", nullptr, DateTimeStyles::None, ses1Date))
-								 Console::WriteLine("Converted '{0}' to {1:O}.", Access->DBDT->Rows[i]["StartTimeSes1"], ses1Date);
-							 else
-								 Console::WriteLine("Unable to convert '{0}' to a date and time.", Access->DBDT->Rows[i]["StartTimeSes1"]);
-
-							 DateTime curDate = DateTime::Now;
-							 Console::WriteLine(DateTime::Compare(ses1Date, curDate));
-							// DateTime ses2Date = Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes2"]);
-							// DateTime ses3Date = Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes3"]);
-							// DateTime ses4Date = Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes4"]);
-							// DateTime ses5Date = Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes5"]);
-//
-							// bsession1->Tag = ses1Date;
-							// bsession2->Tag = ses2Date;
-							// bsession3->Tag = ses3Date;
-							// bsession4->Tag = ses4Date;
-							// bsession5->Tag = ses5Date;
-							 //bsession1->Click += gcnew System::EventHandler(this, &UpcomingTests::btnClick);
-							// bsession2->Click += gcnew System::EventHandler(this, &UpcomingTests::btnClick);
-							// bsession3->Click += gcnew System::EventHandler(this, &UpcomingTests::btnClick);
-							// bsession4->Click += gcnew System::EventHandler(this, &UpcomingTests::btnClick);
-							// bsession5->Click += gcnew System::EventHandler(this, &UpcomingTests::btnClick);
-
+							 int z; 
+							 
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes1"])) >= 0)
+							 {
+								 Button^ btnSession = gcnew Button();
+								 btnSession->Location = Point(button_x, button_y);
+								 button_y += 21;
+								 btnSession->Text = "Session1";
+								 contentPanel->Controls->Add(btnSession);
+							 }
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes2"])) >= 0)
+							 {
+								 Button^ btnSession = gcnew Button();
+								 btnSession->Location = Point(button_x, button_y);
+								 button_y += 21;
+								 btnSession->Text = "Session2";
+								 contentPanel->Controls->Add(btnSession);
+							 }
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes3"])) >= 0)
+							 {
+								 Button^ btnSession = gcnew Button();
+								 btnSession->Location = Point(button_x, button_y);
+								 button_y += 21;
+								 btnSession->Text = "Session3";
+								 contentPanel->Controls->Add(btnSession);
+							 }
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes4"])) >= 0)
+							 {
+								 Button^ btnSession = gcnew Button();
+								 btnSession->Location = Point(button_x, button_y);
+								 button_y += 21;
+								 btnSession->Text = "Session4";
+								 contentPanel->Controls->Add(btnSession);
+							 }
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes5"])) >= 0)
+							 {
+								 Button^ btnSession = gcnew Button();
+								 btnSession->Location = Point(button_x, button_y);
+								 button_y += 21;
+								 btnSession->Text = "Session5";
+								 contentPanel->Controls->Add(btnSession);
+							 }
+							 
 						 }
-						 //MessageBox::Show(query);
-						 //dg1->DataSource = Access->DBDT;
 					 }
 				 }
 				 catch (Exception ^ex)
@@ -225,6 +218,20 @@ namespace Online_Exam {
 					 MessageBox::Show("error occured");
 				 }
 				
+	}
+	private: System::Int32 CompareDates(String ^sesDate)
+	{
+				 DateTime sessionDate;
+				 //= Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes1"], ));
+				 if (DateTime::TryParseExact(Convert::ToString(sesDate), "yyyy-MM-dd HH:mm:ss", nullptr, DateTimeStyles::None, sessionDate))
+					 Console::WriteLine("Converted '{0}' to {1:O}.",sesDate, sessionDate);
+				 else
+					 Console::WriteLine("Unable to convert '{0}' to a date and time.", sesDate);
+
+				 DateTime curDate = DateTime::Now;
+				 Console::WriteLine(DateTime::Compare(sessionDate, curDate));
+				 int z = DateTime::Compare(sessionDate, curDate);
+				 return z;
 	}
 	private: System::Void btnClick(System::Object^  sender, System::EventArgs^  e)
 	{
