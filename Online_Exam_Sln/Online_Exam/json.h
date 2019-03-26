@@ -1,7 +1,7 @@
 #pragma once
 namespace Online_Exam{
 	using namespace System;
-	using namespace
+	using namespace System::Drawing;
 	using namespace Newtonsoft::Json;
 	public ref class JString{
 	public:

@@ -124,6 +124,9 @@
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Encryption.h" />
+    <ClInclude Include="ExamPaper.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -198,6 +201,9 @@
     <EmbeddedResource Include="CreateGroup.resx">
       <DependentUpon>CreateGroup.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExamPaper.resx">
+      <DependentUpon>ExamPaper.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resX">
       <DependentUpon>Form1.h</DependentUpon>
       <SubType>Designer</SubType>
@@ -252,6 +258,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\iitg.png" />
     <Image Include="..\..\..\Logo\logo_medium.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
