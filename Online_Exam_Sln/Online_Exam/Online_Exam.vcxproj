@@ -55,6 +55,8 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <EnablePREfast>false</EnablePREfast>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>C:\Users\Avneet\Desktop\CS243_Lab3_Online_Examination_System\Online_Exam_Sln\Online_Exam\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -69,6 +71,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -79,6 +82,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -92,6 +98,12 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="AddQuestions.cpp" />
+    <ClCompile Include="GlobalSuppressions.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

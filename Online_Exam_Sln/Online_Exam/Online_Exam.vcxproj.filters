@@ -5,6 +5,7 @@
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="AddQuestions.cpp" />
+    <ClCompile Include="GlobalSuppressions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h" />

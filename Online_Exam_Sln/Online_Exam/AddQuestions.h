@@ -1,5 +1,6 @@
 #pragma once
 #include"Questions.h"
+
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -7,8 +8,6 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 using namespace Questions;
-
-
 namespace Online_Exam {
 
 	/// <summary>
@@ -44,7 +43,6 @@ namespace Online_Exam {
 				}
 			}
 		}
-
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -56,55 +54,36 @@ namespace Online_Exam {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^  textQuestion;
+	private: System::Windows::Forms::RichTextBox^  textQuestion;
 	protected:
-
-	private: System::Windows::Forms::DataGridView^  dgvOptions;
 	public: Int32 SectionCount;
 			array<Int32> ^SectionQues;
 			int CurrentSection;
 			int CurrentQuestion;
-	protected:
-
-
-
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::ComboBox^  cbSection;
-
 	private: System::Windows::Forms::Label^  label3;
-
-
 	private: System::Windows::Forms::Button^  btnDone;
-
 	private: System::Windows::Forms::Button^  btnNext;
-
 	private: System::Windows::Forms::Button^  btnPrev;
-
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label6;
-
-
 	private: System::Windows::Forms::TextBox^  textAnswer;
-
 	private: System::Windows::Forms::RadioButton^  radioTrue;
 	private: System::Windows::Forms::RadioButton^  radioFalse;
-	private: System::Windows::Forms::TabControl^  tabControl1;
-	private: System::Windows::Forms::TabPage^  tabPage1;
-	private: System::Windows::Forms::TabPage^  tabPage2;
-	private: System::Windows::Forms::TabPage^  tabPage3;
-	private: System::Windows::Forms::DataGridView^  dgvtemp;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  OptionText;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  CorrectOption;
-
-
-
-
-
-
-
-
+	private: System::Windows::Forms::TabControl^  tcAnswerType;
+	private: System::Windows::Forms::TabPage^  tpMCQ;
+	private: System::Windows::Forms::TabPage^  tpTF;
+	private: System::Windows::Forms::TabPage^  tpOW;
+	private: System::Windows::Forms::Label^  label8;
+	private: System::Windows::Forms::Label^  label7;
+	private: System::Windows::Forms::RichTextBox^  textIncorrectOpt;
+	private: System::Windows::Forms::RichTextBox^  textCorrectOpt;
+	private: System::Windows::Forms::Label^  label9;
+	private: System::Windows::Forms::Label^  label10;
+	private: System::Windows::Forms::Button^  btnSave;
 	private: System::ComponentModel::IContainer^  components;
 	private:
 		/// <summary>
@@ -119,8 +98,7 @@ namespace Online_Exam {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textQuestion = (gcnew System::Windows::Forms::TextBox());
-			this->dgvOptions = (gcnew System::Windows::Forms::DataGridView());
+			this->textQuestion = (gcnew System::Windows::Forms::RichTextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->cbSection = (gcnew System::Windows::Forms::ComboBox());
@@ -134,81 +112,71 @@ namespace Online_Exam {
 			this->textAnswer = (gcnew System::Windows::Forms::TextBox());
 			this->radioTrue = (gcnew System::Windows::Forms::RadioButton());
 			this->radioFalse = (gcnew System::Windows::Forms::RadioButton());
-			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			this->dgvtemp = (gcnew System::Windows::Forms::DataGridView());
-			this->OptionText = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->CorrectOption = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOptions))->BeginInit();
-			this->tabControl1->SuspendLayout();
-			this->tabPage1->SuspendLayout();
-			this->tabPage2->SuspendLayout();
-			this->tabPage3->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvtemp))->BeginInit();
+			this->tcAnswerType = (gcnew System::Windows::Forms::TabControl());
+			this->tpMCQ = (gcnew System::Windows::Forms::TabPage());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->textIncorrectOpt = (gcnew System::Windows::Forms::RichTextBox());
+			this->textCorrectOpt = (gcnew System::Windows::Forms::RichTextBox());
+			this->tpTF = (gcnew System::Windows::Forms::TabPage());
+			this->tpOW = (gcnew System::Windows::Forms::TabPage());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->btnSave = (gcnew System::Windows::Forms::Button());
+			this->tcAnswerType->SuspendLayout();
+			this->tpMCQ->SuspendLayout();
+			this->tpTF->SuspendLayout();
+			this->tpOW->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// textQuestion
 			// 
-			this->textQuestion->Location = System::Drawing::Point(91, 67);
-			this->textQuestion->Multiline = true;
+			this->textQuestion->BackColor = System::Drawing::Color::Gainsboro;
+			this->textQuestion->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textQuestion->Location = System::Drawing::Point(7, 67);
 			this->textQuestion->Name = L"textQuestion";
-			this->textQuestion->Size = System::Drawing::Size(469, 65);
+			this->textQuestion->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedBoth;
+			this->textQuestion->Size = System::Drawing::Size(663, 65);
 			this->textQuestion->TabIndex = 1;
-			// 
-			// dgvOptions
-			// 
-			this->dgvOptions->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			this->dgvOptions->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
-				this->OptionText,
-					this->CorrectOption
-			});
-			this->dgvOptions->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->dgvOptions->Location = System::Drawing::Point(3, 3);
-			this->dgvOptions->Name = L"dgvOptions";
-			this->dgvOptions->Size = System::Drawing::Size(210, 70);
-			this->dgvOptions->TabIndex = 2;
+			this->textQuestion->Text = L"";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(88, 51);
+			this->label1->Location = System::Drawing::Point(3, 51);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(72, 13);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Question No -";
-			this->label1->Click += gcnew System::EventHandler(this, &AddQuestions::label1_Click);
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(97, 153);
+			this->label2->Location = System::Drawing::Point(3, 135);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(47, 13);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Answers";
-			this->label2->Click += gcnew System::EventHandler(this, &AddQuestions::label1_Click);
 			// 
 			// cbSection
 			// 
 			this->cbSection->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cbSection->FormattingEnabled = true;
-			this->cbSection->Location = System::Drawing::Point(173, 21);
+			this->cbSection->Location = System::Drawing::Point(61, 18);
 			this->cbSection->Name = L"cbSection";
 			this->cbSection->Size = System::Drawing::Size(121, 21);
 			this->cbSection->Sorted = true;
 			this->cbSection->TabIndex = 4;
+			this->cbSection->SelectedIndexChanged += gcnew System::EventHandler(this, &AddQuestions::cbSection_SelectedIndexChanged);
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(88, 24);
+			this->label3->Location = System::Drawing::Point(12, 21);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(43, 13);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Section";
-			this->label3->Click += gcnew System::EventHandler(this, &AddQuestions::label1_Click);
 			// 
 			// btnDone
 			// 
@@ -218,6 +186,7 @@ namespace Online_Exam {
 			this->btnDone->TabIndex = 5;
 			this->btnDone->Text = L"Done";
 			this->btnDone->UseVisualStyleBackColor = true;
+			this->btnDone->Click += gcnew System::EventHandler(this, &AddQuestions::btnDone_Click);
 			// 
 			// btnNext
 			// 
@@ -231,7 +200,7 @@ namespace Online_Exam {
 			// 
 			// btnPrev
 			// 
-			this->btnPrev->Location = System::Drawing::Point(249, 292);
+			this->btnPrev->Location = System::Drawing::Point(150, 292);
 			this->btnPrev->Name = L"btnPrev";
 			this->btnPrev->Size = System::Drawing::Size(79, 35);
 			this->btnPrev->TabIndex = 6;
@@ -242,134 +211,203 @@ namespace Online_Exam {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(344, 29);
+			this->label4->Location = System::Drawing::Point(486, 51);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(143, 13);
+			this->label4->Size = System::Drawing::Size(149, 13);
 			this->label4->TabIndex = 8;
-			this->label4->Text = L"Total Question in this section";
+			this->label4->Text = L"Total Question in this section -";
 			// 
 			// label5
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(493, 29);
+			this->label5->Location = System::Drawing::Point(641, 51);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(13, 13);
+			this->label5->Size = System::Drawing::Size(29, 13);
 			this->label5->TabIndex = 9;
 			this->label5->Text = L"0";
-			this->label5->Click += gcnew System::EventHandler(this, &AddQuestions::label5_Click);
 			// 
 			// label6
 			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(166, 51);
+			this->label6->Location = System::Drawing::Point(81, 51);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(13, 13);
+			this->label6->Size = System::Drawing::Size(45, 13);
 			this->label6->TabIndex = 10;
-			this->label6->Text = L"0";
+			this->label6->Text = L"1";
 			// 
 			// textAnswer
 			// 
-			this->textAnswer->Location = System::Drawing::Point(25, 26);
+			this->textAnswer->BackColor = System::Drawing::Color::Gainsboro;
+			this->textAnswer->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textAnswer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textAnswer->Location = System::Drawing::Point(317, 30);
 			this->textAnswer->Name = L"textAnswer";
-			this->textAnswer->Size = System::Drawing::Size(416, 20);
+			this->textAnswer->Size = System::Drawing::Size(300, 26);
 			this->textAnswer->TabIndex = 12;
-			this->textAnswer->Visible = false;
 			// 
 			// radioTrue
 			// 
 			this->radioTrue->AutoSize = true;
-			this->radioTrue->Location = System::Drawing::Point(166, 28);
+			this->radioTrue->Checked = true;
+			this->radioTrue->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->radioTrue->Location = System::Drawing::Point(224, 39);
 			this->radioTrue->Name = L"radioTrue";
-			this->radioTrue->Size = System::Drawing::Size(47, 17);
+			this->radioTrue->Size = System::Drawing::Size(77, 30);
 			this->radioTrue->TabIndex = 13;
+			this->radioTrue->TabStop = true;
 			this->radioTrue->Text = L"True";
 			this->radioTrue->UseVisualStyleBackColor = true;
-			this->radioTrue->Visible = false;
 			// 
 			// radioFalse
 			// 
 			this->radioFalse->AutoSize = true;
-			this->radioFalse->Location = System::Drawing::Point(239, 28);
+			this->radioFalse->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->radioFalse->Location = System::Drawing::Point(355, 39);
 			this->radioFalse->Name = L"radioFalse";
-			this->radioFalse->Size = System::Drawing::Size(50, 17);
+			this->radioFalse->Size = System::Drawing::Size(88, 30);
 			this->radioFalse->TabIndex = 14;
 			this->radioFalse->Text = L"False";
 			this->radioFalse->UseVisualStyleBackColor = true;
-			this->radioFalse->Visible = false;
 			// 
-			// tabControl1
+			// tcAnswerType
 			// 
-			this->tabControl1->Controls->Add(this->tabPage1);
-			this->tabControl1->Controls->Add(this->tabPage2);
-			this->tabControl1->Controls->Add(this->tabPage3);
-			this->tabControl1->Location = System::Drawing::Point(91, 169);
-			this->tabControl1->Name = L"tabControl1";
-			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(224, 102);
-			this->tabControl1->TabIndex = 15;
+			this->tcAnswerType->Controls->Add(this->tpMCQ);
+			this->tcAnswerType->Controls->Add(this->tpTF);
+			this->tcAnswerType->Controls->Add(this->tpOW);
+			this->tcAnswerType->HotTrack = true;
+			this->tcAnswerType->Location = System::Drawing::Point(3, 151);
+			this->tcAnswerType->Name = L"tcAnswerType";
+			this->tcAnswerType->SelectedIndex = 0;
+			this->tcAnswerType->ShowToolTips = true;
+			this->tcAnswerType->Size = System::Drawing::Size(671, 135);
+			this->tcAnswerType->TabIndex = 15;
 			// 
-			// tabPage1
+			// tpMCQ
 			// 
-			this->tabPage1->Controls->Add(this->dgvOptions);
-			this->tabPage1->Location = System::Drawing::Point(4, 22);
-			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(216, 76);
-			this->tabPage1->TabIndex = 0;
-			this->tabPage1->Text = L"MCQ";
-			this->tabPage1->UseVisualStyleBackColor = true;
+			this->tpMCQ->Controls->Add(this->label8);
+			this->tpMCQ->Controls->Add(this->label7);
+			this->tpMCQ->Controls->Add(this->textIncorrectOpt);
+			this->tpMCQ->Controls->Add(this->textCorrectOpt);
+			this->tpMCQ->Location = System::Drawing::Point(4, 22);
+			this->tpMCQ->Name = L"tpMCQ";
+			this->tpMCQ->Padding = System::Windows::Forms::Padding(3);
+			this->tpMCQ->Size = System::Drawing::Size(663, 109);
+			this->tpMCQ->TabIndex = 0;
+			this->tpMCQ->Text = L"MCQ";
+			this->tpMCQ->ToolTipText = L"Single/Multiple Correct Type Answer";
+			this->tpMCQ->UseVisualStyleBackColor = true;
 			// 
-			// tabPage2
+			// label8
 			// 
-			this->tabPage2->Controls->Add(this->radioFalse);
-			this->tabPage2->Controls->Add(this->radioTrue);
-			this->tabPage2->Location = System::Drawing::Point(4, 22);
-			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(216, 76);
-			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"True/False";
-			this->tabPage2->UseVisualStyleBackColor = true;
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(331, 3);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(164, 13);
+			this->label8->TabIndex = 1;
+			this->label8->Text = L"Incorrect Options(Line separated)";
 			// 
-			// tabPage3
+			// label7
 			// 
-			this->tabPage3->Controls->Add(this->textAnswer);
-			this->tabPage3->Location = System::Drawing::Point(4, 22);
-			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(216, 76);
-			this->tabPage3->TabIndex = 2;
-			this->tabPage3->Text = L"One Word";
-			this->tabPage3->UseVisualStyleBackColor = true;
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(0, 3);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(156, 13);
+			this->label7->TabIndex = 1;
+			this->label7->Text = L"Correct Options(Line separated)";
 			// 
-			// dgvtemp
+			// textIncorrectOpt
 			// 
-			this->dgvtemp->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvtemp->Location = System::Drawing::Point(317, 191);
-			this->dgvtemp->Name = L"dgvtemp";
-			this->dgvtemp->Size = System::Drawing::Size(328, 77);
-			this->dgvtemp->TabIndex = 16;
+			this->textIncorrectOpt->BackColor = System::Drawing::Color::Gainsboro;
+			this->textIncorrectOpt->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textIncorrectOpt->DetectUrls = false;
+			this->textIncorrectOpt->Location = System::Drawing::Point(334, 19);
+			this->textIncorrectOpt->Name = L"textIncorrectOpt";
+			this->textIncorrectOpt->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedBoth;
+			this->textIncorrectOpt->Size = System::Drawing::Size(325, 84);
+			this->textIncorrectOpt->TabIndex = 0;
+			this->textIncorrectOpt->Text = L"";
 			// 
-			// OptionText
+			// textCorrectOpt
 			// 
-			this->OptionText->HeaderText = L"Option Text";
-			this->OptionText->Name = L"OptionText";
+			this->textCorrectOpt->BackColor = System::Drawing::Color::Gainsboro;
+			this->textCorrectOpt->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textCorrectOpt->DetectUrls = false;
+			this->textCorrectOpt->Location = System::Drawing::Point(3, 19);
+			this->textCorrectOpt->Name = L"textCorrectOpt";
+			this->textCorrectOpt->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedBoth;
+			this->textCorrectOpt->Size = System::Drawing::Size(325, 84);
+			this->textCorrectOpt->TabIndex = 0;
+			this->textCorrectOpt->Text = L"";
 			// 
-			// CorrectOption
+			// tpTF
 			// 
-			this->CorrectOption->HeaderText = L"Correct Option";
-			this->CorrectOption->Name = L"CorrectOption";
-			this->CorrectOption->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			this->CorrectOption->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+			this->tpTF->Controls->Add(this->radioFalse);
+			this->tpTF->Controls->Add(this->radioTrue);
+			this->tpTF->Location = System::Drawing::Point(4, 22);
+			this->tpTF->Name = L"tpTF";
+			this->tpTF->Padding = System::Windows::Forms::Padding(3);
+			this->tpTF->Size = System::Drawing::Size(663, 109);
+			this->tpTF->TabIndex = 1;
+			this->tpTF->Text = L"True/False";
+			this->tpTF->ToolTipText = L"True/False type Answer";
+			this->tpTF->UseVisualStyleBackColor = true;
+			// 
+			// tpOW
+			// 
+			this->tpOW->Controls->Add(this->label10);
+			this->tpOW->Controls->Add(this->label9);
+			this->tpOW->Controls->Add(this->textAnswer);
+			this->tpOW->Location = System::Drawing::Point(4, 22);
+			this->tpOW->Name = L"tpOW";
+			this->tpOW->Size = System::Drawing::Size(663, 109);
+			this->tpOW->TabIndex = 2;
+			this->tpOW->Text = L"One Word";
+			this->tpOW->ToolTipText = L"One Word/ Integer Type Answer";
+			this->tpOW->UseVisualStyleBackColor = true;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Location = System::Drawing::Point(300, 69);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(335, 26);
+			this->label10->TabIndex = 14;
+			this->label10->Text = L"( max 25 words, keep it short )";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->Location = System::Drawing::Point(45, 33);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(191, 20);
+			this->label9->TabIndex = 13;
+			this->label9->Text = L"Enter Your Answer Here -";
+			this->label9->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// btnSave
+			// 
+			this->btnSave->Location = System::Drawing::Point(235, 292);
+			this->btnSave->Name = L"btnSave";
+			this->btnSave->Size = System::Drawing::Size(93, 35);
+			this->btnSave->TabIndex = 7;
+			this->btnSave->Text = L"Save";
+			this->btnSave->UseVisualStyleBackColor = true;
+			this->btnSave->Click += gcnew System::EventHandler(this, &AddQuestions::btnSave_Click);
 			// 
 			// AddQuestions
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Controls->Add(this->dgvtemp);
-			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->tcAnswerType);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
+			this->Controls->Add(this->btnSave);
 			this->Controls->Add(this->btnNext);
 			this->Controls->Add(this->btnPrev);
 			this->Controls->Add(this->btnDone);
@@ -381,14 +419,13 @@ namespace Online_Exam {
 			this->Name = L"AddQuestions";
 			this->Size = System::Drawing::Size(677, 344);
 			this->Load += gcnew System::EventHandler(this, &AddQuestions::AddQuestions_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOptions))->EndInit();
-			this->tabControl1->ResumeLayout(false);
-			this->tabPage1->ResumeLayout(false);
-			this->tabPage2->ResumeLayout(false);
-			this->tabPage2->PerformLayout();
-			this->tabPage3->ResumeLayout(false);
-			this->tabPage3->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvtemp))->EndInit();
+			this->tcAnswerType->ResumeLayout(false);
+			this->tpMCQ->ResumeLayout(false);
+			this->tpMCQ->PerformLayout();
+			this->tpTF->ResumeLayout(false);
+			this->tpTF->PerformLayout();
+			this->tpOW->ResumeLayout(false);
+			this->tpOW->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -398,16 +435,12 @@ namespace Online_Exam {
 private: System::Void AddQuestions_Load(System::Object^  sender, System::EventArgs^  e) {
 			cbSection->Items->Clear();
 			for (int i = 0; i < SectionQues->Length;i++)
-				cbSection->Items->Add(i);
+				cbSection->Items->Add(i+1);
 			cbSection->SelectedIndex = 0;
 			btnPrev->Visible = false;
 			if (SectionQues[0] == 1)
 				btnNext->Visible = false;
 			label5->Text = Convert::ToString(SectionQues[0]);
-}
-private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void markAsCorrectOptionToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 			btnNext->Visible = true;
@@ -415,66 +448,98 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 				btnPrev->Visible = true;
 			else btnPrev->Visible = false;
 
-			data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
-			// clear dt
-			data[CurrentSection][CurrentQuestion]->dt->Columns->Clear();
-			data[CurrentSection][CurrentQuestion]->dt->Rows->Clear();
-			// add col in dt
-			//for each(DataGridViewColumn ^col in dgvOptions->Columns)
-			data[CurrentSection][CurrentQuestion]->dt->Columns->Add("OptionName");
-			data[CurrentSection][CurrentQuestion]->dt->Columns->Add("CorrectOption");
-			//add rows in dt
-			for each(DataGridViewRow ^row in dgvOptions->Rows)
-			{
-				DataRow ^dr = data[CurrentSection][CurrentQuestion]->dt->NewRow();
-				for each(DataGridViewCell ^cell in row->Cells)
-					dr[cell->ColumnIndex] = cell->Value;
-				data[CurrentSection][CurrentQuestion]->dt->Rows->Add(dr);
-			}
+			SaveData(CurrentSection, CurrentQuestion);
 			CurrentQuestion--;
-			label6->Text = Convert::ToString(CurrentQuestion);
-			textQuestion->Text = data[CurrentSection][CurrentQuestion]->q;
-			// clear
-			dgvOptions->Rows->Clear();
-			dgvOptions->Refresh();
-			dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
-			//dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
-			/*for each(DataGridViewRow ^drow in data[CurrentSection][CurrentQuestion]->dt->Rows)
-				dgvOptions->Rows->Add(drow);*/
+			LoadData(CurrentSection, CurrentQuestion);
 }
 private: System::Void btnNext_Click(System::Object^  sender, System::EventArgs^  e) {
 			if (CurrentQuestion < SectionQues[CurrentSection] - 2)
 				btnNext->Visible = true;
 			else btnNext->Visible = false;
 			btnPrev->Visible = true;
-			data[CurrentSection][CurrentQuestion]->q = textQuestion->Text;
-			data[CurrentSection][CurrentQuestion]->dt->Rows->Clear();
-			data[CurrentSection][CurrentQuestion]->dt->Columns->Clear();
-			//String ^s;
 
-			for each(DataGridViewColumn ^col in dgvOptions->Columns)
-				data[CurrentSection][CurrentQuestion]->dt->Columns->Add(col->Name);
-			for each(DataGridViewRow ^row in dgvOptions->Rows)
-			{
-				DataRow ^dr = data[CurrentSection][CurrentQuestion]->dt->NewRow();
-			for each(DataGridViewCell ^cell in row->Cells)
-				dr[cell->ColumnIndex] = cell->Value;
-			data[CurrentSection][CurrentQuestion]->dt->Rows->Add(dr);
-			}
+			SaveData(CurrentSection, CurrentQuestion);
 			CurrentQuestion++;
-
-			label6->Text = Convert::ToString(CurrentQuestion);
-			textQuestion->Text = data[CurrentSection][CurrentQuestion]->q;
-
-			dgvOptions->Rows->Clear();
-			dgvOptions->Refresh();
-			dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
-			//dgvOptions->DataSource = data[CurrentSection][CurrentQuestion]->dt;
-			/* for each(DataGridView ^drow in data[CurrentSection][CurrentQuestion]->dt->Rows)
-				dgvOptions->Rows->Add(drow);*/
+			LoadData(CurrentSection, CurrentQuestion);
 }
-private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+
+private: System::Void cbSection_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+			 SaveData(CurrentSection, CurrentQuestion);
+			 CurrentSection= cbSection->SelectedIndex;
+			 CurrentQuestion = 0;
+			 LoadData(CurrentSection, CurrentQuestion);
+}
+public: System::Void SaveData(int sect, int ques)
+{
+		// save question statement
+		data[sect][ques]->q = textQuestion->Text;
+		// save options
+		data[sect][ques]->lc->Clear();
+		data[sect][ques]->li->Clear();
+		data[sect][ques]->type = tcAnswerType->SelectedIndex;
+		if (tcAnswerType->SelectedIndex == 0)
+		{
+			array<String ^> ^delim = { "\r", "\n", "\r\n", "\n\r" };
+			for each(String^ s in textCorrectOpt->Text->Split(delim, StringSplitOptions::RemoveEmptyEntries))
+			if (!String::IsNullOrEmpty(s->Trim()))
+				data[sect][ques]->lc->Add(s);
+			for each(String^ s in textIncorrectOpt->Text->Split(delim, StringSplitOptions::RemoveEmptyEntries))
+			if (!String::IsNullOrEmpty(s->Trim()))
+				data[sect][ques]->li->Add(s);
+		}
+		else if (tcAnswerType->SelectedIndex == 1)
+		{
+			if (radioTrue->Checked)
+				data[sect][ques]->tf = 1;
+			else data[sect][ques]->tf = 0;
+		}
+		else if (tcAnswerType->SelectedIndex == 2)
+		{
+			data[sect][ques]->ow = textAnswer->Text;
+		}
+}
+public: System::Void LoadData(int sect, int ques)
+{
+		// display ques
+		textQuestion->Text = data[sect][ques]->q;
+		textCorrectOpt->Text = "";
+		textIncorrectOpt->Text = "";
+		// display options
+		label6->Text = Convert::ToString(ques+1);
+		label5->Text = Convert::ToString(SectionQues[CurrentSection]);
+		if (data[sect][ques]->type == -1) tcAnswerType->SelectedIndex = 0;
+		else tcAnswerType->SelectedIndex = data[sect][ques]->type;
+		tcAnswerType->Refresh();
+		if (data[sect][ques]->type == 0)
+		{
+			for each(String ^s in data[sect][ques]->lc)
+				textCorrectOpt->AppendText(s + Environment::NewLine);
+			for each(String ^s in data[sect][ques]->li)
+				textIncorrectOpt->AppendText(s + Environment::NewLine);
+		}
+		else if (data[sect][ques]->type == 1)
+		{
+			if (data[sect][ques]->tf)
+			{
+				radioFalse->Checked = false;
+				radioTrue->Checked = true;
+			}
+			else
+			{
+				radioTrue->Checked = false;
+				radioFalse->Checked = true;
+			}
+		}
+		else if (data[sect][ques]->type == 2)
+		{
+			textAnswer->Text = data[sect][ques]->ow;
+		}
+}
+private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^  e) {
+
+}
+private: System::Void btnSave_Click(System::Object^  sender, System::EventArgs^  e) {
+			 SaveData(CurrentSection, CurrentQuestion);
 }
 };
-
 }
