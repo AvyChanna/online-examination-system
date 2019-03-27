@@ -57,6 +57,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::TextBox^  passTxt;
 	private: System::Windows::Forms::TextBox^  nameTxt;
 	private: System::Windows::Forms::ComboBox^  branchCb;
+	private: System::Windows::Forms::Label^  existLbl;
 
 
 	protected:
@@ -139,6 +140,7 @@ namespace Online_Exam {
 			this->passTxt = (gcnew System::Windows::Forms::TextBox());
 			this->nameTxt = (gcnew System::Windows::Forms::TextBox());
 			this->branchCb = (gcnew System::Windows::Forms::ComboBox());
+			this->existLbl = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -217,7 +219,7 @@ namespace Online_Exam {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(688, 93);
+			this->label9->Location = System::Drawing::Point(688, 141);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(53, 17);
 			this->label9->TabIndex = 49;
@@ -230,6 +232,7 @@ namespace Online_Exam {
 			this->userTxt->Size = System::Drawing::Size(100, 22);
 			this->userTxt->TabIndex = 50;
 			this->userTxt->Text = L"shubham";
+			this->userTxt->TextChanged += gcnew System::EventHandler(this, &signup_student::userTxt_TextChanged);
 			// 
 			// confirmPassTxt
 			// 
@@ -299,15 +302,24 @@ namespace Online_Exam {
 				L"CSE", L"MNC", L"ECE", L"BT", L"EEE", L"ME", L"CE",
 					L"CS"
 			});
-			this->branchCb->Location = System::Drawing::Point(747, 87);
+			this->branchCb->Location = System::Drawing::Point(779, 138);
 			this->branchCb->Name = L"branchCb";
 			this->branchCb->Size = System::Drawing::Size(121, 24);
 			this->branchCb->TabIndex = 80;
+			// 
+			// existLbl
+			// 
+			this->existLbl->AutoSize = true;
+			this->existLbl->Location = System::Drawing::Point(542, 87);
+			this->existLbl->Name = L"existLbl";
+			this->existLbl->Size = System::Drawing::Size(0, 17);
+			this->existLbl->TabIndex = 81;
 			// 
 			// signup_student
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->Controls->Add(this->existLbl);
 			this->Controls->Add(this->branchCb);
 			this->Controls->Add(this->studBtn);
 			this->Controls->Add(this->nameTxt);
@@ -328,6 +340,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->label1);
 			this->Name = L"signup_student";
 			this->Size = System::Drawing::Size(1123, 547);
+			this->Load += gcnew System::EventHandler(this, &signup_student::signup_student_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -438,6 +451,28 @@ private: System::Void rNumTxt_TextChanged(System::Object^  sender, System::Event
 			 }
 
 
+}
+private: System::Void userTxt_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		
+			 OES^Access = gcnew OES();
+			 String ^str = userTxt->Text;
+			 Access->AddParam("@userName", str);
+			 Access->ExecQuery("SELECT * FROM Users WHERE Username =@userName");
+			 if (Access->DBDT->Rows->Count != 0 || Access->Exception->Length){
+				 existLbl->Text = "Username Not available";
+				 
+			 }
+			 else{
+				 existLbl->Text = "Username available";
+			 }
+
+			 if (str->Trim() == ""){
+				 existLbl->Text = "";
+			 }
+
+}
+private: System::Void signup_student_Load(System::Object^  sender, System::EventArgs^  e) {
+			 existLbl->Text = "";
 }
 };
 }

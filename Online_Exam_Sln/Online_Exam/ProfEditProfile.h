@@ -110,6 +110,7 @@ namespace Online_Exam {
 			this->txtUsername->ReadOnly = true;
 			this->txtUsername->Size = System::Drawing::Size(173, 22);
 			this->txtUsername->TabIndex = 35;
+			this->txtUsername->TextChanged += gcnew System::EventHandler(this, &ProfEditProfile::txtUsername_TextChanged);
 			// 
 			// lblBranch
 			// 
@@ -252,6 +253,8 @@ private: System::Void btnUpdate_Click(System::Object^  sender, System::EventArgs
 				 //MessageBox::Show("UPDATE Users SET FullName='" + txtFullName->Text + "' WHERE Username = '" + txtUsername->Text + "'");
 				 MessageBox::Show("Profile Updated Successfully");
 			 }
+}
+private: System::Void txtUsername_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
