@@ -37,6 +37,7 @@
     <ClInclude Include="Questions.h" />
     <ClInclude Include="json.h" />
     <ClInclude Include="ExamPaper.h" />
+    <ClInclude Include="QuestionStructure.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -64,6 +65,7 @@
     <EmbeddedResource Include="AddQuestions.resx" />
     <EmbeddedResource Include="PastTestsSet.resx" />
     <EmbeddedResource Include="StudentEditAdmin.resx" />
+    <EmbeddedResource Include="ExamPaper.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />

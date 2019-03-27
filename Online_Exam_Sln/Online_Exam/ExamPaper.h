@@ -1,7 +1,7 @@
 #pragma once
 #include"json.h"
 #include"Database.h"
-#include <vector>
+#include  "QuestionStructure.h"
 
 namespace Online_Exam {
 
@@ -26,6 +26,10 @@ namespace Online_Exam {
 		JExam^ QSet;
 		List<List<int>^>^ PaperQuestions;
 		List<List<Button ^>^>^ btnPaper;
+		List<CheckBox^>^ checkList;
+		RadioButton ^rd1;
+		RadioButton ^rd2;
+		List<List<QuestionStruc ^>^>^ QuestionAns;
 	private: System::Windows::Forms::TabControl^  tc1;
 	public:
 
@@ -179,6 +183,7 @@ namespace Online_Exam {
 			this->btnSaveResponse->TabIndex = 9;
 			this->btnSaveResponse->Text = L"Save Response";
 			this->btnSaveResponse->UseVisualStyleBackColor = true;
+			this->btnSaveResponse->Click += gcnew System::EventHandler(this, &ExamPaper::btnSaveResponse_Click);
 			// 
 			// btnEndTest
 			// 
@@ -443,7 +448,9 @@ namespace Online_Exam {
 		}
 
 	private: System::Void ExamPaper_Load(System::Object^  sender, System::EventArgs^  e) {
-			ExamCode = 25;
+		    QuestionAns = gcnew List<List<QuestionStruc ^>^>();
+			srand(time(0));
+			ExamCode = 11;
 			OES ^Access = gcnew OES();
 			Access->ExecQuery("select * from Exam where ExamCode = " + ExamCode.ToString());
 			
@@ -505,6 +512,28 @@ namespace Online_Exam {
 				}
 				std:: cout << "\n";
 			}
+
+			for (int i = 0; i < SectNo; i++)
+			{
+				List<QuestionStruc^>^ lst = gcnew List<QuestionStruc^>();
+				int req = QSet->Data[i]->NumberOfQuestionsGiven;
+				for (int j = 0; j < req; j++)
+				{
+					QuestionStruc ^ temp = gcnew QuestionStruc();
+					temp->QuestionNum = PaperQuestions[i][j];
+					String^ cur = "";
+					for (int k = 0; k < QSet->Data[i]->Questions[PaperQuestions[i][j]]->Answer->Count; ++k)
+					{
+						cur += ",";
+						cur += Convert::ToString(QSet->Data[i]->Questions[PaperQuestions[i][j]]->Answer[k]);
+						cur += ",";
+					}
+					temp->correctAns = cur;
+					lst->Add(temp);
+				}
+				QuestionAns->Add(lst);
+			}
+
 			for (int i = 0; i < SectNo; i++)
 			{
 				List<Button^> ^btnobj = gcnew List<Button ^>();
@@ -549,12 +578,22 @@ namespace Online_Exam {
 				lbl->Font = gcnew System::Drawing::Font(lbl->Font->FontFamily, 11,FontStyle::Bold);
 				markingFlowPanel->Controls->Add(lbl);
 			}
+
+
+
+
+			//*****************loading initial questions on formload******************************
+			int selInd = 0;
+			int selQues = static_cast<int>(PaperQuestions[0][0]);
+			Utility(selInd, selQues);
+
+			//******************end code**********************
 	}
 
 	private: System::Void TabSelect(System::Object^ sender, EventArgs^ e) {
 		lblQuesNum->Text = Convert::ToString(1);
-		Int32 SelInd = static_cast<TabControl^>(sender)->SelectedIndex;
-		Int32 SectNumQ = QSet->Data[SelInd]->NumberOfQuestionsGiven;
+		int selInd = static_cast<int>(static_cast<TabControl^>(sender)->SelectedIndex);
+		Int32 SectNumQ = QSet->Data[selInd]->NumberOfQuestionsGiven;
 		buttonFlowPanel->Controls->Clear();
 		for (Int32 i = 0; i < SectNumQ; i++){
 			/*Button^ btn = gcnew Button();
@@ -564,13 +603,76 @@ namespace Online_Exam {
 			buttonFlowPanel->Controls->Add(btn);
 			btn->Tag = PaperQuestions[SelInd][i];
 			btn->Click += gcnew System::EventHandler(this, &ExamPaper::btnClick);*/
-			buttonFlowPanel->Controls->Add(btnPaper[SelInd][i]);
+			buttonFlowPanel->Controls->Add(btnPaper[selInd][i]);
 			//loading question on tabselect
-			txtQuesText->Text = Convert::ToString(QSet->Data[SelInd]->Questions[PaperQuestions[SelInd][0]]->Statement);
-			lblQuesNum->Text = Convert::ToString(1);
+			
 		}
+		int selQues = static_cast<int>(PaperQuestions[selInd][0]);
+		Utility(selInd, selQues);
+
 	}
 #pragma endregion
+	private: System::Void Utility(int selInd, int selQues){
+				 answerFlowPanel->Controls->Clear();
+				 //loading question to textbox
+				
+				 txtQuesText->Text = Convert::ToString(QSet->Data[selInd]->Questions[selQues]->Statement);
+
+				 //Code for options ********************************************
+				 std::cout << QSet->Data[selInd]->Questions[selQues]->AnswerType;
+				 std::cout << std::endl;
+				 if (QSet->Data[selInd]->Questions[selQues]->AnswerType == 0)
+				 {
+
+					 
+					 int numOptions = QSet->Data[selInd]->Questions[selQues]->Options->Count;
+					  checkList = gcnew  List<CheckBox^>();
+					 for (int i = 0; i < numOptions; i++)
+					 {
+						 CheckBox^ chk = gcnew CheckBox();
+						 chk->MaximumSize = System::Drawing::Size(answerFlowPanel->Width, 100);
+						 chk->Text = Convert::ToString(QSet->Data[selInd]->Questions[selQues]->Options[i]);
+						 chk->AutoSize = true;
+						 checkList->Add(chk);
+					 }
+					 //if (QuestionAns[selInd][selQues]->attemptAns != "")
+					 //{
+						// // to be done 
+					 //}
+
+					 for (int i = 0; i < numOptions; i++) answerFlowPanel->Controls->Add(checkList[i]);
+				
+				 }
+
+				 //COde for option ends here *************************************
+
+				 //Code for fill in the blanks 
+				 if (QSet->Data[selInd]->Questions[selQues]->AnswerType == 2)
+				 {
+					 TextBox ^answerText = gcnew TextBox();
+
+
+					 answerText->Multiline = true;
+					 answerText->Width = answerFlowPanel->Width;
+					 answerText->Width /= 2;
+					 answerText->Height = 50;
+					 answerFlowPanel->Controls->Add(answerText);
+				 }
+
+				 //code for fill in the blanks ends here
+
+				 //code for true and false type of questions
+				 if (QSet->Data[selInd]->Questions[selQues]->AnswerType == 1)
+				 {
+					 rd1 = gcnew RadioButton();
+					 rd2 = gcnew RadioButton();
+					 rd1->Text = "TRUE";
+					 rd2->Text = "FALSE";
+					 answerFlowPanel->Controls->Add(rd1);
+					 answerFlowPanel->Controls->Add(rd2);
+				 }
+	}
+
 	private: System::Void lblTimer_Click(System::Object^  sender, System::EventArgs^  e) {
 						
 	}
@@ -584,28 +686,8 @@ namespace Online_Exam {
 				 int selQues = static_cast<int>(btn->Tag);
 				 lblQuesNum->Text = btn->Text;
 				 std::cout << selInd << " " << selQues << std::endl;
-				 //loading question to textbox
-				 txtQuesText->Text = Convert::ToString(QSet->Data[selInd]->Questions[selQues]->Statement);
+				 Utility(selInd, selQues);
 
-				 //Code for options
-				 std::cout << QSet->Data[selInd]->Questions[selQues]->AnswerType;
-				 std::cout << std::endl;
-				 if (QSet->Data[selInd]->Questions[selQues]->AnswerType == 0)
-				 {
-					 int numOptions = QSet->Data[selInd]->Questions[selQues]->Options->Count;
-					 List<CheckBox^>^ checkList = gcnew  List<CheckBox^>();
-					 for (int i = 0; i < numOptions; i++)
-					 {
-						 CheckBox^ chk = gcnew CheckBox();
-						 chk->MaximumSize =System::Drawing::Size(answerFlowPanel->Width, 100);
-						 chk->Text = Convert::ToString(QSet->Data[selInd]->Questions[selQues]->Options[i]);
-						 chk->AutoSize = true;
-						 checkList->Add(chk);
-					 }
-					 for (int i = 0; i < numOptions; i++) answerFlowPanel->Controls->Add(checkList[i]);
-				 }
-
-				 //COde for option ends here
 	}
 private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
@@ -634,28 +716,31 @@ private: System::Void label_Click(System::Object^  sender, System::EventArgs^  e
 private: System::Void lblQuesNum_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void btnNext_Click(System::Object^  sender, System::EventArgs^  e) {
-			 Int32 curNum = Convert::ToInt32(lblQuesNum->Text);
-			 Int32 sectNo = Convert::ToInt32(tc1->SelectedIndex);
-			 Int32 nextQuesNo;
+			 int curNum;
+			 int::TryParse(lblQuesNum->Text, curNum);
+			 int sectNo = static_cast<int>(tc1->SelectedIndex);
+			 int nextQuesNo;
 			 if (curNum != QSet->Data[sectNo]->NumberOfQuestionsGiven)
 			 {
 				 lblQuesNum->Text = Convert::ToString(curNum+1);
-				 nextQuesNo = Convert::ToInt32(btnPaper[sectNo][curNum]->Tag);
+				 nextQuesNo = static_cast<int>(btnPaper[sectNo][curNum]->Tag);
 				 //loading question into textbox
-				 txtQuesText->Text = Convert::ToString(QSet->Data[sectNo]->Questions[nextQuesNo]->Statement);
+				 Utility(sectNo, nextQuesNo);
+				 //txtQuesText->Text = Convert::ToString(QSet->Data[sectNo]->Questions[nextQuesNo]->Statement);
 				 
 			 }
 }
 private: System::Void btnPrev_Click(System::Object^  sender, System::EventArgs^  e) {
-			 Int32 curNum = Convert::ToInt32(lblQuesNum->Text);
-			 Int32 sectNo = Convert::ToInt32(tc1->SelectedIndex);
-			 Int32 nextQuesNo;
+			 int curNum;
+			 int::TryParse(lblQuesNum->Text, curNum);
+			 int sectNo = static_cast<int>(tc1->SelectedIndex);
+			 int nextQuesNo;
 			 if (curNum != 1)
 			 {
 				 lblQuesNum->Text = Convert::ToString(curNum - 1);
-				 nextQuesNo = Convert::ToInt32(btnPaper[sectNo][curNum-2]->Tag);
+				 nextQuesNo = static_cast<int>(btnPaper[sectNo][curNum - 2]->Tag);
 				 //loading question into textbox
-				 txtQuesText->Text = Convert::ToString(QSet->Data[sectNo]->Questions[nextQuesNo]->Statement);
+				 Utility(sectNo, nextQuesNo);
 			 }
 }
 private: System::Void btnEndTest_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -664,5 +749,37 @@ private: System::Void btnEndTest_Click(System::Object^  sender, System::EventArg
 			 this->Close();
 }
 
+private: System::Void btnSaveResponse_Click(System::Object^  sender, System::EventArgs^  e) {
+			 int curQuesNo;
+			 int::TryParse(lblQuesNum->Text, curQuesNo) ;
+			 int sectionNo = tc1->SelectedIndex;
+			 //code for options
+			 if (QSet->Data[sectionNo]->Questions[curQuesNo-1]->AnswerType == 0)
+			 {
+				 String^ temp = "";
+				 int flag = 0;
+				 for (int i = 0; i < checkList->Count; ++i)
+				 {
+					 if (checkList[i]->Checked)
+					 {
+						 flag = 1;
+						 temp += ",";
+						 temp += i.ToString();
+						 temp += ",";
+					 }
+
+				 }
+				 if (flag == 0)
+				 {
+					 MessageBox::Show("Please select atleast one option");
+				 }
+				 else
+				 {
+					 QuestionAns[sectionNo][curQuesNo - 1]->attemptAns = temp;
+				 }
+ 			 }
+}
+
 };
 }
+
