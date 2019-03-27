@@ -1,7 +1,7 @@
 #pragma once
 #include"json.h"
 #include"Database.h"
-
+#include <vector>
 
 namespace Online_Exam {
 
@@ -22,7 +22,29 @@ namespace Online_Exam {
 	public:
 		Int32 ExamCode;
 		Int32 MinRem;	//In minutes
-		Int32 SecRem;
+		JsonSerializerSettings ^s;
+		JExam^ QSet;
+		List<List<int>^>^ PaperQuestions;
+		List<List<Button ^>^>^ btnPaper;
+	private: System::Windows::Forms::TabControl^  tc1;
+	public:
+
+	public:
+	private: System::Windows::Forms::TabPage^  tabPage1;
+	private: System::Windows::Forms::TabPage^  tabPage2;
+	private: System::Windows::Forms::Button^  btnSaveResponse;
+
+	public:
+
+
+
+
+	public:
+
+	public:
+
+
+			 Int32 SecRem;
 		ExamPaper(int ExCode)
 		{
 			InitializeComponent();
@@ -94,11 +116,15 @@ namespace Online_Exam {
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(ExamPaper::typeid));
 			this->buttonFlowPanel = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->commandButtonPanel = (gcnew System::Windows::Forms::Panel());
+			this->btnSaveResponse = (gcnew System::Windows::Forms::Button());
 			this->btnEndTest = (gcnew System::Windows::Forms::Button());
 			this->btnReview = (gcnew System::Windows::Forms::Button());
 			this->btnNext = (gcnew System::Windows::Forms::Button());
 			this->btnPrev = (gcnew System::Windows::Forms::Button());
 			this->questionPanel = (gcnew System::Windows::Forms::Panel());
+			this->tc1 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtQuesText = (gcnew System::Windows::Forms::TextBox());
 			this->lblQuesNum = (gcnew System::Windows::Forms::Label());
@@ -113,11 +139,13 @@ namespace Online_Exam {
 			this->picLogo = (gcnew System::Windows::Forms::PictureBox());
 			this->commandButtonPanel->SuspendLayout();
 			this->questionPanel->SuspendLayout();
+			this->tc1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picLogo))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// buttonFlowPanel
 			// 
+			this->buttonFlowPanel->AutoScroll = true;
 			this->buttonFlowPanel->BackColor = System::Drawing::SystemColors::Control;
 			this->buttonFlowPanel->Location = System::Drawing::Point(3, 223);
 			this->buttonFlowPanel->Name = L"buttonFlowPanel";
@@ -127,6 +155,7 @@ namespace Online_Exam {
 			// commandButtonPanel
 			// 
 			this->commandButtonPanel->BackColor = System::Drawing::SystemColors::Control;
+			this->commandButtonPanel->Controls->Add(this->btnSaveResponse);
 			this->commandButtonPanel->Controls->Add(this->btnEndTest);
 			this->commandButtonPanel->Controls->Add(this->btnReview);
 			this->commandButtonPanel->Controls->Add(this->btnNext);
@@ -136,6 +165,15 @@ namespace Online_Exam {
 			this->commandButtonPanel->Size = System::Drawing::Size(799, 58);
 			this->commandButtonPanel->TabIndex = 1;
 			// 
+			// btnSaveResponse
+			// 
+			this->btnSaveResponse->Location = System::Drawing::Point(333, 3);
+			this->btnSaveResponse->Name = L"btnSaveResponse";
+			this->btnSaveResponse->Size = System::Drawing::Size(104, 53);
+			this->btnSaveResponse->TabIndex = 9;
+			this->btnSaveResponse->Text = L"Save Response";
+			this->btnSaveResponse->UseVisualStyleBackColor = true;
+			// 
 			// btnEndTest
 			// 
 			this->btnEndTest->Location = System::Drawing::Point(626, 2);
@@ -144,37 +182,41 @@ namespace Online_Exam {
 			this->btnEndTest->TabIndex = 7;
 			this->btnEndTest->Text = L"End Test";
 			this->btnEndTest->UseVisualStyleBackColor = true;
+			this->btnEndTest->Click += gcnew System::EventHandler(this, &ExamPaper::btnEndTest_Click);
 			// 
 			// btnReview
 			// 
-			this->btnReview->Location = System::Drawing::Point(269, 3);
+			this->btnReview->Location = System::Drawing::Point(223, 3);
 			this->btnReview->Name = L"btnReview";
-			this->btnReview->Size = System::Drawing::Size(127, 53);
+			this->btnReview->Size = System::Drawing::Size(104, 53);
 			this->btnReview->TabIndex = 8;
 			this->btnReview->Text = L"Mark For Review";
 			this->btnReview->UseVisualStyleBackColor = true;
 			// 
 			// btnNext
 			// 
-			this->btnNext->Location = System::Drawing::Point(136, 3);
+			this->btnNext->Location = System::Drawing::Point(113, 3);
 			this->btnNext->Name = L"btnNext";
-			this->btnNext->Size = System::Drawing::Size(127, 53);
+			this->btnNext->Size = System::Drawing::Size(104, 53);
 			this->btnNext->TabIndex = 7;
 			this->btnNext->Text = L"Next";
 			this->btnNext->UseVisualStyleBackColor = true;
+			this->btnNext->Click += gcnew System::EventHandler(this, &ExamPaper::btnNext_Click);
 			// 
 			// btnPrev
 			// 
 			this->btnPrev->Location = System::Drawing::Point(3, 3);
 			this->btnPrev->Name = L"btnPrev";
-			this->btnPrev->Size = System::Drawing::Size(127, 53);
+			this->btnPrev->Size = System::Drawing::Size(104, 53);
 			this->btnPrev->TabIndex = 4;
 			this->btnPrev->Text = L"Previous";
 			this->btnPrev->UseVisualStyleBackColor = true;
+			this->btnPrev->Click += gcnew System::EventHandler(this, &ExamPaper::btnPrev_Click);
 			// 
 			// questionPanel
 			// 
 			this->questionPanel->BackColor = System::Drawing::SystemColors::Control;
+			this->questionPanel->Controls->Add(this->tc1);
 			this->questionPanel->Controls->Add(this->label2);
 			this->questionPanel->Controls->Add(this->txtQuesText);
 			this->questionPanel->Controls->Add(this->lblQuesNum);
@@ -184,12 +226,43 @@ namespace Online_Exam {
 			this->questionPanel->Size = System::Drawing::Size(799, 447);
 			this->questionPanel->TabIndex = 2;
 			// 
+			// tc1
+			// 
+			this->tc1->Controls->Add(this->tabPage1);
+			this->tc1->Controls->Add(this->tabPage2);
+			this->tc1->Dock = System::Windows::Forms::DockStyle::Top;
+			this->tc1->Location = System::Drawing::Point(0, 0);
+			this->tc1->Name = L"tc1";
+			this->tc1->SelectedIndex = 0;
+			this->tc1->Size = System::Drawing::Size(799, 18);
+			this->tc1->TabIndex = 10;
+			// 
+			// tabPage1
+			// 
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(791, 0);
+			this->tabPage1->TabIndex = 0;
+			this->tabPage1->Text = L"tabPage1";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// tabPage2
+			// 
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Name = L"tabPage2";
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage2->Size = System::Drawing::Size(791, 0);
+			this->tabPage2->TabIndex = 1;
+			this->tabPage2->Text = L"tabPage2";
+			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(13, 275);
+			this->label2->Location = System::Drawing::Point(17, 274);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(63, 18);
 			this->label2->TabIndex = 12;
@@ -198,11 +271,11 @@ namespace Online_Exam {
 			// 
 			// txtQuesText
 			// 
-			this->txtQuesText->Location = System::Drawing::Point(16, 54);
+			this->txtQuesText->Location = System::Drawing::Point(16, 75);
 			this->txtQuesText->Multiline = true;
 			this->txtQuesText->Name = L"txtQuesText";
 			this->txtQuesText->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
-			this->txtQuesText->Size = System::Drawing::Size(774, 207);
+			this->txtQuesText->Size = System::Drawing::Size(774, 186);
 			this->txtQuesText->TabIndex = 11;
 			// 
 			// lblQuesNum
@@ -210,24 +283,26 @@ namespace Online_Exam {
 			this->lblQuesNum->AutoSize = true;
 			this->lblQuesNum->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblQuesNum->Location = System::Drawing::Point(169, 16);
+			this->lblQuesNum->Location = System::Drawing::Point(163, 48);
 			this->lblQuesNum->Name = L"lblQuesNum";
 			this->lblQuesNum->Size = System::Drawing::Size(17, 18);
 			this->lblQuesNum->TabIndex = 10;
 			this->lblQuesNum->Text = L"1";
 			this->lblQuesNum->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->lblQuesNum->Click += gcnew System::EventHandler(this, &ExamPaper::lblQuesNum_Click);
 			// 
 			// label
 			// 
 			this->label->AutoSize = true;
 			this->label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label->Location = System::Drawing::Point(13, 16);
+			this->label->Location = System::Drawing::Point(17, 48);
 			this->label->Name = L"label";
 			this->label->Size = System::Drawing::Size(140, 18);
 			this->label->TabIndex = 10;
 			this->label->Text = L"Question Number";
 			this->label->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->label->Click += gcnew System::EventHandler(this, &ExamPaper::label_Click);
 			// 
 			// markingPanel
 			// 
@@ -332,29 +407,139 @@ namespace Online_Exam {
 			this->commandButtonPanel->ResumeLayout(false);
 			this->questionPanel->ResumeLayout(false);
 			this->questionPanel->PerformLayout();
+			this->tc1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picLogo))->EndInit();
 			this->ResumeLayout(false);
 
 		}
-#pragma endregion
+
 	private: System::Void ExamPaper_Load(System::Object^  sender, System::EventArgs^  e) {
 			ExamCode = 25;
 			OES ^Access = gcnew OES();
 			Access->ExecQuery("select * from Exam where ExamCode = " + ExamCode.ToString());
-			if (Access->RecordCount == 1){
-				JsonSerializerSettings ^s = gcnew JsonSerializerSettings();
-				JExam^ QSet = JsonConvert::DeserializeObject<JExam^>(Convert::ToString(Access->DBDT->Rows[0]->default["QuestionSet"]), s);
-				Console::WriteLine(QSet->Data[0]->Questions[0]->Statement);
-				MinRem = Convert::ToInt32(Access->DBDT->Rows[0]->default["ExamLength"]);
-				SecRem = 0;
-				lblTimer->Text = MinRem.ToString() + ":0" + SecRem.ToString();
-				examTimer->Start();
+			
+			if (Access->RecordCount != 1){
+				MessageBox::Show("Error", "Exam cannot be loaded");
+				this->Close();
+				return;
 			}
+
+			//JsonSerializerSettings ^s = gcnew JsonSerializerSettings();
+			s = gcnew JsonSerializerSettings();
+			//JExam^ QSet = JsonConvert::DeserializeObject<JExam^>(Convert::ToString(Access->DBDT->Rows[0]->default["QuestionSet"]), s);
+			QSet = JsonConvert::DeserializeObject<JExam^>(Convert::ToString(Access->DBDT->Rows[0]->default["QuestionSet"]), s);
+			Console::WriteLine(QSet->Data[0]->Questions[0]->Statement);
+			MinRem = Convert::ToInt32(Access->DBDT->Rows[0]->default["ExamLength"]);
+			SecRem = 0;
+			lblTimer->Text = MinRem.ToString() + ":0" + SecRem.ToString();
+			examTimer->Start();
+			Int32 SectNo = QSet->Data->Count;
+			Console::WriteLine(SectNo);
 			
-			
+			tc1->Controls->Clear();
+			for (int i = 0; i < SectNo; i++){
+				TabPage^ Section = gcnew TabPage();
+				Section->Text = "Section" + (i + 1).ToString();
+				tc1->Controls->Add(Section);
+			}
+			tc1->SelectedIndexChanged += gcnew EventHandler(this, &ExamPaper::TabSelect);
+			tc1->SelectedIndex = 0;
+			btnPaper = gcnew List<List<Button ^>^>();
+			PaperQuestions = gcnew List<List<int>^>();
+			for (int i = 0; i < SectNo; i++)
+			{
+				int req = QSet->Data[i]->NumberOfQuestionsGiven;
+				int tot = QSet->Data[i]->TotalQuestions;
+				List<int>^ lst = gcnew List<int>();
+				
+				//PaperQuestions->Add(gcnew List<int>());
+				List<int> ^PaperQuestionsobj = gcnew List<int>();
+				//List<int>^ tempArr;
+				for (int j = 0; j < tot; j++)
+				{
+					lst->Add(j);
+				}
+				while (req>0)
+				{
+					int ran = rand() % tot;
+					PaperQuestionsobj->Add(lst[ran]);
+					lst->Remove(lst[ran]);
+					tot--;
+					req--;
+				}
+				PaperQuestions->Add(PaperQuestionsobj);
+			}
+			for (int i = 0; i < SectNo; i++){
+				std::cout << "Section " << i << ": ";
+				for (int j = 0; j < QSet->Data[i]->NumberOfQuestionsGiven; j++){
+					std::cout << PaperQuestions[i][j] << " ";
+				}
+				std:: cout << "\n";
+			}
+			for (int i = 0; i < SectNo; i++)
+			{
+				List<Button^> ^btnobj = gcnew List<Button ^>();
+				for (int j = 0; j < QSet->Data[i]->NumberOfQuestionsGiven; j++)
+				{
+					Button^ btn = gcnew Button();
+					btn->Width = 50;
+					btn->Height = 30;
+					btn->Text = Convert::ToString(j + 1);
+					//buttonFlowPanel->Controls->Add(btn);
+					btn->Tag = PaperQuestions[i][j];
+					btn->Click += gcnew System::EventHandler(this, &ExamPaper::btnClick);
+					btnobj->Add(btn);
+				}
+				btnPaper->Add(btnobj);
+			}
+			for (Int32 i = 0; i < QSet->Data[0]->NumberOfQuestionsGiven; i++){
+				/*Button^ btn = gcnew Button();
+				btn->Width = 50;
+				btn->Height = 30;
+				btn->Text = Convert::ToString(i + 1);
+				buttonFlowPanel->Controls->Add(btn);
+				btn->Tag = PaperQuestions[0][i];
+				btn->Click += gcnew System::EventHandler(this, &ExamPaper::btnClick);*/
+				buttonFlowPanel->Controls->Add(btnPaper[0][i]);
+			}
+			int z = PaperQuestions[0][0];
+			txtQuesText->Text = Convert::ToString(QSet->Data[0]->Questions[z]->Statement);
+			 
 	}
+
+	private: System::Void TabSelect(System::Object^ sender, EventArgs^ e) {
+		lblQuesNum->Text = Convert::ToString(1);
+		Int32 SelInd = static_cast<TabControl^>(sender)->SelectedIndex;
+		Int32 SectNumQ = QSet->Data[SelInd]->NumberOfQuestionsGiven;
+		buttonFlowPanel->Controls->Clear();
+		for (Int32 i = 0; i < SectNumQ; i++){
+			/*Button^ btn = gcnew Button();
+			btn->Width = 50;
+			btn->Height = 30;
+			btn->Text = Convert::ToString(i + 1);
+			buttonFlowPanel->Controls->Add(btn);
+			btn->Tag = PaperQuestions[SelInd][i];
+			btn->Click += gcnew System::EventHandler(this, &ExamPaper::btnClick);*/
+			buttonFlowPanel->Controls->Add(btnPaper[SelInd][i]);
+			//loading question on tabselect
+			txtQuesText->Text = Convert::ToString(QSet->Data[SelInd]->Questions[PaperQuestions[SelInd][0]]->Statement);
+			lblQuesNum->Text = Convert::ToString(1);
+		}
+	}
+#pragma endregion
 	private: System::Void lblTimer_Click(System::Object^  sender, System::EventArgs^  e) {
 						
+	}
+	private: System::Void btnClick(System::Object^  sender, System::EventArgs^  e)
+	{
+				 Button ^ btn = gcnew Button();
+				 btn = static_cast<Button^>(sender);
+				 int selInd = tc1->SelectedIndex;
+				 int selQues = static_cast<int>(btn->Tag);
+				 lblQuesNum->Text = btn->Text;
+				 std::cout << selInd << " " << selQues << std::endl;
+				 //loading question to textbox
+				 txtQuesText->Text = Convert::ToString(QSet->Data[selInd]->Questions[selQues]->Statement);
 	}
 private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
@@ -377,6 +562,40 @@ private: System::Void examTimer_Tick(System::Object^  sender, System::EventArgs^
 				 lblTimer->Text += "0" + SecRem.ToString();
 			 else
 				 lblTimer->Text += SecRem.ToString();
+}
+private: System::Void label_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void lblQuesNum_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void btnNext_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Int32 curNum = Convert::ToInt32(lblQuesNum->Text);
+			 Int32 sectNo = Convert::ToInt32(tc1->SelectedIndex);
+			 Int32 nextQuesNo;
+			 if (curNum != QSet->Data[sectNo]->NumberOfQuestionsGiven)
+			 {
+				 lblQuesNum->Text = Convert::ToString(curNum+1);
+				 nextQuesNo = Convert::ToInt32(btnPaper[sectNo][curNum]->Tag);
+				 //loading question into textbox
+				 txtQuesText->Text = Convert::ToString(QSet->Data[sectNo]->Questions[nextQuesNo]->Statement);
+				 
+			 }
+}
+private: System::Void btnPrev_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Int32 curNum = Convert::ToInt32(lblQuesNum->Text);
+			 Int32 sectNo = Convert::ToInt32(tc1->SelectedIndex);
+			 Int32 nextQuesNo;
+			 if (curNum != 1)
+			 {
+				 lblQuesNum->Text = Convert::ToString(curNum - 1);
+				 nextQuesNo = Convert::ToInt32(btnPaper[sectNo][curNum-2]->Tag);
+				 //loading question into textbox
+				 txtQuesText->Text = Convert::ToString(QSet->Data[sectNo]->Questions[nextQuesNo]->Statement);
+			 }
+}
+private: System::Void btnEndTest_Click(System::Object^  sender, System::EventArgs^  e) {
+			 //code still not complete
+			 MessageBox::Show("Exiting test");
+			 this->Close();
 }
 };
 }
