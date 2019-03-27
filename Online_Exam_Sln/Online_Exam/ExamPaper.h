@@ -33,6 +33,10 @@ namespace Online_Exam {
 	private: System::Windows::Forms::TabPage^  tabPage1;
 	private: System::Windows::Forms::TabPage^  tabPage2;
 	private: System::Windows::Forms::Button^  btnSaveResponse;
+	private: System::Windows::Forms::FlowLayoutPanel^  markingFlowPanel;
+
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::FlowLayoutPanel^  answerFlowPanel;
 
 	public:
 
@@ -70,7 +74,7 @@ namespace Online_Exam {
 	protected:
 	private: System::Windows::Forms::Panel^  commandButtonPanel;
 	private: System::Windows::Forms::Panel^  questionPanel;
-	private: System::Windows::Forms::Panel^  markingPanel;
+
 	private: System::Windows::Forms::Button^  btnPrev;
 
 
@@ -122,6 +126,7 @@ namespace Online_Exam {
 			this->btnNext = (gcnew System::Windows::Forms::Button());
 			this->btnPrev = (gcnew System::Windows::Forms::Button());
 			this->questionPanel = (gcnew System::Windows::Forms::Panel());
+			this->answerFlowPanel = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tc1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
@@ -129,7 +134,6 @@ namespace Online_Exam {
 			this->txtQuesText = (gcnew System::Windows::Forms::TextBox());
 			this->lblQuesNum = (gcnew System::Windows::Forms::Label());
 			this->label = (gcnew System::Windows::Forms::Label());
-			this->markingPanel = (gcnew System::Windows::Forms::Panel());
 			this->examTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->lblTimer = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -137,6 +141,8 @@ namespace Online_Exam {
 			this->lblAttempted = (gcnew System::Windows::Forms::Label());
 			this->lblTimeRemaining = (gcnew System::Windows::Forms::Label());
 			this->picLogo = (gcnew System::Windows::Forms::PictureBox());
+			this->markingFlowPanel = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->commandButtonPanel->SuspendLayout();
 			this->questionPanel->SuspendLayout();
 			this->tc1->SuspendLayout();
@@ -216,6 +222,7 @@ namespace Online_Exam {
 			// questionPanel
 			// 
 			this->questionPanel->BackColor = System::Drawing::SystemColors::Control;
+			this->questionPanel->Controls->Add(this->answerFlowPanel);
 			this->questionPanel->Controls->Add(this->tc1);
 			this->questionPanel->Controls->Add(this->label2);
 			this->questionPanel->Controls->Add(this->txtQuesText);
@@ -225,6 +232,14 @@ namespace Online_Exam {
 			this->questionPanel->Name = L"questionPanel";
 			this->questionPanel->Size = System::Drawing::Size(799, 447);
 			this->questionPanel->TabIndex = 2;
+			// 
+			// answerFlowPanel
+			// 
+			this->answerFlowPanel->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
+			this->answerFlowPanel->Location = System::Drawing::Point(16, 295);
+			this->answerFlowPanel->Name = L"answerFlowPanel";
+			this->answerFlowPanel->Size = System::Drawing::Size(774, 139);
+			this->answerFlowPanel->TabIndex = 14;
 			// 
 			// tc1
 			// 
@@ -274,6 +289,7 @@ namespace Online_Exam {
 			this->txtQuesText->Location = System::Drawing::Point(16, 75);
 			this->txtQuesText->Multiline = true;
 			this->txtQuesText->Name = L"txtQuesText";
+			this->txtQuesText->ReadOnly = true;
 			this->txtQuesText->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->txtQuesText->Size = System::Drawing::Size(774, 186);
 			this->txtQuesText->TabIndex = 11;
@@ -303,13 +319,6 @@ namespace Online_Exam {
 			this->label->Text = L"Question Number";
 			this->label->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->label->Click += gcnew System::EventHandler(this, &ExamPaper::label_Click);
-			// 
-			// markingPanel
-			// 
-			this->markingPanel->Location = System::Drawing::Point(791, 1);
-			this->markingPanel->Name = L"markingPanel";
-			this->markingPanel->Size = System::Drawing::Size(214, 216);
-			this->markingPanel->TabIndex = 3;
 			// 
 			// examTimer
 			// 
@@ -384,19 +393,39 @@ namespace Online_Exam {
 			this->picLogo->TabIndex = 9;
 			this->picLogo->TabStop = false;
 			// 
+			// markingFlowPanel
+			// 
+			this->markingFlowPanel->AutoScroll = true;
+			this->markingFlowPanel->Location = System::Drawing::Point(805, 35);
+			this->markingFlowPanel->Name = L"markingFlowPanel";
+			this->markingFlowPanel->Size = System::Drawing::Size(200, 177);
+			this->markingFlowPanel->TabIndex = 10;
+			// 
+			// label3
+			// 
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(802, 1);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(203, 31);
+			this->label3->TabIndex = 0;
+			this->label3->Text = L"Marking Scheme";
+			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// ExamPaper
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1008, 729);
 			this->ControlBox = false;
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->markingFlowPanel);
 			this->Controls->Add(this->picLogo);
 			this->Controls->Add(this->lblTimeRemaining);
 			this->Controls->Add(this->lblAttempted);
 			this->Controls->Add(this->lblTestName);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->lblTimer);
-			this->Controls->Add(this->markingPanel);
 			this->Controls->Add(this->questionPanel);
 			this->Controls->Add(this->commandButtonPanel);
 			this->Controls->Add(this->buttonFlowPanel);
@@ -505,6 +534,21 @@ namespace Online_Exam {
 			int z = PaperQuestions[0][0];
 			txtQuesText->Text = Convert::ToString(QSet->Data[0]->Questions[z]->Statement);
 			 
+			for (int i = 0; i < QSet->Data->Count; ++i)
+			{
+				Label ^lbl = gcnew Label();
+				String ^str = "Section ";
+				str += (i + 1).ToString();
+				str += ": ";
+				str += Convert::ToString(QSet->Data[i]->Weight);
+				str += " Marks per question";
+				lbl->AutoSize = false;
+				lbl->Width = markingFlowPanel->Width;
+				lbl->Height = 40;
+				lbl->Text = str;
+				lbl->Font = gcnew System::Drawing::Font(lbl->Font->FontFamily, 11,FontStyle::Bold);
+				markingFlowPanel->Controls->Add(lbl);
+			}
 	}
 
 	private: System::Void TabSelect(System::Object^ sender, EventArgs^ e) {
@@ -532,6 +576,8 @@ namespace Online_Exam {
 	}
 	private: System::Void btnClick(System::Object^  sender, System::EventArgs^  e)
 	{
+				 answerFlowPanel->Controls->Clear();
+				 txtQuesText->Clear();
 				 Button ^ btn = gcnew Button();
 				 btn = static_cast<Button^>(sender);
 				 int selInd = tc1->SelectedIndex;
@@ -540,6 +586,26 @@ namespace Online_Exam {
 				 std::cout << selInd << " " << selQues << std::endl;
 				 //loading question to textbox
 				 txtQuesText->Text = Convert::ToString(QSet->Data[selInd]->Questions[selQues]->Statement);
+
+				 //Code for options
+				 std::cout << QSet->Data[selInd]->Questions[selQues]->AnswerType;
+				 std::cout << std::endl;
+				 if (QSet->Data[selInd]->Questions[selQues]->AnswerType == 0)
+				 {
+					 int numOptions = QSet->Data[selInd]->Questions[selQues]->Options->Count;
+					 List<CheckBox^>^ checkList = gcnew  List<CheckBox^>();
+					 for (int i = 0; i < numOptions; i++)
+					 {
+						 CheckBox^ chk = gcnew CheckBox();
+						 chk->MaximumSize =System::Drawing::Size(answerFlowPanel->Width, 100);
+						 chk->Text = Convert::ToString(QSet->Data[selInd]->Questions[selQues]->Options[i]);
+						 chk->AutoSize = true;
+						 checkList->Add(chk);
+					 }
+					 for (int i = 0; i < numOptions; i++) answerFlowPanel->Controls->Add(checkList[i]);
+				 }
+
+				 //COde for option ends here
 	}
 private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
@@ -597,5 +663,6 @@ private: System::Void btnEndTest_Click(System::Object^  sender, System::EventArg
 			 MessageBox::Show("Exiting test");
 			 this->Close();
 }
+
 };
 }
