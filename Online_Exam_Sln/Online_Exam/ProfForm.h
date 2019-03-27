@@ -5,7 +5,9 @@
 #include "ProfEditProfile.h"
 #include "CreateGroup.h"
 #include "CreateExam.h"
+#include "PastTestsSet.h"
 #include "AdminForm.h"
+#include"AddQuestions.h"
 
 namespace Online_Exam {
 
@@ -15,6 +17,7 @@ namespace Online_Exam {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Questions;
 
 	//using namespace ProfProfile;
 	/// <summary>
@@ -52,6 +55,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  btnCreateTest;
 	private: System::Windows::Forms::Button^  btnAddGroup;
 	private: System::Windows::Forms::Panel^  profContentPanel;
+	private: System::Windows::Forms::Button^  button1;
 
 
 	protected:
@@ -79,6 +83,7 @@ namespace Online_Exam {
 			this->btnEditProfileProf = (gcnew System::Windows::Forms::Button());
 			this->btnMyProfileProf = (gcnew System::Windows::Forms::Button());
 			this->profContentPanel = (gcnew System::Windows::Forms::Panel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -95,6 +100,7 @@ namespace Online_Exam {
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->button1);
 			this->panel1->Controls->Add(this->btnLogOut);
 			this->panel1->Controls->Add(this->btnHelp);
 			this->panel1->Controls->Add(this->btnPastTestsSet);
@@ -138,6 +144,7 @@ namespace Online_Exam {
 			this->btnPastTestsSet->TabIndex = 7;
 			this->btnPastTestsSet->Text = L"Past Tests Set";
 			this->btnPastTestsSet->UseVisualStyleBackColor = true;
+			this->btnPastTestsSet->Click += gcnew System::EventHandler(this, &ProfForm::btnPastTestsSet_Click);
 			// 
 			// btnCreateTest
 			// 
@@ -191,6 +198,17 @@ namespace Online_Exam {
 			this->profContentPanel->Size = System::Drawing::Size(903, 423);
 			this->profContentPanel->TabIndex = 3;
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(0, 285);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(150, 37);
+			this->button1->TabIndex = 9;
+			this->button1->Text = L"Add Ques";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &ProfForm::button1_Click);
+			// 
 			// ProfForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -236,11 +254,33 @@ private: System::Void btnCreateTest_Click(System::Object^  sender, System::Event
 			 CreateExam^ ref = gcnew CreateExam();
 			 profContentPanel->Controls->Add(ref);
 }
-private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs^  e) {
-			 this->Hide();
-			 AdminForm ^ af = gcnew AdminForm();
-			 af->Show();
-			 
+private: System::Void btnPastTestsSet_Click(System::Object^  sender, System::EventArgs^  e) {
+			 profContentPanel->Controls->Clear();
+			 PastTestsSet^ ref = gcnew PastTestsSet();
+			 profContentPanel->Controls->Add(ref);
+}
+	private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs^  e) {
+				 this->Hide();
+				 AdminForm ^ af = gcnew AdminForm();
+				 af->Show();
+	}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+			 profContentPanel->Controls->Clear();
+			 array<Int32> ^arr = gcnew array<Int32>(3);
+			 array<Int32> ^arr1 = gcnew array<Int32>(3);
+			 array<Int32> ^arr2 = gcnew array<Int32>(3);
+
+			 arr2[0] = 3;//arr2=no of q to give to each student
+			 arr2[1] = 2;
+			 arr2[2] = 1;
+			 arr1[0] = 3;//arr1=weight of each q in a seciton
+			 arr1[1] = 2;
+			 arr1[2] = 1;
+			 arr[0] = 3;// arr=no of q in each section
+			 arr[1] = 2;
+			 arr[2] = 1;
+			 AddQuestions^ ref = gcnew AddQuestions(3,arr,arr1,arr2);
+			 profContentPanel->Controls->Add(ref);
 }
 };
 }

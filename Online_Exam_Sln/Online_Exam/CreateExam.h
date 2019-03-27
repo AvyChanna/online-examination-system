@@ -31,7 +31,7 @@ namespace Online_Exam {
 		CreateExam(void)
 		{
 
-			start = gcnew array<System::String ^>{"0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00"};
+			start = gcnew array<System::String ^>{"2000-01-01 00:00:00", "2000-01-01 00:00:00", "2000-01-01 00:00:00", "2000-01-01 00:00:00", "2000-01-01 00:00:00", "2000-01-01 00:00:00"};
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -490,7 +490,7 @@ namespace Online_Exam {
 				 OES^ Access = gcnew OES();
 				 Access->ExecQuery("SELECT GroupID, GroupName from Groups");
 				 for (int i = 0; i<5; i++){
-					 start[i] = "0000-00-00 00:00:00";
+					 start[i] = "2000-01-01 00:00:00";
 				 }
 
 				 if (Access->RecordCount > 0){
@@ -539,7 +539,7 @@ namespace Online_Exam {
 				 }
 				 int no = Convert::ToInt32(cmbStr->SelectedItem);
 				 for (int i = 0; i < no; i++){
-					if (start[i] == "0000-00-00 00:00:00"){
+					if (start[i] == "2000-01-01 00:00:00"){
 						MessageBox::Show("Please add all starting session time slots.", "Error");
 						return;
 					}
@@ -565,7 +565,8 @@ namespace Online_Exam {
 				 array<System::String ^>^ wgt = SectWgt->Split('-');
 				 array<System::String ^>^ qDB = NoQDB->Split('-');
 				 array<System::String ^>^ qAsk = NoQAsk->Split('-');
-				 Int32 MaxScore = 0;
+				 UInt32 MaxScore;
+				 MaxScore = 0;
 				 UInt32 SesNo = Convert::ToInt32(txtSesNo->Text);
 				 if (wgt->Length == SectNo){
 					 for (int i = 0; i<SectNo; i++){
@@ -612,12 +613,14 @@ namespace Online_Exam {
 				 Access->AddParam("@Ses4", start[3]);
 				 Access->AddParam("@Ses5", start[4]);
 				 
+#pragma warning(suppress: 6011)
 				 Access->ExecQuery("INSERT Into Exam (ExamName, Professor, GroupID, NumSections, WgtSections, ExamLength, MaxScore, PassPercentage, NumSessions, StartTimeSes1, StartTimeSes2, StartTimeSes3, StartTimeSes4, StartTimeSes5) Values (@ExamName,'" + gVar::Username + "',@GroupID, " + SectNo.ToString() + ", @WgtSections, " + ExamLen.ToString() + "," + MaxScore.ToString() + "," + Pass.ToString() + "," + SesNo.ToString() + ",@Ses1, @Ses2, @Ses3, @Ses4, @Ses5)");
 				 MessageBox::Show("Test " + txtName->Text + " successfully created!");
 
 	}
 	private: System::Void btnSlot_Click(System::Object^  sender, System::EventArgs^  e) {
 				 int no = Convert::ToInt32(cmbStr->SelectedItem);
+				 MessageBox::Show(calStr->Text);
 				 start[no - 1] = Convert::ToString(calStr->Text);
 	}
 	};

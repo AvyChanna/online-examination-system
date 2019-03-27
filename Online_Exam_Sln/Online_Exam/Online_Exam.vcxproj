@@ -55,6 +55,8 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <EnablePREfast>false</EnablePREfast>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>C:\Users\Avneet\Desktop\CS243_Lab3_Online_Examination_System\Online_Exam_Sln\Online_Exam\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -69,6 +71,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -79,6 +82,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -92,6 +98,12 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="AddQuestions.cpp" />
+    <ClCompile Include="GlobalSuppressions.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -112,6 +124,9 @@
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Encryption.h" />
+    <ClInclude Include="ExamPaper.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -123,6 +138,11 @@
     <ClInclude Include="GroupEnroll.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="PastTestsSet.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="json.h" />
+    <ClInclude Include="Questions.h" />
     <ClInclude Include="ProfEditProfile.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -161,6 +181,9 @@
     <ClInclude Include="Unenroll.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="UpcomingTests.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -178,6 +201,9 @@
     <EmbeddedResource Include="CreateGroup.resx">
       <DependentUpon>CreateGroup.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExamPaper.resx">
+      <DependentUpon>ExamPaper.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resX">
       <DependentUpon>Form1.h</DependentUpon>
       <SubType>Designer</SubType>
@@ -187,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddQuestions.resx">
       <DependentUpon>AddQuestions.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PastTestsSet.resx">
+      <DependentUpon>PastTestsSet.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfEditProfile.resx">
       <DependentUpon>ProfEditProfile.h</DependentUpon>
@@ -224,8 +253,12 @@
     <EmbeddedResource Include="Unenroll.resx">
       <DependentUpon>Unenroll.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpcomingTests.resx">
+      <DependentUpon>UpcomingTests.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\iitg.png" />
     <Image Include="..\..\..\Logo\logo_medium.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

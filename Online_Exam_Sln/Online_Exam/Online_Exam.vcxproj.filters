@@ -4,8 +4,8 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="AddQuestions.cpp" />
+    <ClCompile Include="GlobalSuppressions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h" />
@@ -29,9 +29,14 @@
     <ClInclude Include="Unenroll.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="Encryption.h" />
+    <ClInclude Include="UpcomingTests.h" />
+    <ClInclude Include="PastTestsSet.h" />
     <ClInclude Include="AdminForm.h" />
     <ClInclude Include="ApproveProf.h" />
     <ClInclude Include="StudentEditAdmin.h" />
+    <ClInclude Include="Questions.h" />
+    <ClInclude Include="json.h" />
+    <ClInclude Include="ExamPaper.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -52,8 +57,13 @@
     <EmbeddedResource Include="Signup.resx" />
     <EmbeddedResource Include="signup_student.resx" />
     <EmbeddedResource Include="Unenroll.resx" />
+    <EmbeddedResource Include="AddQuestions.resx" />
+    <EmbeddedResource Include="UpcomingTests.resx" />
     <EmbeddedResource Include="AdminForm.resx" />
     <EmbeddedResource Include="ApproveProf.resx" />
+    <EmbeddedResource Include="AddQuestions.resx" />
+    <EmbeddedResource Include="PastTestsSet.resx" />
+    <EmbeddedResource Include="StudentEditAdmin.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
@@ -61,5 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\Logo\logo_medium.png" />
+    <Image Include="..\..\..\iitg.png" />
   </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@
 #include "StudentEditProfile.h"
 #include "GroupEnroll.h"
 #include "Unenroll.h"
+#include "UpcomingTests.h"
 #include "Login.h"
 namespace Online_Exam {
 
@@ -254,6 +255,8 @@ private: System::Void btnMyProfileStudent_Click(System::Object^  sender, System:
 }
 private: System::Void btnUpcomingTests_Click(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
+			 UpcomingTests ^ usr = gcnew UpcomingTests();
+			 contentPanel->Controls->Add(usr);
 }
 private: System::Void btnPastTests_Click(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
