@@ -270,15 +270,15 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			 array<Int32> ^arr1 = gcnew array<Int32>(3);
 			 array<Int32> ^arr2 = gcnew array<Int32>(3);
 
-			 arr2[0] = 3;//arr2=no of q to give to each student
-			 arr2[1] = 2;
-			 arr2[2] = 1;
-			 arr1[0] = 3;//arr1=weight of each q in a seciton
-			 arr1[1] = 2;
-			 arr1[2] = 1;
-			 arr[0] = 3;// arr=no of q in each section
-			 arr[1] = 2;
-			 arr[2] = 1;
+			 arr2[0] = 10;//arr2=no of q to give to each student
+			 arr2[1] = 11;
+			 arr2[2] = 9;
+			 arr1[0] = 5;//arr1=weight of each q in a seciton
+			 arr1[1] = 7;
+			 arr1[2] = 3;
+			 arr[0] = 20;// arr=no of q in each section
+			 arr[1] = 22;
+			 arr[2] = 18;
 			 AddQuestions^ ref = gcnew AddQuestions(3,arr,arr1,arr2);
 			 profContentPanel->Controls->Add(ref);
 }
