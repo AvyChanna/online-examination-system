@@ -8,6 +8,7 @@
 #include "GroupEnroll.h"
 #include "Unenroll.h"
 #include "UpcomingTests.h"
+#include "PastTest.h"
 #include "Login.h"
 namespace Online_Exam {
 
@@ -260,6 +261,8 @@ private: System::Void btnUpcomingTests_Click(System::Object^  sender, System::Ev
 }
 private: System::Void btnPastTests_Click(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
+			 PastTest ^ usr = gcnew PastTest();
+			 contentPanel->Controls->Add(usr);
 }
 private: System::Void btnUnenroll_Click(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
