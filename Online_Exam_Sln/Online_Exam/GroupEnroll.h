@@ -69,59 +69,90 @@ namespace Online_Exam {
 			// lblGroupName
 			// 
 			this->lblGroupName->AutoSize = true;
-			this->lblGroupName->Location = System::Drawing::Point(176, 94);
+			this->lblGroupName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblGroupName->ForeColor = System::Drawing::Color::White;
+			this->lblGroupName->Location = System::Drawing::Point(136, 138);
+			this->lblGroupName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblGroupName->Name = L"lblGroupName";
-			this->lblGroupName->Size = System::Drawing::Size(95, 13);
+			this->lblGroupName->Size = System::Drawing::Size(149, 20);
 			this->lblGroupName->TabIndex = 0;
 			this->lblGroupName->Text = L"Enter Group Name";
 			// 
 			// lblEnroll
 			// 
 			this->lblEnroll->AutoSize = true;
-			this->lblEnroll->Location = System::Drawing::Point(176, 138);
+			this->lblEnroll->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblEnroll->ForeColor = System::Drawing::Color::White;
+			this->lblEnroll->Location = System::Drawing::Point(136, 192);
+			this->lblEnroll->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblEnroll->Name = L"lblEnroll";
-			this->lblEnroll->Size = System::Drawing::Size(108, 13);
+			this->lblEnroll->Size = System::Drawing::Size(172, 20);
 			this->lblEnroll->TabIndex = 1;
 			this->lblEnroll->Text = L"Enter Enrollment Key ";
 			// 
 			// btnEnroll
 			// 
-			this->btnEnroll->Location = System::Drawing::Point(294, 194);
+			this->btnEnroll->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(122)),
+				static_cast<System::Int32>(static_cast<System::Byte>(204)));
+			this->btnEnroll->FlatAppearance->BorderSize = 0;
+			this->btnEnroll->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnEnroll->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnEnroll->ForeColor = System::Drawing::Color::White;
+			this->btnEnroll->Location = System::Drawing::Point(293, 282);
+			this->btnEnroll->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnEnroll->Name = L"btnEnroll";
-			this->btnEnroll->Size = System::Drawing::Size(90, 38);
+			this->btnEnroll->Size = System::Drawing::Size(120, 47);
 			this->btnEnroll->TabIndex = 2;
 			this->btnEnroll->Text = L"ENROLL ME";
-			this->btnEnroll->UseVisualStyleBackColor = true;
+			this->btnEnroll->UseVisualStyleBackColor = false;
 			this->btnEnroll->Click += gcnew System::EventHandler(this, &GroupEnroll::btnEnroll_Click);
 			// 
 			// txtEnroll
 			// 
-			this->txtEnroll->Location = System::Drawing::Point(397, 135);
+			this->txtEnroll->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtEnroll->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtEnroll->ForeColor = System::Drawing::Color::White;
+			this->txtEnroll->Location = System::Drawing::Point(430, 188);
+			this->txtEnroll->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtEnroll->Name = L"txtEnroll";
-			this->txtEnroll->Size = System::Drawing::Size(100, 20);
+			this->txtEnroll->Size = System::Drawing::Size(132, 27);
 			this->txtEnroll->TabIndex = 4;
 			// 
 			// comboGroupName
 			// 
 			this->comboGroupName->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
 			this->comboGroupName->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
+			this->comboGroupName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->comboGroupName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->comboGroupName->ForeColor = System::Drawing::Color::White;
 			this->comboGroupName->FormattingEnabled = true;
-			this->comboGroupName->Location = System::Drawing::Point(397, 91);
+			this->comboGroupName->Location = System::Drawing::Point(430, 134);
+			this->comboGroupName->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->comboGroupName->Name = L"comboGroupName";
-			this->comboGroupName->Size = System::Drawing::Size(100, 21);
+			this->comboGroupName->Size = System::Drawing::Size(132, 28);
 			this->comboGroupName->TabIndex = 5;
 			// 
 			// GroupEnroll
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(7)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(66)));
 			this->Controls->Add(this->comboGroupName);
 			this->Controls->Add(this->txtEnroll);
 			this->Controls->Add(this->btnEnroll);
 			this->Controls->Add(this->lblEnroll);
 			this->Controls->Add(this->lblGroupName);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"GroupEnroll";
-			this->Size = System::Drawing::Size(677, 344);
+			this->Size = System::Drawing::Size(757, 521);
 			this->Load += gcnew System::EventHandler(this, &GroupEnroll::GroupEnroll_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

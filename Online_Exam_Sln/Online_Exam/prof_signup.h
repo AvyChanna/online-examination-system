@@ -135,60 +135,97 @@ namespace Online_Exam {
 			// 
 			// studBtn
 			// 
-			this->studBtn->Location = System::Drawing::Point(646, 442);
+			this->studBtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(122)),
+				static_cast<System::Int32>(static_cast<System::Byte>(204)));
+			this->studBtn->FlatAppearance->BorderSize = 0;
+			this->studBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->studBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->studBtn->ForeColor = System::Drawing::Color::White;
+			this->studBtn->Location = System::Drawing::Point(555, 430);
 			this->studBtn->Name = L"studBtn";
-			this->studBtn->Size = System::Drawing::Size(75, 23);
+			this->studBtn->Size = System::Drawing::Size(95, 41);
 			this->studBtn->TabIndex = 78;
 			this->studBtn->Text = L"Sumbit";
-			this->studBtn->UseVisualStyleBackColor = true;
+			this->studBtn->UseVisualStyleBackColor = false;
 			this->studBtn->Click += gcnew System::EventHandler(this, &prof_signup::studBtn_Click);
 			// 
 			// nameTxt
 			// 
-			this->nameTxt->Location = System::Drawing::Point(358, 148);
+			this->nameTxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->nameTxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->nameTxt->ForeColor = System::Drawing::Color::White;
+			this->nameTxt->Location = System::Drawing::Point(216, 136);
 			this->nameTxt->Name = L"nameTxt";
-			this->nameTxt->Size = System::Drawing::Size(100, 22);
+			this->nameTxt->Size = System::Drawing::Size(190, 27);
 			this->nameTxt->TabIndex = 77;
 			this->nameTxt->Text = L"shubham kumar";
 			// 
 			// passTxt
 			// 
-			this->passTxt->Location = System::Drawing::Point(358, 193);
+			this->passTxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->passTxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->passTxt->ForeColor = System::Drawing::Color::White;
+			this->passTxt->Location = System::Drawing::Point(216, 172);
 			this->passTxt->Name = L"passTxt";
-			this->passTxt->Size = System::Drawing::Size(100, 22);
+			this->passTxt->Size = System::Drawing::Size(190, 27);
 			this->passTxt->TabIndex = 76;
 			this->passTxt->Text = L"sss";
 			// 
 			// pNumTxt
 			// 
-			this->pNumTxt->Location = System::Drawing::Point(358, 307);
+			this->pNumTxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->pNumTxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->pNumTxt->ForeColor = System::Drawing::Color::White;
+			this->pNumTxt->Location = System::Drawing::Point(216, 300);
 			this->pNumTxt->Name = L"pNumTxt";
-			this->pNumTxt->Size = System::Drawing::Size(100, 22);
+			this->pNumTxt->Size = System::Drawing::Size(190, 27);
 			this->pNumTxt->TabIndex = 73;
 			this->pNumTxt->Text = L"7412589630";
 			this->pNumTxt->TextChanged += gcnew System::EventHandler(this, &prof_signup::pNumTxt_TextChanged);
 			// 
 			// mailTxt
 			// 
-			this->mailTxt->Location = System::Drawing::Point(358, 265);
+			this->mailTxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->mailTxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->mailTxt->ForeColor = System::Drawing::Color::White;
+			this->mailTxt->Location = System::Drawing::Point(216, 256);
 			this->mailTxt->Name = L"mailTxt";
-			this->mailTxt->Size = System::Drawing::Size(100, 22);
+			this->mailTxt->Size = System::Drawing::Size(190, 27);
 			this->mailTxt->TabIndex = 72;
 			this->mailTxt->Text = L"skj@iitg";
 			// 
 			// confirmPassTxt
 			// 
-			this->confirmPassTxt->Location = System::Drawing::Point(358, 222);
+			this->confirmPassTxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->confirmPassTxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->confirmPassTxt->ForeColor = System::Drawing::Color::White;
+			this->confirmPassTxt->Location = System::Drawing::Point(216, 211);
 			this->confirmPassTxt->Name = L"confirmPassTxt";
-			this->confirmPassTxt->Size = System::Drawing::Size(100, 22);
+			this->confirmPassTxt->Size = System::Drawing::Size(190, 27);
 			this->confirmPassTxt->TabIndex = 71;
 			this->confirmPassTxt->Text = L"sss";
 			// 
 			// userTxt
 			// 
-			this->userTxt->Location = System::Drawing::Point(358, 99);
+			this->userTxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->userTxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->userTxt->ForeColor = System::Drawing::Color::White;
+			this->userTxt->Location = System::Drawing::Point(216, 89);
 			this->userTxt->Name = L"userTxt";
-			this->userTxt->Size = System::Drawing::Size(100, 22);
+			this->userTxt->Size = System::Drawing::Size(190, 27);
 			this->userTxt->TabIndex = 70;
 			this->userTxt->Text = L"shubham";
 			this->userTxt->TextChanged += gcnew System::EventHandler(this, &prof_signup::userTxt_TextChanged);
@@ -196,27 +233,36 @@ namespace Online_Exam {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(643, 131);
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->ForeColor = System::Drawing::Color::White;
+			this->label9->Location = System::Drawing::Point(450, 132);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(53, 17);
+			this->label9->Size = System::Drawing::Size(63, 20);
 			this->label9->TabIndex = 69;
 			this->label9->Text = L"Branch";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(226, 222);
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->ForeColor = System::Drawing::Color::White;
+			this->label8->Location = System::Drawing::Point(52, 214);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(121, 17);
+			this->label8->Size = System::Drawing::Size(147, 20);
 			this->label8->TabIndex = 68;
 			this->label8->Text = L"Password Confirm";
 			// 
 			// memChkBox
 			// 
 			this->memChkBox->AutoSize = true;
-			this->memChkBox->Location = System::Drawing::Point(229, 407);
+			this->memChkBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->memChkBox->ForeColor = System::Drawing::Color::White;
+			this->memChkBox->Location = System::Drawing::Point(362, 384);
 			this->memChkBox->Name = L"memChkBox";
-			this->memChkBox->Size = System::Drawing::Size(111, 21);
+			this->memChkBox->Size = System::Drawing::Size(128, 24);
 			this->memChkBox->TabIndex = 67;
 			this->memChkBox->Text = L"IITG Member";
 			this->memChkBox->UseVisualStyleBackColor = true;
@@ -224,73 +270,99 @@ namespace Online_Exam {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(226, 257);
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->ForeColor = System::Drawing::Color::White;
+			this->label6->Location = System::Drawing::Point(52, 255);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(42, 17);
+			this->label6->Size = System::Drawing::Size(51, 20);
 			this->label6->TabIndex = 66;
 			this->label6->Text = L"Email";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(216, 312);
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::White;
+			this->label5->Location = System::Drawing::Point(52, 299);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(103, 17);
+			this->label5->Size = System::Drawing::Size(120, 20);
 			this->label5->TabIndex = 65;
 			this->label5->Text = L"Phone Number";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(226, 193);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::White;
+			this->label3->Location = System::Drawing::Point(52, 171);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(69, 17);
+			this->label3->Size = System::Drawing::Size(83, 20);
 			this->label3->TabIndex = 63;
 			this->label3->Text = L"Password";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(226, 148);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::White;
+			this->label2->Location = System::Drawing::Point(52, 132);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(71, 17);
+			this->label2->Size = System::Drawing::Size(85, 20);
 			this->label2->TabIndex = 62;
 			this->label2->Text = L"Full Name";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(226, 105);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::White;
+			this->label1->Location = System::Drawing::Point(52, 89);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(73, 17);
+			this->label1->Size = System::Drawing::Size(86, 20);
 			this->label1->TabIndex = 61;
 			this->label1->Text = L"Username";
 			// 
 			// branchCb
 			// 
+			this->branchCb->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->branchCb->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->branchCb->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->branchCb->ForeColor = System::Drawing::Color::White;
 			this->branchCb->FormattingEnabled = true;
 			this->branchCb->Items->AddRange(gcnew cli::array< System::Object^  >(8) {
 				L"CSE", L"MNC", L"ECE", L"BT", L"EEE", L"ME", L"CE",
 					L"CS"
 			});
-			this->branchCb->Location = System::Drawing::Point(743, 128);
+			this->branchCb->Location = System::Drawing::Point(531, 128);
 			this->branchCb->Name = L"branchCb";
-			this->branchCb->Size = System::Drawing::Size(121, 24);
+			this->branchCb->Size = System::Drawing::Size(157, 28);
 			this->branchCb->TabIndex = 79;
 			// 
 			// existLbl
 			// 
 			this->existLbl->AutoSize = true;
-			this->existLbl->Location = System::Drawing::Point(497, 102);
+			this->existLbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->existLbl->ForeColor = System::Drawing::Color::White;
+			this->existLbl->Location = System::Drawing::Point(424, 92);
 			this->existLbl->Name = L"existLbl";
-			this->existLbl->Size = System::Drawing::Size(0, 17);
+			this->existLbl->Size = System::Drawing::Size(186, 20);
 			this->existLbl->TabIndex = 80;
+			this->existLbl->Text = L"Username does not exit";
 			// 
 			// prof_signup
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(7)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(66)));
 			this->Controls->Add(this->existLbl);
 			this->Controls->Add(this->branchCb);
 			this->Controls->Add(this->studBtn);
@@ -309,7 +381,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Name = L"prof_signup";
-			this->Size = System::Drawing::Size(1018, 564);
+			this->Size = System::Drawing::Size(757, 547);
 			this->Load += gcnew System::EventHandler(this, &prof_signup::prof_signup_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -78,7 +78,8 @@ namespace Online_Exam {
 			// lblGroupName
 			// 
 			this->lblGroupName->AutoSize = true;
-			this->lblGroupName->Location = System::Drawing::Point(196, 97);
+			this->lblGroupName->ForeColor = System::Drawing::Color::White;
+			this->lblGroupName->Location = System::Drawing::Point(137, 94);
 			this->lblGroupName->Name = L"lblGroupName";
 			this->lblGroupName->Size = System::Drawing::Size(127, 17);
 			this->lblGroupName->TabIndex = 0;
@@ -87,7 +88,8 @@ namespace Online_Exam {
 			// lblEnroll
 			// 
 			this->lblEnroll->AutoSize = true;
-			this->lblEnroll->Location = System::Drawing::Point(196, 238);
+			this->lblEnroll->ForeColor = System::Drawing::Color::White;
+			this->lblEnroll->Location = System::Drawing::Point(137, 235);
 			this->lblEnroll->Name = L"lblEnroll";
 			this->lblEnroll->Size = System::Drawing::Size(141, 17);
 			this->lblEnroll->TabIndex = 1;
@@ -96,7 +98,8 @@ namespace Online_Exam {
 			// lblAsk
 			// 
 			this->lblAsk->AutoSize = true;
-			this->lblAsk->Location = System::Drawing::Point(196, 169);
+			this->lblAsk->ForeColor = System::Drawing::Color::White;
+			this->lblAsk->Location = System::Drawing::Point(137, 166);
 			this->lblAsk->Name = L"lblAsk";
 			this->lblAsk->Size = System::Drawing::Size(261, 17);
 			this->lblAsk->TabIndex = 2;
@@ -104,14 +107,20 @@ namespace Online_Exam {
 			// 
 			// txtGroupName
 			// 
-			this->txtGroupName->Location = System::Drawing::Point(446, 92);
+			this->txtGroupName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtGroupName->ForeColor = System::Drawing::Color::White;
+			this->txtGroupName->Location = System::Drawing::Point(387, 89);
 			this->txtGroupName->Name = L"txtGroupName";
 			this->txtGroupName->Size = System::Drawing::Size(164, 22);
 			this->txtGroupName->TabIndex = 3;
 			// 
 			// txtEnroll
 			// 
-			this->txtEnroll->Location = System::Drawing::Point(446, 238);
+			this->txtEnroll->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtEnroll->ForeColor = System::Drawing::Color::White;
+			this->txtEnroll->Location = System::Drawing::Point(387, 235);
 			this->txtEnroll->Name = L"txtEnroll";
 			this->txtEnroll->Size = System::Drawing::Size(164, 22);
 			this->txtEnroll->TabIndex = 4;
@@ -119,27 +128,37 @@ namespace Online_Exam {
 			// checkBox
 			// 
 			this->checkBox->AutoSize = true;
-			this->checkBox->Location = System::Drawing::Point(498, 169);
+			this->checkBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->checkBox->ForeColor = System::Drawing::Color::White;
+			this->checkBox->Location = System::Drawing::Point(439, 166);
 			this->checkBox->Name = L"checkBox";
 			this->checkBox->Size = System::Drawing::Size(18, 17);
 			this->checkBox->TabIndex = 5;
-			this->checkBox->UseVisualStyleBackColor = true;
+			this->checkBox->UseVisualStyleBackColor = false;
 			this->checkBox->CheckedChanged += gcnew System::EventHandler(this, &CreateGroup::checkBox_CheckedChanged);
 			// 
 			// btnCreate
 			// 
-			this->btnCreate->Location = System::Drawing::Point(348, 319);
+			this->btnCreate->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(122)),
+				static_cast<System::Int32>(static_cast<System::Byte>(204)));
+			this->btnCreate->FlatAppearance->BorderSize = 0;
+			this->btnCreate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnCreate->ForeColor = System::Drawing::Color::White;
+			this->btnCreate->Location = System::Drawing::Point(289, 316);
 			this->btnCreate->Name = L"btnCreate";
-			this->btnCreate->Size = System::Drawing::Size(218, 23);
+			this->btnCreate->Size = System::Drawing::Size(218, 37);
 			this->btnCreate->TabIndex = 6;
 			this->btnCreate->Text = L"CREATE GROUP";
-			this->btnCreate->UseVisualStyleBackColor = true;
+			this->btnCreate->UseVisualStyleBackColor = false;
 			this->btnCreate->Click += gcnew System::EventHandler(this, &CreateGroup::btnCreate_Click);
 			// 
 			// CreateGroup
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(7)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(66)));
 			this->Controls->Add(this->btnCreate);
 			this->Controls->Add(this->checkBox);
 			this->Controls->Add(this->txtEnroll);
@@ -148,7 +167,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->lblEnroll);
 			this->Controls->Add(this->lblGroupName);
 			this->Name = L"CreateGroup";
-			this->Size = System::Drawing::Size(903, 424);
+			this->Size = System::Drawing::Size(757, 521);
 			this->Load += gcnew System::EventHandler(this, &CreateGroup::CreateGroup_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

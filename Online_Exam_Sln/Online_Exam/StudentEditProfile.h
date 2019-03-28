@@ -95,7 +95,8 @@ namespace Online_Exam {
 			this->lblBranch->AutoSize = true;
 			this->lblBranch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblBranch->Location = System::Drawing::Point(104, 318);
+			this->lblBranch->ForeColor = System::Drawing::Color::White;
+			this->lblBranch->Location = System::Drawing::Point(112, 365);
 			this->lblBranch->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblBranch->Name = L"lblBranch";
 			this->lblBranch->Size = System::Drawing::Size(74, 25);
@@ -107,7 +108,8 @@ namespace Online_Exam {
 			this->lblIITG->AutoSize = true;
 			this->lblIITG->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblIITG->Location = System::Drawing::Point(99, 264);
+			this->lblIITG->ForeColor = System::Drawing::Color::White;
+			this->lblIITG->Location = System::Drawing::Point(107, 311);
 			this->lblIITG->Name = L"lblIITG";
 			this->lblIITG->Size = System::Drawing::Size(123, 25);
 			this->lblIITG->TabIndex = 18;
@@ -118,7 +120,8 @@ namespace Online_Exam {
 			this->lblFullName->AutoSize = true;
 			this->lblFullName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblFullName->Location = System::Drawing::Point(99, 64);
+			this->lblFullName->ForeColor = System::Drawing::Color::White;
+			this->lblFullName->Location = System::Drawing::Point(107, 111);
 			this->lblFullName->Name = L"lblFullName";
 			this->lblFullName->Size = System::Drawing::Size(100, 25);
 			this->lblFullName->TabIndex = 17;
@@ -129,7 +132,8 @@ namespace Online_Exam {
 			this->lblPhone->AutoSize = true;
 			this->lblPhone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblPhone->Location = System::Drawing::Point(99, 214);
+			this->lblPhone->ForeColor = System::Drawing::Color::White;
+			this->lblPhone->Location = System::Drawing::Point(107, 261);
 			this->lblPhone->Name = L"lblPhone";
 			this->lblPhone->Size = System::Drawing::Size(143, 25);
 			this->lblPhone->TabIndex = 16;
@@ -140,7 +144,8 @@ namespace Online_Exam {
 			this->lblRoll->AutoSize = true;
 			this->lblRoll->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblRoll->Location = System::Drawing::Point(99, 114);
+			this->lblRoll->ForeColor = System::Drawing::Color::White;
+			this->lblRoll->Location = System::Drawing::Point(107, 161);
 			this->lblRoll->Name = L"lblRoll";
 			this->lblRoll->Size = System::Drawing::Size(79, 25);
 			this->lblRoll->TabIndex = 15;
@@ -151,7 +156,8 @@ namespace Online_Exam {
 			this->lblEmail->AutoSize = true;
 			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblEmail->Location = System::Drawing::Point(99, 163);
+			this->lblEmail->ForeColor = System::Drawing::Color::White;
+			this->lblEmail->Location = System::Drawing::Point(107, 210);
 			this->lblEmail->Name = L"lblEmail";
 			this->lblEmail->Size = System::Drawing::Size(60, 25);
 			this->lblEmail->TabIndex = 14;
@@ -162,7 +168,8 @@ namespace Online_Exam {
 			this->lblUsername->AutoSize = true;
 			this->lblUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblUsername->Location = System::Drawing::Point(99, 14);
+			this->lblUsername->ForeColor = System::Drawing::Color::White;
+			this->lblUsername->Location = System::Drawing::Point(107, 61);
 			this->lblUsername->Name = L"lblUsername";
 			this->lblUsername->Size = System::Drawing::Size(102, 25);
 			this->lblUsername->TabIndex = 13;
@@ -170,7 +177,10 @@ namespace Online_Exam {
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(399, 14);
+			this->txtUsername->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtUsername->ForeColor = System::Drawing::Color::White;
+			this->txtUsername->Location = System::Drawing::Point(407, 61);
 			this->txtUsername->Margin = System::Windows::Forms::Padding(4);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->ReadOnly = true;
@@ -179,7 +189,10 @@ namespace Online_Exam {
 			// 
 			// txtFullName
 			// 
-			this->txtFullName->Location = System::Drawing::Point(399, 68);
+			this->txtFullName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtFullName->ForeColor = System::Drawing::Color::White;
+			this->txtFullName->Location = System::Drawing::Point(407, 115);
 			this->txtFullName->Margin = System::Windows::Forms::Padding(4);
 			this->txtFullName->Name = L"txtFullName";
 			this->txtFullName->Size = System::Drawing::Size(229, 22);
@@ -187,7 +200,10 @@ namespace Online_Exam {
 			// 
 			// txtRoll
 			// 
-			this->txtRoll->Location = System::Drawing::Point(399, 118);
+			this->txtRoll->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtRoll->ForeColor = System::Drawing::Color::White;
+			this->txtRoll->Location = System::Drawing::Point(407, 165);
 			this->txtRoll->Margin = System::Windows::Forms::Padding(4);
 			this->txtRoll->Name = L"txtRoll";
 			this->txtRoll->Size = System::Drawing::Size(229, 22);
@@ -195,7 +211,10 @@ namespace Online_Exam {
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(399, 167);
+			this->txtEmail->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtEmail->ForeColor = System::Drawing::Color::White;
+			this->txtEmail->Location = System::Drawing::Point(407, 214);
 			this->txtEmail->Margin = System::Windows::Forms::Padding(4);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(229, 22);
@@ -203,7 +222,10 @@ namespace Online_Exam {
 			// 
 			// txtPhone
 			// 
-			this->txtPhone->Location = System::Drawing::Point(399, 218);
+			this->txtPhone->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtPhone->ForeColor = System::Drawing::Color::White;
+			this->txtPhone->Location = System::Drawing::Point(407, 265);
 			this->txtPhone->Margin = System::Windows::Forms::Padding(4);
 			this->txtPhone->Name = L"txtPhone";
 			this->txtPhone->Size = System::Drawing::Size(229, 22);
@@ -211,7 +233,10 @@ namespace Online_Exam {
 			// 
 			// txtIITG
 			// 
-			this->txtIITG->Location = System::Drawing::Point(399, 268);
+			this->txtIITG->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtIITG->ForeColor = System::Drawing::Color::White;
+			this->txtIITG->Location = System::Drawing::Point(407, 315);
 			this->txtIITG->Margin = System::Windows::Forms::Padding(4);
 			this->txtIITG->Name = L"txtIITG";
 			this->txtIITG->ReadOnly = true;
@@ -220,7 +245,10 @@ namespace Online_Exam {
 			// 
 			// txtBranch
 			// 
-			this->txtBranch->Location = System::Drawing::Point(399, 318);
+			this->txtBranch->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->txtBranch->ForeColor = System::Drawing::Color::White;
+			this->txtBranch->Location = System::Drawing::Point(407, 365);
 			this->txtBranch->Margin = System::Windows::Forms::Padding(4);
 			this->txtBranch->Name = L"txtBranch";
 			this->txtBranch->ReadOnly = true;
@@ -229,19 +257,26 @@ namespace Online_Exam {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(246, 368);
+			this->btnUpdate->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(122)),
+				static_cast<System::Int32>(static_cast<System::Byte>(204)));
+			this->btnUpdate->FlatAppearance->BorderSize = 0;
+			this->btnUpdate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnUpdate->ForeColor = System::Drawing::Color::White;
+			this->btnUpdate->Location = System::Drawing::Point(254, 415);
 			this->btnUpdate->Margin = System::Windows::Forms::Padding(4);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(199, 43);
 			this->btnUpdate->TabIndex = 27;
 			this->btnUpdate->Text = L"UPDATE";
-			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->UseVisualStyleBackColor = false;
 			this->btnUpdate->Click += gcnew System::EventHandler(this, &StudentEditProfile::btnUpdate_Click);
 			// 
 			// StudentEditProfile
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(7)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(66)));
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->txtBranch);
 			this->Controls->Add(this->txtIITG);
@@ -259,7 +294,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->lblUsername);
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"StudentEditProfile";
-			this->Size = System::Drawing::Size(903, 423);
+			this->Size = System::Drawing::Size(757, 521);
 			this->Load += gcnew System::EventHandler(this, &StudentEditProfile::StudentEditProfile_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
