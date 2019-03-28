@@ -35,7 +35,13 @@ namespace Online_Exam {
 		RadioButton ^rd1;
 		RadioButton ^rd2;
 		TextBox ^ answerText;
+		int obtainedMarks;
+		int fullMarks;
+		String^ sectionMark;
 		List<List<QuestionStruc ^>^>^ QuestionAns;
+		String^ questionStr;
+		String^ attemptStr;
+		String^ correctStr;
 		int TotalAttempted;
 		int TotalQuestions;
 	private: System::Windows::Forms::TabControl^  tc1;
@@ -75,6 +81,8 @@ namespace Online_Exam {
 			InitializeComponent();
 			ExamCode = ExCode;
 			TotalAttempted = 0;
+			fullMarks = 0;
+			
 			//
 			//TODO: Add the constructor code here
 			//
@@ -185,7 +193,7 @@ namespace Online_Exam {
 			// buttonFlowPanel
 			// 
 			this->buttonFlowPanel->AutoScroll = true;
-			this->buttonFlowPanel->BackColor = System::Drawing::SystemColors::Control;
+			this->buttonFlowPanel->BackColor = System::Drawing::Color::White;
 			this->buttonFlowPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->buttonFlowPanel->Location = System::Drawing::Point(3, 298);
 			this->buttonFlowPanel->Name = L"buttonFlowPanel";
@@ -208,67 +216,97 @@ namespace Online_Exam {
 			// 
 			// btnClear
 			// 
+			this->btnClear->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnClear->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnClear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnClear->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnClear->Location = System::Drawing::Point(440, 3);
 			this->btnClear->Name = L"btnClear";
 			this->btnClear->Size = System::Drawing::Size(104, 53);
 			this->btnClear->TabIndex = 10;
 			this->btnClear->Text = L"Clear Answer";
-			this->btnClear->UseVisualStyleBackColor = true;
+			this->btnClear->UseVisualStyleBackColor = false;
 			this->btnClear->Click += gcnew System::EventHandler(this, &ExamPaper::btnClear_Click);
 			// 
 			// btnSaveResponse
 			// 
+			this->btnSaveResponse->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnSaveResponse->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnSaveResponse->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSaveResponse->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnSaveResponse->Location = System::Drawing::Point(333, 3);
 			this->btnSaveResponse->Name = L"btnSaveResponse";
 			this->btnSaveResponse->Size = System::Drawing::Size(104, 53);
 			this->btnSaveResponse->TabIndex = 9;
 			this->btnSaveResponse->Text = L"Save Response";
-			this->btnSaveResponse->UseVisualStyleBackColor = true;
+			this->btnSaveResponse->UseVisualStyleBackColor = false;
 			this->btnSaveResponse->Click += gcnew System::EventHandler(this, &ExamPaper::btnSaveResponse_Click);
 			// 
 			// btnEndTest
 			// 
+			this->btnEndTest->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnEndTest->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnEndTest->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnEndTest->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnEndTest->Location = System::Drawing::Point(626, 2);
 			this->btnEndTest->Name = L"btnEndTest";
 			this->btnEndTest->Size = System::Drawing::Size(170, 53);
 			this->btnEndTest->TabIndex = 7;
 			this->btnEndTest->Text = L"End Test";
-			this->btnEndTest->UseVisualStyleBackColor = true;
+			this->btnEndTest->UseVisualStyleBackColor = false;
 			this->btnEndTest->Click += gcnew System::EventHandler(this, &ExamPaper::btnEndTest_Click);
 			// 
 			// btnReview
 			// 
+			this->btnReview->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnReview->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnReview->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnReview->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnReview->Location = System::Drawing::Point(223, 3);
 			this->btnReview->Name = L"btnReview";
 			this->btnReview->Size = System::Drawing::Size(104, 53);
 			this->btnReview->TabIndex = 8;
 			this->btnReview->Text = L"Mark For Review";
-			this->btnReview->UseVisualStyleBackColor = true;
+			this->btnReview->UseVisualStyleBackColor = false;
 			this->btnReview->Click += gcnew System::EventHandler(this, &ExamPaper::btnReview_Click);
 			// 
 			// btnNext
 			// 
+			this->btnNext->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnNext->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnNext->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnNext->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnNext->Location = System::Drawing::Point(113, 3);
 			this->btnNext->Name = L"btnNext";
 			this->btnNext->Size = System::Drawing::Size(104, 53);
 			this->btnNext->TabIndex = 7;
 			this->btnNext->Text = L"Next";
-			this->btnNext->UseVisualStyleBackColor = true;
+			this->btnNext->UseVisualStyleBackColor = false;
 			this->btnNext->Click += gcnew System::EventHandler(this, &ExamPaper::btnNext_Click);
 			// 
 			// btnPrev
 			// 
+			this->btnPrev->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnPrev->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnPrev->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnPrev->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnPrev->Location = System::Drawing::Point(3, 3);
 			this->btnPrev->Name = L"btnPrev";
 			this->btnPrev->Size = System::Drawing::Size(104, 53);
 			this->btnPrev->TabIndex = 4;
 			this->btnPrev->Text = L"Previous";
-			this->btnPrev->UseVisualStyleBackColor = true;
+			this->btnPrev->UseVisualStyleBackColor = false;
 			this->btnPrev->Click += gcnew System::EventHandler(this, &ExamPaper::btnPrev_Click);
 			// 
 			// questionPanel
 			// 
-			this->questionPanel->BackColor = System::Drawing::SystemColors::Control;
+			this->questionPanel->BackColor = System::Drawing::Color::White;
 			this->questionPanel->Controls->Add(this->answerFlowPanel);
 			this->questionPanel->Controls->Add(this->tc1);
 			this->questionPanel->Controls->Add(this->label2);
@@ -293,12 +331,16 @@ namespace Online_Exam {
 			this->tc1->Appearance = System::Windows::Forms::TabAppearance::Buttons;
 			this->tc1->Controls->Add(this->tabPage1);
 			this->tc1->Controls->Add(this->tabPage2);
+			this->tc1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->tc1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->tc1->HotTrack = true;
+			this->tc1->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->tc1->Location = System::Drawing::Point(16, 3);
 			this->tc1->Name = L"tc1";
 			this->tc1->SelectedIndex = 0;
-			this->tc1->Size = System::Drawing::Size(783, 33);
+			this->tc1->Size = System::Drawing::Size(780, 33);
+			this->tc1->SizeMode = System::Windows::Forms::TabSizeMode::FillToRight;
 			this->tc1->TabIndex = 10;
 			// 
 			// tabPage1
@@ -306,7 +348,7 @@ namespace Online_Exam {
 			this->tabPage1->Location = System::Drawing::Point(4, 32);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(775, 0);
+			this->tabPage1->Size = System::Drawing::Size(772, 0);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"tabPage1";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -316,7 +358,7 @@ namespace Online_Exam {
 			this->tabPage2->Location = System::Drawing::Point(4, 32);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(775, 0);
+			this->tabPage2->Size = System::Drawing::Size(772, 0);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -335,6 +377,9 @@ namespace Online_Exam {
 			// 
 			// txtQuesText
 			// 
+			this->txtQuesText->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->txtQuesText->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txtQuesText->Location = System::Drawing::Point(16, 75);
 			this->txtQuesText->Multiline = true;
 			this->txtQuesText->Name = L"txtQuesText";
@@ -376,6 +421,7 @@ namespace Online_Exam {
 			// 
 			// lblTimer
 			// 
+			this->lblTimer->BackColor = System::Drawing::Color::White;
 			this->lblTimer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblTimer->Location = System::Drawing::Point(486, 117);
@@ -388,6 +434,7 @@ namespace Online_Exam {
 			// 
 			// label1
 			// 
+			this->label1->BackColor = System::Drawing::Color::White;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(219, 186);
@@ -400,6 +447,7 @@ namespace Online_Exam {
 			// 
 			// lblTestName
 			// 
+			this->lblTestName->BackColor = System::Drawing::Color::White;
 			this->lblTestName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 27.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblTestName->Location = System::Drawing::Point(249, 1);
@@ -411,6 +459,7 @@ namespace Online_Exam {
 			// 
 			// lblAttempted
 			// 
+			this->lblAttempted->BackColor = System::Drawing::Color::White;
 			this->lblAttempted->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblAttempted->Location = System::Drawing::Point(398, 186);
@@ -423,6 +472,7 @@ namespace Online_Exam {
 			// 
 			// lblTimeRemaining
 			// 
+			this->lblTimeRemaining->BackColor = System::Drawing::Color::White;
 			this->lblTimeRemaining->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblTimeRemaining->Location = System::Drawing::Point(388, 117);
@@ -434,6 +484,7 @@ namespace Online_Exam {
 			// 
 			// picLogo
 			// 
+			this->picLogo->BackColor = System::Drawing::Color::White;
 			this->picLogo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picLogo.Image")));
 			this->picLogo->Location = System::Drawing::Point(3, 12);
 			this->picLogo->Name = L"picLogo";
@@ -445,6 +496,7 @@ namespace Online_Exam {
 			// markingFlowPanel
 			// 
 			this->markingFlowPanel->AutoScroll = true;
+			this->markingFlowPanel->BackColor = System::Drawing::Color::White;
 			this->markingFlowPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->markingFlowPanel->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
 			this->markingFlowPanel->Location = System::Drawing::Point(790, 35);
@@ -454,6 +506,7 @@ namespace Online_Exam {
 			// 
 			// label3
 			// 
+			this->label3->BackColor = System::Drawing::Color::White;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(802, 1);
@@ -475,6 +528,7 @@ namespace Online_Exam {
 			// 
 			// lblLegend
 			// 
+			this->lblLegend->BackColor = System::Drawing::Color::White;
 			this->lblLegend->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->lblLegend->Location = System::Drawing::Point(3, 215);
@@ -506,6 +560,7 @@ namespace Online_Exam {
 			// 
 			// label4
 			// 
+			this->label4->BackColor = System::Drawing::Color::White;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->Location = System::Drawing::Point(20, 241);
@@ -518,6 +573,7 @@ namespace Online_Exam {
 			// 
 			// label5
 			// 
+			this->label5->BackColor = System::Drawing::Color::White;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(22, 258);
@@ -530,6 +586,7 @@ namespace Online_Exam {
 			// 
 			// label6
 			// 
+			this->label6->BackColor = System::Drawing::Color::White;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->Location = System::Drawing::Point(23, 275);
@@ -544,6 +601,7 @@ namespace Online_Exam {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(1008, 729);
 			this->ControlBox = false;
 			this->Controls->Add(this->label6);
@@ -712,7 +770,12 @@ namespace Online_Exam {
 					btn->Width = 60;
 					btn->Height = 30;
 					btn->Text = Convert::ToString(j + 1);
+					btn->FlatStyle = FlatStyle::Flat;
+					btn->FlatAppearance->BorderSize = 2;
+					//btn->Cursor = Cursor->Handl
 					
+					btn->Font = (gcnew System::Drawing::Font(L"Arial", 13));
+					//btn->Font = gcnew Font("Arial", 10, FontStyle::Bold);
 					//buttonFlowPanel->Controls->Add(btn);
 					btn->Tag = PaperQuestions[i][j];
 					btn->Click += gcnew System::EventHandler(this, &ExamPaper::btnClick);
@@ -884,6 +947,7 @@ namespace Online_Exam {
 						 chk->MaximumSize = System::Drawing::Size(answerFlowPanel->Width, 100);
 						 chk->Text = Convert::ToString(QSet->Data[selInd]->Questions[selQues]->Options[i]);
 						 chk->AutoSize = true;
+						 chk->Font = (gcnew System::Drawing::Font(L"Arial", 11,FontStyle::Regular));
 						 checkList->Add(chk);
 					 }
 					 String ^attemptedAns = Convert::ToString(QuestionAns[selInd][numQues-1]->attemptAns);
@@ -931,6 +995,9 @@ namespace Online_Exam {
 				 {
 					 rd1 = gcnew RadioButton();
 					 rd2 = gcnew RadioButton();
+					 rd1->Font = gcnew System::Drawing::Font(L"Arial", 11, FontStyle::Regular);
+					 rd2->Font = gcnew System::Drawing::Font(L"Arial", 11, FontStyle::Regular);
+					
 					 rd1->Text = "TRUE";
 					 rd2->Text = "FALSE";
 					 String ^attemptedAns = Convert::ToString(QuestionAns[selInd][numQues - 1]->attemptAns);
@@ -957,6 +1024,7 @@ namespace Online_Exam {
 				 if (QSet->Data[selInd]->Questions[selQues]->AnswerType == 2)
 				 {
 					 answerText = gcnew TextBox();
+					 answerText->Font = gcnew System::Drawing::Font(L"Arial", 11, FontStyle::Regular);
 					 String ^attemptedAns = Convert::ToString(QuestionAns[selInd][numQues - 1]->attemptAns);
 					 if (attemptedAns->Length != 0)
 					 {
@@ -1046,9 +1114,99 @@ private: System::Void btnPrev_Click(System::Object^  sender, System::EventArgs^ 
 			 }
 }
 private: System::Void btnEndTest_Click(System::Object^  sender, System::EventArgs^  e) {
-			 //code still not complete
-			 MessageBox::Show("Exiting test");
-			 this->Close();
+			 if (MessageBox::Show("Are you sure you want to end the exam?", "Ending The Exam", MessageBoxButtons::YesNo) == ::DialogResult::Yes)
+			 {
+				 questionStr = "";
+				 attemptStr = "";
+				 correctStr = "";
+				 for (int i = 0; i < QSet->Data->Count; ++i)
+				 {
+					 String^ sectionStr = "";
+					 String^ sectionAttempt = "";
+					 String^ sectionCorrect = "";
+					 for (int j = 0; j < QSet->Data[i]->NumberOfQuestionsGiven; ++j)
+					 {
+						 sectionStr += (Environment::NewLine);
+						 sectionStr += i.ToString();
+						 sectionStr += ".";
+						 sectionStr += PaperQuestions[i][j].ToString();
+
+						 sectionAttempt += (Environment::NewLine);
+						 sectionAttempt += QuestionAns[i][j]->attemptAns;
+
+						 sectionCorrect += (Environment::NewLine);
+						 sectionCorrect += QuestionAns[i][j]->correctAns;
+
+
+					 }
+					 questionStr += sectionStr;
+					 attemptStr += sectionAttempt;
+					 correctStr += sectionCorrect;
+
+				 }
+				 Console::WriteLine(questionStr);
+				 Console::WriteLine("answer string\n");
+
+				 Console::WriteLine(attemptStr);
+
+				 Console::WriteLine("correctAns String\n");
+				 Console::WriteLine(correctStr);
+
+
+				 //calculating total marks of the student
+
+				 obtainedMarks = 0;
+				 sectionMark = "";
+				 for (int i = 0; i < QSet->Data->Count; ++i)
+				 {
+					 int sectionScore = 0;
+					 int questionFullMark = QSet->Data[i]->Weight;
+					 for (int j = 0; j < QSet->Data[i]->NumberOfQuestionsGiven; ++j)
+					 {
+						 String^ t1 = Convert::ToString(QuestionAns[i][j]->attemptAns);
+						 String^ t2 = Convert::ToString(QuestionAns[i][j]->correctAns);
+						 Console::WriteLine(t1->ToUpper() + "and" + t2->ToUpper() + "\n");
+						 fullMarks += sectionScore;
+						 if (t1->ToUpper() == t2->ToUpper())
+						 {
+
+							 sectionScore += questionFullMark;
+							 Console::WriteLine(sectionScore.ToString());
+
+						 }
+
+					 }
+					 sectionMark += (Environment::NewLine);
+					 sectionMark += sectionScore.ToString();
+					 obtainedMarks += sectionScore;
+				 }
+				 Console::WriteLine("printing the score\n");
+				 Console::WriteLine(obtainedMarks.ToString());
+				 Console::WriteLine(sectionMark);
+
+
+				 OES^ Access = gcnew OES();
+
+				 Access->AddParam("@ExamCode", ExamCode);
+				 Access->AddParam("@Username", gVar::Username);
+				 Access->AddParam("@FullMarks", fullMarks);
+				 Access->AddParam("@QuesGiven", questionStr);
+				 Access->AddParam("@AttemptedAns", attemptStr);
+				 Access->AddParam("@CorrectAns", correctStr);
+				 Access->AddParam("@ObtainedMarks", obtainedMarks);
+				 Access->AddParam("@SectionMarks", sectionMark);
+
+				 Access->ExecQuery("INSERT Into Performance (ExamCode, Username, FullMarks, QuesGiven, AttemptedAns, CorrectAns, ObtainedMarks,SectionMarks) Values (@ExamCode,@UserName ,@FullMarks ,@QuesGiven,@AttemptedAns,@CorrectAns,@ObtainedMarks,@SectionMarks)");
+				 //	 MessageBox::Show("Test " + txtName->Text + " successfully created!");
+				 this->Close();
+			 }
+			 else
+			 {
+
+			 }
+
+			 //this->Close();
+            
 }
 
 private: System::Void btnSaveResponse_Click(System::Object^  sender, System::EventArgs^  e) {
