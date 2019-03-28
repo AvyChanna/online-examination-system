@@ -417,7 +417,7 @@ namespace Online_Exam {
 			this->btnSave->Name = L"btnSave";
 			this->btnSave->Size = System::Drawing::Size(93, 35);
 			this->btnSave->TabIndex = 7;
-			this->btnSave->Text = L"Save";
+			this->btnSave->Text = L"Force Save";
 			this->btnSave->UseVisualStyleBackColor = true;
 			this->btnSave->Click += gcnew System::EventHandler(this, &AddQuestions::btnSave_Click);
 			// 
@@ -531,10 +531,13 @@ public: System::Void LoadData(int sect, int ques)
 	textIncorrectOpt->Text = "";
 	// display options
 	label6->Text = Convert::ToString(ques+1);
-	label5->Text = Convert::ToString(SectionQues[CurrentSection]);
-	if (data[sect][ques]->type == -1) tcAnswerType->SelectedIndex = 0;
-	else tcAnswerType->SelectedIndex = data[sect][ques]->type;
+	label5->Text = Convert::ToString(SectionQues[sect]);
+	tcAnswerType->SelectedIndex = data[sect][ques]->type;
 	tcAnswerType->Refresh();
+	textAnswer->Text = "";
+	radioFalse->Checked = false;
+	radioTrue->Checked = true;
+
 	if (data[sect][ques]->type == 0)
 	{
 		for each(String ^s in data[sect][ques]->lc)
@@ -569,8 +572,43 @@ private: System::Void btnSave_Click(System::Object^  sender, System::EventArgs^ 
 	LoadData(CurrentSection, CurrentQuestion);
 }
 private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^  e) {
-	// TODO: Check if all fields are done for.
-			 SaveData(CurrentSection, CurrentQuestion);
+	SaveData(CurrentSection, CurrentQuestion);
+	for (int i = 0; i < SectionCount; i++)
+	for (int j = 0; j < SectionQues[i]; j++)
+	{
+		if (String::IsNullOrEmpty(data[i][j]->q->Trim()))
+		{
+			MessageBox::Show("Question - " + Convert::ToString(j + 1) + " at Section - " + Convert::ToString(i + 1) + " has an empty question statement.");
+			cbSection->SelectedIndex = i;
+			CurrentSection = i;
+			CurrentQuestion = j;
+			return;
+		}
+		if (data[i][j]->type == -1)
+		{
+			MessageBox::Show("Question - " + Convert::ToString(j + 1) + " at Section - " + Convert::ToString(i + 1) + " has an incorrect answer type.");
+			cbSection->SelectedIndex = i;
+			CurrentSection = i;
+			CurrentQuestion = j;
+			return;
+		}
+		if (data[i][j]->type == 0 && (!((data[i][j]->lc->Count + data[i][j]->li->Count) >= 2 && (data[i][j]->lc->Count))))
+		{
+			MessageBox::Show("Question - " + Convert::ToString(j + 1) + " at Section - " + Convert::ToString(i + 1) + " has incorrect/insufficient MCQ type options.");
+			cbSection->SelectedIndex = i;
+			CurrentSection = i;
+			CurrentQuestion = j;
+			return;
+		}
+		if (data[i][j]->type == 2 && String::IsNullOrEmpty(data[i][j]->ow->Trim()))
+		{
+			MessageBox::Show("Question - " + Convert::ToString(j + 1) + " at Section - " + Convert::ToString(i + 1) + " has incorrect One-Word/Integer Answer.");
+			cbSection->SelectedIndex = i;
+			CurrentSection = i;
+			CurrentQuestion = j;
+			return;
+		}
+	}
 	JExam ^js = gcnew JExam();
 	for (int i = 0; i < SectionCount; i++)
 	{
@@ -587,7 +625,7 @@ private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^ 
 
 			if(data[i][j]->type == 0)
 			{
-				for (int k = 1; k <= data[i][j]->lc->Count; k++)
+				for (int k = 0; k < data[i][j]->lc->Count; k++)
 					jsq->Answer->Add(k);
 				for (int k = 0; k < data[i][j]->lc->Count; k++)
 					jsq->Options->Add(data[i][j]->lc[k]);
@@ -600,16 +638,16 @@ private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^ 
 				jsq->Options->Add("False");
 				jsq->Options->Add("True");
 			}
-			else if (data[i][j]->type == 1)
+			else if (data[i][j]->type == 2)
 			{
-				jsq->Answer->Add(0);
+				jsq->Answer->Add(1);
 				jsq->Options->Add(data[i][j]->ow);
 			}
 			jsd->Questions->Add(jsq);
 		}
 		js->Data->Add(jsd);
 	}
-	String ^output = JsonConvert::SerializeObject(js, Formatting::Indented);
+	String ^output = JsonConvert::SerializeObject(js, Formatting::None);
 	Console::WriteLine(output);
 }
 };

@@ -57,6 +57,8 @@
     <EmbeddedResource Include="AdminForm.resx" />
     <EmbeddedResource Include="ApproveProf.resx" />
     <EmbeddedResource Include="AddQuestions.resx" />
+    <EmbeddedResource Include="StudentEditAdmin.resx" />
+    <EmbeddedResource Include="MyForm.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
