@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="displayAnswer.cpp" />
     <ClCompile Include="GlobalSuppressions.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -120,6 +121,9 @@
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="CreateGroup.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="displayAnswer.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Encryption.h" />
@@ -201,6 +205,9 @@
     <EmbeddedResource Include="CreateGroup.resx">
       <DependentUpon>CreateGroup.h</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="displayAnswer.resx">
+      <DependentUpon>displayAnswer.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExamPaper.resx">
       <DependentUpon>ExamPaper.h</DependentUpon>

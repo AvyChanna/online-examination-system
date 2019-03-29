@@ -5,6 +5,7 @@
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="GlobalSuppressions.cpp" />
+    <ClCompile Include="displayAnswer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Database.h" />
@@ -37,12 +38,12 @@
     <ClInclude Include="ExamPaper.h" />
     <ClInclude Include="NewPass.h" />
     <ClInclude Include="QuestionStructure.h" />
+    <ClInclude Include="displayAnswer.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resX" />
     <EmbeddedResource Include="ProfForm.resx" />
     <EmbeddedResource Include="ProfProfile.resx" />
     <EmbeddedResource Include="StudentForm.resx" />
