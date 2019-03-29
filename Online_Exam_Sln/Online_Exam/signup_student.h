@@ -57,6 +57,13 @@ namespace Online_Exam {
 	private: System::Windows::Forms::TextBox^  passTxt;
 	private: System::Windows::Forms::TextBox^  nameTxt;
 	private: System::Windows::Forms::ComboBox^  branchCb;
+	private: System::Windows::Forms::Panel^  panel4;
+	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::Panel^  panel2;
+	private: System::Windows::Forms::Panel^  panel3;
+	private: System::Windows::Forms::Panel^  panel5;
+	private: System::Windows::Forms::Panel^  panel6;
+	private: System::Windows::Forms::Panel^  panel7;
 
 
 	protected:
@@ -139,66 +146,105 @@ namespace Online_Exam {
 			this->passTxt = (gcnew System::Windows::Forms::TextBox());
 			this->nameTxt = (gcnew System::Windows::Forms::TextBox());
 			this->branchCb = (gcnew System::Windows::Forms::ComboBox());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->panel5 = (gcnew System::Windows::Forms::Panel());
+			this->panel6 = (gcnew System::Windows::Forms::Panel());
+			this->panel7 = (gcnew System::Windows::Forms::Panel());
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(271, 93);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->label1->Location = System::Drawing::Point(81, 26);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(73, 17);
+			this->label1->Size = System::Drawing::Size(91, 19);
 			this->label1->TabIndex = 40;
 			this->label1->Text = L"Username";
+			this->label1->Click += gcnew System::EventHandler(this, &signup_student::label1_Click);
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(271, 136);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->label2->Location = System::Drawing::Point(81, 94);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(71, 17);
+			this->label2->Size = System::Drawing::Size(91, 19);
 			this->label2->TabIndex = 41;
 			this->label2->Text = L"Full Name";
+			this->label2->Click += gcnew System::EventHandler(this, &signup_student::label2_Click);
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(271, 181);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->label3->Location = System::Drawing::Point(326, 26);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(69, 17);
+			this->label3->Size = System::Drawing::Size(87, 19);
 			this->label3->TabIndex = 42;
 			this->label3->Text = L"Password";
+			this->label3->Click += gcnew System::EventHandler(this, &signup_student::label3_Click);
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(271, 347);
+			this->label4->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->label4->Location = System::Drawing::Point(81, 160);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(84, 17);
+			this->label4->Size = System::Drawing::Size(106, 19);
 			this->label4->TabIndex = 43;
 			this->label4->Text = L"Roll number";
+			this->label4->Click += gcnew System::EventHandler(this, &signup_student::label4_Click);
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(261, 300);
+			this->label5->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->label5->Location = System::Drawing::Point(81, 276);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(103, 17);
+			this->label5->Size = System::Drawing::Size(132, 19);
 			this->label5->TabIndex = 44;
 			this->label5->Text = L"Phone Number";
+			this->label5->Click += gcnew System::EventHandler(this, &signup_student::label5_Click);
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(271, 245);
+			this->label6->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->label6->Location = System::Drawing::Point(81, 222);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(42, 17);
+			this->label6->Size = System::Drawing::Size(53, 19);
 			this->label6->TabIndex = 45;
 			this->label6->Text = L"Email";
+			this->label6->Click += gcnew System::EventHandler(this, &signup_student::label6_Click);
 			// 
 			// memChkBox
 			// 
 			this->memChkBox->AutoSize = true;
-			this->memChkBox->Location = System::Drawing::Point(274, 395);
+			this->memChkBox->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->memChkBox->Location = System::Drawing::Point(329, 181);
 			this->memChkBox->Name = L"memChkBox";
 			this->memChkBox->Size = System::Drawing::Size(111, 21);
 			this->memChkBox->TabIndex = 47;
@@ -208,88 +254,126 @@ namespace Online_Exam {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(271, 210);
+			this->label8->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->label8->Location = System::Drawing::Point(326, 94);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(121, 17);
+			this->label8->Size = System::Drawing::Size(156, 19);
 			this->label8->TabIndex = 48;
 			this->label8->Text = L"Password Confirm";
+			this->label8->Click += gcnew System::EventHandler(this, &signup_student::label8_Click);
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(688, 93);
+			this->label9->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->label9->Location = System::Drawing::Point(326, 222);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(53, 17);
+			this->label9->Size = System::Drawing::Size(66, 19);
 			this->label9->TabIndex = 49;
 			this->label9->Text = L"Branch";
+			this->label9->Click += gcnew System::EventHandler(this, &signup_student::label9_Click);
 			// 
 			// userTxt
 			// 
-			this->userTxt->Location = System::Drawing::Point(403, 87);
+			this->userTxt->BackColor = System::Drawing::Color::White;
+			this->userTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->userTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->userTxt->Location = System::Drawing::Point(84, 48);
 			this->userTxt->Name = L"userTxt";
-			this->userTxt->Size = System::Drawing::Size(100, 22);
+			this->userTxt->Size = System::Drawing::Size(174, 23);
 			this->userTxt->TabIndex = 50;
-			this->userTxt->Text = L"shubham";
 			// 
 			// confirmPassTxt
 			// 
-			this->confirmPassTxt->Location = System::Drawing::Point(403, 210);
+			this->confirmPassTxt->BackColor = System::Drawing::Color::White;
+			this->confirmPassTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->confirmPassTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->confirmPassTxt->Location = System::Drawing::Point(329, 118);
 			this->confirmPassTxt->Name = L"confirmPassTxt";
-			this->confirmPassTxt->Size = System::Drawing::Size(100, 22);
+			this->confirmPassTxt->Size = System::Drawing::Size(174, 23);
 			this->confirmPassTxt->TabIndex = 51;
-			this->confirmPassTxt->Text = L"sss";
+			this->confirmPassTxt->UseSystemPasswordChar = true;
 			// 
 			// mailTxt
 			// 
-			this->mailTxt->Location = System::Drawing::Point(403, 253);
+			this->mailTxt->BackColor = System::Drawing::Color::White;
+			this->mailTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->mailTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->mailTxt->Location = System::Drawing::Point(84, 241);
 			this->mailTxt->Name = L"mailTxt";
-			this->mailTxt->Size = System::Drawing::Size(100, 22);
+			this->mailTxt->Size = System::Drawing::Size(174, 23);
 			this->mailTxt->TabIndex = 52;
-			this->mailTxt->Text = L"skj@iitg";
 			// 
 			// pNumTxt
 			// 
-			this->pNumTxt->Location = System::Drawing::Point(403, 295);
+			this->pNumTxt->BackColor = System::Drawing::Color::White;
+			this->pNumTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->pNumTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->pNumTxt->Location = System::Drawing::Point(84, 305);
 			this->pNumTxt->Name = L"pNumTxt";
-			this->pNumTxt->Size = System::Drawing::Size(100, 22);
+			this->pNumTxt->Size = System::Drawing::Size(174, 23);
 			this->pNumTxt->TabIndex = 53;
-			this->pNumTxt->Text = L"7412589630";
 			this->pNumTxt->TextChanged += gcnew System::EventHandler(this, &signup_student::pNumTxt_TextChanged);
 			// 
 			// rNumTxt
 			// 
-			this->rNumTxt->Location = System::Drawing::Point(403, 342);
+			this->rNumTxt->BackColor = System::Drawing::Color::White;
+			this->rNumTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->rNumTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->rNumTxt->Location = System::Drawing::Point(84, 181);
 			this->rNumTxt->Name = L"rNumTxt";
-			this->rNumTxt->Size = System::Drawing::Size(100, 22);
+			this->rNumTxt->Size = System::Drawing::Size(174, 23);
 			this->rNumTxt->TabIndex = 54;
-			this->rNumTxt->Text = L"147852369";
 			this->rNumTxt->TextChanged += gcnew System::EventHandler(this, &signup_student::rNumTxt_TextChanged);
 			// 
 			// studBtn
 			// 
-			this->studBtn->Location = System::Drawing::Point(691, 430);
+			this->studBtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->studBtn->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->studBtn->ForeColor = System::Drawing::Color::White;
+			this->studBtn->Location = System::Drawing::Point(340, 286);
 			this->studBtn->Name = L"studBtn";
-			this->studBtn->Size = System::Drawing::Size(75, 23);
+			this->studBtn->Size = System::Drawing::Size(168, 41);
 			this->studBtn->TabIndex = 60;
-			this->studBtn->Text = L"Sumbit";
-			this->studBtn->UseVisualStyleBackColor = true;
+			this->studBtn->Text = L"Submit";
+			this->studBtn->UseVisualStyleBackColor = false;
 			this->studBtn->Click += gcnew System::EventHandler(this, &signup_student::studBtn_Click);
 			// 
 			// passTxt
 			// 
-			this->passTxt->Location = System::Drawing::Point(403, 181);
+			this->passTxt->BackColor = System::Drawing::Color::White;
+			this->passTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->passTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->passTxt->Location = System::Drawing::Point(329, 48);
 			this->passTxt->Name = L"passTxt";
-			this->passTxt->Size = System::Drawing::Size(100, 22);
+			this->passTxt->Size = System::Drawing::Size(174, 23);
 			this->passTxt->TabIndex = 57;
-			this->passTxt->Text = L"sss";
+			this->passTxt->UseSystemPasswordChar = true;
 			// 
 			// nameTxt
 			// 
-			this->nameTxt->Location = System::Drawing::Point(403, 136);
+			this->nameTxt->BackColor = System::Drawing::Color::White;
+			this->nameTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->nameTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->nameTxt->Location = System::Drawing::Point(84, 118);
 			this->nameTxt->Name = L"nameTxt";
-			this->nameTxt->Size = System::Drawing::Size(100, 22);
+			this->nameTxt->Size = System::Drawing::Size(174, 23);
 			this->nameTxt->TabIndex = 58;
-			this->nameTxt->Text = L"shubham kumar";
 			// 
 			// branchCb
 			// 
@@ -299,15 +383,86 @@ namespace Online_Exam {
 				L"CSE", L"MNC", L"ECE", L"BT", L"EEE", L"ME", L"CE",
 					L"CS"
 			});
-			this->branchCb->Location = System::Drawing::Point(747, 87);
+			this->branchCb->Location = System::Drawing::Point(329, 241);
 			this->branchCb->Name = L"branchCb";
 			this->branchCb->Size = System::Drawing::Size(121, 24);
 			this->branchCb->TabIndex = 80;
+			// 
+			// panel4
+			// 
+			this->panel4->BackColor = System::Drawing::Color::Black;
+			this->panel4->Location = System::Drawing::Point(84, 66);
+			this->panel4->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			this->panel4->Name = L"panel4";
+			this->panel4->Size = System::Drawing::Size(174, 1);
+			this->panel4->TabIndex = 84;
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::Black;
+			this->panel1->Location = System::Drawing::Point(84, 137);
+			this->panel1->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(174, 1);
+			this->panel1->TabIndex = 85;
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::Black;
+			this->panel2->Location = System::Drawing::Point(84, 200);
+			this->panel2->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(174, 1);
+			this->panel2->TabIndex = 86;
+			// 
+			// panel3
+			// 
+			this->panel3->BackColor = System::Drawing::Color::Black;
+			this->panel3->Location = System::Drawing::Point(84, 260);
+			this->panel3->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(174, 1);
+			this->panel3->TabIndex = 87;
+			// 
+			// panel5
+			// 
+			this->panel5->BackColor = System::Drawing::Color::Black;
+			this->panel5->Location = System::Drawing::Point(84, 324);
+			this->panel5->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			this->panel5->Name = L"panel5";
+			this->panel5->Size = System::Drawing::Size(174, 1);
+			this->panel5->TabIndex = 88;
+			// 
+			// panel6
+			// 
+			this->panel6->BackColor = System::Drawing::Color::Black;
+			this->panel6->Location = System::Drawing::Point(329, 137);
+			this->panel6->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			this->panel6->Name = L"panel6";
+			this->panel6->Size = System::Drawing::Size(174, 1);
+			this->panel6->TabIndex = 89;
+			// 
+			// panel7
+			// 
+			this->panel7->BackColor = System::Drawing::Color::Black;
+			this->panel7->Location = System::Drawing::Point(329, 66);
+			this->panel7->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			this->panel7->Name = L"panel7";
+			this->panel7->Size = System::Drawing::Size(174, 1);
+			this->panel7->TabIndex = 90;
 			// 
 			// signup_student
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::White;
+			this->Controls->Add(this->panel7);
+			this->Controls->Add(this->panel6);
+			this->Controls->Add(this->panel5);
+			this->Controls->Add(this->panel3);
+			this->Controls->Add(this->panel2);
+			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->panel4);
 			this->Controls->Add(this->branchCb);
 			this->Controls->Add(this->studBtn);
 			this->Controls->Add(this->nameTxt);
@@ -326,8 +481,12 @@ namespace Online_Exam {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->Name = L"signup_student";
-			this->Size = System::Drawing::Size(1123, 547);
+			this->Size = System::Drawing::Size(624, 371);
+			this->Load += gcnew System::EventHandler(this, &signup_student::signup_student_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -438,6 +597,24 @@ private: System::Void rNumTxt_TextChanged(System::Object^  sender, System::Event
 			 }
 
 
+}
+private: System::Void signup_student_Load(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label8_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
