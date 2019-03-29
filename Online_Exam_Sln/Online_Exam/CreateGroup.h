@@ -128,9 +128,10 @@ namespace Online_Exam {
 			// 
 			// btnCreate
 			// 
+			this->btnCreate->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnCreate->Location = System::Drawing::Point(348, 319);
 			this->btnCreate->Name = L"btnCreate";
-			this->btnCreate->Size = System::Drawing::Size(218, 23);
+			this->btnCreate->Size = System::Drawing::Size(218, 38);
 			this->btnCreate->TabIndex = 6;
 			this->btnCreate->Text = L"CREATE GROUP";
 			this->btnCreate->UseVisualStyleBackColor = true;

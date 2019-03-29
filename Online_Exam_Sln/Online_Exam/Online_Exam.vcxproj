@@ -157,6 +157,7 @@
     <ClInclude Include="prof_signup.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="QuestionStructure.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Signup.h">
       <FileType>CppForm</FileType>

@@ -441,8 +441,12 @@ namespace Online_Exam {
 	private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void txtSesNo_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 if (txtSesNo->Text == "")
+				 if (txtSesNo->Text == ""){
+					 btnSlot->Enabled = false;
+					 cmbStr->Items->Clear();
 					 return;
+				 }
+					 
 				 try{
 					 int num = Convert::ToInt32(txtSesNo->Text);
 
@@ -455,13 +459,23 @@ namespace Online_Exam {
 					 else{
 						 MessageBox::Show("Enter number of sessions from 1 to 5!", "Error");
 						 txtSesNo->Text = "";
+						 btnSlot->Enabled = false;
+						 cmbStr->Items->Clear();
+						 return;
 					 }
 
 				 }
 				 catch (Exception ^ex){
 					 MessageBox::Show("Enter number of sessions from 1 to 5!", "Error");
 					 txtSesNo->Text = "";
+					 btnSlot->Enabled = false;
+					 cmbStr->Items->Clear();
+					 return;
 				 }
+				 Console::WriteLine("done");
+				 btnSlot->Enabled = true;
+				 cmbStr->SelectedIndex = 0;
+
 	}
 	private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -470,6 +484,7 @@ namespace Online_Exam {
 	private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void CreateExam_Load(System::Object^  sender, System::EventArgs^  e) {
+				 btnSlot->Enabled = false;
 				 txtName->Text = "";
 				 txtPass->Text = "";
 				 txtSectNo->Text = "";
@@ -614,9 +629,21 @@ namespace Online_Exam {
 
 	}
 	private: System::Void btnSlot_Click(System::Object^  sender, System::EventArgs^  e) {
+				 DateTime dt = calStr->Value;
+				 Console::WriteLine(dt.ToString());
+				 Console::WriteLine(DateTime::Now);
+				 if (dt < DateTime::Now){
+					 MessageBox::Show("Exam cannot be set in the past", "Error");
+					 return;
+				 }
 				 int no = Convert::ToInt32(cmbStr->SelectedItem);
-				 MessageBox::Show(calStr->Text);
+				 //MessageBox::Show(calStr->Text);
+				 if (start[no - 1] = "2000-01-01 00:00:00")
+					 MessageBox::Show("Exam Slot for Session" + no.ToString() + " added at Time " + calStr->Text);
+				 else
+					 MessageBox::Show("Exam Slot for Session" + no.ToString() + " modified to Time " + calStr->Text);
 				 start[no - 1] = Convert::ToString(calStr->Text);
+				 //Console::WriteLine(start[no - 1]->ToString());		
 	}
 	};
 }

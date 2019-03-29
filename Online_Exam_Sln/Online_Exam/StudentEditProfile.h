@@ -95,7 +95,7 @@ namespace Online_Exam {
 			this->lblBranch->AutoSize = true;
 			this->lblBranch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblBranch->Location = System::Drawing::Point(104, 318);
+			this->lblBranch->Location = System::Drawing::Point(99, 318);
 			this->lblBranch->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblBranch->Name = L"lblBranch";
 			this->lblBranch->Size = System::Drawing::Size(74, 25);
@@ -190,6 +190,7 @@ namespace Online_Exam {
 			this->txtRoll->Location = System::Drawing::Point(399, 118);
 			this->txtRoll->Margin = System::Windows::Forms::Padding(4);
 			this->txtRoll->Name = L"txtRoll";
+			this->txtRoll->ReadOnly = true;
 			this->txtRoll->Size = System::Drawing::Size(229, 22);
 			this->txtRoll->TabIndex = 22;
 			// 
@@ -229,6 +230,9 @@ namespace Online_Exam {
 			// 
 			// btnUpdate
 			// 
+			this->btnUpdate->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnUpdate->FlatAppearance->BorderSize = 2;
+			this->btnUpdate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnUpdate->Location = System::Drawing::Point(246, 368);
 			this->btnUpdate->Margin = System::Windows::Forms::Padding(4);
 			this->btnUpdate->Name = L"btnUpdate";
@@ -292,26 +296,42 @@ namespace Online_Exam {
 	}
 
 	private:bool validate(){
-	
-				
-				if (txtPhone->TextLength != 10){
-					MessageBox::Show("Phone Number Length should be 10");
-					return false;
+				txtFullName->Text = txtFullName->Text->Trim();
+				txtEmail->Text = txtEmail->Text->Trim();
+				txtPhone->Text = txtPhone->Text->Trim();
+				String ^ str = txtPhone->Text;
+				for (int i = 0; i < str->Length; i++)
+				{
+					if (str[i]>'9' || str[i] < '0')
+					{
+						MessageBox::Show("Phone Number should not have digits aparts from 0-9", "Wrong Details");
+						return false;
+					}
 				}
-				if (txtRoll->TextLength != 9){
-					MessageBox::Show("Roll Number Length should be 9");
-					return false;
+				str = txtFullName->Text;
+				String ^ str1 = "";
+				for (int i = 0; i < str->Length; i++)
+				{
+					if (str[i] != ' ')
+					{
+						if (i>0 && str[i - 1] == ' ') str1 += " ";
+						str1 += str[i];
+					}
 				}
+				txtFullName->Text = str1;
 				
 				if (txtFullName->Text->Trim() == ""){
-					MessageBox::Show("Name can not be Empty");
+					MessageBox::Show("Name can not be Empty", "Wrong Details");
 					return false;
 				}
 				if (txtEmail->Text->Trim() == ""){
-					MessageBox::Show("Email Field can not be Empty");
+					MessageBox::Show("Email Field can not be Empty", "Wrong Details");
 					return false;
 				}
-				
+				if (txtPhone->Text->Trim() == ""){
+					MessageBox::Show("Phone number can not be Empty", "Wrong Details");
+					return false;
+				}
 				return true;
 
 	}
