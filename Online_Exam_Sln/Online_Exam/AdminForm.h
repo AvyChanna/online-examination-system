@@ -2,6 +2,7 @@
 #include "Database.h"
 #include "ApproveProf.h"
 #include "StudentEditAdmin.h"
+#include "ExamList.h"
 
 namespace Online_Exam {
 
@@ -41,6 +42,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  BtnApproveProf;
 	private: System::Windows::Forms::Panel^  adminPanel;
 	private: System::Windows::Forms::Button^  Students;
+	private: System::Windows::Forms::Button^  examDetails;
 	protected:
 
 
@@ -60,6 +62,7 @@ namespace Online_Exam {
 			this->BtnApproveProf = (gcnew System::Windows::Forms::Button());
 			this->adminPanel = (gcnew System::Windows::Forms::Panel());
 			this->Students = (gcnew System::Windows::Forms::Button());
+			this->examDetails = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// BtnApproveProf
@@ -89,11 +92,22 @@ namespace Online_Exam {
 			this->Students->UseVisualStyleBackColor = true;
 			this->Students->Click += gcnew System::EventHandler(this, &AdminForm::Students_Click);
 			// 
+			// examDetails
+			// 
+			this->examDetails->Location = System::Drawing::Point(63, 266);
+			this->examDetails->Name = L"examDetails";
+			this->examDetails->Size = System::Drawing::Size(121, 62);
+			this->examDetails->TabIndex = 3;
+			this->examDetails->Text = L"Exam Details";
+			this->examDetails->UseVisualStyleBackColor = true;
+			this->examDetails->Click += gcnew System::EventHandler(this, &AdminForm::examDetails_Click);
+			// 
 			// AdminForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(921, 593);
+			this->Controls->Add(this->examDetails);
 			this->Controls->Add(this->Students);
 			this->Controls->Add(this->adminPanel);
 			this->Controls->Add(this->BtnApproveProf);
@@ -113,5 +127,10 @@ namespace Online_Exam {
 				 StudentEditAdmin ^ usr = gcnew StudentEditAdmin();
 				 adminPanel->Controls->Add(usr);
 	}
-	};
+	private: System::Void examDetails_Click(System::Object^  sender, System::EventArgs^  e) {
+				 adminPanel->Controls->Clear();
+				 ExamList ^ usr = gcnew ExamList();
+				 adminPanel->Controls->Add(usr);
+	}
+};
 }
