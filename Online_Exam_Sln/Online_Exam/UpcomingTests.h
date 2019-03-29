@@ -120,28 +120,46 @@ namespace Online_Exam {
 						 DateTime date = DateTime::Now;
 						 for (int i = 0; i < Access->RecordCount; i++)
 						 {
-
+							 Int32 zver = Convert::ToInt32(Access->DBDT->Rows[i]["ExamCode"]);
+							 
+							 OES ^ verify = gcnew OES();
+							 //Console::WriteLine("SELECT * FROM Performance WHERE Username = '" + gVar::Username + "' AND ExamCode = " + zver);
+							 verify->ExecQuery("SELECT * FROM Performance WHERE Username = '" + gVar::Username + "' AND ExamCode = " + zver);
+							 //Console::WriteLine(verify->RecordCount);
+							 if (verify->RecordCount > 0) continue;
 							 PictureBox^ border = gcnew PictureBox();
 							 Label^ lblExamName = gcnew Label();
 							 Label^ lblProfName = gcnew Label();
 							 Label ^ lblExam = gcnew Label();
 							 Label ^lblProf = gcnew Label();
+							 Label ^ lblGroup = gcnew Label();
+							 Label ^ lblGroupsList = gcnew Label();
+							 Label ^ lblExamLength = gcnew Label();
+							 Label ^ lblExamLengthVal = gcnew Label();
 							 //creating session buttons
 							
-							 border->Width = 400;
-							 border->Height = 100;
-							 lblProfName->Width = 100;
-							 lblProfName->Height = 20;
-							 lblProf->Width = 150;
-							 lblProf->Height = 20;
-							 lblExamName->Width = 100;
-							 lblExamName->Height = 20;
-							 lblExam->Width = 150;
-							 lblExam->Height = 20;
+							 //Default Text of components
+
 							 lblExam->Text = "Exam Name: ";
 							 lblProf->Text = "Set By: ";
-							 lblExamName->Text = Convert::ToString(Access->DBDT->Rows[i]["ExamName"]);
-							 lblProfName->Text = Convert::ToString(Access->DBDT->Rows[i]["Professor"]);
+							 lblExamLength->Text = "Exam Duration: ";
+							 lblGroup->Text = "Your applicable Groups: ";
+
+							 //Properties of labels
+ 
+
+							 //Width and height of components
+							 lblProf->Width = 150;
+							 lblExam->Width = 150;
+							 lblGroup->Width = 150;
+							 lblExamLength->Width = 150;
+							 lblProf->Height = 20;
+							 lblExam->Height = 20;
+							 lblGroup->Height = 20;
+							 lblExamLength->Height = 20;
+							 
+							 /*lblExamName->Text = Convert::ToString(Access->DBDT->Rows[i]["ExamName"]);
+							 lblProfName->Text = Convert::ToString(Access->DBDT->Rows[i]["Professor"]);*/
 							 /*border->BackColor = Color::White;
 							 lblProfName->BackColor = Color::Black;
 							 lblExamName->BackColor = Color::Black;
@@ -150,25 +168,18 @@ namespace Online_Exam {
 							 //MessageBox::Show(lblExamName->Text);
 							 //Point ^ pt = gcnew Point(x + 50, y + 5);
 							 //border->Location =Point(x + 50, y + 5);
-							 lblExamName->Location = Point(x + 175, y + 30);
-							 lblProfName->Location = Point(x + 175, y + 60);
-							 lblExam->Location = Point(x + 20, y + 30);
-							 lblProf->Location = Point(x + 20, y + 60);
-							 lblExamName->AutoEllipsis = true;
-							 lblProfName->AutoEllipsis = true;
+							 
+							 //Locations of Components
+
+							 lblExam->Location = Point(x + 5, y + 10);
+							 lblProf->Location = Point(x + 5, y + 35);
+							 lblExamLength->Location = Point(x + 5, y + 60);
+							 lblGroup->Location = Point(x + 5, y + 85);
 
 							 int button_x = x + 400;
-							 int button_y = y + 10;
-
-							 /*border->SendToBack();*/
-							 contentPanel->Controls->Add(lblExamName);
-							 contentPanel->Controls->Add(lblProfName);
-							 //contentPanel->Controls->Add(border);
-							 contentPanel->Controls->Add(lblExam);
-							 contentPanel->Controls->Add(lblProf);
-							 y += 120;
+							 int button_y = y + 30;
 							 int z; 
-							 
+							 int flag1 = 0;
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes1"])) >= 0)
 							 {
 								 Button^ btnSession = gcnew Button();
@@ -176,6 +187,7 @@ namespace Online_Exam {
 								 button_y += 21;
 								 btnSession->Text = "Session1";
 								 contentPanel->Controls->Add(btnSession);
+								 flag1 = 1;
 							 }
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes2"])) >= 0)
 							 {
@@ -184,6 +196,7 @@ namespace Online_Exam {
 								 button_y += 21;
 								 btnSession->Text = "Session2";
 								 contentPanel->Controls->Add(btnSession);
+								 flag1 = 1;
 							 }
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes3"])) >= 0)
 							 {
@@ -192,6 +205,7 @@ namespace Online_Exam {
 								 button_y += 21;
 								 btnSession->Text = "Session3";
 								 contentPanel->Controls->Add(btnSession);
+								 flag1 = 1;
 							 }
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes4"])) >= 0)
 							 {
@@ -200,6 +214,7 @@ namespace Online_Exam {
 								 button_y += 21;
 								 btnSession->Text = "Session4";
 								 contentPanel->Controls->Add(btnSession);
+								 flag1 = 1;
 							 }
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes5"])) >= 0)
 							 {
@@ -208,6 +223,16 @@ namespace Online_Exam {
 								 button_y += 21;
 								 btnSession->Text = "Session5";
 								 contentPanel->Controls->Add(btnSession);
+								 flag1 = 1;
+							 }
+
+							 if (flag1 > 0)
+							 {
+								 contentPanel->Controls->Add(lblExam);
+								 contentPanel->Controls->Add(lblProf);
+								 contentPanel->Controls->Add(lblExamLength);
+								 contentPanel->Controls->Add(lblGroup);
+								 y += 160;
 							 }
 							 
 						 }
@@ -215,21 +240,22 @@ namespace Online_Exam {
 				 }
 				 catch (Exception ^ex)
 				 {
-					 MessageBox::Show("error occured");
+					 MessageBox::Show("Error Occured","Error Message");
 				 }
 				
 	}
 	private: System::Int32 CompareDates(String ^sesDate)
 	{
 				 DateTime sessionDate;
+				 int justforfun = 0;
 				 //= Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes1"], ));
 				 if (DateTime::TryParseExact(Convert::ToString(sesDate), "yyyy-MM-dd HH:mm:ss", nullptr, DateTimeStyles::None, sessionDate))
-					 Console::WriteLine("Converted '{0}' to {1:O}.",sesDate, sessionDate);
+					 justforfun = 1;
 				 else
-					 Console::WriteLine("Unable to convert '{0}' to a date and time.", sesDate);
+				 justforfun = 1;
 
 				 DateTime curDate = DateTime::Now;
-				 Console::WriteLine(DateTime::Compare(sessionDate, curDate));
+				 //Console::WriteLine(DateTime::Compare(sessionDate, curDate));
 				 int z = DateTime::Compare(sessionDate, curDate);
 				 return z;
 	}

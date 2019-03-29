@@ -119,7 +119,8 @@ namespace Online_Exam {
 			// 
 			// btnEnroll
 			// 
-			this->btnEnroll->Location = System::Drawing::Point(3, 199);
+			this->btnEnroll->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnEnroll->Location = System::Drawing::Point(0, 200);
 			this->btnEnroll->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnEnroll->Name = L"btnEnroll";
 			this->btnEnroll->Size = System::Drawing::Size(200, 46);
@@ -130,6 +131,7 @@ namespace Online_Exam {
 			// 
 			// btnCertificates
 			// 
+			this->btnCertificates->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnCertificates->Location = System::Drawing::Point(0, 300);
 			this->btnCertificates->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnCertificates->Name = L"btnCertificates";
@@ -140,6 +142,7 @@ namespace Online_Exam {
 			// 
 			// btnLogOut
 			// 
+			this->btnLogOut->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnLogOut->Location = System::Drawing::Point(0, 400);
 			this->btnLogOut->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnLogOut->Name = L"btnLogOut";
@@ -151,6 +154,7 @@ namespace Online_Exam {
 			// 
 			// btnHelp
 			// 
+			this->btnHelp->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnHelp->Location = System::Drawing::Point(0, 350);
 			this->btnHelp->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnHelp->Name = L"btnHelp";
@@ -161,6 +165,7 @@ namespace Online_Exam {
 			// 
 			// btnEditProfileStudent
 			// 
+			this->btnEditProfileStudent->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnEditProfileStudent->Location = System::Drawing::Point(0, 50);
 			this->btnEditProfileStudent->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnEditProfileStudent->Name = L"btnEditProfileStudent";
@@ -172,6 +177,7 @@ namespace Online_Exam {
 			// 
 			// btnPastTests
 			// 
+			this->btnPastTests->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnPastTests->Location = System::Drawing::Point(0, 150);
 			this->btnPastTests->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnPastTests->Name = L"btnPastTests";
@@ -183,7 +189,8 @@ namespace Online_Exam {
 			// 
 			// btnUnenroll
 			// 
-			this->btnUnenroll->Location = System::Drawing::Point(3, 250);
+			this->btnUnenroll->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnUnenroll->Location = System::Drawing::Point(-1, 250);
 			this->btnUnenroll->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnUnenroll->Name = L"btnUnenroll";
 			this->btnUnenroll->Size = System::Drawing::Size(200, 46);
@@ -194,6 +201,7 @@ namespace Online_Exam {
 			// 
 			// btnUpcomingTests
 			// 
+			this->btnUpcomingTests->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnUpcomingTests->Location = System::Drawing::Point(0, 100);
 			this->btnUpcomingTests->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnUpcomingTests->Name = L"btnUpcomingTests";
@@ -205,6 +213,7 @@ namespace Online_Exam {
 			// 
 			// btnMyProfileStudent
 			// 
+			this->btnMyProfileStudent->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnMyProfileStudent->Location = System::Drawing::Point(0, 0);
 			this->btnMyProfileStudent->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnMyProfileStudent->Name = L"btnMyProfileStudent";

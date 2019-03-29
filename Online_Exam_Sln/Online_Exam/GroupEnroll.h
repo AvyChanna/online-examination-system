@@ -69,26 +69,30 @@ namespace Online_Exam {
 			// lblGroupName
 			// 
 			this->lblGroupName->AutoSize = true;
-			this->lblGroupName->Location = System::Drawing::Point(176, 94);
+			this->lblGroupName->Location = System::Drawing::Point(235, 116);
+			this->lblGroupName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblGroupName->Name = L"lblGroupName";
-			this->lblGroupName->Size = System::Drawing::Size(95, 13);
+			this->lblGroupName->Size = System::Drawing::Size(127, 17);
 			this->lblGroupName->TabIndex = 0;
 			this->lblGroupName->Text = L"Enter Group Name";
 			// 
 			// lblEnroll
 			// 
 			this->lblEnroll->AutoSize = true;
-			this->lblEnroll->Location = System::Drawing::Point(176, 138);
+			this->lblEnroll->Location = System::Drawing::Point(235, 170);
+			this->lblEnroll->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblEnroll->Name = L"lblEnroll";
-			this->lblEnroll->Size = System::Drawing::Size(108, 13);
+			this->lblEnroll->Size = System::Drawing::Size(145, 17);
 			this->lblEnroll->TabIndex = 1;
 			this->lblEnroll->Text = L"Enter Enrollment Key ";
 			// 
 			// btnEnroll
 			// 
-			this->btnEnroll->Location = System::Drawing::Point(294, 194);
+			this->btnEnroll->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnEnroll->Location = System::Drawing::Point(392, 239);
+			this->btnEnroll->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnEnroll->Name = L"btnEnroll";
-			this->btnEnroll->Size = System::Drawing::Size(90, 38);
+			this->btnEnroll->Size = System::Drawing::Size(120, 47);
 			this->btnEnroll->TabIndex = 2;
 			this->btnEnroll->Text = L"ENROLL ME";
 			this->btnEnroll->UseVisualStyleBackColor = true;
@@ -96,9 +100,10 @@ namespace Online_Exam {
 			// 
 			// txtEnroll
 			// 
-			this->txtEnroll->Location = System::Drawing::Point(397, 135);
+			this->txtEnroll->Location = System::Drawing::Point(529, 166);
+			this->txtEnroll->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtEnroll->Name = L"txtEnroll";
-			this->txtEnroll->Size = System::Drawing::Size(100, 20);
+			this->txtEnroll->Size = System::Drawing::Size(132, 22);
 			this->txtEnroll->TabIndex = 4;
 			// 
 			// comboGroupName
@@ -106,22 +111,24 @@ namespace Online_Exam {
 			this->comboGroupName->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
 			this->comboGroupName->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboGroupName->FormattingEnabled = true;
-			this->comboGroupName->Location = System::Drawing::Point(397, 91);
+			this->comboGroupName->Location = System::Drawing::Point(529, 112);
+			this->comboGroupName->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->comboGroupName->Name = L"comboGroupName";
-			this->comboGroupName->Size = System::Drawing::Size(100, 21);
+			this->comboGroupName->Size = System::Drawing::Size(132, 24);
 			this->comboGroupName->TabIndex = 5;
 			// 
 			// GroupEnroll
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->comboGroupName);
 			this->Controls->Add(this->txtEnroll);
 			this->Controls->Add(this->btnEnroll);
 			this->Controls->Add(this->lblEnroll);
 			this->Controls->Add(this->lblGroupName);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"GroupEnroll";
-			this->Size = System::Drawing::Size(677, 344);
+			this->Size = System::Drawing::Size(903, 423);
 			this->Load += gcnew System::EventHandler(this, &GroupEnroll::GroupEnroll_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
