@@ -70,9 +70,10 @@ namespace Online_Exam {
 			this->button1->FlatAppearance->BorderSize = 3;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(446, 604);
+			this->button1->Location = System::Drawing::Point(595, 743);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(197, 45);
+			this->button1->Size = System::Drawing::Size(263, 55);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Proceed to the Exam";
 			this->button1->UseVisualStyleBackColor = false;
@@ -82,9 +83,10 @@ namespace Online_Exam {
 			// 
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(360, 9);
+			this->label1->Location = System::Drawing::Point(480, 11);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(308, 53);
+			this->label1->Size = System::Drawing::Size(411, 65);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Instructions For the Exam";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -93,11 +95,11 @@ namespace Online_Exam {
 			// 
 			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.InitialImage")));
-			this->pictureBox1->Location = System::Drawing::Point(174, 68);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(6);
+			this->pictureBox1->InitialImage = nullptr;
+			this->pictureBox1->Location = System::Drawing::Point(232, 84);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(677, 339);
+			this->pictureBox1->Size = System::Drawing::Size(902, 417);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 3;
 			this->pictureBox1->TabStop = false;
@@ -108,25 +110,27 @@ namespace Online_Exam {
 			this->txtInstruction->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->txtInstruction->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtInstruction->Location = System::Drawing::Point(82, 430);
+			this->txtInstruction->Location = System::Drawing::Point(109, 529);
+			this->txtInstruction->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtInstruction->Name = L"txtInstruction";
 			this->txtInstruction->ReadOnly = true;
 			this->txtInstruction->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
-			this->txtInstruction->Size = System::Drawing::Size(866, 168);
+			this->txtInstruction->Size = System::Drawing::Size(1153, 206);
 			this->txtInstruction->TabIndex = 4;
 			this->txtInstruction->Text = L"";
 			// 
 			// Instructions
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
 			this->BackColor = System::Drawing::Color::LemonChiffon;
-			this->ClientSize = System::Drawing::Size(1008, 689);
+			this->ClientSize = System::Drawing::Size(1344, 848);
 			this->Controls->Add(this->txtInstruction);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"Instructions";
 			this->Text = L"Instructions";
 			this->Load += gcnew System::EventHandler(this, &Instructions::Instructions_Load);

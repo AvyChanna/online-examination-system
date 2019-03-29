@@ -372,10 +372,14 @@ namespace Online_Exam
 			}
 
 
-				 if (validate()){
-					 try{
-						 String ^ PassSalt = MakeSalt();
-						 String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
+		private:
+			System::Void studBtn_Click(System::Object^  sender, System::EventArgs^  e)
+			{
+				OES^ Access = gcnew OES();
+				String^ des = "Professor";
+				int check = 0;
+				if (memChkBox->Checked)
+					check = 1;
 
 				if (validate())
 				{

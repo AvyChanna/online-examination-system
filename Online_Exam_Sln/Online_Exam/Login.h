@@ -94,6 +94,9 @@ namespace Online_Exam
 				this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 				(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 				this->SuspendLayout();
+				// 
+				// label1
+				// 
 				this->label1->AutoSize = true;
 				this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					static_cast<System::Byte>(0)));
@@ -103,6 +106,9 @@ namespace Online_Exam
 				this->label1->Size = System::Drawing::Size(139, 31);
 				this->label1->TabIndex = 3;
 				this->label1->Text = L"Username";
+				// 
+				// textUsername
+				// 
 				this->textUsername->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 				this->textUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					static_cast<System::Byte>(0)));
@@ -111,6 +117,10 @@ namespace Online_Exam
 				this->textUsername->Name = L"textUsername";
 				this->textUsername->Size = System::Drawing::Size(363, 30);
 				this->textUsername->TabIndex = 0;
+				this->textUsername->TextChanged += gcnew System::EventHandler(this, &Login::textUsername_TextChanged);
+				// 
+				// label2
+				// 
 				this->label2->AutoSize = true;
 				this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					static_cast<System::Byte>(0)));
@@ -120,6 +130,9 @@ namespace Online_Exam
 				this->label2->Size = System::Drawing::Size(134, 31);
 				this->label2->TabIndex = 4;
 				this->label2->Text = L"Password";
+				// 
+				// textPassword
+				// 
 				this->textPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 				this->textPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					static_cast<System::Byte>(0)));
@@ -129,6 +142,10 @@ namespace Online_Exam
 				this->textPassword->Size = System::Drawing::Size(363, 30);
 				this->textPassword->TabIndex = 1;
 				this->textPassword->UseSystemPasswordChar = true;
+				this->textPassword->TextChanged += gcnew System::EventHandler(this, &Login::textUsername_TextChanged);
+				// 
+				// btnLogin
+				// 
 				this->btnLogin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 				this->btnLogin->Location = System::Drawing::Point(516, 235);
 				this->btnLogin->Margin = System::Windows::Forms::Padding(4);
@@ -138,6 +155,9 @@ namespace Online_Exam
 				this->btnLogin->Text = L"Login";
 				this->btnLogin->UseVisualStyleBackColor = true;
 				this->btnLogin->Click += gcnew System::EventHandler(this, &Login::btnLogin_Click);
+				// 
+				// linkLabel1
+				// 
 				this->linkLabel1->AutoSize = true;
 				this->linkLabel1->Location = System::Drawing::Point(625, 172);
 				this->linkLabel1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -147,6 +167,9 @@ namespace Online_Exam
 				this->linkLabel1->TabStop = true;
 				this->linkLabel1->Text = L"Forgot Password\?";
 				this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel1_LinkClicked);
+				// 
+				// linkLabel2
+				// 
 				this->linkLabel2->AutoSize = true;
 				this->linkLabel2->Location = System::Drawing::Point(444, 290);
 				this->linkLabel2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -156,6 +179,9 @@ namespace Online_Exam
 				this->linkLabel2->TabStop = true;
 				this->linkLabel2->Text = L"Don\'t have an account\? Signup here";
 				this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel2_LinkClicked);
+				// 
+				// pictureBox1
+				// 
 				this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 				this->pictureBox1->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.InitialImage")));
 				this->pictureBox1->Location = System::Drawing::Point(40, 18);
@@ -165,6 +191,9 @@ namespace Online_Exam
 				this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 				this->pictureBox1->TabIndex = 7;
 				this->pictureBox1->TabStop = false;
+				// 
+				// Login
+				// 
 				this->AcceptButton = this->btnLogin;
 				this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 				this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -184,7 +213,6 @@ namespace Online_Exam
 				this->Name = L"Login";
 				this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 				this->Text = L"Login";
-				this->TopMost = true;
 				(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 				this->ResumeLayout(false);
 				this->PerformLayout();

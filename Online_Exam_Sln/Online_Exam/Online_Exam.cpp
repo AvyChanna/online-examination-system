@@ -15,7 +15,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew ExamPaper(11));
+	Application::Run(gcnew Instructions());
 
 	return 0;
 }
