@@ -39,7 +39,6 @@ namespace Online_Exam {
 			}
 		}
 	private: System::Windows::Forms::Label^  label1;
-	protected:
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  label4;
@@ -57,57 +56,6 @@ namespace Online_Exam {
 	private: System::Windows::Forms::TextBox^  passTxt;
 	private: System::Windows::Forms::TextBox^  nameTxt;
 	private: System::Windows::Forms::ComboBox^  branchCb;
-
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -388,7 +336,7 @@ namespace Online_Exam {
 						 check = 1;
 					 if (validate()){
 							// MessageBox::Show(Convert::ToString(memChkBox->Checked));
-							 String ^ PassSalt = MakeSalt();
+							 String ^ PassSalt = MakeSalt(10);
 							 String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
 
 							 Access->AddParam("@Username", userTxt->Text);

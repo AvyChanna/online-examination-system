@@ -1,10 +1,6 @@
 // Online_Exam.cpp : main project file.
-
 #include "stdafx.h"
-#include "ProfForm.h"
 #include "Login.h"
-#include "AdminForm.h"
-#include "ExamPaper.h"
 using namespace Online_Exam;
 
 [STAThreadAttribute]
@@ -16,7 +12,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew ProfForm());
+	Application::Run(gcnew Login());
 
 	return 0;
 }

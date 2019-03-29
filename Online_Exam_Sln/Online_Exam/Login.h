@@ -2,12 +2,12 @@
 #include"Database.h"
 #include"Encryption.h"
 #include"GlobalVar.h"
-#include "Signup.h"
-#include "ProfForm.h"
-#include "StudentForm.h"
-
+#include"Signup.h"
+#include"ProfForm.h"
+#include"StudentForm.h"
+#include"NewPass.h"
 namespace Online_Exam {
-
+	using namespace System::Net::Mail;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -23,9 +23,15 @@ namespace Online_Exam {
 	public ref class Login : public System::Windows::Forms::Form
 	{
 	public:
+		String ^Username;
+		String ^Password;
+		String ^Email;
 		Login(void)
 		{
 			InitializeComponent();
+			Username = "";
+			Password = "";
+			Email = "";
 			//
 			//TODO: Add the constructor code here
 			//
@@ -204,12 +210,10 @@ namespace Online_Exam {
 		}
 #pragma endregion
 	private: System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^  e) {
-				 String ^Username = textUsername->Text;
-				 String ^Password = textPassword->Text;
-				 if (Username->Length == 0 && Password->Length == 0){
+				if (Username->Length == 0 && Password->Length == 0){
 					 MessageBox::Show("Empty Username/Password");
 					 return;
-				 }
+				}
 				 // access database and get all values
 				 OES ^Access = gcnew OES();
 				 Access->AddParam("@Username", Username);
@@ -220,87 +224,140 @@ namespace Online_Exam {
 				 }
 				
 
-				 String ^DBUsername = Access->DBDT->Rows[0]->default[0]->ToString();
-				 String ^DBFullname = Access->DBDT->Rows[0]->default[1]->ToString();
-				 String ^DBPasshash = Access->DBDT->Rows[0]->default[2]->ToString();
-				 String ^DBPasssalt = Access->DBDT->Rows[0]->default[3]->ToString();
-				 String ^DBTokenhash = Access->DBDT->Rows[0]->default[4]->ToString();
-				 String ^DBTokensalt = Access->DBDT->Rows[0]->default[5]->ToString();
-				 String ^DBEmail = Access->DBDT->Rows[0]->default[6]->ToString();
-				 String ^DBPhone = Access->DBDT->Rows[0]->default[7]->ToString();
-				 String ^DBRollno = Access->DBDT->Rows[0]->default[8]->ToString();
-				 String ^DBGroups = Access->DBDT->Rows[0]->default[9]->ToString();
-				 String ^DBIITG = Access->DBDT->Rows[0]->default[10]->ToString();
-				 String ^DBBranch = Access->DBDT->Rows[0]->default[11]->ToString();
-				 String ^DBDesignation = Access->DBDT->Rows[0]->default[12]->ToString();
-
-				 if (DBPasshash == EncryptPassword(Password, DBPasssalt)){
-					 //login successful
-					 gVar::Username = DBUsername;
-					 gVar::Fullname = DBFullname;
-					 gVar::Passhash = DBPasshash;
-					 gVar::Passsalt = DBPasssalt;
-					 gVar::Tokenhash = DBTokenhash;
-					 gVar::Tokensalt = DBTokensalt;
-					 gVar::Email = DBEmail;
-					 gVar::Phone = DBPhone;
-					 gVar::Rollno = DBRollno;
-					 gVar::Groups = DBGroups;
-					 gVar::IITG = DBIITG;
-					 gVar::Branch = DBBranch;
-					 gVar::Designation = DBDesignation;
-					 if (DBDesignation == "Student"){
-						 Login::Hide();
-						 StudentForm^ form = gcnew StudentForm();
-						 form->Show();
-
-					 }
-					 else{
-						 Login::Hide();
-						 ProfForm^ form = gcnew ProfForm();
-						 form->Show();
-
-					 }
-							
-				 }
-				 else{
-					 MessageBox::Show("Username\\Password is wrong");
-				 }
-
-				 if (DBPasshash == EncryptPassword(Password, DBTokenhash)){
-					 //reset password
-					 gVar::Username = DBUsername;
-					 gVar::Fullname = DBFullname;
-					 gVar::Passhash = DBPasshash;
-					 gVar::Passsalt = DBPasssalt;
-					 gVar::Tokenhash = DBTokenhash;
-					 gVar::Tokensalt = DBTokensalt;
-					 gVar::Email = DBEmail;
-					 gVar::Phone = DBPhone;
-					 gVar::Rollno = DBRollno;
-					 gVar::Groups = DBGroups;
-					 gVar::IITG = DBIITG;
-					 gVar::Branch = DBBranch;
-					 gVar::Designation = DBDesignation;
-					 // TODO: make reset passwd function, ask for new password
-				 }
-				 
 
 
+			String ^DBUsername = Access->DBDT->Rows[0]->default[0]->ToString();
+			String ^DBFullname = Access->DBDT->Rows[0]->default[1]->ToString();
+			String ^DBPasshash = Access->DBDT->Rows[0]->default[2]->ToString();
+			String ^DBPasssalt = Access->DBDT->Rows[0]->default[3]->ToString();
+			String ^DBTokenhash = Access->DBDT->Rows[0]->default[4]->ToString();
+			String ^DBTokensalt = Access->DBDT->Rows[0]->default[5]->ToString();
+			String ^DBEmail = Access->DBDT->Rows[0]->default[6]->ToString();
+			String ^DBPhone = Access->DBDT->Rows[0]->default[7]->ToString();
+			String ^DBRollno = Access->DBDT->Rows[0]->default[8]->ToString();
+			String ^DBGroups = Access->DBDT->Rows[0]->default[9]->ToString();
+			String ^DBIITG = Access->DBDT->Rows[0]->default[10]->ToString();
+			String ^DBBranch = Access->DBDT->Rows[0]->default[11]->ToString();
+			String ^DBDesignation = Access->DBDT->Rows[0]->default[12]->ToString();
 
-
-
-
-	}
+				if (DBPasshash == EncryptPassword(Password, DBPasssalt))
+				{
+					//login successful
+					gVar::Username = DBUsername;
+					gVar::Fullname = DBFullname;
+					gVar::Passhash = DBPasshash;
+					gVar::Passsalt = DBPasssalt;
+					gVar::Tokenhash = DBTokenhash;
+					gVar::Tokensalt = DBTokensalt;
+					gVar::Email = DBEmail;
+					gVar::Phone = DBPhone;
+					gVar::Rollno = DBRollno;
+					gVar::Groups = DBGroups;
+					gVar::IITG = DBIITG;
+					gVar::Branch = DBBranch;
+					gVar::Designation = DBDesignation;
+					if (DBDesignation == "Student")
+					{
+						StudentForm^ form = gcnew StudentForm();
+						form->ShowDialog();
+						Close();
+					}
+					else
+					{
+						ProfForm^ form = gcnew ProfForm();
+						form->ShowDialog();
+						Close();
+					}
+					return;
+				}
+				else
+				{
+					if (!String::IsNullOrEmpty(DBTokenhash) && DBTokenhash == EncryptPassword(Password, DBTokensalt))
+					{
+						//reset password
+						gVar::Username = DBUsername;
+						gVar::Fullname = DBFullname;
+						gVar::Passhash = DBPasshash;
+						gVar::Passsalt = DBPasssalt;
+						gVar::Tokenhash = DBTokenhash;
+						gVar::Tokensalt = DBTokensalt;
+						gVar::Email = DBEmail;
+						gVar::Phone = DBPhone;
+						gVar::Rollno = DBRollno;
+						gVar::Groups = DBGroups;
+						gVar::IITG = DBIITG;
+						gVar::Branch = DBBranch;
+						gVar::Designation = DBDesignation;
+						OES ^Access2 = gcnew OES();
+						Access2->AddParam("@Username", DBUsername);
+						Access2->ExecQuery("Update Users set TokenHash = NULL , TokenSalt = NULL where Username = @Username");
+						if (Access2->Exception->Length)
+						{
+							MessageBox::Show("Error in processing token");
+							return;
+						}
+						(gcnew NewPass(DBUsername))->ShowDialog();
+					}
+					else
+						MessageBox::Show("Username\\Password is wrong");
+				}
+			}
 
 private: System::Void linkLabel2_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
-			 //TODO: open signup
-			 Login::Hide();
-			 Signup^ form = gcnew Signup();
-			 form->Show();
-}
+			Hide();
+			(gcnew Signup())->ShowDialog();
+			Show();
+		}
 private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
-			 // TODO: open mailer
-}
+			// TODO: open mailer
+			OES ^Access = gcnew OES();
+			Access->AddParam("@Username", Username);
+			Access->ExecQuery("Select Email from Users where Username = @Username");
+			if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length) {
+				MessageBox::Show("Username does not exist");
+				return;
+			}
+			Email = Access->DBDT->Rows[0]->default[0]->ToString();
+			String ^token = "";
+			token = MakeSalt(20);
+			String ^TokenHash = "";
+			String ^TokenSalt = "";
+			TokenSalt = MakeSalt(10);
+			TokenHash = EncryptPassword(token, TokenSalt);
+			Access->AddParam("@TokenHash", TokenHash);
+			Access->AddParam("@TokenSalt", TokenSalt);
+			Access->AddParam("@Username", Username);
+			Access->ExecQuery("Update Users set TokenHash = @TokenHash , TokenSalt = @TokenSalt where Username = @Username");
+				if (Access->Exception->Length) {
+					MessageBox::Show("Could not edit Database");
+					return;
+				}
+				try
+				{
+
+					SmtpClient ^SmtpObj = gcnew SmtpClient("smtp.gmail.com", 587);
+					MailMessage ^ MailMsg = gcnew MailMessage();
+					SmtpObj->UseDefaultCredentials = false;
+					SmtpObj->Credentials = gcnew Net::NetworkCredential("iitg.oes.cse@gmail.com", "iitg.oes1234");
+					SmtpObj->EnableSsl = true;
+
+					MailMsg->From = gcnew MailAddress("iitg.oes.cse@gmail.com");
+					MailMsg->To->Add(Email);
+					MailMsg->Subject = "IITG Online Exam Account Password Token";
+					MailMsg->IsBodyHtml = false;
+					MailMsg->Body = "Hello, your token is " + token + " . Change your password as soon as possible. If you have not requested this token, ignore this message.";
+					SmtpObj->Send(MailMsg);
+				}
+				catch (Exception ^ex) {
+					MessageBox::Show("Could not send mail. Nevertheless, for testing, here is your token - " + token);
+					return;
+				}
+				MessageBox::Show("Your new token has been sent to you by mail");
+			}
+private: System::Void textUsername_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				Username = textUsername->Text;
+				Password = textPassword->Text;
+			}
+
 };
 }

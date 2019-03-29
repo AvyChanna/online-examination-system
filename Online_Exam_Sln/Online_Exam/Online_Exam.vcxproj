@@ -97,7 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="AddQuestions.cpp" />
     <ClCompile Include="GlobalSuppressions.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -127,9 +126,6 @@
     <ClInclude Include="ExamPaper.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Form1.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="Database.h" />
     <ClInclude Include="GlobalVar.h" />
     <ClInclude Include="AddQuestions.h">
@@ -137,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="GroupEnroll.h">
       <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="NewPass.h">
+      <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PastTestsSet.h">
       <FileType>CppControl</FileType>
@@ -200,19 +199,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateGroup.resx">
       <DependentUpon>CreateGroup.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ExamPaper.resx">
       <DependentUpon>ExamPaper.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resX">
-      <DependentUpon>Form1.h</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GroupEnroll.resx">
       <DependentUpon>GroupEnroll.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddQuestions.resx">
       <DependentUpon>AddQuestions.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPass.resx">
+      <DependentUpon>NewPass.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PastTestsSet.resx">
       <DependentUpon>PastTestsSet.h</DependentUpon>
@@ -252,9 +252,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Unenroll.resx">
       <DependentUpon>Unenroll.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UpcomingTests.resx">
       <DependentUpon>UpcomingTests.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
