@@ -138,6 +138,9 @@
     <ClInclude Include="GroupEnroll.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="Instructions.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="PastTestsSet.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -214,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddQuestions.resx">
       <DependentUpon>AddQuestions.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructions.resx">
+      <DependentUpon>Instructions.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PastTestsSet.resx">
       <DependentUpon>PastTestsSet.h</DependentUpon>

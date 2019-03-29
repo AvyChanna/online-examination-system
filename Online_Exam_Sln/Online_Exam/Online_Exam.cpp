@@ -5,6 +5,7 @@
 #include "Login.h"
 #include "AdminForm.h"
 #include "ExamPaper.h"
+#include "Instructions.h"
 using namespace Online_Exam;
 
 [STAThreadAttribute]
@@ -16,7 +17,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew StudentForm());
+	Application::Run(gcnew Instructions());
 
 	return 0;
 }
