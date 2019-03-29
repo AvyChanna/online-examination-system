@@ -32,6 +32,7 @@ namespace Online_Exam {
 		List<List<int>^>^ attempted;
 		List<List<Button ^>^>^ btnPaper;
 		List<CheckBox^>^ checkList;
+
 		RadioButton ^rd1;
 		RadioButton ^rd2;
 		TextBox ^ answerText;
@@ -1072,8 +1073,14 @@ private: System::Void examTimer_Tick(System::Object^  sender, System::EventArgs^
 			 if (MinRem < 0){
 				 examTimer->Stop();
 				 MessageBox::Show("Time Up!");
+				 //***************time is up*******************
+
+				          //calling the endtest utility function to perform calculations
+
+				 endTest_Utility();
+				 //*********** marks and stuff need to be calculated
 				 //Code for submit button
-				 this->Close();
+				 //this->Close();
 			 }
 			 lblTimer->Text = MinRem.ToString() + ":";
 			 if (SecRem <= 9)
@@ -1116,89 +1123,7 @@ private: System::Void btnPrev_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void btnEndTest_Click(System::Object^  sender, System::EventArgs^  e) {
 			 if (MessageBox::Show("Are you sure you want to end the exam?", "Ending The Exam", MessageBoxButtons::YesNo) == ::DialogResult::Yes)
 			 {
-				 questionStr = "";
-				 attemptStr = "";
-				 correctStr = "";
-				 for (int i = 0; i < QSet->Data->Count; ++i)
-				 {
-					 String^ sectionStr = "";
-					 String^ sectionAttempt = "";
-					 String^ sectionCorrect = "";
-					 for (int j = 0; j < QSet->Data[i]->NumberOfQuestionsGiven; ++j)
-					 {
-						 sectionStr += (Environment::NewLine);
-						 sectionStr += i.ToString();
-						 sectionStr += ".";
-						 sectionStr += PaperQuestions[i][j].ToString();
-
-						 sectionAttempt += (Environment::NewLine);
-						 sectionAttempt += QuestionAns[i][j]->attemptAns;
-
-						 sectionCorrect += (Environment::NewLine);
-						 sectionCorrect += QuestionAns[i][j]->correctAns;
-
-
-					 }
-					 questionStr += sectionStr;
-					 attemptStr += sectionAttempt;
-					 correctStr += sectionCorrect;
-
-				 }
-				 Console::WriteLine(questionStr);
-				 Console::WriteLine("answer string\n");
-
-				 Console::WriteLine(attemptStr);
-
-				 Console::WriteLine("correctAns String\n");
-				 Console::WriteLine(correctStr);
-
-
-				 //calculating total marks of the student
-
-				 obtainedMarks = 0;
-				 sectionMark = "";
-				 for (int i = 0; i < QSet->Data->Count; ++i)
-				 {
-					 int sectionScore = 0;
-					 int questionFullMark = QSet->Data[i]->Weight;
-					 for (int j = 0; j < QSet->Data[i]->NumberOfQuestionsGiven; ++j)
-					 {
-						 String^ t1 = Convert::ToString(QuestionAns[i][j]->attemptAns);
-						 String^ t2 = Convert::ToString(QuestionAns[i][j]->correctAns);
-						 Console::WriteLine(t1->ToUpper() + "and" + t2->ToUpper() + "\n");
-						 fullMarks += sectionScore;
-						 if (t1->ToUpper() == t2->ToUpper())
-						 {
-
-							 sectionScore += questionFullMark;
-							 Console::WriteLine(sectionScore.ToString());
-
-						 }
-
-					 }
-					 sectionMark += (Environment::NewLine);
-					 sectionMark += sectionScore.ToString();
-					 obtainedMarks += sectionScore;
-				 }
-				 Console::WriteLine("printing the score\n");
-				 Console::WriteLine(obtainedMarks.ToString());
-				 Console::WriteLine(sectionMark);
-
-
-				 OES^ Access = gcnew OES();
-
-				 Access->AddParam("@ExamCode", ExamCode);
-				 Access->AddParam("@Username", gVar::Username);
-				 Access->AddParam("@FullMarks", fullMarks);
-				 Access->AddParam("@QuesGiven", questionStr);
-				 Access->AddParam("@AttemptedAns", attemptStr);
-				 Access->AddParam("@CorrectAns", correctStr);
-				 Access->AddParam("@ObtainedMarks", obtainedMarks);
-				 Access->AddParam("@SectionMarks", sectionMark);
-
-				 Access->ExecQuery("INSERT Into Performance (ExamCode, Username, FullMarks, QuesGiven, AttemptedAns, CorrectAns, ObtainedMarks,SectionMarks) Values (@ExamCode,@UserName ,@FullMarks ,@QuesGiven,@AttemptedAns,@CorrectAns,@ObtainedMarks,@SectionMarks)");
-				 //	 MessageBox::Show("Test " + txtName->Text + " successfully created!");
-				 this->Close();
+				 endTest_Utility();
 			 }
 			 else
 			 {
@@ -1306,6 +1231,166 @@ private: System::Void btnSaveResponse_Click(System::Object^  sender, System::Eve
 			 lblAttempted->Text += Convert::ToString(TotalQuestions);
 }
 
+private: System::Void endTest_Utility()
+{
+			 questionStr = "";
+			 attemptStr = "";
+			 correctStr = "";
+			 for (int i = 0; i < QSet->Data->Count; ++i)
+			 {
+				 String^ sectionStr = "";
+				 String^ sectionAttempt = "";
+				 String^ sectionCorrect = "";
+				 for (int j = 0; j < QSet->Data[i]->NumberOfQuestionsGiven; ++j)
+				 {
+					 sectionStr += (Environment::NewLine);
+					 sectionStr += i.ToString();
+					 sectionStr += ".";
+					 sectionStr += PaperQuestions[i][j].ToString();
+
+					 sectionAttempt += (Environment::NewLine);
+					 sectionAttempt += QuestionAns[i][j]->attemptAns;
+
+					 sectionCorrect += (Environment::NewLine);
+					 sectionCorrect += QuestionAns[i][j]->correctAns;
+
+
+				 }
+				 questionStr += sectionStr;
+				 attemptStr += sectionAttempt;
+				 correctStr += sectionCorrect;
+
+			 }
+			 Console::WriteLine(questionStr);
+			 Console::WriteLine("answer string\n");
+
+			 Console::WriteLine(attemptStr);
+
+			 Console::WriteLine("correctAns String\n");
+			 Console::WriteLine(correctStr);
+
+
+			 OES ^Access1 = gcnew OES();
+			 Access1->ExecQuery("Select * from Exam where ExamCode = " + ExamCode.ToString());
+			 String^ MaxSect = "";
+			 array<String ^> ^MaxSectStr = gcnew array<String^>(QSet->Data->Count);
+			 List<int>^ MaxSectList = gcnew List<int>();
+
+			 String^ MinSect = "";
+			 array<String ^> ^MinSectStr = gcnew array<String^>(QSet->Data->Count);
+			 List<int>^ MinSectList = gcnew List<int>();
+			 array<String^>^delimiters = { "," };
+
+			 String^ AvgSect = "";
+			 array<String ^> ^AvgSectStr = gcnew array<String^>(QSet->Data->Count);
+			 List<double>^ AvgSectList = gcnew List<double>();
+
+			 int StudAppeared=0;
+
+			 if (Access1->RecordCount)
+			 {
+				 StudAppeared = (static_cast<int>(Convert::ToInt32(Access1->DBDT->Rows[0]["StudAppeared"])));
+				 MaxSect = Convert::ToString(Access1->DBDT->Rows[0]["MaxSect"]);
+				 MinSect = Convert::ToString(Access1->DBDT->Rows[0]["MinSect"]);
+				 AvgSect = Convert::ToString(Access1->DBDT->Rows[0]["AvgSect"]);
+				 if (MaxSect->Length != 0 && MinSect->Length != 0){
+					 MaxSectStr = MaxSect->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
+					 MinSectStr = MinSect->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
+					 AvgSectStr = AvgSect->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
+					 for (int i = 0; i < MaxSectStr->Length; ++i)
+					 {
+						 try{
+							 MaxSectList->Add(static_cast<int>(Convert::ToInt32(MaxSectStr[i])));
+							 MinSectList->Add(static_cast<int>(Convert::ToInt32(MinSectStr[i])));
+							 AvgSectList->Add(static_cast<double>(Convert::ToDouble(AvgSectStr[i])));
+						 }
+						 catch (Exception^ ex){
+							 MessageBox::Show("Error in parsing max/min/avg sect string", "Error");
+						 }
+						 //Console::WriteLine(MaxSect);
+						 //std::cout << MaxSectList[i] << "\n";
+					 }
+				 }
+				
+			 }
+
+			 //calculating total marks of the student
+			 Console::WriteLine("*****************Calculations********************\n");
+			 obtainedMarks = 0;
+			 sectionMark = "";
+			 for (int i = 0; i < QSet->Data->Count; ++i)
+			 {
+				 Console::WriteLine("Section:" + i.ToString() + "---------------------\n");
+				 int sectionScore = 0;
+				 int questionFullMark = QSet->Data[i]->Weight;
+				 for (int j = 0; j < QSet->Data[i]->NumberOfQuestionsGiven; ++j)
+				 {
+					 String^ t1 = Convert::ToString(QuestionAns[i][j]->attemptAns);
+					 String^ t2 = Convert::ToString(QuestionAns[i][j]->correctAns);
+					 Console::WriteLine("Question "+j.ToString()+ " Attempted:" + t1->ToUpper() + " Correct:" + t2->ToUpper() + " -->Score:");
+					 fullMarks += sectionScore;
+					 if (t1->ToUpper() == t2->ToUpper())
+					 {
+
+						 sectionScore += questionFullMark;
+						 Console::WriteLine(questionFullMark.ToString() + "\n");
+						 
+					 }
+					 else
+					 {
+						 Console::WriteLine("0\n");
+					 }
+				 }
+				 sectionMark += (Environment::NewLine);
+				 sectionMark += sectionScore.ToString();
+				 obtainedMarks += sectionScore;
+				 if (MaxSect->Length != 0 && MinSect->Length != 0){
+					 if (sectionScore > MaxSectList[i])
+						 MaxSectStr[i] = sectionScore.ToString();
+					 if (sectionScore < MinSectList[i])
+						 MinSectStr[i] = sectionScore.ToString();
+					 AvgSectStr[i] = ((StudAppeared*AvgSectList[i] + sectionScore) / (StudAppeared + 1)).ToString();
+				 }
+				 else{
+					 MaxSectStr[i] = sectionScore.ToString();
+					 MinSectStr[i] = sectionScore.ToString();
+					 AvgSectStr[i] = sectionScore.ToString();
+				 }
+
+				 
+			 }
+			 StudAppeared++;
+			 MaxSect = String::Join(",", MaxSectStr);
+			 MinSect = String::Join(",", MinSectStr);
+			 AvgSect = String::Join(",", AvgSectStr);
+			 MaxSect = "," + MaxSect;
+			 MinSect = "," + MinSect;
+			 AvgSect = "," + AvgSect;
+			 Access1->ExecQuery("Update Exam set MaxSect = '" + MaxSect + "', MinSect = '" + MinSect + "', AvgSect = '" + AvgSect + "', StudAppeared = " + StudAppeared.ToString() + " Where ExamCode = " + ExamCode.ToString());
+
+
+			 Console::WriteLine(MaxSect);
+			 Console::WriteLine("printing the score\n");
+			 Console::WriteLine(obtainedMarks.ToString());
+			 Console::WriteLine("*************calculation done**********");
+			 Console::WriteLine(sectionMark);
+
+
+			 OES^ Access = gcnew OES();
+
+			 Access->AddParam("@ExamCode", ExamCode);
+			 Access->AddParam("@Username", gVar::Username);
+			 Access->AddParam("@FullMarks", fullMarks);
+			 Access->AddParam("@QuesGiven", questionStr);
+			 Access->AddParam("@AttemptedAns", attemptStr);
+			 Access->AddParam("@CorrectAns", correctStr);
+			 Access->AddParam("@ObtainedMarks", obtainedMarks);
+			 Access->AddParam("@SectionMarks", sectionMark);
+
+			 Access->ExecQuery("INSERT Into Performance (ExamCode, Username, FullMarks, QuesGiven, AttemptedAns, CorrectAns, ObtainedMarks,SectionMarks) Values (@ExamCode,@UserName ,@FullMarks ,@QuesGiven,@AttemptedAns,@CorrectAns,@ObtainedMarks,@SectionMarks)");
+			 //	 MessageBox::Show("Test " + txtName->Text + " successfully created!");
+			// this->Close(); //currently commented for debugging console
+}
 private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^  e) {
 			 
 
@@ -1413,6 +1498,9 @@ private: System::Void btnReview_Click(System::Object^  sender, System::EventArgs
 			 }
 
 }
+
+
+	
 };
 }
 
