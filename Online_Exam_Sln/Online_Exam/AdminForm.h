@@ -41,6 +41,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  BtnApproveProf;
 	private: System::Windows::Forms::Panel^  adminPanel;
 	private: System::Windows::Forms::Button^  Students;
+	private: System::Windows::Forms::Panel^  panel1;
 	protected:
 
 
@@ -60,17 +61,26 @@ namespace Online_Exam {
 			this->BtnApproveProf = (gcnew System::Windows::Forms::Button());
 			this->adminPanel = (gcnew System::Windows::Forms::Panel());
 			this->Students = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// BtnApproveProf
 			// 
-			this->BtnApproveProf->Location = System::Drawing::Point(63, 55);
+			this->BtnApproveProf->FlatAppearance->BorderSize = 0;
+			this->BtnApproveProf->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->BtnApproveProf->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->BtnApproveProf->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->BtnApproveProf->Location = System::Drawing::Point(31, 116);
 			this->BtnApproveProf->Name = L"BtnApproveProf";
-			this->BtnApproveProf->Size = System::Drawing::Size(121, 54);
+			this->BtnApproveProf->Size = System::Drawing::Size(121, 39);
 			this->BtnApproveProf->TabIndex = 0;
 			this->BtnApproveProf->Text = L"Approve Prof";
 			this->BtnApproveProf->UseVisualStyleBackColor = true;
 			this->BtnApproveProf->Click += gcnew System::EventHandler(this, &AdminForm::BtnApproveProf_Click);
+			this->BtnApproveProf->MouseLeave += gcnew System::EventHandler(this, &AdminForm::BtnApproveProf_MouseLeave);
+			this->BtnApproveProf->MouseHover += gcnew System::EventHandler(this, &AdminForm::BtnApproveProf_MouseHover);
 			// 
 			// adminPanel
 			// 
@@ -81,24 +91,43 @@ namespace Online_Exam {
 			// 
 			// Students
 			// 
-			this->Students->Location = System::Drawing::Point(63, 150);
+			this->Students->FlatAppearance->BorderSize = 0;
+			this->Students->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Students->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Students->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->Students->Location = System::Drawing::Point(31, 178);
 			this->Students->Name = L"Students";
-			this->Students->Size = System::Drawing::Size(121, 61);
+			this->Students->Size = System::Drawing::Size(121, 39);
 			this->Students->TabIndex = 2;
 			this->Students->Text = L"Students";
 			this->Students->UseVisualStyleBackColor = true;
 			this->Students->Click += gcnew System::EventHandler(this, &AdminForm::Students_Click);
+			this->Students->MouseLeave += gcnew System::EventHandler(this, &AdminForm::Students_MouseLeave);
+			this->Students->MouseHover += gcnew System::EventHandler(this, &AdminForm::Students_MouseHover);
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->panel1->Controls->Add(this->Students);
+			this->panel1->Controls->Add(this->BtnApproveProf);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(200, 593);
+			this->panel1->TabIndex = 3;
 			// 
 			// AdminForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(921, 593);
-			this->Controls->Add(this->Students);
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->adminPanel);
-			this->Controls->Add(this->BtnApproveProf);
 			this->Name = L"AdminForm";
 			this->Text = L"AdminForm";
+			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -107,11 +136,28 @@ namespace Online_Exam {
 				 adminPanel->Controls->Clear();
 				 ApproveProf ^ usr = gcnew ApproveProf();
 				 adminPanel->Controls->Add(usr);
+				 BtnApproveProf->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
+				 Students->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 	}
 	private: System::Void Students_Click(System::Object^  sender, System::EventArgs^  e) {
 				 adminPanel->Controls->Clear();
 				 StudentEditAdmin ^ usr = gcnew StudentEditAdmin();
 				 adminPanel->Controls->Add(usr);
+				 Students->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
+				 BtnApproveProf->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+				 
 	}
-	};
+	private: System::Void BtnApproveProf_MouseHover(System::Object^  sender, System::EventArgs^  e) {
+				 BtnApproveProf->ForeColor = System::Drawing::Color::FromArgb(229, 178, 11);
+	}
+private: System::Void BtnApproveProf_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
+			 BtnApproveProf->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+}
+	private: System::Void Students_MouseHover(System::Object^  sender, System::EventArgs^  e) {
+					  Students->ForeColor = System::Drawing::Color::FromArgb(229, 178, 11);
+		 }
+private: System::Void Students_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
+			 Students->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+}
+};
 }

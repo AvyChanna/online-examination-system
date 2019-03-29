@@ -67,21 +67,27 @@ namespace Online_Exam {
 			// 
 			this->profList->AllowUserToAddRows = false;
 			this->profList->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->profList->Location = System::Drawing::Point(67, 153);
+			this->profList->Location = System::Drawing::Point(67, 101);
 			this->profList->Name = L"profList";
-			//this->profList->ReadOnly = true;
 			this->profList->RowTemplate->Height = 24;
 			this->profList->Size = System::Drawing::Size(542, 281);
 			this->profList->TabIndex = 0;
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(67, 457);
+			this->btnUpdate->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnUpdate->FlatAppearance->BorderSize = 0;
+			this->btnUpdate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnUpdate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnUpdate->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->btnUpdate->Location = System::Drawing::Point(254, 423);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(94, 26);
+			this->btnUpdate->Size = System::Drawing::Size(124, 32);
 			this->btnUpdate->TabIndex = 1;
 			this->btnUpdate->Text = L"Update";
-			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->UseVisualStyleBackColor = false;
 			this->btnUpdate->Click += gcnew System::EventHandler(this, &ApproveProf::btnUpdate_Click);
 			// 
 			// ApproveProf
