@@ -20,9 +20,10 @@ namespace Online_Exam {
 	/// </summary>
 	public ref class ExamList : public System::Windows::Forms::UserControl
 	{
-	public:
+	private:
 		OES ^ Access;
 		DataSet ^dsa;
+	public:
 		ExamList(void)
 		{
 			InitializeComponent();
