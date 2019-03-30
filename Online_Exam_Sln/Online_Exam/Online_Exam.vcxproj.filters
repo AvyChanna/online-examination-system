@@ -42,6 +42,9 @@
     <ClInclude Include="QuestionStructure.h" />
     <ClInclude Include="Instructions.h" />
     <ClInclude Include="ChangePassword.h" />
+    <ClInclude Include="Form1.h" />
+    <ClInclude Include="charts.h" />
+    <ClInclude Include="sectionAnalysis.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -73,6 +76,9 @@
     <EmbeddedResource Include="Instructions.resx" />
     <EmbeddedResource Include="ChangePassword.resx" />
     <EmbeddedResource Include="PastTest.resx" />
+    <EmbeddedResource Include="ExamList.resx" />
+    <EmbeddedResource Include="Form1.resX" />
+    <EmbeddedResource Include="Leaderboard.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />

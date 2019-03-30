@@ -1,6 +1,7 @@
 // Online_Exam.cpp : main project file.
 #include "stdafx.h"
 #include "Login.h"
+#include "charts.h"
 using namespace Online_Exam;
 
 [STAThreadAttribute]
@@ -12,7 +13,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew ExamPaper(11));
+	Application::Run(gcnew charts("11", "tushar"));
 
 	return 0;
 }
