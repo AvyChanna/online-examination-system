@@ -66,10 +66,11 @@ namespace Online_Exam {
 			// 
 			// contentPanel
 			// 
-			this->contentPanel->Location = System::Drawing::Point(15, 16);
+			this->contentPanel->Location = System::Drawing::Point(37, 35);
 			this->contentPanel->Name = L"contentPanel";
-			this->contentPanel->Size = System::Drawing::Size(874, 395);
+			this->contentPanel->Size = System::Drawing::Size(874, 462);
 			this->contentPanel->TabIndex = 0;
+			this->contentPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &PastTestsSet::contentPanel_Paint);
 			// 
 			// PastTestsSet
 			// 
@@ -77,7 +78,7 @@ namespace Online_Exam {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->contentPanel);
 			this->Name = L"PastTestsSet";
-			this->Size = System::Drawing::Size(903, 423);
+			this->Size = System::Drawing::Size(914, 532);
 			this->Load += gcnew System::EventHandler(this, &PastTestsSet::PastTestsSet_Load);
 			this->ResumeLayout(false);
 
@@ -105,6 +106,12 @@ namespace Online_Exam {
 				 {
 					 for (int j = 0; j < Access->RecordCount; j++)
 					 {
+						 int height_pic = 0;
+						 PictureBox^ border = gcnew PictureBox();
+						 border->Width = 500;
+						 border->Height = 100;
+						 border->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+		
 						 Label ^ lblExam = gcnew Label();
 						 lblExam->Text = "Exam Name: ";
                          Label ^ lblExamName = gcnew Label();
@@ -112,22 +119,56 @@ namespace Online_Exam {
  						 lblExamName->Width = 100;
 						 lblExamName->Text = Convert::ToString(Access->DBDT->Rows[j]["ExamName"]);
 						 lblExamName->Height = 20;
-						 btnStandings->Width = 200;
+						 btnStandings->Width = 180;
 						 btnStandings->Height = 30;
 						 int temp = y+10;
-						 lblExam->Location = Point(x + 5, temp);
-						 lblExamName->Location = Point(x + 100, temp);
-						 btnStandings->Location = Point(x + 300, temp + 20);
+						 lblExam->Location = Point(x + 20, temp);
+						 border->Location = Point(x, temp - 10);
+						 
+						 lblExamName->Location = Point(x + 220, temp);
+						 btnStandings->Location = Point(x + 350, temp + 20);
 						 btnStandings->Text = "Click for standings";
 						 Label ^ lblGroups = gcnew Label();
 						 lblGroups->Text = "Eligible Groups: ";
 						 lblGroups->Height = 20;
+						 lblGroups->Width = 180;
+					
 						 temp += 30;
-						 lblGroups->Location = Point(x + 5, temp);
+
+						 lblExamName->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+						 lblGroups->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+						 lblExam->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+						 //lblProf->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+						 
+						 lblExamName->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+						 lblGroups->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+						 lblExam->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+						 //lblProf->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+
+						 lblGroups->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+							 static_cast<System::Byte>(0)));
+						 lblExam->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+							 static_cast<System::Byte>(0)));
+						 lblExamName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+							 static_cast<System::Byte>(0)));
+
+						 lblGroups->Location = Point(x + 20, temp);
 						 contentPanel->Controls->Add(lblExamName);
 						 contentPanel->Controls->Add(lblGroups);
 						 contentPanel->Controls->Add(lblExam);
 						 contentPanel->Controls->Add(btnStandings);
+						 btnStandings->FlatAppearance->BorderSize = 0;
+						 btnStandings->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+						 btnStandings->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+							 static_cast<System::Byte>(0)));
+						 btnStandings->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+						 btnStandings->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+						 btnStandings->TabIndex = 4;
+						 btnStandings->BackColor = System::Drawing::Color::FromArgb(43, 50, 82);
+						 btnStandings->ForeColor = System::Drawing::Color::FromArgb(255, 255, 255);
+						 {
+
+						 }
 						 //PictureBox ^ border = gcnew PictureBox();
 						 String ^ grp = Convert::ToString(Access->DBDT->Rows[j]["GroupID"]);
 						 String ^ query = "";
@@ -161,10 +202,20 @@ namespace Online_Exam {
 								 lblGroupName->Text = Convert::ToString(Access1->DBDT->Rows[k]["GroupName"]);
 								 lblGroupName->Width = 100;
 								 lblGroupName->Height = 20;
-								 lblGroupName->Location = Point(x + 100, temp);
+								 lblGroupName->Location = Point(x + 220, temp);
 								 temp += 30;
+								 height_pic += 30;
+								 lblGroupName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+									 static_cast<System::Byte>(0)));
+
 								 contentPanel->Controls->Add(lblGroupName);
+								 lblGroupName->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+								 lblGroupName->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
 							 }
+
+							 border->Height = height_pic + 45;
+							 border->Width = 550;
+							 contentPanel->Controls->Add(border);
 							 //if (Access1->RecordCount > 0) MessageBox::Show(Convert::ToString(Access1->RecordCount));
 						 }
 						 temp += 10;
@@ -172,5 +223,7 @@ namespace Online_Exam {
 					 }
 				 }
 	}
-	};
+	private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+	}
+};
 }

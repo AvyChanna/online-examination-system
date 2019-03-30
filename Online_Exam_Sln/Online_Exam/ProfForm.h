@@ -50,13 +50,15 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  btnMyProfileProf;
 	private: System::Windows::Forms::Button^  btnEditProfileProf;
 	private: System::Windows::Forms::Button^  btnLogOut;
-	private: System::Windows::Forms::Button^  btnHelp;
+
 	private: System::Windows::Forms::Button^  btnPastTestsSet;
 	private: System::Windows::Forms::Button^  btnCreateTest;
 	private: System::Windows::Forms::Button^  btnAddGroup;
 	private: System::Windows::Forms::Panel^  profContentPanel;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Panel^  panel2;
+	private: System::Windows::Forms::Button^  btn_changepass;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
 
 
 	protected:
@@ -74,10 +76,12 @@ namespace Online_Exam {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(ProfForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->btn_changepass = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->btnLogOut = (gcnew System::Windows::Forms::Button());
-			this->btnHelp = (gcnew System::Windows::Forms::Button());
 			this->btnPastTestsSet = (gcnew System::Windows::Forms::Button());
 			this->btnCreateTest = (gcnew System::Windows::Forms::Button());
 			this->btnAddGroup = (gcnew System::Windows::Forms::Button());
@@ -86,15 +90,17 @@ namespace Online_Exam {
 			this->profContentPanel = (gcnew System::Windows::Forms::Panel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
 				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->panel1->Controls->Add(this->pictureBox1);
+			this->panel1->Controls->Add(this->btn_changepass);
 			this->panel1->Controls->Add(this->button1);
 			this->panel1->Controls->Add(this->btnLogOut);
-			this->panel1->Controls->Add(this->btnHelp);
 			this->panel1->Controls->Add(this->btnPastTestsSet);
 			this->panel1->Controls->Add(this->btnCreateTest);
 			this->panel1->Controls->Add(this->btnAddGroup);
@@ -107,6 +113,34 @@ namespace Online_Exam {
 			this->panel1->Size = System::Drawing::Size(200, 532);
 			this->panel1->TabIndex = 2;
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->pictureBox1->Location = System::Drawing::Point(53, 12);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(80, 80);
+			this->pictureBox1->TabIndex = 11;
+			this->pictureBox1->TabStop = false;
+			// 
+			// btn_changepass
+			// 
+			this->btn_changepass->FlatAppearance->BorderSize = 0;
+			this->btn_changepass->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btn_changepass->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn_changepass->ForeColor = System::Drawing::Color::White;
+			this->btn_changepass->Location = System::Drawing::Point(22, 396);
+			this->btn_changepass->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->btn_changepass->Name = L"btn_changepass";
+			this->btn_changepass->Size = System::Drawing::Size(150, 46);
+			this->btn_changepass->TabIndex = 10;
+			this->btn_changepass->Text = L"Change Password";
+			this->btn_changepass->UseVisualStyleBackColor = true;
+			this->btn_changepass->Click += gcnew System::EventHandler(this, &ProfForm::btn_changepass_Click);
+			this->btn_changepass->MouseLeave += gcnew System::EventHandler(this, &ProfForm::btn_changepass_MouseLeave);
+			this->btn_changepass->MouseHover += gcnew System::EventHandler(this, &ProfForm::btn_changepass_MouseHover);
+			// 
 			// button1
 			// 
 			this->button1->FlatAppearance->BorderSize = 0;
@@ -114,7 +148,7 @@ namespace Online_Exam {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(22, 397);
+			this->button1->Location = System::Drawing::Point(22, 346);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(150, 46);
@@ -132,7 +166,7 @@ namespace Online_Exam {
 			this->btnLogOut->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnLogOut->ForeColor = System::Drawing::Color::White;
-			this->btnLogOut->Location = System::Drawing::Point(22, 438);
+			this->btnLogOut->Location = System::Drawing::Point(22, 446);
 			this->btnLogOut->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnLogOut->Name = L"btnLogOut";
 			this->btnLogOut->Size = System::Drawing::Size(150, 46);
@@ -142,21 +176,6 @@ namespace Online_Exam {
 			this->btnLogOut->Click += gcnew System::EventHandler(this, &ProfForm::btnLogOut_Click);
 			this->btnLogOut->MouseLeave += gcnew System::EventHandler(this, &ProfForm::btnLogOut_MouseLeave);
 			this->btnLogOut->MouseHover += gcnew System::EventHandler(this, &ProfForm::btnLogOut_MouseHover);
-			// 
-			// btnHelp
-			// 
-			this->btnHelp->FlatAppearance->BorderSize = 0;
-			this->btnHelp->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnHelp->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnHelp->ForeColor = System::Drawing::Color::White;
-			this->btnHelp->Location = System::Drawing::Point(22, 347);
-			this->btnHelp->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->btnHelp->Name = L"btnHelp";
-			this->btnHelp->Size = System::Drawing::Size(150, 46);
-			this->btnHelp->TabIndex = 8;
-			this->btnHelp->Text = L"Help";
-			this->btnHelp->UseVisualStyleBackColor = true;
 			// 
 			// btnPastTestsSet
 			// 
@@ -280,6 +299,7 @@ namespace Online_Exam {
 			this->Text = L"ProfForm";
 			this->Load += gcnew System::EventHandler(this, &ProfForm::ProfForm_Load);
 			this->panel1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -293,7 +313,7 @@ namespace Online_Exam {
 				btnAddGroup->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				btnCreateTest->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				button1->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
-				btnHelp->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+				btn_changepass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				btnLogOut->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				
@@ -309,7 +329,7 @@ private: System::Void btnEditProfileProf_Click(System::Object^  sender, System::
 			 btnAddGroup->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnCreateTest->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 button1->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
-			 btnHelp->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btn_changepass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnLogOut->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 }
@@ -322,7 +342,7 @@ private: System::Void ProfForm_Load(System::Object^  sender, System::EventArgs^ 
 			 btnAddGroup->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnCreateTest->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 button1->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
-			 btnHelp->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btn_changepass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnLogOut->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 }
@@ -335,7 +355,7 @@ private: System::Void btnAddGroup_Click(System::Object^  sender, System::EventAr
 			 btnAddGroup->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
 			 btnCreateTest->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 button1->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
-			 btnHelp->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btn_changepass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnLogOut->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 }
@@ -348,7 +368,7 @@ private: System::Void btnCreateTest_Click(System::Object^  sender, System::Event
 			 btnAddGroup->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnCreateTest->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
 			 button1->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
-			 btnHelp->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btn_changepass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnLogOut->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 }
@@ -361,7 +381,7 @@ private: System::Void btnPastTestsSet_Click(System::Object^  sender, System::Eve
 			 btnAddGroup->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnCreateTest->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 button1->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
-			 btnHelp->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btn_changepass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnLogOut->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
 }
@@ -371,7 +391,7 @@ private: System::Void btnPastTestsSet_Click(System::Object^  sender, System::Eve
 				 btnAddGroup->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				 btnCreateTest->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				 button1->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
-				 btnHelp->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+				 btn_changepass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				 btnLogOut->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
 				 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 	}
@@ -397,7 +417,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			 btnAddGroup->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnCreateTest->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 button1->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
-			 btnHelp->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btn_changepass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnLogOut->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 }
@@ -442,6 +462,24 @@ private: System::Void btnPastTestsSet_MouseHover(System::Object^  sender, System
 }
 private: System::Void btnPastTestsSet_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
 			 btnPastTestsSet->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+}
+private: System::Void btn_changepass_Click(System::Object^  sender, System::EventArgs^  e) {
+
+
+			 btnEditProfileProf->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btnMyProfileProf->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btnAddGroup->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btnCreateTest->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 button1->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btnLogOut->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+			 btn_changepass->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
+}
+private: System::Void btn_changepass_MouseHover(System::Object^  sender, System::EventArgs^  e) {
+			 btn_changepass->ForeColor = System::Drawing::Color::FromArgb(229, 178, 11);
+}
+private: System::Void btn_changepass_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
+			btn_changepass->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 }
 };
 }

@@ -89,7 +89,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  btnDone;
 	private: System::Windows::Forms::Button^  btnNext;
 	private: System::Windows::Forms::Button^  btnPrev;
-	private: System::Windows::Forms::Label^  label4;
+
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::TextBox^  textAnswer;
@@ -106,6 +106,26 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Button^  btnSave;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::Panel^  panel7;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private: System::ComponentModel::IContainer^  components;
 	private:
 		/// <summary>
@@ -128,7 +148,6 @@ namespace Online_Exam {
 			this->btnDone = (gcnew System::Windows::Forms::Button());
 			this->btnNext = (gcnew System::Windows::Forms::Button());
 			this->btnPrev = (gcnew System::Windows::Forms::Button());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->textAnswer = (gcnew System::Windows::Forms::TextBox());
@@ -145,6 +164,8 @@ namespace Online_Exam {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->btnSave = (gcnew System::Windows::Forms::Button());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->panel7 = (gcnew System::Windows::Forms::Panel());
 			this->tcAnswerType->SuspendLayout();
 			this->tpMCQ->SuspendLayout();
 			this->tpTF->SuspendLayout();
@@ -155,38 +176,50 @@ namespace Online_Exam {
 			// 
 			this->textQuestion->BackColor = System::Drawing::Color::Gainsboro;
 			this->textQuestion->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textQuestion->Location = System::Drawing::Point(7, 67);
+			this->textQuestion->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textQuestion->Location = System::Drawing::Point(52, 106);
+			this->textQuestion->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textQuestion->Name = L"textQuestion";
 			this->textQuestion->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedBoth;
-			this->textQuestion->Size = System::Drawing::Size(663, 65);
+			this->textQuestion->Size = System::Drawing::Size(803, 95);
 			this->textQuestion->TabIndex = 1;
 			this->textQuestion->Text = L"";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(3, 51);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(48, 77);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(72, 13);
+			this->label1->Size = System::Drawing::Size(145, 23);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Question No -";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(3, 135);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(48, 226);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(47, 13);
+			this->label2->Size = System::Drawing::Size(90, 23);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Answers";
 			// 
 			// cbSection
 			// 
 			this->cbSection->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cbSection->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->cbSection->FormattingEnabled = true;
-			this->cbSection->Location = System::Drawing::Point(61, 18);
+			this->cbSection->Location = System::Drawing::Point(164, 23);
+			this->cbSection->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->cbSection->Name = L"cbSection";
-			this->cbSection->Size = System::Drawing::Size(121, 21);
+			this->cbSection->Size = System::Drawing::Size(160, 25);
 			this->cbSection->Sorted = true;
 			this->cbSection->TabIndex = 4;
 			this->cbSection->SelectedIndexChanged += gcnew System::EventHandler(this, &AddQuestions::cbSection_SelectedIndexChanged);
@@ -194,87 +227,111 @@ namespace Online_Exam {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(12, 21);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(48, 25);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(43, 13);
+			this->label3->Size = System::Drawing::Size(82, 23);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Section";
 			// 
 			// btnDone
 			// 
-			this->btnDone->Location = System::Drawing::Point(550, 292);
+			this->btnDone->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnDone->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnDone->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnDone->ForeColor = System::Drawing::Color::White;
+			this->btnDone->Location = System::Drawing::Point(623, 471);
+			this->btnDone->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnDone->Name = L"btnDone";
-			this->btnDone->Size = System::Drawing::Size(95, 35);
+			this->btnDone->Size = System::Drawing::Size(127, 43);
 			this->btnDone->TabIndex = 5;
 			this->btnDone->Text = L"Done";
-			this->btnDone->UseVisualStyleBackColor = true;
+			this->btnDone->UseVisualStyleBackColor = false;
 			this->btnDone->Click += gcnew System::EventHandler(this, &AddQuestions::btnDone_Click);
 			// 
 			// btnNext
 			// 
-			this->btnNext->Location = System::Drawing::Point(334, 292);
+			this->btnNext->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnNext->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnNext->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnNext->ForeColor = System::Drawing::Color::White;
+			this->btnNext->Location = System::Drawing::Point(448, 471);
+			this->btnNext->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnNext->Name = L"btnNext";
-			this->btnNext->Size = System::Drawing::Size(93, 35);
+			this->btnNext->Size = System::Drawing::Size(124, 43);
 			this->btnNext->TabIndex = 7;
 			this->btnNext->Text = L"Next";
-			this->btnNext->UseVisualStyleBackColor = true;
+			this->btnNext->UseVisualStyleBackColor = false;
 			this->btnNext->Click += gcnew System::EventHandler(this, &AddQuestions::btnNext_Click);
 			// 
 			// btnPrev
 			// 
-			this->btnPrev->Location = System::Drawing::Point(150, 292);
+			this->btnPrev->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnPrev->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnPrev->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnPrev->ForeColor = System::Drawing::Color::White;
+			this->btnPrev->Location = System::Drawing::Point(88, 471);
+			this->btnPrev->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnPrev->Name = L"btnPrev";
-			this->btnPrev->Size = System::Drawing::Size(79, 35);
+			this->btnPrev->Size = System::Drawing::Size(105, 43);
 			this->btnPrev->TabIndex = 6;
 			this->btnPrev->Text = L"Prev";
-			this->btnPrev->UseVisualStyleBackColor = true;
+			this->btnPrev->UseVisualStyleBackColor = false;
 			this->btnPrev->Click += gcnew System::EventHandler(this, &AddQuestions::button2_Click);
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(486, 51);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(149, 13);
-			this->label4->TabIndex = 8;
-			this->label4->Text = L"Total Question in this section -";
 			// 
 			// label5
 			// 
-			this->label5->Location = System::Drawing::Point(641, 51);
+			this->label5->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(835, 77);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(29, 13);
+			this->label5->Size = System::Drawing::Size(20, 26);
 			this->label5->TabIndex = 9;
 			this->label5->Text = L"0";
 			// 
 			// label6
 			// 
-			this->label6->Location = System::Drawing::Point(81, 51);
+			this->label6->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->Location = System::Drawing::Point(178, 77);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(45, 13);
+			this->label6->Size = System::Drawing::Size(60, 23);
 			this->label6->TabIndex = 10;
 			this->label6->Text = L"1";
+			this->label6->Click += gcnew System::EventHandler(this, &AddQuestions::label6_Click);
 			// 
 			// textAnswer
 			// 
 			this->textAnswer->BackColor = System::Drawing::Color::Gainsboro;
-			this->textAnswer->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textAnswer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->textAnswer->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textAnswer->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textAnswer->Location = System::Drawing::Point(317, 30);
+			this->textAnswer->Location = System::Drawing::Point(98, 69);
+			this->textAnswer->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textAnswer->Name = L"textAnswer";
-			this->textAnswer->Size = System::Drawing::Size(300, 26);
+			this->textAnswer->Size = System::Drawing::Size(600, 25);
 			this->textAnswer->TabIndex = 12;
 			// 
 			// radioTrue
 			// 
 			this->radioTrue->AutoSize = true;
 			this->radioTrue->Checked = true;
-			this->radioTrue->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->radioTrue->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioTrue->Location = System::Drawing::Point(224, 39);
+			this->radioTrue->Location = System::Drawing::Point(207, 48);
+			this->radioTrue->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->radioTrue->Name = L"radioTrue";
-			this->radioTrue->Size = System::Drawing::Size(77, 30);
+			this->radioTrue->Size = System::Drawing::Size(92, 38);
 			this->radioTrue->TabIndex = 13;
 			this->radioTrue->TabStop = true;
 			this->radioTrue->Text = L"True";
@@ -283,11 +340,12 @@ namespace Online_Exam {
 			// radioFalse
 			// 
 			this->radioFalse->AutoSize = true;
-			this->radioFalse->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->radioFalse->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioFalse->Location = System::Drawing::Point(355, 39);
+			this->radioFalse->Location = System::Drawing::Point(362, 48);
+			this->radioFalse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->radioFalse->Name = L"radioFalse";
-			this->radioFalse->Size = System::Drawing::Size(88, 30);
+			this->radioFalse->Size = System::Drawing::Size(104, 38);
 			this->radioFalse->TabIndex = 14;
 			this->radioFalse->Text = L"False";
 			this->radioFalse->UseVisualStyleBackColor = true;
@@ -297,12 +355,15 @@ namespace Online_Exam {
 			this->tcAnswerType->Controls->Add(this->tpMCQ);
 			this->tcAnswerType->Controls->Add(this->tpTF);
 			this->tcAnswerType->Controls->Add(this->tpOW);
+			this->tcAnswerType->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->tcAnswerType->HotTrack = true;
-			this->tcAnswerType->Location = System::Drawing::Point(3, 151);
+			this->tcAnswerType->Location = System::Drawing::Point(52, 253);
+			this->tcAnswerType->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->tcAnswerType->Name = L"tcAnswerType";
 			this->tcAnswerType->SelectedIndex = 0;
 			this->tcAnswerType->ShowToolTips = true;
-			this->tcAnswerType->Size = System::Drawing::Size(671, 135);
+			this->tcAnswerType->Size = System::Drawing::Size(803, 199);
 			this->tcAnswerType->TabIndex = 15;
 			// 
 			// tpMCQ
@@ -311,10 +372,11 @@ namespace Online_Exam {
 			this->tpMCQ->Controls->Add(this->label7);
 			this->tpMCQ->Controls->Add(this->textIncorrectOpt);
 			this->tpMCQ->Controls->Add(this->textCorrectOpt);
-			this->tpMCQ->Location = System::Drawing::Point(4, 22);
+			this->tpMCQ->Location = System::Drawing::Point(4, 32);
+			this->tpMCQ->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->tpMCQ->Name = L"tpMCQ";
-			this->tpMCQ->Padding = System::Windows::Forms::Padding(3);
-			this->tpMCQ->Size = System::Drawing::Size(663, 109);
+			this->tpMCQ->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tpMCQ->Size = System::Drawing::Size(795, 163);
 			this->tpMCQ->TabIndex = 0;
 			this->tpMCQ->Text = L"MCQ";
 			this->tpMCQ->ToolTipText = L"Single/Multiple Correct Type Answer";
@@ -323,18 +385,24 @@ namespace Online_Exam {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(331, 3);
+			this->label8->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->Location = System::Drawing::Point(400, 4);
+			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(164, 13);
+			this->label8->Size = System::Drawing::Size(294, 21);
 			this->label8->TabIndex = 1;
 			this->label8->Text = L"Incorrect Options(Line separated)";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(0, 3);
+			this->label7->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->Location = System::Drawing::Point(0, 4);
+			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(156, 13);
+			this->label7->Size = System::Drawing::Size(282, 21);
 			this->label7->TabIndex = 1;
 			this->label7->Text = L"Correct Options(Line separated)";
 			// 
@@ -343,10 +411,13 @@ namespace Online_Exam {
 			this->textIncorrectOpt->BackColor = System::Drawing::Color::Gainsboro;
 			this->textIncorrectOpt->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textIncorrectOpt->DetectUrls = false;
-			this->textIncorrectOpt->Location = System::Drawing::Point(334, 19);
+			this->textIncorrectOpt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textIncorrectOpt->Location = System::Drawing::Point(399, 31);
+			this->textIncorrectOpt->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textIncorrectOpt->Name = L"textIncorrectOpt";
 			this->textIncorrectOpt->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedBoth;
-			this->textIncorrectOpt->Size = System::Drawing::Size(325, 84);
+			this->textIncorrectOpt->Size = System::Drawing::Size(392, 124);
 			this->textIncorrectOpt->TabIndex = 0;
 			this->textIncorrectOpt->Text = L"";
 			// 
@@ -355,76 +426,113 @@ namespace Online_Exam {
 			this->textCorrectOpt->BackColor = System::Drawing::Color::Gainsboro;
 			this->textCorrectOpt->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textCorrectOpt->DetectUrls = false;
-			this->textCorrectOpt->Location = System::Drawing::Point(3, 19);
+			this->textCorrectOpt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textCorrectOpt->Location = System::Drawing::Point(0, 31);
+			this->textCorrectOpt->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textCorrectOpt->Name = L"textCorrectOpt";
 			this->textCorrectOpt->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedBoth;
-			this->textCorrectOpt->Size = System::Drawing::Size(325, 84);
+			this->textCorrectOpt->Size = System::Drawing::Size(391, 124);
 			this->textCorrectOpt->TabIndex = 0;
 			this->textCorrectOpt->Text = L"";
 			// 
 			// tpTF
 			// 
+			this->tpTF->BackColor = System::Drawing::Color::Gainsboro;
 			this->tpTF->Controls->Add(this->radioFalse);
 			this->tpTF->Controls->Add(this->radioTrue);
-			this->tpTF->Location = System::Drawing::Point(4, 22);
+			this->tpTF->Location = System::Drawing::Point(4, 32);
+			this->tpTF->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->tpTF->Name = L"tpTF";
-			this->tpTF->Padding = System::Windows::Forms::Padding(3);
-			this->tpTF->Size = System::Drawing::Size(663, 109);
+			this->tpTF->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tpTF->Size = System::Drawing::Size(795, 163);
 			this->tpTF->TabIndex = 1;
 			this->tpTF->Text = L"True/False";
 			this->tpTF->ToolTipText = L"True/False type Answer";
-			this->tpTF->UseVisualStyleBackColor = true;
 			// 
 			// tpOW
 			// 
+			this->tpOW->BackColor = System::Drawing::Color::Gainsboro;
+			this->tpOW->Controls->Add(this->panel7);
 			this->tpOW->Controls->Add(this->label10);
 			this->tpOW->Controls->Add(this->label9);
 			this->tpOW->Controls->Add(this->textAnswer);
-			this->tpOW->Location = System::Drawing::Point(4, 22);
+			this->tpOW->Location = System::Drawing::Point(4, 32);
+			this->tpOW->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->tpOW->Name = L"tpOW";
-			this->tpOW->Size = System::Drawing::Size(663, 109);
+			this->tpOW->Size = System::Drawing::Size(795, 163);
 			this->tpOW->TabIndex = 2;
 			this->tpOW->Text = L"One Word";
 			this->tpOW->ToolTipText = L"One Word/ Integer Type Answer";
-			this->tpOW->UseVisualStyleBackColor = true;
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label10->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(300, 69);
+			this->label10->Location = System::Drawing::Point(441, 103);
+			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(335, 26);
+			this->label10->Size = System::Drawing::Size(257, 21);
 			this->label10->TabIndex = 14;
 			this->label10->Text = L"( max 25 words, keep it short )";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label9->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(45, 33);
+			this->label9->Location = System::Drawing::Point(94, 31);
+			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(191, 20);
+			this->label9->Size = System::Drawing::Size(252, 23);
 			this->label9->TabIndex = 13;
 			this->label9->Text = L"Enter Your Answer Here -";
 			this->label9->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->label9->Click += gcnew System::EventHandler(this, &AddQuestions::label9_Click);
 			// 
 			// btnSave
 			// 
-			this->btnSave->Location = System::Drawing::Point(235, 292);
+			this->btnSave->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnSave->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSave->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSave->ForeColor = System::Drawing::Color::White;
+			this->btnSave->Location = System::Drawing::Point(225, 471);
+			this->btnSave->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnSave->Name = L"btnSave";
-			this->btnSave->Size = System::Drawing::Size(93, 35);
+			this->btnSave->Size = System::Drawing::Size(177, 43);
 			this->btnSave->TabIndex = 7;
 			this->btnSave->Text = L"Force Save";
-			this->btnSave->UseVisualStyleBackColor = true;
+			this->btnSave->UseVisualStyleBackColor = false;
 			this->btnSave->Click += gcnew System::EventHandler(this, &AddQuestions::btnSave_Click);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(527, 77);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(300, 23);
+			this->label4->TabIndex = 8;
+			this->label4->Text = L"Total Question in this section -";
+			// 
+			// panel7
+			// 
+			this->panel7->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->panel7->Location = System::Drawing::Point(98, 99);
+			this->panel7->Name = L"panel7";
+			this->panel7->Size = System::Drawing::Size(600, 1);
+			this->panel7->TabIndex = 51;
 			// 
 			// AddQuestions
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::White;
 			this->Controls->Add(this->tcAnswerType);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
@@ -438,8 +546,9 @@ namespace Online_Exam {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textQuestion);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"AddQuestions";
-			this->Size = System::Drawing::Size(677, 344);
+			this->Size = System::Drawing::Size(914, 532);
 			this->Load += gcnew System::EventHandler(this, &AddQuestions::AddQuestions_Load);
 			this->tcAnswerType->ResumeLayout(false);
 			this->tpMCQ->ResumeLayout(false);
@@ -649,6 +758,12 @@ private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^ 
 	}
 	String ^output = JsonConvert::SerializeObject(js, Formatting::None);
 	Console::WriteLine(output);
+}
+
+
+private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

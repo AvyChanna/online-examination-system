@@ -202,6 +202,7 @@ namespace Online_Exam {
 			// confirmPassTxt
 			// 
 			this->confirmPassTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->confirmPassTxt->Cursor = System::Windows::Forms::Cursors::WaitCursor;
 			this->confirmPassTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->confirmPassTxt->Location = System::Drawing::Point(428, 150);
@@ -210,6 +211,7 @@ namespace Online_Exam {
 			this->confirmPassTxt->TabIndex = 71;
 			this->confirmPassTxt->UseSystemPasswordChar = true;
 			this->confirmPassTxt->UseWaitCursor = true;
+			this->confirmPassTxt->TextChanged += gcnew System::EventHandler(this, &prof_signup::confirmPassTxt_TextChanged);
 			// 
 			// userTxt
 			// 
@@ -535,6 +537,8 @@ private: System::Void panel3_Paint(System::Object^  sender, System::Windows::For
 private: System::Void panel2_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 }
 private: System::Void panel5_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+}
+private: System::Void confirmPassTxt_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

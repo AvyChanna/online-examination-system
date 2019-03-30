@@ -84,9 +84,10 @@ namespace Online_Exam {
 			// 
 			// adminPanel
 			// 
-			this->adminPanel->Location = System::Drawing::Point(215, 55);
+			this->adminPanel->BackColor = System::Drawing::Color::White;
+			this->adminPanel->Location = System::Drawing::Point(206, 0);
 			this->adminPanel->Name = L"adminPanel";
-			this->adminPanel->Size = System::Drawing::Size(658, 499);
+			this->adminPanel->Size = System::Drawing::Size(1122, 593);
 			this->adminPanel->TabIndex = 1;
 			// 
 			// Students
@@ -122,7 +123,7 @@ namespace Online_Exam {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(921, 593);
+			this->ClientSize = System::Drawing::Size(1327, 593);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->adminPanel);
 			this->Name = L"AdminForm";
