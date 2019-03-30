@@ -1,8 +1,6 @@
 #pragma once
-#ifndef __studentform__
-#define __studentform__
-#include "Database.h"
-#include "ProfForm.h"
+//#include "Database.h"
+//#include "ProfForm.h"
 #include "StudentProfile.h"
 #include "StudentEditProfile.h"
 #include "GroupEnroll.h"
@@ -10,20 +8,23 @@
 #include "UpcomingTests.h"
 #include "PastTest.h"
 #include "Login.h"
+#include "ChangePassword.h"
+#include "Instructions.h"
+
 namespace Online_Exam {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-	//using namespace StudentProfile;
-	/// <summary>
-	/// Summary for StudentForm
-	/// </summary>
-	public ref class StudentForm : public System::Windows::Forms::Form
-	{
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
+//using namespace StudentProfile;
+/// <summary>
+/// Summary for StudentForm
+/// </summary>
+public ref class StudentForm : public System::Windows::Forms::Form
+{
 	public:
 		StudentForm(void)
 		{
@@ -402,12 +403,12 @@ private: System::Void btnUnenroll_Click(System::Object^  sender, System::EventAr
 			 btnChangePass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 }
 public: System::Void refreshUnenroll() {
-			contentPanel->Controls->Clear();
-			contentPanel->Controls->Add(gcnew Unenroll);
-}
+		contentPanel->Controls->Clear();
+		contentPanel->Controls->Add(gcnew Unenroll);
+	}
 
 private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-}
+	}
 private: System::Void StudentForm_Load(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
 			 StudentProfile ^ usr = gcnew StudentProfile();
@@ -542,4 +543,3 @@ private: System::Void btnChangePass_MouseLeave(System::Object^  sender, System::
 
 };
 }
-#endif

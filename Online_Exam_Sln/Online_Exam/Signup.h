@@ -174,6 +174,7 @@ private: System::Void loginBtn_Click(System::Object^  sender, System::EventArgs^
 			 profBtn->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 studBtn->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 
+			 Close();
 			
 			 
 			 

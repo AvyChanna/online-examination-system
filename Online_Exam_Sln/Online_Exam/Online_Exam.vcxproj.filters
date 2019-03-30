@@ -4,11 +4,9 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="AddQuestions.cpp" />
     <ClCompile Include="GlobalSuppressions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Form1.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="ProfForm.h" />
     <ClInclude Include="ProfProfile.h" />
@@ -38,12 +36,15 @@
     <ClInclude Include="json.h" />
     <ClInclude Include="ExamPaper.h" />
     <ClInclude Include="PastTest.h" />
+    <ClInclude Include="NewPass.h" />
+    <ClInclude Include="QuestionStructure.h" />
+    <ClInclude Include="Instructions.h" />
+    <ClInclude Include="ChangePassword.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resX" />
     <EmbeddedResource Include="ProfForm.resx" />
     <EmbeddedResource Include="ProfProfile.resx" />
     <EmbeddedResource Include="StudentForm.resx" />
@@ -66,6 +67,9 @@
     <EmbeddedResource Include="PastTestsSet.resx" />
     <EmbeddedResource Include="StudentEditAdmin.resx" />
     <EmbeddedResource Include="ExamPaper.resx" />
+    <EmbeddedResource Include="Instructions.resx" />
+    <EmbeddedResource Include="ChangePassword.resx" />
+    <EmbeddedResource Include="PastTest.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />

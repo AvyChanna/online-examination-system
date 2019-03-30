@@ -294,22 +294,42 @@ namespace Online_Exam {
 	}
 
 	private:bool validate(){
-
-
-				if (txtPhone->TextLength != 10){
-					MessageBox::Show("Phone Number Length should be 10");
-					return false;
+				txtFullName->Text = txtFullName->Text->Trim();
+				txtEmail->Text = txtEmail->Text->Trim();
+				txtPhone->Text = txtPhone->Text->Trim();
+				String ^ str = txtPhone->Text;
+				for (int i = 0; i < str->Length; i++)
+				{
+					if (str[i]>'9' || str[i] < '0')
+					{
+						MessageBox::Show("Phone Number should not have digits aparts from 0-9", "Wrong Details");
+						return false;
+					}
 				}
-				
+				str = txtFullName->Text;
+				String ^ str1 = "";
+				for (int i = 0; i < str->Length; i++)
+				{
+					if (str[i] != ' ')
+					{
+						if (i>0 && str[i - 1] == ' ') str1 += " ";
+						str1 += str[i];
+					}
+				}
+				txtFullName->Text = str1;
+
 				if (txtFullName->Text->Trim() == ""){
-					MessageBox::Show("Name can not be Empty");
+					MessageBox::Show("Name can not be Empty", "Wrong Details");
 					return false;
 				}
 				if (txtEmail->Text->Trim() == ""){
-					MessageBox::Show("Email Field can not be Empty");
+					MessageBox::Show("Email Field can not be Empty", "Wrong Details");
 					return false;
 				}
-
+				if (txtPhone->Text->Trim() == ""){
+					MessageBox::Show("Phone number can not be Empty", "Wrong Details");
+					return false;
+				}
 				return true;
 
 	}

@@ -39,7 +39,6 @@ namespace Online_Exam {
 			}
 		}
 	private: System::Windows::Forms::Label^  label1;
-	protected:
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  label4;
@@ -64,57 +63,6 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Panel^  panel5;
 	private: System::Windows::Forms::Panel^  panel6;
 	private: System::Windows::Forms::Panel^  panel7;
-
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -511,32 +459,74 @@ namespace Online_Exam {
 						 confirmPassTxt->Clear();
 						 return false;
 					 }
-					 if (pNumTxt->TextLength != 10){
+					 /*if (pNumTxt->TextLength != 10){
 						 MessageBox::Show("Phone Number Length should be 10");
 						 return false;
 					 }
 					 if (rNumTxt->TextLength != 9){
 						 MessageBox::Show("Roll Number Length should be 9");
 							 return false;
+					 }*/
+					 for (int i = 0; i < pNumTxt->TextLength; i++)
+					 {
+						 if (pNumTxt->Text[i]>'9' || pNumTxt->Text[i] < '0')
+						 {
+							 MessageBox::Show("Phone Number should consist only digits 0-9","Wrong Details");
+							 return false;
+						 }
+					 }
+					 for (int i = 0; i < rNumTxt->TextLength; i++)
+					 {
+						 if (rNumTxt->Text[i]>'9' || rNumTxt->Text[i] < '0')
+						 {
+							 MessageBox::Show("Roll Number should consist only digits 0-9", "Wrong Details");
+							 return false;
+						 }
 					 }
 					 if (userTxt->Text->Trim() == ""){
-						 MessageBox::Show("UserName can not be Empty");
+						 MessageBox::Show("UserName can not be Empty", "Wrong Details");
 						 return false;
 					 }
 					 if (nameTxt->Text->Trim() == ""){
-						 MessageBox::Show("Name can not be Empty");
+						 MessageBox::Show("Name can not be Empty", "Wrong Details");
 						 return false;
 					 }
 					 if (mailTxt->Text->Trim() == ""){
-						 MessageBox::Show("Email Field can not be Empty");
+						 MessageBox::Show("Email Field can not be Empty", "Wrong Details");
 						 return false;
 					 }
 					 if (branchCb->Text == ""){
-						 MessageBox::Show("Please select a branch");
+						 MessageBox::Show("Please select a branch", "Wrong Details");
 						 return false;
 					 }
+					 if (pNumTxt->Text->Trim() == "")
+					 {
+						 MessageBox::Show("Please enter Phone Number", "Wroong Details");
+						 return false;
+					 }
+					 if (rNumTxt->Text->Trim() == "")
+					 {
+						 MessageBox::Show("Please enter Roll Number", "Wroong Details");
+						 return false;
+					 }
+					 str = nameTxt->Text;
+					 String ^str1 = "";
+					 for (int i = 0; i < str->Length; i++)
+					 {
+						 if (str[i] != ' ')
+						 {
+							 if (i>0 && str[i - 1] == ' ') str1 += " ";
+							 str1 += str[i];
+						 }
+					 }
+					 nameTxt->Text = str1;
+					 
+					 userTxt->Text = userTxt->Text->Trim();
+					 nameTxt->Text = nameTxt->Text->Trim();
+					 mailTxt->Text = mailTxt->Text->Trim();
+					 pNumTxt->Text = pNumTxt->Text->Trim();
+					 rNumTxt->Text = rNumTxt->Text->Trim();
 					 return true;
-		
 		}
 
 		private: System::Void studBtn_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -547,7 +537,7 @@ namespace Online_Exam {
 						 check = 1;
 					 if (validate()){
 							// MessageBox::Show(Convert::ToString(memChkBox->Checked));
-							 String ^ PassSalt = MakeSalt();
+							 String ^ PassSalt = MakeSalt(10);
 							 String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
 
 							 Access->AddParam("@Username", userTxt->Text);
@@ -568,9 +558,9 @@ namespace Online_Exam {
 		}
 
 private: System::Void pNumTxt_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-			 try{
+			 /*try{
 				 if (pNumTxt->Text != "")
-					int  SectNo = Convert::ToInt32(pNumTxt->Text);
+					int  SectNo = Convert::ToUInt64(pNumTxt->Text);
 				
 			 }
 			 catch (Exception ^ ex){
@@ -578,7 +568,7 @@ private: System::Void pNumTxt_TextChanged(System::Object^  sender, System::Event
 				 MessageBox::Show("Please enter integer values in required fields.", "Error");
 				 pNumTxt->Clear();
 				 return;
-			 }
+			 }*/
 
 
 }

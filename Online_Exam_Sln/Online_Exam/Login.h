@@ -2,12 +2,13 @@
 #include"Database.h"
 #include"Encryption.h"
 #include"GlobalVar.h"
-#include "Signup.h"
-#include "ProfForm.h"
-#include "StudentForm.h"
-
-namespace Online_Exam {
-
+#include"Signup.h"
+#include"ProfForm.h"
+#include"StudentForm.h"
+#include"NewPass.h"
+namespace Online_Exam
+{
+	using namespace System::Net::Mail;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -22,15 +23,27 @@ namespace Online_Exam {
 	/// </summary>
 	public ref class Login : public System::Windows::Forms::Form
 	{
-	public:
-		Login(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
+		public:
 
+			String ^Username;
+			String ^Password;
+			String ^Email;
+			Login(void)
+			{
+				InitializeComponent();
+				
+				Username = "";
+				Password = "";
+				Email = "";
+				//
+				//TODO: Add the constructor code here
+				//
+			}
+		
+
+	private: System::Windows::Forms::TextBox^  textUsername;
+	private: System::Windows::Forms::TextBox^  textPassword;
+	private: System::Windows::Forms::Button^  btnLogin;
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -42,19 +55,9 @@ namespace Online_Exam {
 				delete components;
 			}
 		}
-
-	private: System::Windows::Forms::TextBox^  textUsername;
-	protected:
-
-
-	private: System::Windows::Forms::TextBox^  textPassword;
-	private: System::Windows::Forms::Button^  btnLogin;
-
-
+	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::LinkLabel^  linkLabel1;
 	private: System::Windows::Forms::LinkLabel^  linkLabel2;
-
-
 	private: System::Windows::Forms::Panel^  panel3;
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
@@ -87,36 +90,35 @@ namespace Online_Exam {
 			// 
 			// textUsername
 			// 
-			this->textUsername->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(183)),
-				static_cast<System::Int32>(static_cast<System::Byte>(1)));
+			this->textUsername->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(184)),
+				static_cast<System::Int32>(static_cast<System::Byte>(2)));
 			this->textUsername->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textUsername->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textUsername->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->textUsername->Location = System::Drawing::Point(304, 189);
-			this->textUsername->Margin = System::Windows::Forms::Padding(4);
+			this->textUsername->Location = System::Drawing::Point(228, 154);
 			this->textUsername->Name = L"textUsername";
-			this->textUsername->Size = System::Drawing::Size(364, 34);
+			this->textUsername->Size = System::Drawing::Size(273, 27);
 			this->textUsername->TabIndex = 0;
 			this->textUsername->Text = L"Username";
 			this->textUsername->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textUsername->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Login::textUsername_MouseClick);
+			this->textUsername->TextChanged += gcnew System::EventHandler(this, &Login::textUsername_TextChanged);
 			this->textUsername->Leave += gcnew System::EventHandler(this, &Login::textUsername_Leave);
 			// 
 			// textPassword
 			// 
-			this->textPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(236)), static_cast<System::Int32>(static_cast<System::Byte>(179)),
-				static_cast<System::Int32>(static_cast<System::Byte>(1)));
+			this->textPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(238)), static_cast<System::Int32>(static_cast<System::Byte>(180)),
+				static_cast<System::Int32>(static_cast<System::Byte>(2)));
 			this->textPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textPassword->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textPassword->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->textPassword->Location = System::Drawing::Point(304, 264);
-			this->textPassword->Margin = System::Windows::Forms::Padding(4);
+			this->textPassword->Location = System::Drawing::Point(228, 214);
 			this->textPassword->Name = L"textPassword";
-			this->textPassword->Size = System::Drawing::Size(364, 34);
+			this->textPassword->Size = System::Drawing::Size(273, 27);
 			this->textPassword->TabIndex = 1;
 			this->textPassword->Text = L"Password";
 			this->textPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -135,10 +137,9 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->btnLogin->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(231)), static_cast<System::Int32>(static_cast<System::Byte>(173)),
 				static_cast<System::Int32>(static_cast<System::Byte>(1)));
-			this->btnLogin->Location = System::Drawing::Point(299, 335);
-			this->btnLogin->Margin = System::Windows::Forms::Padding(4);
+			this->btnLogin->Location = System::Drawing::Point(224, 272);
 			this->btnLogin->Name = L"btnLogin";
-			this->btnLogin->Size = System::Drawing::Size(369, 47);
+			this->btnLogin->Size = System::Drawing::Size(277, 38);
 			this->btnLogin->TabIndex = 2;
 			this->btnLogin->Text = L"Login";
 			this->btnLogin->UseVisualStyleBackColor = false;
@@ -152,10 +153,9 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->linkLabel1->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->linkLabel1->Location = System::Drawing::Point(301, 404);
-			this->linkLabel1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->linkLabel1->Location = System::Drawing::Point(226, 328);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(133, 18);
+			this->linkLabel1->Size = System::Drawing::Size(110, 16);
 			this->linkLabel1->TabIndex = 5;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"Forgot Password\?";
@@ -169,10 +169,9 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->linkLabel2->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->linkLabel2->Location = System::Drawing::Point(301, 436);
-			this->linkLabel2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->linkLabel2->Location = System::Drawing::Point(226, 354);
 			this->linkLabel2->Name = L"linkLabel2";
-			this->linkLabel2->Size = System::Drawing::Size(275, 18);
+			this->linkLabel2->Size = System::Drawing::Size(219, 16);
 			this->linkLabel2->TabIndex = 6;
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"Don\'t have an account\? Signup here";
@@ -182,18 +181,20 @@ namespace Online_Exam {
 			// 
 			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->panel3->Location = System::Drawing::Point(304, 223);
+			this->panel3->Location = System::Drawing::Point(228, 181);
+			this->panel3->Margin = System::Windows::Forms::Padding(2);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(364, 3);
+			this->panel3->Size = System::Drawing::Size(273, 2);
 			this->panel3->TabIndex = 9;
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->panel1->Location = System::Drawing::Point(304, 298);
+			this->panel1->Location = System::Drawing::Point(228, 242);
+			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(364, 3);
+			this->panel1->Size = System::Drawing::Size(273, 2);
 			this->panel1->TabIndex = 10;
 			// 
 			// pictureBox1
@@ -201,20 +202,23 @@ namespace Online_Exam {
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox1->Location = System::Drawing::Point(391, 75);
+			this->pictureBox1->Location = System::Drawing::Point(293, 61);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(183, 85);
+			this->pictureBox1->Size = System::Drawing::Size(137, 69);
 			this->pictureBox1->TabIndex = 11;
 			this->pictureBox1->TabStop = false;
 			// 
 			// Login
 			// 
 			this->AcceptButton = this->btnLogin;
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(238)), static_cast<System::Int32>(static_cast<System::Byte>(180)),
+				static_cast<System::Int32>(static_cast<System::Byte>(2)));
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(774, 516);
+			this->ClientSize = System::Drawing::Size(580, 419);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->textPassword);
@@ -224,7 +228,6 @@ namespace Online_Exam {
 			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->btnLogin);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"Login";
@@ -236,106 +239,177 @@ namespace Online_Exam {
 			this->PerformLayout();
 
 		}
-#pragma endregion
-	private: System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^  e) {
-				 String ^Username = textUsername->Text;
-				 String ^Password = textPassword->Text;
-				 if (Username->Length == 0 && Password->Length == 0){
-					 MessageBox::Show("Empty Username/Password");
-					 return;
-				 }
-				 // access database and get all values
-				 OES ^Access = gcnew OES();
-				 Access->AddParam("@Username", Username);
-				 Access->ExecQuery("Select Username, FullName, PasswordHash, PasswordSalt, TokenHash, TokenSalt, Email, PhoneNo, RollNo, Groups, IITG, Branch, Designation from Users where Username = @Username");
-				 if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length){
-					 MessageBox::Show("Username\\Password is wrong");
-					 return;
-				 }
-				
-
-				 String ^DBUsername = Access->DBDT->Rows[0]->default[0]->ToString();
-				 String ^DBFullname = Access->DBDT->Rows[0]->default[1]->ToString();
-				 String ^DBPasshash = Access->DBDT->Rows[0]->default[2]->ToString();
-				 String ^DBPasssalt = Access->DBDT->Rows[0]->default[3]->ToString();
-				 String ^DBTokenhash = Access->DBDT->Rows[0]->default[4]->ToString();
-				 String ^DBTokensalt = Access->DBDT->Rows[0]->default[5]->ToString();
-				 String ^DBEmail = Access->DBDT->Rows[0]->default[6]->ToString();
-				 String ^DBPhone = Access->DBDT->Rows[0]->default[7]->ToString();
-				 String ^DBRollno = Access->DBDT->Rows[0]->default[8]->ToString();
-				 String ^DBGroups = Access->DBDT->Rows[0]->default[9]->ToString();
-				 String ^DBIITG = Access->DBDT->Rows[0]->default[10]->ToString();
-				 String ^DBBranch = Access->DBDT->Rows[0]->default[11]->ToString();
-				 String ^DBDesignation = Access->DBDT->Rows[0]->default[12]->ToString();
-
-				 if (DBPasshash == EncryptPassword(Password, DBPasssalt)){
-					 //login successful
-					 gVar::Username = DBUsername;
-					 gVar::Fullname = DBFullname;
-					 gVar::Passhash = DBPasshash;
-					 gVar::Passsalt = DBPasssalt;
-					 gVar::Tokenhash = DBTokenhash;
-					 gVar::Tokensalt = DBTokensalt;
-					 gVar::Email = DBEmail;
-					 gVar::Phone = DBPhone;
-					 gVar::Rollno = DBRollno;
-					 gVar::Groups = DBGroups;
-					 gVar::IITG = DBIITG;
-					 gVar::Branch = DBBranch;
-					 gVar::Designation = DBDesignation;
-					 if (DBDesignation == "Student"){
-						 Login::Hide();
-						 StudentForm^ form = gcnew StudentForm();
-						 form->Show();
-
-					 }
-					 else{
-						 Login::Hide();
-						 ProfForm^ form = gcnew ProfForm();
-						 form->Show();
-
-					 }
-							
-				 }
-				 else{
-					 MessageBox::Show("Username\\Password is wrong");
-				 }
-
-				 if (DBPasshash == EncryptPassword(Password, DBTokenhash)){
-					 //reset password
-					 gVar::Username = DBUsername;
-					 gVar::Fullname = DBFullname;
-					 gVar::Passhash = DBPasshash;
-					 gVar::Passsalt = DBPasssalt;
-					 gVar::Tokenhash = DBTokenhash;
-					 gVar::Tokensalt = DBTokensalt;
-					 gVar::Email = DBEmail;
-					 gVar::Phone = DBPhone;
-					 gVar::Rollno = DBRollno;
-					 gVar::Groups = DBGroups;
-					 gVar::IITG = DBIITG;
-					 gVar::Branch = DBBranch;
-					 gVar::Designation = DBDesignation;
-					 // TODO: make reset passwd function, ask for new password
-				 }
-				 
+			#pragma endregion
+		private:
+			System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^  e)
+			{
+				if (Username->Length == 0 || Password->Length == 0)
+				{
+					MessageBox::Show("Empty Username/Password");
+					return;
+				}
+				// access database and get all values
+				OES ^Access = gcnew OES();
+				Access->AddParam("@Username", Username);
+				Access->ExecQuery("Select Username, FullName, PasswordHash, PasswordSalt, TokenHash, TokenSalt, Email, PhoneNo, RollNo, Groups, IITG, Branch, Designation from Users where Username = @Username");
+				if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length)
+				{
+					MessageBox::Show("Username\\Password is wrong");
+					return;
+				}
 
 
 
 
+			String ^DBUsername = Access->DBDT->Rows[0]->default[0]->ToString();
+			String ^DBFullname = Access->DBDT->Rows[0]->default[1]->ToString();
+			String ^DBPasshash = Access->DBDT->Rows[0]->default[2]->ToString();
+			String ^DBPasssalt = Access->DBDT->Rows[0]->default[3]->ToString();
+			String ^DBTokenhash = Access->DBDT->Rows[0]->default[4]->ToString();
+			String ^DBTokensalt = Access->DBDT->Rows[0]->default[5]->ToString();
+			String ^DBEmail = Access->DBDT->Rows[0]->default[6]->ToString();
+			String ^DBPhone = Access->DBDT->Rows[0]->default[7]->ToString();
+			String ^DBRollno = Access->DBDT->Rows[0]->default[8]->ToString();
+			String ^DBGroups = Access->DBDT->Rows[0]->default[9]->ToString();
+			String ^DBIITG = Access->DBDT->Rows[0]->default[10]->ToString();
+			String ^DBBranch = Access->DBDT->Rows[0]->default[11]->ToString();
+			String ^DBDesignation = Access->DBDT->Rows[0]->default[12]->ToString();
 
+				if (DBPasshash == EncryptPassword(Password, DBPasssalt))
+				{
+					//login successful
+					gVar::Username = DBUsername;
+					gVar::Fullname = DBFullname;
+					gVar::Passhash = DBPasshash;
+					gVar::Passsalt = DBPasssalt;
+					gVar::Tokenhash = DBTokenhash;
+					gVar::Tokensalt = DBTokensalt;
+					gVar::Email = DBEmail;
+					gVar::Phone = DBPhone;
+					gVar::Rollno = DBRollno;
+					gVar::Groups = DBGroups;
+					gVar::IITG = DBIITG;
+					gVar::Branch = DBBranch;
+					gVar::Designation = DBDesignation;
+					if (DBDesignation == "Student")
+					{
+						Hide();
+						StudentForm^ form = gcnew StudentForm();
+						form->ShowDialog();
+						Show();
+					}
+					else
+					{
+						Hide();
+						ProfForm^ form = gcnew ProfForm();
+						form->ShowDialog();
+						Show();
+					}
+					return;
+				}
+				else
+				{
+					if (!String::IsNullOrEmpty(DBTokenhash) && DBTokenhash == EncryptPassword(Password, DBTokensalt))
+					{
+						//reset password
+						gVar::Username = DBUsername;
+						gVar::Fullname = DBFullname;
+						gVar::Passhash = DBPasshash;
+						gVar::Passsalt = DBPasssalt;
+						gVar::Tokenhash = DBTokenhash;
+						gVar::Tokensalt = DBTokensalt;
+						gVar::Email = DBEmail;
+						gVar::Phone = DBPhone;
+						gVar::Rollno = DBRollno;
+						gVar::Groups = DBGroups;
+						gVar::IITG = DBIITG;
+						gVar::Branch = DBBranch;
+						gVar::Designation = DBDesignation;
+						OES ^Access2 = gcnew OES();
+						Access2->AddParam("@Username", DBUsername);
+						Access2->ExecQuery("Update Users set TokenHash = NULL , TokenSalt = NULL where Username = @Username");
+						if (Access2->Exception->Length)
+						{
+							MessageBox::Show("Error in processing token");
+							return;
+						}
 
-	}
+						(gcnew NewPass(DBUsername))->ShowDialog();
+					}
+					else
+						MessageBox::Show("Username\\Password is wrong");
+				}
+			}
 
-private: System::Void linkLabel2_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
-			 //TODO: open signup
-			 Login::Hide();
-			 Signup^ form = gcnew Signup();
-			 form->Show();
-}
-private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
-			 // TODO: open mailer
-}
+		private:
+			System::Void linkLabel2_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e)
+			{
+				Hide();
+				(gcnew Signup())->ShowDialog();
+					
+				Show();
+			}
+		private:
+			System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e)
+			{
+				if (Username->Trim() == "")
+				{
+					MessageBox::Show("Please Enter your Username", "Invalid Username");
+					return;
+				}
+				OES ^Access = gcnew OES();
+				Access->AddParam("@Username", Username);
+				Access->ExecQuery("Select Email from Users where Username = @Username");
+				if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length)
+				{
+					MessageBox::Show("Username does not exist", "Invalid Username");
+					return;
+				}
+			Email = Access->DBDT->Rows[0]->default[0]->ToString();
+				String ^token = "";
+				token = MakeSalt(20);
+				String ^TokenHash = "";
+				String ^TokenSalt = "";
+				TokenSalt = MakeSalt(10);
+				TokenHash = EncryptPassword(token, TokenSalt);
+				Access->AddParam("@TokenHash", TokenHash);
+				Access->AddParam("@TokenSalt", TokenSalt);
+				Access->AddParam("@Username", Username);
+				Access->ExecQuery("Update Users set TokenHash = @TokenHash , TokenSalt = @TokenSalt where Username = @Username");
+				if (Access->Exception->Length)
+				{
+					MessageBox::Show("Could not edit Database");
+					return;
+				}
+				try
+				{
+
+					SmtpClient ^SmtpObj = gcnew SmtpClient("smtp.gmail.com", 587);
+					MailMessage ^ MailMsg = gcnew MailMessage();
+					SmtpObj->UseDefaultCredentials = false;
+					SmtpObj->Credentials = gcnew Net::NetworkCredential("iitg.oes.cse@gmail.com", "iitg.oes1234");
+					SmtpObj->EnableSsl = true;
+
+					MailMsg->From = gcnew MailAddress("iitg.oes.cse@gmail.com");
+					MailMsg->To->Add(Email);
+					MailMsg->Subject = "IITG Online Exam Account Password Token";
+					MailMsg->IsBodyHtml = false;
+					MailMsg->Body = "Hello, your token is " + token + " . Change your password as soon as possible. If you have not requested this token, ignore this message.";
+					SmtpObj->Send(MailMsg);
+				}
+				catch (Exception ^ex)
+				{
+					MessageBox::Show("Could not send mail. Nevertheless, for testing, here is your token - " + token);
+					return;
+				}
+				MessageBox::Show("Your new token has been sent to you by mail");
+			}
+		private:
+			System::Void textUsername_TextChanged(System::Object^  sender, System::EventArgs^  e)
+			{
+				Username = textUsername->Text;
+				Password = textPassword->Text;
+			}
 private: System::Void textUsername_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 			 textUsername->Text = "";
 }
@@ -355,6 +429,8 @@ private: System::Void textPassword_Leave(System::Object^  sender, System::EventA
 			 }
 }
 private: System::Void textPassword_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 Username = textUsername->Text;
+			 Password = textPassword->Text;
 }
 private: System::Void textPassword_Enter(System::Object^  sender, System::EventArgs^  e) {
 			 textPassword->Text = "";

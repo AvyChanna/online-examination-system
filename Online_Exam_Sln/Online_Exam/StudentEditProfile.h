@@ -108,10 +108,9 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->lblBranch->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->lblBranch->Location = System::Drawing::Point(510, 140);
-			this->lblBranch->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblBranch->Location = System::Drawing::Point(382, 114);
 			this->lblBranch->Name = L"lblBranch";
-			this->lblBranch->Size = System::Drawing::Size(68, 21);
+			this->lblBranch->Size = System::Drawing::Size(58, 19);
 			this->lblBranch->TabIndex = 19;
 			this->lblBranch->Text = L"Branch";
 			this->lblBranch->Click += gcnew System::EventHandler(this, &StudentEditProfile::lblBranch_Click);
@@ -123,9 +122,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->lblIITG->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->lblIITG->Location = System::Drawing::Point(511, 214);
+			this->lblIITG->Location = System::Drawing::Point(383, 174);
+			this->lblIITG->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblIITG->Name = L"lblIITG";
-			this->lblIITG->Size = System::Drawing::Size(113, 21);
+			this->lblIITG->Size = System::Drawing::Size(90, 19);
 			this->lblIITG->TabIndex = 18;
 			this->lblIITG->Text = L"IITG Student";
 			this->lblIITG->Click += gcnew System::EventHandler(this, &StudentEditProfile::lblIITG_Click);
@@ -137,9 +137,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->lblFullName->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->lblFullName->Location = System::Drawing::Point(105, 65);
+			this->lblFullName->Location = System::Drawing::Point(79, 53);
+			this->lblFullName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblFullName->Name = L"lblFullName";
-			this->lblFullName->Size = System::Drawing::Size(75, 18);
+			this->lblFullName->Size = System::Drawing::Size(64, 15);
 			this->lblFullName->TabIndex = 17;
 			this->lblFullName->Text = L"Full Name";
 			this->lblFullName->Click += gcnew System::EventHandler(this, &StudentEditProfile::lblFullName_Click);
@@ -151,9 +152,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->lblPhone->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->lblPhone->Location = System::Drawing::Point(105, 214);
+			this->lblPhone->Location = System::Drawing::Point(79, 174);
+			this->lblPhone->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblPhone->Name = L"lblPhone";
-			this->lblPhone->Size = System::Drawing::Size(133, 21);
+			this->lblPhone->Size = System::Drawing::Size(112, 19);
 			this->lblPhone->TabIndex = 16;
 			this->lblPhone->Text = L"Phone Number";
 			this->lblPhone->Click += gcnew System::EventHandler(this, &StudentEditProfile::lblPhone_Click);
@@ -165,9 +167,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->lblRoll->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->lblRoll->Location = System::Drawing::Point(105, 140);
+			this->lblRoll->Location = System::Drawing::Point(79, 114);
+			this->lblRoll->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblRoll->Name = L"lblRoll";
-			this->lblRoll->Size = System::Drawing::Size(71, 21);
+			this->lblRoll->Size = System::Drawing::Size(60, 19);
 			this->lblRoll->TabIndex = 15;
 			this->lblRoll->Text = L"Roll No.";
 			this->lblRoll->Click += gcnew System::EventHandler(this, &StudentEditProfile::lblRoll_Click);
@@ -179,9 +182,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->lblEmail->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->lblEmail->Location = System::Drawing::Point(104, 301);
+			this->lblEmail->Location = System::Drawing::Point(78, 245);
+			this->lblEmail->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblEmail->Name = L"lblEmail";
-			this->lblEmail->Size = System::Drawing::Size(52, 21);
+			this->lblEmail->Size = System::Drawing::Size(46, 19);
 			this->lblEmail->TabIndex = 14;
 			this->lblEmail->Text = L"Email";
 			this->lblEmail->Click += gcnew System::EventHandler(this, &StudentEditProfile::lblEmail_Click);
@@ -193,9 +197,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->lblUsername->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->lblUsername->Location = System::Drawing::Point(510, 65);
+			this->lblUsername->Location = System::Drawing::Point(382, 53);
+			this->lblUsername->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblUsername->Name = L"lblUsername";
-			this->lblUsername->Size = System::Drawing::Size(93, 21);
+			this->lblUsername->Size = System::Drawing::Size(77, 19);
 			this->lblUsername->TabIndex = 13;
 			this->lblUsername->Text = L"Username";
 			this->lblUsername->Click += gcnew System::EventHandler(this, &StudentEditProfile::lblUsername_Click);
@@ -206,11 +211,10 @@ namespace Online_Exam {
 			this->txtUsername->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->txtUsername->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtUsername->Location = System::Drawing::Point(515, 94);
-			this->txtUsername->Margin = System::Windows::Forms::Padding(4);
+			this->txtUsername->Location = System::Drawing::Point(386, 76);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->ReadOnly = true;
-			this->txtUsername->Size = System::Drawing::Size(229, 27);
+			this->txtUsername->Size = System::Drawing::Size(172, 22);
 			this->txtUsername->TabIndex = 20;
 			// 
 			// txtFullName
@@ -218,21 +222,23 @@ namespace Online_Exam {
 			this->txtFullName->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->txtFullName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtFullName->Location = System::Drawing::Point(110, 94);
-			this->txtFullName->Margin = System::Windows::Forms::Padding(4);
+			this->txtFullName->Location = System::Drawing::Point(82, 76);
 			this->txtFullName->Name = L"txtFullName";
-			this->txtFullName->Size = System::Drawing::Size(229, 27);
+			this->txtFullName->Size = System::Drawing::Size(172, 22);
 			this->txtFullName->TabIndex = 21;
 			// 
 			// txtRoll
 			// 
+			this->txtRoll->BackColor = System::Drawing::Color::White;
 			this->txtRoll->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtRoll->CausesValidation = false;
+			this->txtRoll->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->txtRoll->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtRoll->Location = System::Drawing::Point(110, 169);
-			this->txtRoll->Margin = System::Windows::Forms::Padding(4);
+			this->txtRoll->Location = System::Drawing::Point(82, 137);
 			this->txtRoll->Name = L"txtRoll";
-			this->txtRoll->Size = System::Drawing::Size(229, 27);
+			this->txtRoll->ReadOnly = true;
+			this->txtRoll->Size = System::Drawing::Size(172, 22);
 			this->txtRoll->TabIndex = 22;
 			// 
 			// txtEmail
@@ -240,10 +246,9 @@ namespace Online_Exam {
 			this->txtEmail->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->txtEmail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtEmail->Location = System::Drawing::Point(109, 330);
-			this->txtEmail->Margin = System::Windows::Forms::Padding(4);
+			this->txtEmail->Location = System::Drawing::Point(82, 268);
 			this->txtEmail->Name = L"txtEmail";
-			this->txtEmail->Size = System::Drawing::Size(229, 27);
+			this->txtEmail->Size = System::Drawing::Size(172, 22);
 			this->txtEmail->TabIndex = 23;
 			// 
 			// txtPhone
@@ -251,10 +256,9 @@ namespace Online_Exam {
 			this->txtPhone->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->txtPhone->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtPhone->Location = System::Drawing::Point(108, 243);
-			this->txtPhone->Margin = System::Windows::Forms::Padding(4);
+			this->txtPhone->Location = System::Drawing::Point(81, 197);
 			this->txtPhone->Name = L"txtPhone";
-			this->txtPhone->Size = System::Drawing::Size(229, 27);
+			this->txtPhone->Size = System::Drawing::Size(172, 22);
 			this->txtPhone->TabIndex = 24;
 			// 
 			// txtIITG
@@ -263,11 +267,10 @@ namespace Online_Exam {
 			this->txtIITG->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->txtIITG->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtIITG->Location = System::Drawing::Point(515, 239);
-			this->txtIITG->Margin = System::Windows::Forms::Padding(4);
+			this->txtIITG->Location = System::Drawing::Point(386, 194);
 			this->txtIITG->Name = L"txtIITG";
 			this->txtIITG->ReadOnly = true;
-			this->txtIITG->Size = System::Drawing::Size(229, 27);
+			this->txtIITG->Size = System::Drawing::Size(172, 22);
 			this->txtIITG->TabIndex = 25;
 			// 
 			// txtBranch
@@ -276,11 +279,10 @@ namespace Online_Exam {
 			this->txtBranch->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->txtBranch->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtBranch->Location = System::Drawing::Point(515, 169);
-			this->txtBranch->Margin = System::Windows::Forms::Padding(4);
+			this->txtBranch->Location = System::Drawing::Point(386, 137);
 			this->txtBranch->Name = L"txtBranch";
 			this->txtBranch->ReadOnly = true;
-			this->txtBranch->Size = System::Drawing::Size(229, 27);
+			this->txtBranch->Size = System::Drawing::Size(172, 22);
 			this->txtBranch->TabIndex = 26;
 			// 
 			// btnUpdate
@@ -292,10 +294,9 @@ namespace Online_Exam {
 			this->btnUpdate->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnUpdate->ForeColor = System::Drawing::Color::White;
-			this->btnUpdate->Location = System::Drawing::Point(350, 413);
-			this->btnUpdate->Margin = System::Windows::Forms::Padding(4);
+			this->btnUpdate->Location = System::Drawing::Point(262, 336);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(191, 56);
+			this->btnUpdate->Size = System::Drawing::Size(143, 46);
 			this->btnUpdate->TabIndex = 27;
 			this->btnUpdate->Text = L"UPDATE";
 			this->btnUpdate->UseVisualStyleBackColor = false;
@@ -304,38 +305,42 @@ namespace Online_Exam {
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->panel2->Location = System::Drawing::Point(110, 128);
+			this->panel2->Location = System::Drawing::Point(82, 104);
+			this->panel2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(232, 1);
+			this->panel2->Size = System::Drawing::Size(174, 1);
 			this->panel2->TabIndex = 29;
 			// 
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->panel3->Location = System::Drawing::Point(110, 277);
+			this->panel3->Location = System::Drawing::Point(82, 225);
+			this->panel3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(232, 1);
+			this->panel3->Size = System::Drawing::Size(174, 1);
 			this->panel3->TabIndex = 30;
 			// 
 			// panel4
 			// 
 			this->panel4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->panel4->Location = System::Drawing::Point(110, 203);
+			this->panel4->Location = System::Drawing::Point(82, 165);
+			this->panel4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(232, 1);
+			this->panel4->Size = System::Drawing::Size(174, 1);
 			this->panel4->TabIndex = 31;
 			// 
 			// panel6
 			// 
 			this->panel6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->panel6->Location = System::Drawing::Point(109, 364);
+			this->panel6->Location = System::Drawing::Point(82, 296);
+			this->panel6->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->panel6->Name = L"panel6";
-			this->panel6->Size = System::Drawing::Size(232, 1);
+			this->panel6->Size = System::Drawing::Size(174, 1);
 			this->panel6->TabIndex = 33;
 			// 
 			// StudentEditProfile
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->panel6);
 			this->Controls->Add(this->panel4);
@@ -356,9 +361,9 @@ namespace Online_Exam {
 			this->Controls->Add(this->lblRoll);
 			this->Controls->Add(this->lblEmail);
 			this->Controls->Add(this->lblUsername);
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"StudentEditProfile";
-			this->Size = System::Drawing::Size(915, 532);
+			this->Size = System::Drawing::Size(686, 432);
 			this->Load += gcnew System::EventHandler(this, &StudentEditProfile::StudentEditProfile_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -391,26 +396,42 @@ namespace Online_Exam {
 	}
 
 	private:bool validate(){
-	
-				
-				if (txtPhone->TextLength != 10){
-					MessageBox::Show("Phone Number Length should be 10");
-					return false;
+				txtFullName->Text = txtFullName->Text->Trim();
+				txtEmail->Text = txtEmail->Text->Trim();
+				txtPhone->Text = txtPhone->Text->Trim();
+				String ^ str = txtPhone->Text;
+				for (int i = 0; i < str->Length; i++)
+				{
+					if (str[i]>'9' || str[i] < '0')
+					{
+						MessageBox::Show("Phone Number should not have digits aparts from 0-9", "Wrong Details");
+						return false;
+					}
 				}
-				if (txtRoll->TextLength != 9){
-					MessageBox::Show("Roll Number Length should be 9");
-					return false;
+				str = txtFullName->Text;
+				String ^ str1 = "";
+				for (int i = 0; i < str->Length; i++)
+				{
+					if (str[i] != ' ')
+					{
+						if (i>0 && str[i - 1] == ' ') str1 += " ";
+						str1 += str[i];
+					}
 				}
+				txtFullName->Text = str1;
 				
 				if (txtFullName->Text->Trim() == ""){
-					MessageBox::Show("Name can not be Empty");
+					MessageBox::Show("Name can not be Empty", "Wrong Details");
 					return false;
 				}
 				if (txtEmail->Text->Trim() == ""){
-					MessageBox::Show("Email Field can not be Empty");
+					MessageBox::Show("Email Field can not be Empty", "Wrong Details");
 					return false;
 				}
-				
+				if (txtPhone->Text->Trim() == ""){
+					MessageBox::Show("Phone number can not be Empty", "Wrong Details");
+					return false;
+				}
 				return true;
 
 	}

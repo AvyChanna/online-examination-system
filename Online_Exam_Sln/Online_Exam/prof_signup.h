@@ -10,38 +10,38 @@ using namespace System::Drawing;
 using namespace Database;
 using namespace Encryption;
 
-namespace Online_Exam {
+namespace Online_Exam
+{
 
 	/// <summary>
 	/// Summary for prof_signup
 	/// </summary>
 	public ref class prof_signup : public System::Windows::Forms::UserControl
 	{
-	public:
-		prof_signup(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
-
-	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~prof_signup()
-		{
-			if (components)
+		public:
+			prof_signup(void)
 			{
-				delete components;
+				InitializeComponent();
+				//
+				//TODO: Add the constructor code here
+				//
 			}
-		}
-	private: System::Windows::Forms::Button^  studBtn;
-	protected:
-	private: System::Windows::Forms::TextBox^  nameTxt;
-	private: System::Windows::Forms::TextBox^  passTxt;
-
+protected:
+			/// <summary>
+			/// Clean up any resources being used.
+			/// </summary>
+			~prof_signup()
+			{
+				if (components)
+				{
+					delete components;
+				}
+			}
+			private:
+			/// <summary>
+			/// Required designer variable.
+			/// </summary>
+			System::ComponentModel::Container ^components;
 	private: System::Windows::Forms::TextBox^  pNumTxt;
 	private: System::Windows::Forms::TextBox^  mailTxt;
 	private: System::Windows::Forms::TextBox^  confirmPassTxt;
@@ -61,55 +61,14 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Panel^  panel4;
 	private: System::Windows::Forms::Panel^  panel5;
 	private: System::Windows::Forms::Panel^  panel6;
-
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+		
+		private:
+			System::Windows::Forms::Button^  studBtn;
+		protected:
+		private:
+			System::Windows::Forms::TextBox^  nameTxt;
+		private:
+			System::Windows::Forms::TextBox^  passTxt;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -146,12 +105,15 @@ namespace Online_Exam {
 			// 
 			this->studBtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->studBtn->FlatAppearance->BorderSize = 0;
+			this->studBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->studBtn->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->studBtn->ForeColor = System::Drawing::Color::White;
-			this->studBtn->Location = System::Drawing::Point(278, 372);
+			this->studBtn->Location = System::Drawing::Point(208, 302);
+			this->studBtn->Margin = System::Windows::Forms::Padding(2);
 			this->studBtn->Name = L"studBtn";
-			this->studBtn->Size = System::Drawing::Size(168, 41);
+			this->studBtn->Size = System::Drawing::Size(126, 33);
 			this->studBtn->TabIndex = 78;
 			this->studBtn->Text = L"Submit";
 			this->studBtn->UseVisualStyleBackColor = false;
@@ -162,19 +124,22 @@ namespace Online_Exam {
 			this->nameTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->nameTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->nameTxt->Location = System::Drawing::Point(121, 150);
+			this->nameTxt->Location = System::Drawing::Point(91, 122);
+			this->nameTxt->Margin = System::Windows::Forms::Padding(2);
 			this->nameTxt->Name = L"nameTxt";
-			this->nameTxt->Size = System::Drawing::Size(218, 23);
+			this->nameTxt->Size = System::Drawing::Size(164, 18);
 			this->nameTxt->TabIndex = 77;
 			// 
 			// passTxt
 			// 
 			this->passTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->passTxt->Cursor = System::Windows::Forms::Cursors::IBeam;
 			this->passTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->passTxt->Location = System::Drawing::Point(428, 66);
+			this->passTxt->Location = System::Drawing::Point(321, 54);
+			this->passTxt->Margin = System::Windows::Forms::Padding(2);
 			this->passTxt->Name = L"passTxt";
-			this->passTxt->Size = System::Drawing::Size(218, 23);
+			this->passTxt->Size = System::Drawing::Size(164, 18);
 			this->passTxt->TabIndex = 76;
 			this->passTxt->UseSystemPasswordChar = true;
 			// 
@@ -183,9 +148,10 @@ namespace Online_Exam {
 			this->pNumTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->pNumTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->pNumTxt->Location = System::Drawing::Point(121, 302);
+			this->pNumTxt->Location = System::Drawing::Point(91, 245);
+			this->pNumTxt->Margin = System::Windows::Forms::Padding(2);
 			this->pNumTxt->Name = L"pNumTxt";
-			this->pNumTxt->Size = System::Drawing::Size(218, 23);
+			this->pNumTxt->Size = System::Drawing::Size(164, 18);
 			this->pNumTxt->TabIndex = 73;
 			this->pNumTxt->TextChanged += gcnew System::EventHandler(this, &prof_signup::pNumTxt_TextChanged);
 			// 
@@ -194,24 +160,24 @@ namespace Online_Exam {
 			this->mailTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->mailTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->mailTxt->Location = System::Drawing::Point(121, 225);
+			this->mailTxt->Location = System::Drawing::Point(91, 183);
+			this->mailTxt->Margin = System::Windows::Forms::Padding(2);
 			this->mailTxt->Name = L"mailTxt";
-			this->mailTxt->Size = System::Drawing::Size(218, 23);
+			this->mailTxt->Size = System::Drawing::Size(164, 18);
 			this->mailTxt->TabIndex = 72;
 			// 
 			// confirmPassTxt
 			// 
 			this->confirmPassTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->confirmPassTxt->Cursor = System::Windows::Forms::Cursors::WaitCursor;
+			this->confirmPassTxt->Cursor = System::Windows::Forms::Cursors::IBeam;
 			this->confirmPassTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->confirmPassTxt->Location = System::Drawing::Point(428, 150);
+			this->confirmPassTxt->Location = System::Drawing::Point(321, 122);
+			this->confirmPassTxt->Margin = System::Windows::Forms::Padding(2);
 			this->confirmPassTxt->Name = L"confirmPassTxt";
-			this->confirmPassTxt->Size = System::Drawing::Size(218, 23);
+			this->confirmPassTxt->Size = System::Drawing::Size(164, 18);
 			this->confirmPassTxt->TabIndex = 71;
 			this->confirmPassTxt->UseSystemPasswordChar = true;
-			this->confirmPassTxt->UseWaitCursor = true;
-			this->confirmPassTxt->TextChanged += gcnew System::EventHandler(this, &prof_signup::confirmPassTxt_TextChanged);
 			// 
 			// userTxt
 			// 
@@ -219,9 +185,10 @@ namespace Online_Exam {
 			this->userTxt->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->userTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->userTxt->Location = System::Drawing::Point(121, 66);
+			this->userTxt->Location = System::Drawing::Point(91, 54);
+			this->userTxt->Margin = System::Windows::Forms::Padding(2);
 			this->userTxt->Name = L"userTxt";
-			this->userTxt->Size = System::Drawing::Size(218, 23);
+			this->userTxt->Size = System::Drawing::Size(164, 18);
 			this->userTxt->TabIndex = 70;
 			// 
 			// label9
@@ -231,9 +198,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->label9->Location = System::Drawing::Point(424, 199);
+			this->label9->Location = System::Drawing::Point(318, 162);
+			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(66, 19);
+			this->label9->Size = System::Drawing::Size(54, 17);
 			this->label9->TabIndex = 69;
 			this->label9->Text = L"Branch";
 			// 
@@ -244,9 +212,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->label8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->label8->Location = System::Drawing::Point(424, 121);
+			this->label8->Location = System::Drawing::Point(318, 98);
+			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(156, 19);
+			this->label8->Size = System::Drawing::Size(128, 17);
 			this->label8->TabIndex = 68;
 			this->label8->Text = L"Password Confirm";
 			// 
@@ -256,9 +225,10 @@ namespace Online_Exam {
 			this->memChkBox->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memChkBox->ForeColor = System::Drawing::Color::Gray;
-			this->memChkBox->Location = System::Drawing::Point(439, 306);
+			this->memChkBox->Location = System::Drawing::Point(329, 249);
+			this->memChkBox->Margin = System::Windows::Forms::Padding(2);
 			this->memChkBox->Name = L"memChkBox";
-			this->memChkBox->Size = System::Drawing::Size(136, 23);
+			this->memChkBox->Size = System::Drawing::Size(115, 21);
 			this->memChkBox->TabIndex = 67;
 			this->memChkBox->Text = L"IITG Member";
 			this->memChkBox->UseVisualStyleBackColor = true;
@@ -270,9 +240,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->label6->Location = System::Drawing::Point(117, 199);
+			this->label6->Location = System::Drawing::Point(88, 162);
+			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(53, 19);
+			this->label6->Size = System::Drawing::Size(46, 17);
 			this->label6->TabIndex = 66;
 			this->label6->Text = L"Email";
 			// 
@@ -283,9 +254,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->label5->Location = System::Drawing::Point(117, 277);
+			this->label5->Location = System::Drawing::Point(88, 225);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(132, 19);
+			this->label5->Size = System::Drawing::Size(108, 17);
 			this->label5->TabIndex = 65;
 			this->label5->Text = L"Phone Number";
 			// 
@@ -296,9 +268,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->label3->Location = System::Drawing::Point(424, 40);
+			this->label3->Location = System::Drawing::Point(318, 32);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(87, 19);
+			this->label3->Size = System::Drawing::Size(70, 17);
 			this->label3->TabIndex = 63;
 			this->label3->Text = L"Password";
 			// 
@@ -309,9 +282,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->label2->Location = System::Drawing::Point(117, 121);
+			this->label2->Location = System::Drawing::Point(88, 98);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(91, 19);
+			this->label2->Size = System::Drawing::Size(77, 17);
 			this->label2->TabIndex = 62;
 			this->label2->Text = L"Full Name";
 			// 
@@ -322,9 +296,10 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->label1->Location = System::Drawing::Point(117, 40);
+			this->label1->Location = System::Drawing::Point(88, 32);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(91, 19);
+			this->label1->Size = System::Drawing::Size(76, 17);
 			this->label1->TabIndex = 61;
 			this->label1->Text = L"Username";
 			// 
@@ -338,66 +313,69 @@ namespace Online_Exam {
 				L"CSE", L"MNC", L"ECE", L"BT", L"EEE", L"ME", L"CE",
 					L"CS"
 			});
-			this->branchCb->Location = System::Drawing::Point(428, 225);
+			this->branchCb->Location = System::Drawing::Point(321, 183);
+			this->branchCb->Margin = System::Windows::Forms::Padding(2);
 			this->branchCb->Name = L"branchCb";
-			this->branchCb->Size = System::Drawing::Size(218, 30);
+			this->branchCb->Size = System::Drawing::Size(164, 25);
 			this->branchCb->TabIndex = 79;
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::Black;
-			this->panel1->Location = System::Drawing::Point(430, 176);
+			this->panel1->Location = System::Drawing::Point(322, 143);
+			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(218, 1);
+			this->panel1->Size = System::Drawing::Size(164, 1);
 			this->panel1->TabIndex = 80;
 			// 
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::Color::Black;
-			this->panel2->Location = System::Drawing::Point(121, 252);
+			this->panel2->Location = System::Drawing::Point(91, 205);
+			this->panel2->Margin = System::Windows::Forms::Padding(2);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(218, 1);
+			this->panel2->Size = System::Drawing::Size(164, 1);
 			this->panel2->TabIndex = 81;
-			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &prof_signup::panel2_Paint);
 			// 
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::Color::Black;
-			this->panel3->Location = System::Drawing::Point(121, 176);
+			this->panel3->Location = System::Drawing::Point(91, 143);
+			this->panel3->Margin = System::Windows::Forms::Padding(2);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(218, 1);
+			this->panel3->Size = System::Drawing::Size(164, 1);
 			this->panel3->TabIndex = 82;
-			this->panel3->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &prof_signup::panel3_Paint);
 			// 
 			// panel4
 			// 
 			this->panel4->BackColor = System::Drawing::Color::Black;
-			this->panel4->Location = System::Drawing::Point(118, 91);
+			this->panel4->Location = System::Drawing::Point(88, 74);
+			this->panel4->Margin = System::Windows::Forms::Padding(2);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(218, 1);
+			this->panel4->Size = System::Drawing::Size(164, 1);
 			this->panel4->TabIndex = 83;
-			this->panel4->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &prof_signup::panel4_Paint);
 			// 
 			// panel5
 			// 
 			this->panel5->BackColor = System::Drawing::Color::Black;
-			this->panel5->Location = System::Drawing::Point(121, 327);
+			this->panel5->Location = System::Drawing::Point(91, 266);
+			this->panel5->Margin = System::Windows::Forms::Padding(2);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(218, 1);
+			this->panel5->Size = System::Drawing::Size(164, 1);
 			this->panel5->TabIndex = 84;
-			this->panel5->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &prof_signup::panel5_Paint);
 			// 
 			// panel6
 			// 
 			this->panel6->BackColor = System::Drawing::Color::Black;
-			this->panel6->Location = System::Drawing::Point(428, 91);
+			this->panel6->Location = System::Drawing::Point(321, 74);
+			this->panel6->Margin = System::Windows::Forms::Padding(2);
 			this->panel6->Name = L"panel6";
-			this->panel6->Size = System::Drawing::Size(218, 1);
+			this->panel6->Size = System::Drawing::Size(164, 1);
 			this->panel6->TabIndex = 85;
 			// 
 			// prof_signup
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->Controls->Add(this->panel6);
@@ -422,123 +400,158 @@ namespace Online_Exam {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"prof_signup";
-			this->Size = System::Drawing::Size(780, 441);
-			this->Load += gcnew System::EventHandler(this, &prof_signup::prof_signup_Load);
+			this->Size = System::Drawing::Size(585, 358);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-		private:bool validate(){
-					OES^Access = gcnew OES();
-					String ^str = userTxt->Text;
-					Access->AddParam("@userName", str);
-					Access->ExecQuery("SELECT * FROM Users WHERE Username =@userName");
-					if (Access->DBDT->Rows->Count != 0 || Access->Exception->Length){
-						MessageBox::Show("UserName exist Already or error Occurs");
+		private:
+			bool validate()
+			{
+				OES^Access = gcnew OES();
+				String ^str = userTxt->Text;
+				Access->AddParam("@userName", str);
+				Access->ExecQuery("SELECT * FROM Users WHERE Username =@userName");
+				if (Access->DBDT->Rows->Count != 0 || Access->Exception->Length)
+				{
+					MessageBox::Show("UserName exist Already or error Occurs");
+					return false;
+				}
+
+
+				if (passTxt->Text != confirmPassTxt->Text)
+				{
+					MessageBox::Show("Password do not match");
+					passTxt->Clear();
+					confirmPassTxt->Clear();
+					return false;
+				}
+				/*if (pNumTxt->TextLength != 10)
+				{
+					MessageBox::Show("Phone Number Length should be 10");
+					return false;
+				}
+
+				if (userTxt->Text->Trim() == "")
+				{
+					MessageBox::Show("UserName can not be Empty");
+					return false;
+				}*/
+				for (int i = 0; i < pNumTxt->TextLength; i++)
+				{
+					if (pNumTxt->Text[i]>'9' || pNumTxt->Text[i] < '0')
+					{
+						MessageBox::Show("Phone Number should consist only digits 0-9", "Wrong Details");
 						return false;
 					}
-
-
-					if (passTxt->Text != confirmPassTxt->Text){
-						MessageBox::Show("Password do not match");
-						passTxt->Clear();
-						confirmPassTxt->Clear();
-						return false;
+				}
+				if (nameTxt->Text->Trim() == "")
+				{
+					MessageBox::Show("Name can not be Empty", "Wrong Details");
+					return false;
+				}
+				if (mailTxt->Text->Trim() == "")
+				{
+					MessageBox::Show("Email Field can not be Empty", "Wrong Details");
+					return false;
+				}
+				if (branchCb->Text == "")
+				{
+					MessageBox::Show("Please select a branch", "Wrong Details");
+					return false;
+				}
+				if (pNumTxt->Text->Trim() == "")
+				{
+					MessageBox::Show("Please enter Phone Number", "Wroong Details");
+					return false;
+				}
+				str = nameTxt->Text;
+				String ^str1 = "";
+				for (int i = 0; i < str->Length; i++)
+				{
+					if (str[i] != ' ')
+					{
+						if (i>0 && str[i - 1] == ' ') str1 += " ";
+						str1 += str[i];
 					}
-					if (pNumTxt->TextLength != 10){
-						MessageBox::Show("Phone Number Length should be 10");
-						return false;
+				}
+				nameTxt->Text = str1;
+				userTxt->Text = userTxt->Text->Trim();
+				nameTxt->Text = nameTxt->Text->Trim();
+				mailTxt->Text = mailTxt->Text->Trim();
+				pNumTxt->Text = pNumTxt->Text->Trim();
+				//rNumTxt->Text = rNumTxt->Text->Trim();
+				return true;
+
+			}
+
+
+		private:
+			System::Void studBtn_Click(System::Object^  sender, System::EventArgs^  e)
+			{
+				OES^ Access = gcnew OES();
+				String^ des = "Professor";
+				int check = 0;
+				if (memChkBox->Checked)
+					check = 1;
+
+				if (validate())
+				{
+					try
+					{
+						String ^ PassSalt = MakeSalt(10);
+						String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
+
+						Access->AddParam("@Username", userTxt->Text);
+						Access->AddParam("@Fullname", nameTxt->Text);
+						Access->AddParam("@PasswordHash", PassHash);
+						Access->AddParam("@PasswordSalt", PassSalt);
+						Access->AddParam("@Email", mailTxt->Text);
+						Access->AddParam("@Phoneno", pNumTxt->Text);
+						Access->AddParam("@Branch", branchCb->Text);
+						Access->AddParam("@Designation", des);
+
+						//Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[Branch],[Designation] ) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@RollNo,@Branch,@Designation)");// , "+check+" )");
+						Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[Branch],[Designation],[IITG]) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@Branch,@Designation, " + check + " )");
+
+
+						MessageBox::Show("Signup Successful");
 					}
-					
-					if (userTxt->Text->Trim() == ""){
-						MessageBox::Show("UserName can not be Empty");
-						return false;
+					catch (Exception^ ex)
+					{
+						MessageBox::Show(ex->Message);
 					}
-					if (nameTxt->Text->Trim() == ""){
-						MessageBox::Show("Name can not be Empty");
-						return false;
-					}
-					if (mailTxt->Text->Trim() == ""){
-						MessageBox::Show("Email Field can not be Empty");
-						return false;
-					}
-					if (branchCb->Text == ""){
-						MessageBox::Show("Please select a branch");
-						return false;
-					}
-					return true;
-
-		}
-
-
-	private: System::Void studBtn_Click(System::Object^  sender, System::EventArgs^  e) {
-				 OES^ Access = gcnew OES();
-				 String^ des = "Professor";
-				 int check = 0;
-				 if (memChkBox->Checked)
-					 check = 1;
-
-				 if (validate()){
-					 try{
-						 String ^ PassSalt = MakeSalt();
-						 String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
-
-						 Access->AddParam("@Username", userTxt->Text);
-						 Access->AddParam("@Fullname", nameTxt->Text);
-						 Access->AddParam("@PasswordHash", PassHash);
-						 Access->AddParam("@PasswordSalt", PassSalt);
-						 Access->AddParam("@Email", mailTxt->Text);
-						 Access->AddParam("@Phoneno", pNumTxt->Text);
-						 Access->AddParam("@Branch", branchCb->Text);
-						 Access->AddParam("@Designation", des);
-
-						 //Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[Branch],[Designation] ) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@RollNo,@Branch,@Designation)");// , "+check+" )");
-						 Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[Branch],[Designation],[IITG]) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@Branch,@Designation, " + check + " )");
-
-						
-						 MessageBox::Show("Signup Successful");
-					 }
-					 catch (Exception^ ex){
-						 MessageBox::Show(ex->Message);
-					 }
-				 }
-				 
+				}
 
 
 
 
 
 
-	}
-private: System::Void pNumTxt_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-			 try{
-				 if (pNumTxt->Text != "")
-					 int  SectNo = Convert::ToInt32(pNumTxt->Text);
 
-			 }
-			 catch (Exception ^ ex){
+			}
+		private:
+			System::Void pNumTxt_TextChanged(System::Object^  sender, System::EventArgs^  e)
+			{
+				try
+				{
+					if (pNumTxt->Text != "")
+						int  SectNo = Convert::ToInt32(pNumTxt->Text);
 
-				 MessageBox::Show("Please enter integer values in required fields.", "Error");
-				 pNumTxt->Clear();
-				 return;
-			 }
+				}
+				catch (Exception ^ ex)
+				{
+
+					MessageBox::Show("Please enter integer values in required fields.", "Error");
+					pNumTxt->Clear();
+					return;
+				}
 
 
 
-}
-private: System::Void prof_signup_Load(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void panel4_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-}
-private: System::Void panel3_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-}
-private: System::Void panel2_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-}
-private: System::Void panel5_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-}
-private: System::Void confirmPassTxt_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-}
-};
+			}
+	};
 }
