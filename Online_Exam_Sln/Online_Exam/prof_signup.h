@@ -146,156 +146,170 @@ namespace Online_Exam
 				this->label1 = (gcnew System::Windows::Forms::Label());
 				this->branchCb = (gcnew System::Windows::Forms::ComboBox());
 				this->SuspendLayout();
-				//
+				// 
 				// studBtn
-				//
-				this->studBtn->Location = System::Drawing::Point(646, 442);
+				// 
+				this->studBtn->Location = System::Drawing::Point(484, 359);
+				this->studBtn->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->studBtn->Name = L"studBtn";
-				this->studBtn->Size = System::Drawing::Size(75, 23);
+				this->studBtn->Size = System::Drawing::Size(56, 19);
 				this->studBtn->TabIndex = 78;
-				this->studBtn->Text = L"Sumbit";
 				this->studBtn->UseVisualStyleBackColor = true;
 				this->studBtn->Click += gcnew System::EventHandler(this, &prof_signup::studBtn_Click);
-				//
+				// 
 				// nameTxt
-				//
-				this->nameTxt->Location = System::Drawing::Point(358, 148);
+				// 
+				this->nameTxt->Location = System::Drawing::Point(268, 120);
+				this->nameTxt->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->nameTxt->Name = L"nameTxt";
-				this->nameTxt->Size = System::Drawing::Size(100, 22);
+				this->nameTxt->Size = System::Drawing::Size(76, 20);
 				this->nameTxt->TabIndex = 77;
 				this->nameTxt->Text = L"shubham kumar";
-				//
+				// 
 				// passTxt
-				//
-				this->passTxt->Location = System::Drawing::Point(358, 193);
+				// 
+				this->passTxt->Location = System::Drawing::Point(268, 157);
+				this->passTxt->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->passTxt->Name = L"passTxt";
-				this->passTxt->Size = System::Drawing::Size(100, 22);
+				this->passTxt->Size = System::Drawing::Size(76, 20);
 				this->passTxt->TabIndex = 76;
 				this->passTxt->Text = L"sss";
-				//
+				// 
 				// pNumTxt
-				//
-				this->pNumTxt->Location = System::Drawing::Point(358, 307);
+				// 
+				this->pNumTxt->Location = System::Drawing::Point(268, 249);
+				this->pNumTxt->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->pNumTxt->Name = L"pNumTxt";
-				this->pNumTxt->Size = System::Drawing::Size(100, 22);
+				this->pNumTxt->Size = System::Drawing::Size(76, 20);
 				this->pNumTxt->TabIndex = 73;
 				this->pNumTxt->Text = L"7412589630";
 				this->pNumTxt->TextChanged += gcnew System::EventHandler(this, &prof_signup::pNumTxt_TextChanged);
-				//
+				// 
 				// mailTxt
-				//
-				this->mailTxt->Location = System::Drawing::Point(358, 265);
+				// 
+				this->mailTxt->Location = System::Drawing::Point(268, 215);
+				this->mailTxt->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->mailTxt->Name = L"mailTxt";
-				this->mailTxt->Size = System::Drawing::Size(100, 22);
+				this->mailTxt->Size = System::Drawing::Size(76, 20);
 				this->mailTxt->TabIndex = 72;
 				this->mailTxt->Text = L"skj@iitg";
-				//
+				// 
 				// confirmPassTxt
-				//
-				this->confirmPassTxt->Location = System::Drawing::Point(358, 222);
+				// 
+				this->confirmPassTxt->Location = System::Drawing::Point(268, 180);
+				this->confirmPassTxt->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->confirmPassTxt->Name = L"confirmPassTxt";
-				this->confirmPassTxt->Size = System::Drawing::Size(100, 22);
+				this->confirmPassTxt->Size = System::Drawing::Size(76, 20);
 				this->confirmPassTxt->TabIndex = 71;
 				this->confirmPassTxt->Text = L"sss";
-				//
+				// 
 				// userTxt
-				//
-				this->userTxt->Location = System::Drawing::Point(358, 99);
+				// 
+				this->userTxt->Location = System::Drawing::Point(268, 80);
+				this->userTxt->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->userTxt->Name = L"userTxt";
-				this->userTxt->Size = System::Drawing::Size(100, 22);
+				this->userTxt->Size = System::Drawing::Size(76, 20);
 				this->userTxt->TabIndex = 70;
 				this->userTxt->Text = L"shubham";
-				//
+				// 
 				// label9
-				//
+				// 
 				this->label9->AutoSize = true;
-				this->label9->Location = System::Drawing::Point(643, 105);
+				this->label9->Location = System::Drawing::Point(482, 85);
+				this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 				this->label9->Name = L"label9";
-				this->label9->Size = System::Drawing::Size(53, 17);
+				this->label9->Size = System::Drawing::Size(41, 13);
 				this->label9->TabIndex = 69;
 				this->label9->Text = L"Branch";
-				//
+				// 
 				// label8
-				//
+				// 
 				this->label8->AutoSize = true;
-				this->label8->Location = System::Drawing::Point(226, 222);
+				this->label8->Location = System::Drawing::Point(170, 180);
+				this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 				this->label8->Name = L"label8";
-				this->label8->Size = System::Drawing::Size(121, 17);
+				this->label8->Size = System::Drawing::Size(91, 13);
 				this->label8->TabIndex = 68;
 				this->label8->Text = L"Password Confirm";
-				//
+				// 
 				// memChkBox
-				//
+				// 
 				this->memChkBox->AutoSize = true;
-				this->memChkBox->Location = System::Drawing::Point(229, 407);
+				this->memChkBox->Location = System::Drawing::Point(172, 331);
+				this->memChkBox->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->memChkBox->Name = L"memChkBox";
-				this->memChkBox->Size = System::Drawing::Size(111, 21);
+				this->memChkBox->Size = System::Drawing::Size(88, 17);
 				this->memChkBox->TabIndex = 67;
 				this->memChkBox->Text = L"IITG Member";
 				this->memChkBox->UseVisualStyleBackColor = true;
-				//
+				// 
 				// label6
-				//
+				// 
 				this->label6->AutoSize = true;
-				this->label6->Location = System::Drawing::Point(226, 257);
+				this->label6->Location = System::Drawing::Point(170, 209);
+				this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 				this->label6->Name = L"label6";
-				this->label6->Size = System::Drawing::Size(42, 17);
+				this->label6->Size = System::Drawing::Size(32, 13);
 				this->label6->TabIndex = 66;
 				this->label6->Text = L"Email";
-				//
+				// 
 				// label5
-				//
+				// 
 				this->label5->AutoSize = true;
-				this->label5->Location = System::Drawing::Point(216, 312);
+				this->label5->Location = System::Drawing::Point(162, 254);
+				this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 				this->label5->Name = L"label5";
-				this->label5->Size = System::Drawing::Size(103, 17);
+				this->label5->Size = System::Drawing::Size(78, 13);
 				this->label5->TabIndex = 65;
 				this->label5->Text = L"Phone Number";
-				//
+				// 
 				// label3
-				//
+				// 
 				this->label3->AutoSize = true;
-				this->label3->Location = System::Drawing::Point(226, 193);
+				this->label3->Location = System::Drawing::Point(170, 157);
+				this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 				this->label3->Name = L"label3";
-				this->label3->Size = System::Drawing::Size(69, 17);
+				this->label3->Size = System::Drawing::Size(53, 13);
 				this->label3->TabIndex = 63;
 				this->label3->Text = L"Password";
-				//
+				// 
 				// label2
-				//
+				// 
 				this->label2->AutoSize = true;
-				this->label2->Location = System::Drawing::Point(226, 148);
+				this->label2->Location = System::Drawing::Point(170, 120);
+				this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 				this->label2->Name = L"label2";
-				this->label2->Size = System::Drawing::Size(71, 17);
+				this->label2->Size = System::Drawing::Size(54, 13);
 				this->label2->TabIndex = 62;
 				this->label2->Text = L"Full Name";
-				//
+				// 
 				// label1
-				//
+				// 
 				this->label1->AutoSize = true;
-				this->label1->Location = System::Drawing::Point(226, 105);
+				this->label1->Location = System::Drawing::Point(170, 85);
+				this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 				this->label1->Name = L"label1";
-				this->label1->Size = System::Drawing::Size(73, 17);
+				this->label1->Size = System::Drawing::Size(55, 13);
 				this->label1->TabIndex = 61;
 				this->label1->Text = L"Username";
-				//
+				// 
 				// branchCb
-				//
+				// 
 				this->branchCb->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 				this->branchCb->FormattingEnabled = true;
-				this->branchCb->Items->AddRange(gcnew cli::array< System::Object^  >(8)
-				{
+				this->branchCb->Items->AddRange(gcnew cli::array< System::Object^  >(8) {
 					L"CSE", L"MNC", L"ECE", L"BT", L"EEE", L"ME", L"CE",
-					L"CS"
+						L"CS"
 				});
-				this->branchCb->Location = System::Drawing::Point(747, 99);
+				this->branchCb->Location = System::Drawing::Point(560, 80);
+				this->branchCb->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->branchCb->Name = L"branchCb";
-				this->branchCb->Size = System::Drawing::Size(121, 24);
+				this->branchCb->Size = System::Drawing::Size(92, 21);
 				this->branchCb->TabIndex = 79;
-				//
+				// 
 				// prof_signup
-				//
-				this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+				// 
+				this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 				this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 				this->Controls->Add(this->branchCb);
 				this->Controls->Add(this->studBtn);
@@ -313,8 +327,9 @@ namespace Online_Exam
 				this->Controls->Add(this->label3);
 				this->Controls->Add(this->label2);
 				this->Controls->Add(this->label1);
+				this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 				this->Name = L"prof_signup";
-				this->Size = System::Drawing::Size(1018, 564);
+				this->Size = System::Drawing::Size(764, 458);
 				this->ResumeLayout(false);
 				this->PerformLayout();
 
@@ -341,7 +356,7 @@ namespace Online_Exam
 					confirmPassTxt->Clear();
 					return false;
 				}
-				if (pNumTxt->TextLength != 10)
+				/*if (pNumTxt->TextLength != 10)
 				{
 					MessageBox::Show("Phone Number Length should be 10");
 					return false;
@@ -351,22 +366,51 @@ namespace Online_Exam
 				{
 					MessageBox::Show("UserName can not be Empty");
 					return false;
+				}*/
+				for (int i = 0; i < pNumTxt->TextLength; i++)
+				{
+					if (pNumTxt->Text[i]>'9' || pNumTxt->Text[i] < '0')
+					{
+						MessageBox::Show("Phone Number should consist only digits 0-9", "Wrong Details");
+						return false;
+					}
 				}
 				if (nameTxt->Text->Trim() == "")
 				{
-					MessageBox::Show("Name can not be Empty");
+					MessageBox::Show("Name can not be Empty", "Wrong Details");
 					return false;
 				}
 				if (mailTxt->Text->Trim() == "")
 				{
-					MessageBox::Show("Email Field can not be Empty");
+					MessageBox::Show("Email Field can not be Empty", "Wrong Details");
 					return false;
 				}
 				if (branchCb->Text == "")
 				{
-					MessageBox::Show("Please select a branch");
+					MessageBox::Show("Please select a branch", "Wrong Details");
 					return false;
 				}
+				if (pNumTxt->Text->Trim() == "")
+				{
+					MessageBox::Show("Please enter Phone Number", "Wroong Details");
+					return false;
+				}
+				str = nameTxt->Text;
+				String ^str1 = "";
+				for (int i = 0; i < str->Length; i++)
+				{
+					if (str[i] != ' ')
+					{
+						if (i>0 && str[i - 1] == ' ') str1 += " ";
+						str1 += str[i];
+					}
+				}
+				nameTxt->Text = str1;
+				userTxt->Text = userTxt->Text->Trim();
+				nameTxt->Text = nameTxt->Text->Trim();
+				mailTxt->Text = mailTxt->Text->Trim();
+				pNumTxt->Text = pNumTxt->Text->Trim();
+				//rNumTxt->Text = rNumTxt->Text->Trim();
 				return true;
 
 			}

@@ -144,7 +144,7 @@ private: System::Void profBtn_Click(System::Object^  sender, System::EventArgs^ 
 			 signupPanel->Controls->Add(ref);
 }
 private: System::Void loginBtn_Click(System::Object^  sender, System::EventArgs^  e) {
-			
+			 Close();
 			
 			 
 			 

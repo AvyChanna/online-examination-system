@@ -272,15 +272,17 @@ namespace Online_Exam
 					gVar::Designation = DBDesignation;
 					if (DBDesignation == "Student")
 					{
+						Hide();
 						StudentForm^ form = gcnew StudentForm();
 						form->ShowDialog();
-						Close();
+						Show();
 					}
 					else
 					{
+						Hide();
 						ProfForm^ form = gcnew ProfForm();
 						form->ShowDialog();
-						Close();
+						Show();
 					}
 					return;
 				}
@@ -310,6 +312,7 @@ namespace Online_Exam
 							MessageBox::Show("Error in processing token");
 							return;
 						}
+
 						(gcnew NewPass(DBUsername))->ShowDialog();
 					}
 					else
@@ -322,18 +325,23 @@ namespace Online_Exam
 			{
 				Hide();
 				(gcnew Signup())->ShowDialog();
+					
 				Show();
 			}
 		private:
 			System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e)
 			{
-				// TODO: open mailer
+				if (Username->Trim() == "")
+				{
+					MessageBox::Show("Please Enter your Username", "Invalid Username");
+					return;
+				}
 				OES ^Access = gcnew OES();
 				Access->AddParam("@Username", Username);
 				Access->ExecQuery("Select Email from Users where Username = @Username");
 				if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length)
 				{
-					MessageBox::Show("Username does not exist");
+					MessageBox::Show("Username does not exist", "Invalid Username");
 					return;
 				}
 			Email = Access->DBDT->Rows[0]->default[0]->ToString();
