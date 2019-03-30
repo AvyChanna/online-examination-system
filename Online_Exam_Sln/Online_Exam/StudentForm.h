@@ -8,7 +8,9 @@
 #include "GroupEnroll.h"
 #include "Unenroll.h"
 #include "UpcomingTests.h"
-#include "Login.h"
+#include "ChangePassword.h"
+#include "Instructions.h"
+
 namespace Online_Exam {
 
 	using namespace System;
@@ -162,6 +164,7 @@ namespace Online_Exam {
 			this->btnHelp->TabIndex = 7;
 			this->btnHelp->Text = L"Help";
 			this->btnHelp->UseVisualStyleBackColor = true;
+			this->btnHelp->Click += gcnew System::EventHandler(this, &StudentForm::btnHelp_Click);
 			// 
 			// btnEditProfileStudent
 			// 
@@ -294,6 +297,8 @@ private: System::Void btnEnroll_Click(System::Object^  sender, System::EventArgs
 }
 private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs^  e) {
 		
+}
+private: System::Void btnHelp_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

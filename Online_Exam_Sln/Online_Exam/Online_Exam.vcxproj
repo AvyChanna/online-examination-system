@@ -117,6 +117,9 @@
     <ClInclude Include="ApproveProf.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="ChangePassword.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="CreateExam.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -198,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ApproveProf.resx">
       <DependentUpon>ApproveProf.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateExam.resx">
       <DependentUpon>CreateExam.h</DependentUpon>

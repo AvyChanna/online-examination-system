@@ -167,10 +167,8 @@ namespace Online_Exam {
 				 txtInstruction->Text = str;
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 ExamPaper ^ frm = gcnew ExamPaper(11);
-				 frm->Examdetail = "Hello Bitches";
-				 frm->ShowDialog();
-				 this->Close();
+				
+				 /*Application::Run(gcnew ExamPaper(11));*/
 	}
 };
 }

@@ -388,7 +388,7 @@ namespace Online_Exam {
 						 check = 1;
 					 if (validate()){
 							// MessageBox::Show(Convert::ToString(memChkBox->Checked));
-							 String ^ PassSalt = MakeSalt();
+							 String ^ PassSalt = MakeSalt(10);
 							 String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
 
 							 Access->AddParam("@Username", userTxt->Text);

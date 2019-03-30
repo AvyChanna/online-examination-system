@@ -17,7 +17,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew Instructions());
+	Application::Run(gcnew StudentForm());
 
 	return 0;
 }

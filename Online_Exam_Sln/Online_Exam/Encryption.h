@@ -14,11 +14,11 @@ namespace Encryption{
 		//ShaObj->Dispose();
 		return res;
 	}
-	String ^MakeSalt(){
+	String ^MakeSalt(int n){
 		String ^Salt = L"";
 		String ^Charset = L"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-";
 		array<Char> ^Chars = Charset->ToCharArray();
-		array<Byte> ^Bytes = gcnew array<Byte>(10);
+		array<Byte> ^Bytes = gcnew array<Byte>(n);
 		RNGCryptoServiceProvider ^RngObj = gcnew RNGCryptoServiceProvider();
 		RngObj->GetBytes(Bytes);
 		for each(Byte B in Bytes){

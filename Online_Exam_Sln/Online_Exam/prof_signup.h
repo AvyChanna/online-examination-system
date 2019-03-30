@@ -354,7 +354,7 @@ namespace Online_Exam {
 
 				 if (validate()){
 					 try{
-						 String ^ PassSalt = MakeSalt();
+						 String ^ PassSalt = MakeSalt(10);
 						 String ^ PassHash = EncryptPassword(passTxt->Text, PassSalt);
 
 						 Access->AddParam("@Username", userTxt->Text);
