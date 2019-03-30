@@ -13,12 +13,12 @@ using namespace Database;
 namespace Online_Exam {
 
 	/// <summary>
-	/// Summary for sectionAnalysis
+	/// Summary for PieChartAnalysis
 	/// </summary>
-	public ref class sectionAnalysis : public System::Windows::Forms::UserControl
+	public ref class PieChartAnalysis : public System::Windows::Forms::UserControl
 	{
 	public:
-		sectionAnalysis(String ^ examCode, String ^ userName)
+		PieChartAnalysis(String ^ examCode, String ^ userName)
 		{
 			this->ExamCode = examCode;
 			this->username = userName;
@@ -32,7 +32,7 @@ namespace Online_Exam {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~sectionAnalysis()
+		~PieChartAnalysis()
 		{
 			if (components)
 			{
@@ -52,16 +52,11 @@ namespace Online_Exam {
 		OES ^ examInfo;
 		OES ^ studentPerf;
 		String ^ ExamCode;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^  barGraph;
 		String ^ username;
-		array<Int32> ^ maxMarks;
-		array<Int32> ^ minMarks;
-		array<Double> ^ avgMarks;
-
-			 array<Int32> ^ yourMarks;
-
-			 
-
+		array<Int32> ^ correct;
+		array<Int32> ^ unattempted;
+		array<Int32> ^ incorrect;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^  pieChart;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -76,9 +71,9 @@ namespace Online_Exam {
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->barGraph = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->pieChart = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->tabControl1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->barGraph))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pieChart))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -90,7 +85,7 @@ namespace Online_Exam {
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
 			this->tabControl1->Size = System::Drawing::Size(840, 444);
-			this->tabControl1->TabIndex = 0;
+			this->tabControl1->TabIndex = 1;
 			// 
 			// tabPage1
 			// 
@@ -114,131 +109,110 @@ namespace Online_Exam {
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
-			// barGraph
+			// pieChart
 			// 
 			chartArea1->Name = L"ChartArea1";
-			this->barGraph->ChartAreas->Add(chartArea1);
-			this->barGraph->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pieChart->ChartAreas->Add(chartArea1);
+			this->pieChart->Dock = System::Windows::Forms::DockStyle::Fill;
 			legend1->Name = L"Legend1";
-			this->barGraph->Legends->Add(legend1);
-			this->barGraph->Location = System::Drawing::Point(15, 15);
-			this->barGraph->Name = L"barGraph";
+			this->pieChart->Legends->Add(legend1);
+			this->pieChart->Location = System::Drawing::Point(2, 2);
+			this->pieChart->Name = L"pieChart";
 			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
 			series1->Legend = L"Legend1";
 			series1->Name = L"Series1";
-			this->barGraph->Series->Add(series1);
-			this->barGraph->Size = System::Drawing::Size(600, 300);
-			this->barGraph->TabIndex = 0;
-			this->barGraph->Text = L"chart1";
-			this->barGraph->Visible = false;
+			this->pieChart->Series->Add(series1);
+			this->pieChart->Size = System::Drawing::Size(828, 411);
+			this->pieChart->TabIndex = 0;
+			this->pieChart->Text = L"piechart";
 			// 
-			// sectionAnalysis
+			// PieChartAnalysis
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->tabControl1);
-			this->Margin = System::Windows::Forms::Padding(2);
-			this->Name = L"sectionAnalysis";
+			this->Name = L"PieChartAnalysis";
 			this->Size = System::Drawing::Size(881, 464);
-			this->Load += gcnew System::EventHandler(this, &sectionAnalysis::sectionAnalysis_Load);
+			this->Load += gcnew System::EventHandler(this, &PieChartAnalysis::PieChartAnalysis_Load);
 			this->tabControl1->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->barGraph))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pieChart))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void sectionAnalysis_Load(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void PieChartAnalysis_Load(System::Object^  sender, System::EventArgs^  e) {
 				 examInfo = gcnew OES();
-				 examInfo->ExecQuery("SELECT NumSections, MaxSect, MinSect, AvgSect\
-					 FROM  Exam\
-					 WHERE(ExamCode = "+this->ExamCode+" )");
+				 examInfo->ExecQuery("SELECT NumSections\
+									 FROM  Exam\
+									WHERE(ExamCode = " + this->ExamCode + " )");
 
 				 studentPerf = gcnew OES();
 				 studentPerf->ExecQuery("SELECT SectionMarks, CorrectSect, IncorrectSect, UnattemptSect, ExamCode, Username "\
-									"FROM  Performance "\
-									"WHERE(ExamCode = " + this->ExamCode + " ) AND(Username = '" + this->username + "' );");
-
-				 /* Read the Data */
+					 "FROM  Performance "\
+					 "WHERE(ExamCode = " + this->ExamCode + " ) AND(Username = '" + this->username + "' );");
 
 				 tabControl1->Controls->Clear();
-				 int numSect = Convert::ToInt32(examInfo->DBDT->Rows[0]->default["NumSections"]); 
-				 for (int i = 0; i < numSect  ; i++)
+				 int numSect = Convert::ToInt32(examInfo->DBDT->Rows[0]->default["NumSections"]);
+				 for (int i = 0; i < numSect; i++)
 				 {
 					 TabPage^ Section = gcnew TabPage();
 					 Section->Text = "Section" + (i + 1).ToString();
 					 tabControl1->Controls->Add(Section);
 				 }
-				 tabControl1->SelectedIndexChanged += gcnew EventHandler(this, &sectionAnalysis::TabSelect);
+				 tabControl1->SelectedIndexChanged += gcnew EventHandler(this, &PieChartAnalysis::TabSelect);
 				 tabControl1->SelectedIndex = 0;
-				 maxMarks = gcnew array<Int32>(numSect); 
-				 minMarks = gcnew array<Int32>(numSect);
-				 avgMarks = gcnew array<Double>(numSect);
-				 yourMarks = gcnew array<Int32>(numSect);
 
-				 String ^ x = examInfo->DBDT->Rows[0]->default["MaxSect"]->ToString();
+				 correct = gcnew array<Int32>(numSect);
+				 incorrect = gcnew array<Int32>(numSect);
+				 unattempted = gcnew array<Int32>(numSect);
 				 array<String^>^delimiters = { "," };
 
-				 array<String^> ^ temp = x->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
-
+				 String ^y = studentPerf->DBDT->Rows[0]->default["CorrectSect"]->ToString()->Trim();
+				 array<String^> ^temp = y->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
 				 for (int i = 0; i < temp->Length; i++)
 				 {
-					 maxMarks[i] = Convert::ToInt32(temp[i]);
+					 correct[i] = Convert::ToInt32(temp[i]);
 				 }
 
-				 x = examInfo->DBDT->Rows[0]->default["MinSect"]->ToString();
-				 temp = x->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
-
-				 for (int i = 0; i < temp->Length; i++)
-				 {
-					 minMarks[i] = Convert::ToInt32(temp[i]);
-				 }
-
-				 x = examInfo->DBDT->Rows[0]->default["AvgSect"]->ToString();
-				 temp = x->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
-
-				 for (int i = 0; i < temp->Length; i++)
-				 {
-					 avgMarks[i] = Convert::ToDouble(temp[i]);
-				 }
-				 //MessageBox::Show(studentPerf->RecordCount + " " + this->ExamCode + );
-				 String ^y = studentPerf->DBDT->Rows[0]->default["SectionMarks"]->ToString()->Trim();
+				 y = studentPerf->DBDT->Rows[0]->default["IncorrectSect"]->ToString()->Trim();
 				 temp = y->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
 				 for (int i = 0; i < temp->Length; i++)
 				 {
-					 yourMarks[i] = Convert::ToInt32(temp[i]);
+					 incorrect[i] = Convert::ToInt32(temp[i]);
+				 }
+
+				 y = studentPerf->DBDT->Rows[0]->default["UnattemptSect"]->ToString()->Trim();
+				 temp = y->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
+				 for (int i = 0; i < temp->Length; i++)
+				 {
+					 unattempted[i] = Convert::ToInt32(temp[i]);
 				 }
 
 				 int selInd = 0;
-				 this->barGraph->Series->Clear();
-				 this->barGraph->Series->Add("Max Marks");
-				 this->barGraph->Series->Add("Avg Marks");
-				 this->barGraph->Series->Add("Min Marks");
-				 this->barGraph->Series->Add("Your Marks");
-				 this->barGraph->Series["Max Marks"]->Points->AddXY("Max Marks", maxMarks[selInd]);
-				 this->barGraph->Series["Avg Marks"]->Points->AddXY("Avg Marks", avgMarks[selInd]);
-				 this->barGraph->Series["Min Marks"]->Points->AddXY("Min Marks", minMarks[selInd]);
-				 this->barGraph->Series["Your Marks"]->Points->AddXY("Your Marks", yourMarks[selInd]);
-				 tabControl1->TabPages[selInd]->Controls->Add(this->barGraph);
-				 this->barGraph->Show();
-				 
-
+				 this->pieChart->Series->Clear();
+				 this->pieChart->Series->Add("Correct")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+				 this->pieChart->Series->Add("Incorrect")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+				 this->pieChart->Series->Add("UnAttempted")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+				 array<String^>^ xValue = { "Correct", "Incorrect", "Unattempted" };
+				 array<Int32>^ yValue = { correct[selInd], incorrect[selInd], unattempted[selInd] };
+				 this->pieChart->Series["Correct"]->Points->DataBindXY(xValue, yValue);//DataBindXY({1, 2, 3}, { "a", "b", "c" });
+				 tabControl1->TabPages[selInd]->Controls->Add(this->pieChart);
+				 this->pieChart->Show();
 	}
 
 	private: System::Void TabSelect(System::Object^ sender, EventArgs^ e) {
 				 int selInd = static_cast<int>(static_cast<TabControl^>(sender)->SelectedIndex);
-				 this->barGraph->Series->Clear();
-				 this->barGraph->Series->Add("Max Marks");
-				 this->barGraph->Series->Add("Avg Marks");
-				 this->barGraph->Series->Add("Min Marks");
-				 this->barGraph->Series->Add("Your Marks");
-				 this->barGraph->Series["Max Marks"]->Points->AddXY("Max Marks", maxMarks[selInd]);
-				 this->barGraph->Series["Avg Marks"]->Points->AddXY("Avg Marks", avgMarks[selInd]);
-				 this->barGraph->Series["Min Marks"]->Points->AddXY("Min Marks", minMarks[selInd]);
-				 this->barGraph->Series["Your Marks"]->Points->AddXY("Your Marks", yourMarks[selInd]);
-				 tabControl1->TabPages[selInd]->Controls->Add(this->barGraph);
-				 this->barGraph->Show();
+				 this->pieChart->Series->Clear();
+				 this->pieChart->Series->Add("Correct")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+				 this->pieChart->Series->Add("Incorrect")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+				 this->pieChart->Series->Add("UnAttempted")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+				 array<String^>^ xValue = {"Correct","Incorrect","Unattempted"};
+				 array<Int32>^ yValue = { correct[selInd], incorrect[selInd], unattempted[selInd] };
+				 this->pieChart->Series["Correct"]->Points->DataBindXY(xValue,yValue);//DataBindXY({1, 2, 3}, { "a", "b", "c" });
+				 tabControl1->TabPages[selInd]->Controls->Add(this->pieChart);
+				 this->pieChart->Show();
 
 	}
-				 
 };
 }

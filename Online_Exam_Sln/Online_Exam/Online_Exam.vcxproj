@@ -163,6 +163,9 @@
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="json.h" />
+    <ClInclude Include="PieChartAnalysis.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Questions.h" />
     <ClInclude Include="ProfEditProfile.h">
       <FileType>CppControl</FileType>
@@ -261,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PastTestsSet.resx">
       <DependentUpon>PastTestsSet.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieChartAnalysis.resx">
+      <DependentUpon>PieChartAnalysis.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfEditProfile.resx">
       <DependentUpon>ProfEditProfile.h</DependentUpon>

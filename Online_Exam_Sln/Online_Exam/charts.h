@@ -1,5 +1,6 @@
 #pragma once
 #include "sectionAnalysis.h"
+#include "PieChartAnalysis.h"
 
 namespace Online_Exam {
 
@@ -49,7 +50,8 @@ namespace Online_Exam {
 		/// </summary>
 		System::ComponentModel::Container ^components;
 		String ^ ExamCode;
-		String ^ username;
+	private: System::Windows::Forms::Button^  btnPieChart;
+			 String ^ username;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -60,32 +62,47 @@ namespace Online_Exam {
 		{
 			this->analysisPanel = (gcnew System::Windows::Forms::Panel());
 			this->btnSectionAnalysis = (gcnew System::Windows::Forms::Button());
+			this->btnPieChart = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// analysisPanel
 			// 
-			this->analysisPanel->Location = System::Drawing::Point(331, 74);
+			this->analysisPanel->Location = System::Drawing::Point(186, 47);
+			this->analysisPanel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->analysisPanel->Name = L"analysisPanel";
-			this->analysisPanel->Size = System::Drawing::Size(1322, 725);
+			this->analysisPanel->Size = System::Drawing::Size(916, 464);
 			this->analysisPanel->TabIndex = 0;
 			// 
 			// btnSectionAnalysis
 			// 
-			this->btnSectionAnalysis->Location = System::Drawing::Point(44, 74);
+			this->btnSectionAnalysis->Location = System::Drawing::Point(11, 47);
+			this->btnSectionAnalysis->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnSectionAnalysis->Name = L"btnSectionAnalysis";
-			this->btnSectionAnalysis->Size = System::Drawing::Size(256, 71);
+			this->btnSectionAnalysis->Size = System::Drawing::Size(171, 45);
 			this->btnSectionAnalysis->TabIndex = 1;
 			this->btnSectionAnalysis->Text = L"Section Analysis";
 			this->btnSectionAnalysis->UseVisualStyleBackColor = true;
 			this->btnSectionAnalysis->Click += gcnew System::EventHandler(this, &charts::btnSectionAnalysis_Click);
 			// 
+			// btnPieChart
+			// 
+			this->btnPieChart->Location = System::Drawing::Point(22, 139);
+			this->btnPieChart->Name = L"btnPieChart";
+			this->btnPieChart->Size = System::Drawing::Size(159, 56);
+			this->btnPieChart->TabIndex = 2;
+			this->btnPieChart->Text = L"button1";
+			this->btnPieChart->UseVisualStyleBackColor = true;
+			this->btnPieChart->Click += gcnew System::EventHandler(this, &charts::btnPieChart_Click);
+			// 
 			// charts
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1682, 831);
+			this->ClientSize = System::Drawing::Size(1121, 532);
+			this->Controls->Add(this->btnPieChart);
 			this->Controls->Add(this->btnSectionAnalysis);
 			this->Controls->Add(this->analysisPanel);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"charts";
 			this->Text = L"charts";
 			this->ResumeLayout(false);
@@ -95,6 +112,11 @@ namespace Online_Exam {
 	private: System::Void btnSectionAnalysis_Click(System::Object^  sender, System::EventArgs^  e) {
 				 analysisPanel->Controls->Clear();
 				 sectionAnalysis ^ usr = gcnew sectionAnalysis(this->ExamCode, this->username);
+				 analysisPanel->Controls->Add(usr);
+	}
+	private: System::Void btnPieChart_Click(System::Object^  sender, System::EventArgs^  e) {
+				 analysisPanel->Controls->Clear();
+				 PieChartAnalysis ^ usr = gcnew PieChartAnalysis(this->ExamCode, this->username);
 				 analysisPanel->Controls->Add(usr);
 	}
 	};

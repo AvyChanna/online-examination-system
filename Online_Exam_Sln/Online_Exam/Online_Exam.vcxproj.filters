@@ -45,6 +45,7 @@
     <ClInclude Include="Form1.h" />
     <ClInclude Include="charts.h" />
     <ClInclude Include="sectionAnalysis.h" />
+    <ClInclude Include="PieChartAnalysis.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -79,6 +80,8 @@
     <EmbeddedResource Include="ExamList.resx" />
     <EmbeddedResource Include="Form1.resX" />
     <EmbeddedResource Include="Leaderboard.resx" />
+    <EmbeddedResource Include="charts.resx" />
+    <EmbeddedResource Include="sectionAnalysis.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
