@@ -12,7 +12,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew AdminForm());
+	Application::Run(gcnew ExamPaper(11));
 
 	return 0;
 }
