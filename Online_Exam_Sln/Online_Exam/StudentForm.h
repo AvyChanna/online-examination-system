@@ -8,6 +8,7 @@
 #include "UpcomingTests.h"
 #include "PastTest.h"
 #include "Login.h"
+#include"displayAnswer.h"
 #include "ChangePassword.h"
 #include "Instructions.h"
 
@@ -114,7 +115,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->panel1->Controls->Add(this->btnUpcomingTests);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panel1->Location = System::Drawing::Point(0, 0);
-			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(200, 532);
 			this->panel1->TabIndex = 1;

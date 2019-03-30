@@ -40,6 +40,7 @@
     <ClInclude Include="PastTest.h" />
     <ClInclude Include="NewPass.h" />
     <ClInclude Include="QuestionStructure.h" />
+    <ClInclude Include="displayAnswer.h" />
     <ClInclude Include="Instructions.h" />
     <ClInclude Include="ChangePassword.h" />
     <ClInclude Include="Form1.h" />
@@ -74,6 +75,8 @@
     <EmbeddedResource Include="PastTestsSet.resx" />
     <EmbeddedResource Include="StudentEditAdmin.resx" />
     <EmbeddedResource Include="ExamPaper.resx" />
+    <EmbeddedResource Include="NewPass.resx" />
+    <EmbeddedResource Include="displayAnswer.resx" />
     <EmbeddedResource Include="Instructions.resx" />
     <EmbeddedResource Include="ChangePassword.resx" />
     <EmbeddedResource Include="PastTest.resx" />

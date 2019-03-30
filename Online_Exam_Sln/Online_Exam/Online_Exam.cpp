@@ -1,6 +1,8 @@
 // Online_Exam.cpp : main project file.
 #include "stdafx.h"
 #include "Login.h"
+#include"displayAnswer.h"
+#include "ExamPaper.h"
 #include "charts.h"
 using namespace Online_Exam;
 
