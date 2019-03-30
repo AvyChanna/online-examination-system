@@ -523,6 +523,9 @@ private: System::Void btnCertificates_MouseLeave(System::Object^  sender, System
 }
 
 private: System::Void btnChangePass_Click(System::Object^  sender, System::EventArgs^  e) {
+			 contentPanel->Controls->Clear();
+			 ChangePassword ^ ch = gcnew ChangePassword();
+			 contentPanel->Controls->Add(ch); 
 			 btnEditProfileStudent->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnMyProfileStudent->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnUpcomingTests->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);

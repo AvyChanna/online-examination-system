@@ -98,7 +98,7 @@ namespace Online_Exam {
 			this->btnPieChart->Name = L"btnPieChart";
 			this->btnPieChart->Size = System::Drawing::Size(152, 37);
 			this->btnPieChart->TabIndex = 2;
-			this->btnPieChart->Text = L"Bar Chart";
+			this->btnPieChart->Text = L"Pie Chart";
 			this->btnPieChart->UseVisualStyleBackColor = true;
 			this->btnPieChart->Click += gcnew System::EventHandler(this, &charts::btnPieChart_Click);
 			// 
