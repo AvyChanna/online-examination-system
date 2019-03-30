@@ -161,7 +161,7 @@ namespace Online_Exam {
 				 /* Read the Data */
 
 				 tabControl1->Controls->Clear();
-				 int numSect = Convert::ToInt32(examInfo->DBDT->Rows[0]->default["NumSections"]); 
+				 int numSect = static_cast<int>(Convert::ToInt32(examInfo->DBDT->Rows[0]->default["NumSections"])); 
 				 for (int i = 0; i < numSect  ; i++)
 				 {
 					 TabPage^ Section = gcnew TabPage();
@@ -202,7 +202,8 @@ namespace Online_Exam {
 				 }
 				 //MessageBox::Show(studentPerf->RecordCount + " " + this->ExamCode + );
 				 String ^y = studentPerf->DBDT->Rows[0]->default["SectionMarks"]->ToString()->Trim();
-				 temp = y->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
+				 array<String^>^delimiters2 = { Environment::NewLine };
+				 temp = y->Split(delimiters2, StringSplitOptions::RemoveEmptyEntries);
 				 for (int i = 0; i < temp->Length; i++)
 				 {
 					 yourMarks[i] = Convert::ToInt32(temp[i]);

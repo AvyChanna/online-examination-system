@@ -1,4 +1,5 @@
 #pragma once
+#include "charts.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -187,6 +188,8 @@ namespace Online_Exam {
 						 btnViewResult->TabIndex = 4;
 						 btnViewResult->BackColor = System::Drawing::Color::FromArgb(43, 50, 82);
 						 btnViewResult->ForeColor = System::Drawing::Color::FromArgb(255,255,255);
+						 btnViewResult->Click += gcnew System::EventHandler(this, &PastTest::btnClick);
+						 btnViewResult->Tag = cur;
 						 btnViewResult->UseVisualStyleBackColor = true;
 						 contentPanel->Controls->Add(btnViewResult);
 						 contentPanel->Controls->Add(border);
@@ -224,5 +227,17 @@ namespace Online_Exam {
 	}
 	private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 	}
+
+	private: System::Void btnClick(System::Object^  sender, System::EventArgs^  e)
+	{
+				 Button ^ btn = gcnew Button();
+				 btn = static_cast<Button^>(sender);
+				 String ^ExamCode = Convert::ToString(btn->Tag);
+				 
+				 charts^ examCharts = gcnew charts(ExamCode,gVar::Username);
+				 this->Hide();
+				 examCharts->ShowDialog();
+	}
+
 	};
 }

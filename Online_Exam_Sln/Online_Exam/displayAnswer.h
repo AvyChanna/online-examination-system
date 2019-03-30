@@ -58,11 +58,26 @@ namespace Online_Exam {
 		int ObtainedMarks;
 		List <List<int>^> ^ QuesGiven;
 		List <List<String^ >^> ^ AttemptAns;
-		displayAnswer(int ExCode, int SesNo)
+	private: System::Windows::Forms::Label^  label6;
+public:
+private: System::Windows::Forms::Label^  label5;
+private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::PictureBox^  pbInc;
+	private: System::Windows::Forms::PictureBox^  pbUnat;
+
+
+
+
+private: System::Windows::Forms::Label^  lblLegend;
+	private: System::Windows::Forms::PictureBox^  pbCor;
+
+
+	public:
+		 displayAnswer(int ExCode)
 		{
 			InitializeComponent();
 			ExamCode = ExCode;
-			SessNo = SesNo;
+			//SessNo = SesNo;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -85,7 +100,7 @@ namespace Online_Exam {
 	protected:
 
 	protected:
-	private: System::Windows::Forms::PictureBox^  pictureBox1;
+
 
 
 
@@ -132,9 +147,7 @@ namespace Online_Exam {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(displayAnswer::typeid));
 			this->lblTestName = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->tc1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
@@ -156,12 +169,22 @@ namespace Online_Exam {
 			this->lblAvgSect = (gcnew System::Windows::Forms::Label());
 			this->lblMinSect = (gcnew System::Windows::Forms::Label());
 			this->lblMaxSect = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->pbInc = (gcnew System::Windows::Forms::PictureBox());
+			this->pbUnat = (gcnew System::Windows::Forms::PictureBox());
+			this->lblLegend = (gcnew System::Windows::Forms::Label());
+			this->pbCor = (gcnew System::Windows::Forms::PictureBox());
 			this->tc1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbInc))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbUnat))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbCor))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// lblTestName
 			// 
+			this->lblTestName->AutoEllipsis = true;
 			this->lblTestName->AutoSize = true;
 			this->lblTestName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -170,16 +193,6 @@ namespace Online_Exam {
 			this->lblTestName->Size = System::Drawing::Size(144, 29);
 			this->lblTestName->TabIndex = 0;
 			this->lblTestName->Text = L"Exam Name";
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(0, 0);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(143, 118);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox1->TabIndex = 1;
-			this->pictureBox1->TabStop = false;
 			// 
 			// tc1
 			// 
@@ -222,9 +235,9 @@ namespace Online_Exam {
 			// 
 			this->flowLayoutPanel1->AutoScroll = true;
 			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 148);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 147);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(677, 196);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(686, 285);
 			this->flowLayoutPanel1->TabIndex = 27;
 			// 
 			// label3
@@ -308,7 +321,7 @@ namespace Online_Exam {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(385, 46);
+			this->label11->Location = System::Drawing::Point(359, 46);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(102, 13);
 			this->label11->TabIndex = 36;
@@ -386,10 +399,99 @@ namespace Online_Exam {
 			this->lblMaxSect->TabIndex = 43;
 			this->lblMaxSect->Text = L"0";
 			// 
+			// label6
+			// 
+			this->label6->BackColor = System::Drawing::Color::White;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->Location = System::Drawing::Point(23, 96);
+			this->label6->Margin = System::Windows::Forms::Padding(1);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(123, 17);
+			this->label6->TabIndex = 52;
+			this->label6->Text = L"Unattempted Question";
+			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label5
+			// 
+			this->label5->BackColor = System::Drawing::Color::White;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(23, 72);
+			this->label5->Margin = System::Windows::Forms::Padding(1);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(123, 17);
+			this->label5->TabIndex = 51;
+			this->label5->Text = L"Incorrect Answer";
+			this->label5->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label4
+			// 
+			this->label4->BackColor = System::Drawing::Color::White;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(20, 48);
+			this->label4->Margin = System::Windows::Forms::Padding(1);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(123, 17);
+			this->label4->TabIndex = 50;
+			this->label4->Text = L"Correct Answer";
+			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// pbInc
+			// 
+			this->pbInc->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pbInc->Location = System::Drawing::Point(4, 73);
+			this->pbInc->Margin = System::Windows::Forms::Padding(1);
+			this->pbInc->Name = L"pbInc";
+			this->pbInc->Size = System::Drawing::Size(13, 15);
+			this->pbInc->TabIndex = 49;
+			this->pbInc->TabStop = false;
+			// 
+			// pbUnat
+			// 
+			this->pbUnat->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pbUnat->Location = System::Drawing::Point(4, 96);
+			this->pbUnat->Margin = System::Windows::Forms::Padding(1);
+			this->pbUnat->Name = L"pbUnat";
+			this->pbUnat->Size = System::Drawing::Size(13, 15);
+			this->pbUnat->TabIndex = 48;
+			this->pbUnat->TabStop = false;
+			// 
+			// lblLegend
+			// 
+			this->lblLegend->BackColor = System::Drawing::Color::White;
+			this->lblLegend->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->lblLegend->Location = System::Drawing::Point(4, 3);
+			this->lblLegend->Name = L"lblLegend";
+			this->lblLegend->Size = System::Drawing::Size(139, 23);
+			this->lblLegend->TabIndex = 47;
+			this->lblLegend->Text = L"Legend";
+			this->lblLegend->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// pbCor
+			// 
+			this->pbCor->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pbCor->Location = System::Drawing::Point(4, 49);
+			this->pbCor->Margin = System::Windows::Forms::Padding(1);
+			this->pbCor->Name = L"pbCor";
+			this->pbCor->Size = System::Drawing::Size(13, 15);
+			this->pbCor->TabIndex = 46;
+			this->pbCor->TabStop = false;
+			// 
 			// displayAnswer
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::White;
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->pbInc);
+			this->Controls->Add(this->pbUnat);
+			this->Controls->Add(this->lblLegend);
+			this->Controls->Add(this->pbCor);
 			this->Controls->Add(this->tc1);
 			this->Controls->Add(this->lblAvgSect);
 			this->Controls->Add(this->lblMinSect);
@@ -409,13 +511,16 @@ namespace Online_Exam {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->markingFlowPanel);
 			this->Controls->Add(this->flowLayoutPanel1);
-			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->lblTestName);
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Name = L"displayAnswer";
-			this->Size = System::Drawing::Size(677, 344);
+			this->Size = System::Drawing::Size(686, 432);
 			this->Load += gcnew System::EventHandler(this, &displayAnswer::displayAnswer_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tc1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbInc))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbUnat))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbCor))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -425,6 +530,11 @@ namespace Online_Exam {
 	private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void displayAnswer_Load(System::Object^  sender, System::EventArgs^  e) {
+			 pbCor->BackColor = correct_color;
+			 pbInc->BackColor = incorrect_color;
+			 pbUnat->BackColor = unattempted_color;
+
+
 			 OES^ Access = gcnew OES();
 			 Access->ExecQuery("Select * From Exam where ExamCode = " + ExamCode.ToString());
 			 if (Access->RecordCount != 1){
@@ -442,7 +552,6 @@ private: System::Void displayAnswer_Load(System::Object^  sender, System::EventA
 			 tc1->SelectedIndexChanged += gcnew EventHandler(this, &displayAnswer::TabSelect);
 			 tc1->SelectedIndex = 0;
 			 lblTestName->Text = Convert::ToString(Access->DBDT->Rows[0]->default["ExamName"]);
-			 lblSesNo->Text = SessNo.ToString();
 			 lblExLen->Text = Convert::ToString(Access->DBDT->Rows[0]->default["ExamLength"]);
 			 MaxSect = "";
 			 MaxSectStr = gcnew array<String^>(QSet->Data->Count);
@@ -474,7 +583,9 @@ private: System::Void displayAnswer_Load(System::Object^  sender, System::EventA
 			 String ^s = Environment::NewLine;
 			 array<String^>^delimiters = { s };
 
-			  
+			 SessNo = static_cast<int>(Convert::ToInt32(Access1->DBDT->Rows[0]->default["SessionNumber"]));
+			 lblSesNo->Text = SessNo.ToString();
+
 			 QuesGiven = gcnew List<List<int>^>();
 			 AttemptAns = gcnew List<List<String ^>^>();
 			 AttemptAnsStr = Convert::ToString(Access1->DBDT->Rows[0]->default["AttemptedAns"])->Split(delimiters, StringSplitOptions::None);

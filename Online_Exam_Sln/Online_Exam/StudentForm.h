@@ -377,6 +377,7 @@ private: System::Void btnUpcomingTests_Click(System::Object^  sender, System::Ev
 }
 private: System::Void btnPastTests_Click(System::Object^  sender, System::EventArgs^  e) {
 			 contentPanel->Controls->Clear();
+			 //displayAnswer ^ usr = gcnew displayAnswer(11);
 			 PastTest ^ usr = gcnew PastTest();
 			 contentPanel->Controls->Add(usr);
 			 btnEditProfileStudent->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
