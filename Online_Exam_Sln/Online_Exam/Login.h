@@ -6,6 +6,7 @@
 #include"ProfForm.h"
 #include"StudentForm.h"
 #include"NewPass.h"
+#include"AdminForm.h"
 namespace Online_Exam
 {
 	using namespace System::Net::Mail;
@@ -239,28 +240,23 @@ namespace Online_Exam
 			this->PerformLayout();
 
 		}
-			#pragma endregion
-		private:
-			System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^  e)
+#pragma endregion
+private: System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^  e)
+		{
+			if (Username->Length == 0 || Password->Length == 0)
 			{
-				if (Username->Length == 0 || Password->Length == 0)
-				{
-					MessageBox::Show("Empty Username/Password");
-					return;
-				}
-				// access database and get all values
-				OES ^Access = gcnew OES();
-				Access->AddParam("@Username", Username);
-				Access->ExecQuery("Select Username, FullName, PasswordHash, PasswordSalt, TokenHash, TokenSalt, Email, PhoneNo, RollNo, Groups, IITG, Branch, Designation from Users where Username = @Username");
-				if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length)
-				{
-					MessageBox::Show("Username\\Password is wrong");
-					return;
-				}
-
-
-
-
+				MessageBox::Show("Empty Username/Password");
+				return;
+			}
+			// access database and get all values
+			OES ^Access = gcnew OES();
+			Access->AddParam("@Username", Username);
+			Access->ExecQuery("Select Username, FullName, PasswordHash, PasswordSalt, TokenHash, TokenSalt, Email, PhoneNo, RollNo, Groups, IITG, Branch, Designation, IsApproved from Users where Username = @Username");
+			if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length)
+			{
+				MessageBox::Show("Username\\Password is wrong");
+				return;
+			}
 			String ^DBUsername = Access->DBDT->Rows[0]->default[0]->ToString();
 			String ^DBFullname = Access->DBDT->Rows[0]->default[1]->ToString();
 			String ^DBPasshash = Access->DBDT->Rows[0]->default[2]->ToString();
@@ -274,7 +270,7 @@ namespace Online_Exam
 			String ^DBIITG = Access->DBDT->Rows[0]->default[10]->ToString();
 			String ^DBBranch = Access->DBDT->Rows[0]->default[11]->ToString();
 			String ^DBDesignation = Access->DBDT->Rows[0]->default[12]->ToString();
-
+			String ^IsApproved = Access->DBDT->Rows[0]->default[13]->ToString();
 				if (DBPasshash == EncryptPassword(Password, DBPasssalt))
 				{
 					//login successful
@@ -295,15 +291,28 @@ namespace Online_Exam
 					{
 						Hide();
 						StudentForm^ form = gcnew StudentForm();
-						form->ShowDialog();
-						Show();
+						form->Show(this);
+						//Show();
 					}
-					else
+					else if (DBDesignation == "Professor")
+					{
+						if (IsApproved->ToString() == "True")
+						{
+							Hide();
+							ProfForm^ form = gcnew ProfForm();
+							form->Show(this);
+						}
+						else
+						{
+							MessageBox::Show("Your account is not verified yet.");
+							return;
+						}
+					}
+					else if (DBDesignation == "Admin")
 					{
 						Hide();
-						ProfForm^ form = gcnew ProfForm();
-						form->ShowDialog();
-						Show();
+						AdminForm^ form = gcnew AdminForm();
+						form->Show(this);
 					}
 					return;
 				}
@@ -349,67 +358,66 @@ namespace Online_Exam
 					
 				Show();
 			}
-		private:
-			System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e)
-			{
-				if (Username->Trim() == "")
-				{
-					MessageBox::Show("Please Enter your Username", "Invalid Username");
-					return;
-				}
-				OES ^Access = gcnew OES();
-				Access->AddParam("@Username", Username);
-				Access->ExecQuery("Select Email from Users where Username = @Username");
-				if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length)
-				{
-					MessageBox::Show("Username does not exist", "Invalid Username");
-					return;
-				}
-			Email = Access->DBDT->Rows[0]->default[0]->ToString();
-				String ^token = "";
-				token = MakeSalt(20);
-				String ^TokenHash = "";
-				String ^TokenSalt = "";
-				TokenSalt = MakeSalt(10);
-				TokenHash = EncryptPassword(token, TokenSalt);
-				Access->AddParam("@TokenHash", TokenHash);
-				Access->AddParam("@TokenSalt", TokenSalt);
-				Access->AddParam("@Username", Username);
-				Access->ExecQuery("Update Users set TokenHash = @TokenHash , TokenSalt = @TokenSalt where Username = @Username");
-				if (Access->Exception->Length)
-				{
-					MessageBox::Show("Could not edit Database");
-					return;
-				}
-				try
-				{
+private:
+	System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e)
+	{
+		if (Username->Trim() == "")
+		{
+			MessageBox::Show("Please Enter your Username", "Invalid Username");
+			return;
+		}
+		OES ^Access = gcnew OES();
+		Access->AddParam("@Username", Username);
+		Access->ExecQuery("Select Email from Users where Username = @Username");
+		if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length)
+		{
+			MessageBox::Show("Username does not exist", "Invalid Username");
+			return;
+		}
+		Email = Access->DBDT->Rows[0]->default[0]->ToString();
+		String ^token = "";
+		token = MakeSalt(20);
+		String ^TokenHash = "";
+		String ^TokenSalt = "";
+		TokenSalt = MakeSalt(10);
+		TokenHash = EncryptPassword(token, TokenSalt);
+		Access->AddParam("@TokenHash", TokenHash);
+		Access->AddParam("@TokenSalt", TokenSalt);
+		Access->AddParam("@Username", Username);
+		Access->ExecQuery("Update Users set TokenHash = @TokenHash , TokenSalt = @TokenSalt where Username = @Username");
+		if (Access->Exception->Length)
+		{
+			MessageBox::Show("Could not edit Database");
+			return;
+		}
+		try
+		{
 
-					SmtpClient ^SmtpObj = gcnew SmtpClient("smtp.gmail.com", 587);
-					MailMessage ^ MailMsg = gcnew MailMessage();
-					SmtpObj->UseDefaultCredentials = false;
-					SmtpObj->Credentials = gcnew Net::NetworkCredential("iitg.oes.cse@gmail.com", "iitg.oes1234");
-					SmtpObj->EnableSsl = true;
+			SmtpClient ^SmtpObj = gcnew SmtpClient("smtp.gmail.com", 587);
+			MailMessage ^ MailMsg = gcnew MailMessage();
+			SmtpObj->UseDefaultCredentials = false;
+			SmtpObj->Credentials = gcnew Net::NetworkCredential("iitg.oes.cse@gmail.com", "iitg.oes1234");
+			SmtpObj->EnableSsl = true;
 
-					MailMsg->From = gcnew MailAddress("iitg.oes.cse@gmail.com");
-					MailMsg->To->Add(Email);
-					MailMsg->Subject = "IITG Online Exam Account Password Token";
-					MailMsg->IsBodyHtml = false;
-					MailMsg->Body = "Hello, your token is " + token + " . Change your password as soon as possible. If you have not requested this token, ignore this message.";
-					SmtpObj->Send(MailMsg);
-				}
-				catch (Exception ^ex)
-				{
-					MessageBox::Show("Could not send mail. Nevertheless, for testing, here is your token - " + token);
-					return;
-				}
-				MessageBox::Show("Your new token has been sent to you by mail");
-			}
-		private:
-			System::Void textUsername_TextChanged(System::Object^  sender, System::EventArgs^  e)
-			{
-				Username = textUsername->Text;
-				Password = textPassword->Text;
-			}
+			MailMsg->From = gcnew MailAddress("iitg.oes.cse@gmail.com");
+			MailMsg->To->Add(Email);
+			MailMsg->Subject = "IITG Online Exam Account Password Token";
+			MailMsg->IsBodyHtml = false;
+			MailMsg->Body = "Hello, your token is " + token + " . Change your password as soon as possible. If you have not requested this token, ignore this message.";
+			SmtpObj->Send(MailMsg);
+		}
+		catch (Exception ^ex)
+		{
+			MessageBox::Show("Could not send mail. Nevertheless, for testing, here is your token - " + token);
+			return;
+		}
+		MessageBox::Show("Your new token has been sent to you by mail");
+	}
+private:
+	System::Void textUsername_TextChanged(System::Object^  sender, System::EventArgs^  e){
+		Username = textUsername->Text;
+		Password = textPassword->Text;
+	}
 private: System::Void textUsername_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 			 textUsername->Text = "";
 }

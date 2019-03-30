@@ -1,5 +1,6 @@
 #pragma once
-
+#include"Instructions.h"
+#include"ExamPaper.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -86,7 +87,11 @@ namespace Online_Exam {
 
 		}
 #pragma endregion
-	private: System::Void Utitlity(int i,int x,int button_y,String ^ tim)
+	public:
+		int SessNo;
+		int ExamNo;
+
+	private: System::Void Utitlity(int i,int x,int button_y,String ^ tim, int en)
 	{
 				 Label ^ lbl = gcnew Label();
 				 String ^ tempstr = "Session ";
@@ -105,6 +110,8 @@ namespace Online_Exam {
 				 btnSession->Width = 150;
 				 btnSession->Height = 20;
 				 btnSession->TextAlign = ContentAlignment::MiddleLeft;
+				 btnSession->Tag = gcnew Point(en,i);
+				 btnSession->Click += gcnew System::EventHandler(this, &UpcomingTests::Handler_for_button);
 				 //btnSession->Padding =Padding(0, 0, 0, 0);
 				 //button_y += 25;
 				 btnSession->Text = "Appear For this session now";
@@ -126,7 +133,7 @@ namespace Online_Exam {
 
 					 OES ^ Access = gcnew OES();
 					 Access->ExecQuery("SELECT Groups FROM Users WHERE Username = '" + gVar::Username + "'");
-					 String ^ grp = Convert::ToString(Access->DBDT->Rows[0]["Groups"]);
+					 String ^ grp = Convert::ToString(Access->DBDT->Rows[0]->default["Groups"]);
 					 String ^ query = "";
 					 String ^ temp = "";
 					 for (int i = 0; i < grp->Length - 1; i++)
@@ -151,7 +158,7 @@ namespace Online_Exam {
 						 //Console::WriteLine(Access->RecordCount.ToString());
 						 for (int i = 0; i < Access->RecordCount; i++)
 						 {
-							 Int32 zver = Convert::ToInt32(Access->DBDT->Rows[i]["ExamCode"]);
+							 Int32 zver = Convert::ToInt32(Access->DBDT->Rows[i]->default["ExamCode"]);
 							 
 							 OES ^ verify = gcnew OES();
 							 //Console::WriteLine("SELECT * FROM Performance WHERE Username = '" + gVar::Username + "' AND ExamCode = " + zver);
@@ -273,7 +280,7 @@ namespace Online_Exam {
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes1"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes1"]);
-								 Utitlity(1, x, button_y,tim);
+								 Utitlity(1, x, button_y,tim, zver);
 								 button_y += 25;
 								 flag1 = 1;
 								 temp_len += 25;
@@ -281,7 +288,7 @@ namespace Online_Exam {
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes2"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes2"]);
-								 Utitlity(2, x, button_y, tim);
+								 Utitlity(2, x, button_y, tim, zver);
 								 button_y += 25;
 								 flag1 = 1;
 								 temp_len += 25;
@@ -289,7 +296,7 @@ namespace Online_Exam {
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes3"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes3"]);
-								 Utitlity(3, x, button_y, tim);
+								 Utitlity(3, x, button_y, tim, zver);
 								 button_y += 25;
 								 flag1= 1;
 								 temp_len += 25;
@@ -297,7 +304,7 @@ namespace Online_Exam {
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes4"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes4"]);
-								 Utitlity(4, x, button_y, tim);
+								 Utitlity(4, x, button_y, tim, zver);
 								 button_y += 25;
 								 flag1 = 1;
 								 temp_len += 25;
@@ -305,7 +312,7 @@ namespace Online_Exam {
 							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes5"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes5"]);
-								 Utitlity(5, x, button_y, tim);
+								 Utitlity(5, x, button_y, tim, zver);
 								 button_y += 25;
 								 flag1 = 1;
 								 temp_len += 25;
@@ -356,14 +363,17 @@ namespace Online_Exam {
 				 int z = DateTime::Compare(sessionDate, curDate);
 				 return z;
 	}
-	private: System::Void btnClick(System::Object^  sender, System::EventArgs^  e)
+	private: System::Void Handler_for_button(System::Object^  sender, System::EventArgs^  e)
 	{
-				 Button ^ btn = gcnew Button();
-				 btn = static_cast<Button^>(sender);
-				 DateTime associatedDate = static_cast<DateTime>(btn->Tag);
-				 String ^format = "yy-MM-dd HH-mm-ss";
-				 String ^newDate = associatedDate.ToString(format);
-				 MessageBox::Show(newDate);
+				 Instructions ^ins = gcnew Instructions();
+				 ins->TopMost = true;
+				 ins->ShowDialog();
+				 Point ^point = static_cast<Point^>(static_cast<Button^>(sender)->Tag);
+
+				 ExamPaper ^ep = gcnew ExamPaper(point->X, point->Y);
+				 ep->TopMost = true;
+				 ep->ShowDialog();
+				 
 	}
 private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 }

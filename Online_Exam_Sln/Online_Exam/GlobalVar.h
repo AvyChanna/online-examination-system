@@ -23,8 +23,6 @@ namespace Global_Var{
 		static String^ IITG = L"";
 		static String^ Branch = L"";
 		static String^ Designation = L"";
-		gVar() {}
-		~gVar() {}
 		static void ClearGvars()
 		{
 			Username = L"tushar";
@@ -42,6 +40,9 @@ namespace Global_Var{
 			Designation = L"";
 		}
 	};
-
+	public ref class CE_Faltu{
+	public:
+		static int createExamDone = 0;
+	};
 }
 #endif

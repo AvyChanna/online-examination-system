@@ -448,7 +448,14 @@ private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs
 			 btnCertificates->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnLogOut->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
 			 btnChangePass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
-		
+			 if (MessageBox::Show("Are you sure you want to logout?", "Confirm", MessageBoxButtons::YesNo) == ::DialogResult::Yes)
+			 {
+				 if (this->Owner != nullptr)
+				 {
+					 this->Owner->Show();
+					 this->Close();
+				 }
+			 }
 }
 
 private: System::Void btnCertificates_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -521,6 +528,9 @@ private: System::Void btnCertificates_MouseLeave(System::Object^  sender, System
 }
 
 private: System::Void btnChangePass_Click(System::Object^  sender, System::EventArgs^  e) {
+			 contentPanel->Controls->Clear();
+			 ChangePassword ^ grp = gcnew ChangePassword();
+			 contentPanel->Controls->Add(grp);
 			 btnEditProfileStudent->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnMyProfileStudent->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnUpcomingTests->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
