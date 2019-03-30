@@ -15,7 +15,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew ExamPaper(11,1));
+	Application::Run(gcnew charts("11", "tushar"));
 
 	return 0;
 }
