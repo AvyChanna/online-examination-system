@@ -239,11 +239,11 @@ namespace Online_Exam {
 				 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::Username + "'");
 				 if (Access->RecordCount == 1){
 
-					 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Username"]);
-					 lblFullNameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["FullName"]);
-					 lblEmailDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Email"]);
-					 lblPhoneDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["PhoneNo"]);
-					 lblBranchDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Branch"]);
+					 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["Username"]);
+					 lblFullNameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["FullName"]);
+					 lblEmailDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["Email"]);
+					 lblPhoneDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["PhoneNo"]);
+					 lblBranchDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["Branch"]);
 
 				 }
 	}

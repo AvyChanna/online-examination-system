@@ -65,6 +65,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::Label^  loda;
 
 
 	public:
@@ -184,6 +185,7 @@ namespace Online_Exam {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->loda = (gcnew System::Windows::Forms::Label());
 			this->commandButtonPanel->SuspendLayout();
 			this->questionPanel->SuspendLayout();
 			this->tc1->SuspendLayout();
@@ -310,6 +312,7 @@ namespace Online_Exam {
 			// questionPanel
 			// 
 			this->questionPanel->BackColor = System::Drawing::Color::White;
+			this->questionPanel->Controls->Add(this->loda);
 			this->questionPanel->Controls->Add(this->answerFlowPanel);
 			this->questionPanel->Controls->Add(this->tc1);
 			this->questionPanel->Controls->Add(this->label2);
@@ -600,6 +603,17 @@ namespace Online_Exam {
 			this->label6->Text = L"Marked for Review";
 			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
+			// loda
+			// 
+			this->loda->AutoSize = true;
+			this->loda->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->loda->Location = System::Drawing::Point(86, 276);
+			this->loda->Name = L"loda";
+			this->loda->Size = System::Drawing::Size(173, 15);
+			this->loda->TabIndex = 15;
+			this->loda->Text = L"( One or More may be correct )";
+			// 
 			// ExamPaper
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -642,13 +656,13 @@ namespace Online_Exam {
 		}
 
 	private: System::Void ExamPaper_Load(System::Object^  sender, System::EventArgs^  e) {
-				 reviewPB->BackColor = review_color;
-				 visitedPB->BackColor = visited_color;
-				 attemptedPB->BackColor = attempted_color;
-				 TotalQuestions = 0;
+			//MessageBox::Show(ExamCode.ToString() + " " + sessionNumber.ToString());
+			reviewPB->BackColor = review_color;
+			visitedPB->BackColor = visited_color;
+			attemptedPB->BackColor = attempted_color;
+			TotalQuestions = 0;
 			QuestionAns = gcnew List<List<QuestionStruc ^>^>();
 			srand(time(0));
-			ExamCode = 11;
 			OES ^Access = gcnew OES();
 			Access->ExecQuery("select * from Exam where ExamCode = " + ExamCode.ToString());
 			
@@ -733,31 +747,31 @@ namespace Online_Exam {
 				for (int j = 0; j < req; j++)
 				{
 					QuestionStruc ^ temp = gcnew QuestionStruc();
-					temp->QuestionNum = PaperQuestions[i][j];
+					temp->QuestionNum = PaperQuestions[i]->default[j];
 					
-					if (QSet->Data[i]->Questions[PaperQuestions[i][j]]->AnswerType == 0)
+					if (QSet->Data[i]->Questions[PaperQuestions[i]->default[j]]->AnswerType == 0)
 					{
 						String^ cur = "";
-						for (int k = 0; k < QSet->Data[i]->Questions[PaperQuestions[i][j]]->Answer->Count; ++k)
+						for (int k = 0; k < QSet->Data[i]->Questions[PaperQuestions[i]->default[j]]->Answer->Count; ++k)
 						{
 							cur += ",";
-							cur += Convert::ToString(QSet->Data[i]->Questions[PaperQuestions[i][j]]->Answer[k]);
+							cur += Convert::ToString(QSet->Data[i]->Questions[PaperQuestions[i]->default[j]]->Answer[k]);
 							//cur += ",";
 						}
 						temp->correctAns = cur;
 					}
 
-					else if (QSet->Data[i]->Questions[PaperQuestions[i][j]]->AnswerType == 1)
+					else if (QSet->Data[i]->Questions[PaperQuestions[i]->default[j]]->AnswerType == 1)
 					{
 						String^ cur = "";
-						cur += Convert::ToString(QSet->Data[i]->Questions[PaperQuestions[i][j]]->Answer[0]);
+						cur += Convert::ToString(QSet->Data[i]->Questions[PaperQuestions[i]->default[j]]->Answer[0]);
 						temp->correctAns = cur;
 					}
 
-					else if (QSet->Data[i]->Questions[PaperQuestions[i][j]]->AnswerType == 2)
+					else if (QSet->Data[i]->Questions[PaperQuestions[i]->default[j]]->AnswerType == 2)
 					{
 						String^ cur = "";
-						cur += Convert::ToString(QSet->Data[i]->Questions[PaperQuestions[i][j]]->Options[0]);
+						cur += Convert::ToString(QSet->Data[i]->Questions[PaperQuestions[i]->default[j]]->Options[0]);
 						temp->correctAns = cur;
 					}
 					lst->Add(temp);
@@ -780,16 +794,16 @@ namespace Online_Exam {
 					btn->Font = (gcnew System::Drawing::Font(L"Arial", 13));
 					//btn->Font = gcnew Font("Arial", 10, FontStyle::Bold);
 					//buttonFlowPanel->Controls->Add(btn);
-					btn->Tag = PaperQuestions[i][j];
+					btn->Tag = PaperQuestions[i]->default[j];
 					btn->Click += gcnew System::EventHandler(this, &ExamPaper::btnClick);
 					btnobj->Add(btn);
 				}
 				btnPaper->Add(btnobj);
 			}
 			for (Int32 i = 0; i < QSet->Data[0]->NumberOfQuestionsGiven; i++){
-				buttonFlowPanel->Controls->Add(btnPaper[0][i]);
+				buttonFlowPanel->Controls->Add(btnPaper[0]->default[i]);
 			}
-			int z = PaperQuestions[0][0];
+			int z = PaperQuestions[0]->default[0];
 			txtQuesText->Text = Convert::ToString(QSet->Data[0]->Questions[z]->Statement);
 			 
 			for (int i = 0; i < QSet->Data->Count; ++i)
@@ -813,7 +827,7 @@ namespace Online_Exam {
 
 			//*****************loading initial questions on formload******************************
 			int selInd = 0;
-			int selQues = static_cast<int>(PaperQuestions[0][0]);
+			int selQues = static_cast<int>(PaperQuestions[0]->default[0]);
 			Utility(selInd, selQues);
 
 			//******************end code**********************
@@ -832,11 +846,11 @@ namespace Online_Exam {
 			buttonFlowPanel->Controls->Add(btn);
 			btn->Tag = PaperQuestions[SelInd][i];
 			btn->Click += gcnew System::EventHandler(this, &ExamPaper::btnClick);*/
-			buttonFlowPanel->Controls->Add(btnPaper[selInd][i]);
+			buttonFlowPanel->Controls->Add(btnPaper[selInd]->default[i]);
 			//loading question on tabselect
 			
 		}
-		int selQues = static_cast<int>(PaperQuestions[selInd][0]);
+		int selQues = static_cast<int>(PaperQuestions[selInd]->default[0]);
 		Utility(selInd, selQues);
 
 	}
@@ -869,19 +883,19 @@ namespace Online_Exam {
 						 btnPaper[sectionNo][curQuesNo - 1] = btn;
 					 }
 				 }*/
-				 if (attempted[sectionNo][curQuesNo - 1] == 1)
+				 if (attempted[sectionNo]->default[curQuesNo - 1] == 1)
 				 {
 					 Button ^ btn = gcnew Button();
-					 btn = btnPaper[sectionNo][curQuesNo - 1];
+					 btn = btnPaper[sectionNo]->default[curQuesNo - 1];
 					 btn->BackColor = attempted_color;
-					 btnPaper[sectionNo][curQuesNo - 1] = btn;
+					 btnPaper[sectionNo]->default[curQuesNo - 1] = btn;
 				 }
 				 else
 				 {
 					 Button ^ btn = gcnew Button();
-					 btn = btnPaper[sectionNo][curQuesNo - 1];
+					 btn = btnPaper[sectionNo]->default[curQuesNo - 1];
 					 btn->BackColor = visited_color;
-					 btnPaper[sectionNo][curQuesNo - 1] = btn;
+					 btnPaper[sectionNo]->default[curQuesNo - 1] = btn;
 				 }
 
 				 /*if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo - 1]]->AnswerType == 1)
@@ -929,18 +943,19 @@ namespace Online_Exam {
 				 //Code for options ********************************************
 				 //std::cout << QSet->Data[selInd]->Questions[selQues]->AnswerType;
 				 //std::cout << std::endl;
-				 if (review[selInd][numQues - 1] == 0)
+				 if (review[selInd]->default[numQues - 1] == 0)
 				 {
-					 btnPaper[selInd][numQues - 1]->BackColor = visited_color;
+					 btnPaper[selInd]->default[numQues - 1]->BackColor = visited_color;
 					 Color_Utility(selInd, numQues);
 				 }
-				 if (review[selInd][numQues - 1] == 0) btnReview->Text = "Mark for Review";
+				 if (review[selInd]->default[numQues - 1] == 0) btnReview->Text = "Mark for Review";
 				 else btnReview->Text = "Unmark";
-				 visited[selInd][numQues - 1] = 1;
+				 visited[selInd]->default[numQues - 1] = 1;
 				 //Code for MCQ's
+				 loda->Visible = false;
 				 if (QSet->Data[selInd]->Questions[selQues]->AnswerType == 0)
 				 {
-
+					 loda->Visible = true;
 					 int tot = QSet->Data[selInd]->Questions[selQues]->Options->Count;
 					 int numOptions = QSet->Data[selInd]->Questions[selQues]->Options->Count;
 					  checkList = gcnew  List<CheckBox^>();
@@ -953,7 +968,7 @@ namespace Online_Exam {
 						 chk->Font = (gcnew System::Drawing::Font(L"Arial", 11,FontStyle::Regular));
 						 checkList->Add(chk);
 					 }
-					 String ^attemptedAns = Convert::ToString(QuestionAns[selInd][numQues-1]->attemptAns);
+					 String ^attemptedAns = Convert::ToString(QuestionAns[selInd]->default[numQues - 1]->attemptAns);
 					 Console::WriteLine(attemptedAns);
 					 Dictionary<int, int>^ dict = gcnew Dictionary<int, int>();
 					 for (int i = 0; i < tot; ++i) dict->Add(i, 1);
@@ -1003,7 +1018,7 @@ namespace Online_Exam {
 					
 					 rd1->Text = "TRUE";
 					 rd2->Text = "FALSE";
-					 String ^attemptedAns = Convert::ToString(QuestionAns[selInd][numQues - 1]->attemptAns);
+					 String ^attemptedAns = Convert::ToString(QuestionAns[selInd]->default[numQues - 1]->attemptAns);
 					 if (attemptedAns->Length != 0)
 					 {
 						 int num = static_cast<int>(Convert::ToInt32(attemptedAns));
@@ -1028,7 +1043,7 @@ namespace Online_Exam {
 				 {
 					 answerText = gcnew TextBox();
 					 answerText->Font = gcnew System::Drawing::Font(L"Arial", 11, FontStyle::Regular);
-					 String ^attemptedAns = Convert::ToString(QuestionAns[selInd][numQues - 1]->attemptAns);
+					 String ^attemptedAns = Convert::ToString(QuestionAns[selInd]->default[numQues - 1]->attemptAns);
 					 if (attemptedAns->Length != 0)
 					 {
 						 answerText->Text = attemptedAns;
@@ -1039,7 +1054,7 @@ namespace Online_Exam {
 					 answerText->Height = 50;
 					 answerFlowPanel->Controls->Add(answerText);
 				 }
-				 if (review[selInd][numQues - 1] == 0)
+				 if (review[selInd]->default[numQues - 1] == 0)
 				 {
 					 Color_Utility(selInd, numQues);
 				 }
@@ -1102,7 +1117,7 @@ private: System::Void btnNext_Click(System::Object^  sender, System::EventArgs^ 
 			 if (curNum != QSet->Data[sectNo]->NumberOfQuestionsGiven)
 			 {
 				 lblQuesNum->Text = Convert::ToString(curNum+1);
-				 nextQuesNo = static_cast<int>(btnPaper[sectNo][curNum]->Tag);
+				 nextQuesNo = static_cast<int>(btnPaper[sectNo]->default[curNum]->Tag);
 				 //loading question into textbox
 				 Utility(sectNo, nextQuesNo);
 				 //txtQuesText->Text = Convert::ToString(QSet->Data[sectNo]->Questions[nextQuesNo]->Statement);
@@ -1117,7 +1132,7 @@ private: System::Void btnPrev_Click(System::Object^  sender, System::EventArgs^ 
 			 if (curNum != 1)
 			 {
 				 lblQuesNum->Text = Convert::ToString(curNum - 1);
-				 nextQuesNo = static_cast<int>(btnPaper[sectNo][curNum - 2]->Tag);
+				 nextQuesNo = static_cast<int>(btnPaper[sectNo]->default[curNum - 2]->Tag);
 				 //loading question into textbox
 				 Utility(sectNo, nextQuesNo);
 			 }
@@ -1126,12 +1141,8 @@ private: System::Void btnEndTest_Click(System::Object^  sender, System::EventArg
 			 if (MessageBox::Show("Are you sure you want to end the exam?", "Ending The Exam", MessageBoxButtons::YesNo) == ::DialogResult::Yes)
 			 {
 				 endTest_Utility();
+				 examTimer->Stop();
 			 }
-			 else
-			 {
-
-			 }
-
 			 //this->Close();
             
 }
@@ -1144,7 +1155,7 @@ private: System::Void btnSaveResponse_Click(System::Object^  sender, System::Eve
 			 int sectionNo = tc1->SelectedIndex;
 			 //code for options
 			 
-			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo-1]]->AnswerType == 0)
+			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo]->default[curQuesNo - 1]]->AnswerType == 0)
 			 {
 				 //std::cout << "curQuesNo is " << curQuesNo << std::endl;
 				 String^ temp = "";
@@ -1162,17 +1173,17 @@ private: System::Void btnSaveResponse_Click(System::Object^  sender, System::Eve
 					 //code for checking attempts
 					 if (flag == 1)
 					 {
-						 if (attempted[sectionNo][curQuesNo - 1] == 0)
+						 if (attempted[sectionNo]->default[curQuesNo - 1] == 0)
 						 {
 							 TotalAttempted++;
-							 attempted[sectionNo][curQuesNo - 1] = 1;
+							 attempted[sectionNo]->default[curQuesNo - 1] = 1;
 						 }
 				
 					 }
 
 				 }
 				 
-			 QuestionAns[sectionNo][curQuesNo - 1]->attemptAns = temp;
+				 QuestionAns[sectionNo]->default[curQuesNo - 1]->attemptAns = temp;
 				 
  			 }
 
@@ -1180,7 +1191,7 @@ private: System::Void btnSaveResponse_Click(System::Object^  sender, System::Eve
 
 			 //Code for True/False
 
-			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo - 1]]->AnswerType == 1)
+			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo]->default[curQuesNo - 1]]->AnswerType == 1)
 			 {
 				 //std::cout << "curQuesNo is " << curQuesNo << std::endl;
 				 String^ temp = "";
@@ -1189,14 +1200,14 @@ private: System::Void btnSaveResponse_Click(System::Object^  sender, System::Eve
 				
 					 if (rd1->Checked) temp = "1";
 					 else temp = "0";
-					 QuestionAns[sectionNo][curQuesNo - 1]->attemptAns = temp;
+					 QuestionAns[sectionNo]->default[curQuesNo - 1]->attemptAns = temp;
 
 					 if (flag == 1)
 					 {
-						 if (attempted[sectionNo][curQuesNo - 1] == 0)
+						 if (attempted[sectionNo]->default[curQuesNo - 1] == 0)
 						 {
 							 TotalAttempted++;
-							 attempted[sectionNo][curQuesNo - 1] = 1;
+							 attempted[sectionNo]->default[curQuesNo - 1] = 1;
 						 }
 
 					 }
@@ -1207,24 +1218,24 @@ private: System::Void btnSaveResponse_Click(System::Object^  sender, System::Eve
 
 			 //code for FITB
 				
-			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo - 1]]->AnswerType == 2)
+			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo]->default[curQuesNo - 1]]->AnswerType == 2)
 			 {
 				 answerText->Text = answerText->Text->Trim();
-				 QuestionAns[sectionNo][curQuesNo - 1]->attemptAns = answerText->Text;
+				 QuestionAns[sectionNo]->default[curQuesNo - 1]->attemptAns = answerText->Text;
 
 				 if (answerText->Text->Length != 0)
 				 {
-					 if (attempted[sectionNo][curQuesNo - 1] == 0)
+					 if (attempted[sectionNo]->default[curQuesNo - 1] == 0)
 					 {
 						 TotalAttempted++;
-						 attempted[sectionNo][curQuesNo - 1] = 1;
+						 attempted[sectionNo]->default[curQuesNo - 1] = 1;
 					 }
 
 				 }
 			 }
 				
 			 //Code ends for FITB
-			 if (review[sectionNo][curQuesNo - 1] == 0)
+			 if (review[sectionNo]->default[curQuesNo - 1] == 0)
 			 {
 				 Color_Utility(sectionNo, curQuesNo);
 			 }
@@ -1248,13 +1259,13 @@ private: System::Void endTest_Utility()
 					 sectionStr += (Environment::NewLine);
 					 sectionStr += i.ToString();
 					 sectionStr += ".";
-					 sectionStr += PaperQuestions[i][j].ToString();
+					 sectionStr += PaperQuestions[i]->default[j].ToString();
 
 					 sectionAttempt += (Environment::NewLine);
-					 sectionAttempt += QuestionAns[i][j]->attemptAns;
+					 sectionAttempt += QuestionAns[i]->default[j]->attemptAns;
 
 					 sectionCorrect += (Environment::NewLine);
-					 sectionCorrect += QuestionAns[i][j]->correctAns;
+					 sectionCorrect += QuestionAns[i]->default[j]->correctAns;
 
 
 				 }
@@ -1298,11 +1309,11 @@ private: System::Void endTest_Utility()
 			 if (Access1->RecordCount)
 			 {
 				 fullMarks = Convert::ToInt32(Access1->DBDT->Rows[0]->default["MaxScore"]);
-				 StudAppeared = (static_cast<int>(Convert::ToInt32(Access1->DBDT->Rows[0]["StudAppeared"])));
-				 MaxSess = Convert::ToString(Access1->DBDT->Rows[0]["MaxSess"]);
-				 MaxSect = Convert::ToString(Access1->DBDT->Rows[0]["MaxSect"]);
-				 MinSect = Convert::ToString(Access1->DBDT->Rows[0]["MinSect"]);
-				 AvgSect = Convert::ToString(Access1->DBDT->Rows[0]["AvgSect"]);
+				 StudAppeared = (static_cast<int>(Convert::ToInt32(Access1->DBDT->Rows[0]->default["StudAppeared"])));
+				 MaxSess = Convert::ToString(Access1->DBDT->Rows[0]->default["MaxSess"]);
+				 MaxSect = Convert::ToString(Access1->DBDT->Rows[0]->default["MaxSect"]);
+				 MinSect = Convert::ToString(Access1->DBDT->Rows[0]->default["MinSect"]);
+				 AvgSect = Convert::ToString(Access1->DBDT->Rows[0]->default["AvgSect"]);
 				 if (MaxSect->Length != 0 && MinSect->Length != 0){
 					 MaxSessStr = MaxSess->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
 					 MaxSectStr = MaxSect->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
@@ -1356,8 +1367,8 @@ private: System::Void endTest_Utility()
 				 int questionFullMark = QSet->Data[i]->Weight;
 				 for (int j = 0; j < QSet->Data[i]->NumberOfQuestionsGiven; ++j)
 				 {
-					 String^ t1 = Convert::ToString(QuestionAns[i][j]->attemptAns);
-					 String^ t2 = Convert::ToString(QuestionAns[i][j]->correctAns);
+					 String^ t1 = Convert::ToString(QuestionAns[i]->default[j]->attemptAns);
+					 String^ t2 = Convert::ToString(QuestionAns[i]->default[j]->correctAns);
 					 Console::WriteLine("Question "+j.ToString()+ " Attempted:" + t1->ToUpper() + " Correct:" + t2->ToUpper() + " -->Score:");
 					 if (t1->Length == 0){
 						 UnattemptSect[i]++;
@@ -1484,23 +1495,23 @@ private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^
 			 int sectionNo = tc1->SelectedIndex;
 			 //code for options
 			 
-			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo - 1]]->AnswerType == 0)
+			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo]->default[curQuesNo - 1]]->AnswerType == 0)
 			 {
 				 for (int i = 0; i < checkList->Count; i++) checkList[i]->Checked = false;
-				 QuestionAns[sectionNo][curQuesNo - 1]->attemptAns = "";
+				 QuestionAns[sectionNo]->default[curQuesNo - 1]->attemptAns = "";
 			 }
 
-			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo - 1]]->AnswerType == 1)
+			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo]->default[curQuesNo - 1]]->AnswerType == 1)
 			 {
 				 rd1->Checked = false;
 				 rd2->Checked = false;
-				 QuestionAns[sectionNo][curQuesNo - 1]->attemptAns = "";
+				 QuestionAns[sectionNo]->default[curQuesNo - 1]->attemptAns = "";
 			 }
 
-			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo - 1]]->AnswerType == 2)
+			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo]->default[curQuesNo - 1]]->AnswerType == 2)
 			 {
 				 answerText->Clear();
-				 QuestionAns[sectionNo][curQuesNo - 1]->attemptAns = "";
+				 QuestionAns[sectionNo]->default[curQuesNo - 1]->attemptAns = "";
 			 }
 
 			 //Code ends for FITB
@@ -1508,13 +1519,13 @@ private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^
 
 			 //updating attempted list
 
-			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo - 1]]->AnswerType == 0)
+			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo]->default[curQuesNo - 1]]->AnswerType == 0)
 			 {				
 				 
-					if (attempted[sectionNo][curQuesNo - 1] == 1)
+				 if (attempted[sectionNo]->default[curQuesNo - 1] == 1)
 					{
 						TotalAttempted--;
-						attempted[sectionNo][curQuesNo - 1] = 0;
+						attempted[sectionNo]->default[curQuesNo - 1] = 0;
 					}
 
 			 }
@@ -1523,26 +1534,26 @@ private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^
 
 			 //Code for True/False
 
-			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo - 1]]->AnswerType == 1)
+			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo]->default[curQuesNo - 1]]->AnswerType == 1)
 			 {
 				 
-				 if (attempted[sectionNo][curQuesNo - 1] == 1)
+				 if (attempted[sectionNo]->default[curQuesNo - 1] == 1)
 				 {
 					 TotalAttempted--;
-					 attempted[sectionNo][curQuesNo - 1] = 0;
+					 attempted[sectionNo]->default[curQuesNo - 1] = 0;
 				 }
 
 			 }
 			 //code for FITB
 
-			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo][curQuesNo - 1]]->AnswerType == 2)
+			 if (QSet->Data[sectionNo]->Questions[PaperQuestions[sectionNo]->default[curQuesNo - 1]]->AnswerType == 2)
 			 {
 				 
 				 
-					 if (attempted[sectionNo][curQuesNo - 1] == 1)
+				 if (attempted[sectionNo]->default[curQuesNo - 1] == 1)
 					 {
 						 TotalAttempted--;
-						 attempted[sectionNo][curQuesNo - 1] = 0;
+						 attempted[sectionNo]->default[curQuesNo - 1] = 0;
 					 }
 			 }
 
@@ -1553,7 +1564,7 @@ private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^
 			 lblAttempted->Text += "/";
 			 lblAttempted->Text += Convert::ToString(TotalQuestions);
 
-			 if (review[sectionNo][curQuesNo - 1] == 0)
+			 if (review[sectionNo]->default[curQuesNo - 1] == 0)
 			 {
 				 Color_Utility(sectionNo, curQuesNo);
 			 }
@@ -1564,19 +1575,19 @@ private: System::Void btnReview_Click(System::Object^  sender, System::EventArgs
 			 int::TryParse(lblQuesNum->Text, curQuesNo);
 			 int sectionNo = tc1->SelectedIndex;
 
-			 if (review[sectionNo][curQuesNo - 1] == 0)
+			 if (review[sectionNo]->default[curQuesNo - 1] == 0)
 			 {
-				 review[sectionNo][curQuesNo - 1] = 1;
+				 review[sectionNo]->default[curQuesNo - 1] = 1;
 				 Button ^ btn = gcnew Button();
-				 btn = btnPaper[sectionNo][curQuesNo - 1];
+				 btn = btnPaper[sectionNo]->default[curQuesNo - 1];
 				 btn->BackColor = review_color;
 				 btnReview->Text = "Unmark";
 				 //btn->FlatAppearance->BorderColor = Color::DarkCyan;
-				 btnPaper[sectionNo][curQuesNo - 1] = btn;
+				 btnPaper[sectionNo]->default[curQuesNo - 1] = btn;
 			 }
 			 else
 			 {
-				 review[sectionNo][curQuesNo - 1] = 0;
+				 review[sectionNo]->default[curQuesNo - 1] = 0;
 				 btnReview->Text = "Mark For review";
 				 Color_Utility(sectionNo, curQuesNo);
 			 }

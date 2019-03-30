@@ -103,7 +103,7 @@ namespace Online_Exam {
 				 Access->ExecQuery("Select * from Users where Username = '" + gVar::Username + "'");
 				 if (Access->RecordCount > 0)
 				 {
-					 String ^grp = Convert::ToString(Access->DBDT->Rows[0]["Groups"]);
+					 String ^grp = Convert::ToString(Access->DBDT->Rows[0]->default["Groups"]);
 					 int len = grp->Length;
 					 int y = 100;
 					 for (int i = 0; i < len - 1;)
@@ -127,7 +127,7 @@ namespace Online_Exam {
 							 lbl->ForeColor = System::Drawing::Color::Black;
 							 lbl->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 							 lbl->TabIndex = 0;
-							 lbl->Text = Convert::ToString(Access1->DBDT->Rows[0]["GroupName"]);
+							 lbl->Text = Convert::ToString(Access1->DBDT->Rows[0]->default["GroupName"]);
 							 Button ^ btn = gcnew Button();
 							 btn->Location = Point(200, y);
 							 btn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
@@ -167,7 +167,7 @@ namespace Online_Exam {
 					 Access->ExecQuery("Select * from Users where Username = '" + gVar::Username + "'");
 					 if (Access->RecordCount > 0)
 					 {
-						 String ^ str = Convert::ToString(Access->DBDT->Rows[0]["Groups"]);
+						 String ^ str = Convert::ToString(Access->DBDT->Rows[0]->default["Groups"]);
 						 int end = a+1;
 						 while (str[end] != '-')
 						 {

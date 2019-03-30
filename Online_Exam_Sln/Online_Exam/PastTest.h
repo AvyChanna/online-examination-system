@@ -100,7 +100,7 @@ namespace Online_Exam {
 
 					 for (int i = 0; i < Access->RecordCount; i++){
 						 OES ^ past = gcnew OES();
-						 String ^ cur = Convert::ToString(Access->DBDT->Rows[i]["ExamCode"]);
+						 String ^ cur = Convert::ToString(Access->DBDT->Rows[i]->default["ExamCode"]);
 						 past->ExecQuery("SELECT * FROM Exam WHERE ExamCode = " + cur );
 
 						 
@@ -143,8 +143,8 @@ namespace Online_Exam {
 						 lblExam->Height = 20;
 						 lblExam->Text = "Exam Name: ";
 						 lblProf->Text = "Set By: ";
-						 lblExamName->Text = Convert::ToString(past->DBDT->Rows[0]["ExamName"]);
-						 lblProfName->Text = Convert::ToString(past->DBDT->Rows[0]["Professor"]);
+						 lblExamName->Text = Convert::ToString(past->DBDT->Rows[0]->default["ExamName"]);
+						 lblProfName->Text = Convert::ToString(past->DBDT->Rows[0]->default["Professor"]);
 						 /*border->BackColor = Color::White;
 						 lblProfName->BackColor = Color::Black;
 						 lblExamName->BackColor = Color::Black;

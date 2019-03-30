@@ -376,13 +376,13 @@ namespace Online_Exam {
 				 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::Username + "'");
 				 if (Access->RecordCount == 1){
 
-					txtUsername->Text = Convert::ToString(Access->DBDT->Rows[0]["Username"]);
-					 txtFullName->Text = Convert::ToString(Access->DBDT->Rows[0]["FullName"]);
-					 txtRoll->Text = Convert::ToString(Access->DBDT->Rows[0]["RollNo"]);
-					 txtEmail->Text = Convert::ToString(Access->DBDT->Rows[0]["Email"]);
-					 txtPhone->Text = Convert::ToString(Access->DBDT->Rows[0]["PhoneNo"]);
-					 txtBranch->Text = Convert::ToString(Access->DBDT->Rows[0]["Branch"]);
-					 String ^s = Convert::ToString(Access->DBDT->Rows[0]["IITG"]);
+					 txtUsername->Text = Convert::ToString(Access->DBDT->Rows[0]->default["Username"]);
+					 txtFullName->Text = Convert::ToString(Access->DBDT->Rows[0]->default["FullName"]);
+					 txtRoll->Text = Convert::ToString(Access->DBDT->Rows[0]->default["RollNo"]);
+					 txtEmail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["Email"]);
+					 txtPhone->Text = Convert::ToString(Access->DBDT->Rows[0]->default["PhoneNo"]);
+					 txtBranch->Text = Convert::ToString(Access->DBDT->Rows[0]->default["Branch"]);
+					 String ^s = Convert::ToString(Access->DBDT->Rows[0]->default["IITG"]);
 					 if (s->CompareTo("True") == 0)
 					 {
 						 txtIITG->Text = "Yes";

@@ -1,6 +1,7 @@
 #pragma once
 #include"Instructions.h"
 #include"ExamPaper.h"
+#include"Database.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -8,7 +9,7 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 using namespace System::Globalization;
-
+using namespace Database;
 
 namespace Online_Exam {
 
@@ -181,12 +182,12 @@ namespace Online_Exam {
 							 lblProf->Text = "Set By: ";
 							 lblExamLength->Text = "Exam Duration: ";
 							 lblGroup->Text = "Eligible Groups: ";
-							 lblExamName->Text = Convert::ToString(Access->DBDT->Rows[i]["ExamName"]);
-							 lblProfName->Text = Convert::ToString(Access->DBDT->Rows[i]["Professor"]);
-							 String^ str1 = Convert::ToString(Access->DBDT->Rows[i]["ExamLength"]);
+							 lblExamName->Text = Convert::ToString(Access->DBDT->Rows[i]->default["ExamName"]);
+							 lblProfName->Text = Convert::ToString(Access->DBDT->Rows[i]->default["Professor"]);
+							 String^ str1 = Convert::ToString(Access->DBDT->Rows[i]->default["ExamLength"]);
 							 str1 += " Minutes";
 							 lblExamLengthVal->Text = str1;
-							 String ^ str2 = Convert::ToString(Access->DBDT->Rows[i]["GroupID"]);
+							 String ^ str2 = Convert::ToString(Access->DBDT->Rows[i]->default["GroupID"]);
 							 //Console::WriteLine(str2);
 							 String ^ ans1 = "";
 							 String ^ curtemp = "";
@@ -197,7 +198,7 @@ namespace Online_Exam {
 									 //Console::WriteLine(curtemp);
 									 OES ^ tempquer = gcnew OES();
 									 tempquer->ExecQuery("Select * From Groups WHERE GroupID = " + Convert::ToInt32(curtemp));
-									 ans1 += Convert::ToString(tempquer->DBDT->Rows[0]["GroupName"]);
+									 ans1 += Convert::ToString(tempquer->DBDT->Rows[0]->default["GroupName"]);
 									 ans1 += ", ";
 									 curtemp = "";
 								 }
@@ -209,7 +210,7 @@ namespace Online_Exam {
 							 //Console::WriteLine(curtemp);
 							 OES ^ tempquer = gcnew OES();
 							 tempquer->ExecQuery("Select * From Groups WHERE GroupID = " + Convert::ToInt32(curtemp));
-							 ans1 += Convert::ToString(tempquer->DBDT->Rows[0]["GroupName"]);
+							 ans1 += Convert::ToString(tempquer->DBDT->Rows[0]->default["GroupName"]);
 							 lblGroupsList->Text = ans1;
 							 //Console::WriteLine(ans1);
 							 //Properties of labels
@@ -277,41 +278,41 @@ namespace Online_Exam {
 							 int button_y = y+10;
 							 int flag1 = 0;
 							 int temp_len = 10;
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes1"])) >= 0)
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes1"])) >= 0)
 							 {
-								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes1"]);
+								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes1"]);
 								 Utitlity(1, x, button_y,tim, zver);
 								 button_y += 25;
 								 flag1 = 1;
 								 temp_len += 25;
 							 }
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes2"])) >= 0)
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes2"])) >= 0)
 							 {
-								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes2"]);
+								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes2"]);
 								 Utitlity(2, x, button_y, tim, zver);
 								 button_y += 25;
 								 flag1 = 1;
 								 temp_len += 25;
 							 }
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes3"])) >= 0)
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes3"])) >= 0)
 							 {
-								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes3"]);
+								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes3"]);
 								 Utitlity(3, x, button_y, tim, zver);
 								 button_y += 25;
 								 flag1= 1;
 								 temp_len += 25;
 							 }
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes4"])) >= 0)
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes4"])) >= 0)
 							 {
-								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes4"]);
+								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes4"]);
 								 Utitlity(4, x, button_y, tim, zver);
 								 button_y += 25;
 								 flag1 = 1;
 								 temp_len += 25;
 							 }
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes5"])) >= 0)
+							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes5"])) >= 0)
 							 {
-								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]["StartTimeSes5"]);
+								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes5"]);
 								 Utitlity(5, x, button_y, tim, zver);
 								 button_y += 25;
 								 flag1 = 1;
@@ -365,14 +366,21 @@ namespace Online_Exam {
 	}
 	private: System::Void Handler_for_button(System::Object^  sender, System::EventArgs^  e)
 	{
+				 /////////////////
+				 Point ^point = static_cast<Point^>(static_cast<Button^>(sender)->Tag);
+				 OES ^Access1 = gcnew OES();
+				 Access1->ExecQuery("Select StartTimeSes1, StartTimeSes2, StartTimeSes3, StartTimeSes4, StartTimeSes15, ExamLength from Exam where ExamCode = " + (point->X).ToString());
+				 //////////////////
+
 				 Instructions ^ins = gcnew Instructions();
 				 ins->TopMost = true;
 				 ins->ShowDialog();
-				 Point ^point = static_cast<Point^>(static_cast<Button^>(sender)->Tag);
 
 				 ExamPaper ^ep = gcnew ExamPaper(point->X, point->Y);
 				 ep->TopMost = true;
 				 ep->ShowDialog();
+				 EventArgs ^a;
+				 UpcomingTests_Load("a", a);
 				 
 	}
 private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {

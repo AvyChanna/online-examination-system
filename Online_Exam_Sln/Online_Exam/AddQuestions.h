@@ -732,12 +732,33 @@ private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^ 
 
 			if(data[i][j]->type == 0)
 			{
+				int m = data[i][j]->lc->Count + data[i][j]->li->Count;
+				array<int> ^arr = gcnew array<int>(m);
 				for (int k = 0; k < data[i][j]->lc->Count; k++)
-					jsq->Answer->Add(k);
+					arr[k] = 1;
+				int l = data[i][j]->lc->Count;
+				for (int k = 0; k < data[i][j]->li->Count; k++)
+					arr[l + k] = -1;
 				for (int k = 0; k < data[i][j]->lc->Count; k++)
 					jsq->Options->Add(data[i][j]->lc[k]);
 				for (int k = 0; k < data[i][j]->li->Count; k++)
 					jsq->Options->Add(data[i][j]->li[k]);
+				int temp1;
+				int a;
+				for (int k = 0; k < m; k++)
+				{
+					srand(time(0));
+					a = rand() % m;
+					temp1 = arr[k];
+					arr[k] = arr[a];
+					arr[a] = temp1;
+					String ^ temp2 = jsq->Options[i];
+					jsq->Options[i] = jsq->Options[k];
+					jsq->Options[k] = temp2;
+				}
+				for (int k = 0; k < m;k++)
+				if (arr[k] == 1)
+					jsq->Answer->Add(k);
 			}
 			else if (data[i][j]->type == 1)
 			{

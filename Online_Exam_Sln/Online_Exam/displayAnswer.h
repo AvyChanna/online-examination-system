@@ -455,9 +455,9 @@ private: System::Void displayAnswer_Load(System::Object^  sender, System::EventA
 
 			 array<String^>^delimiters1 = { "," };
 
-			 MaxSect = Convert::ToString(Access->DBDT->Rows[0]["MaxSect"]);
-			 MinSect = Convert::ToString(Access->DBDT->Rows[0]["MinSect"]);
-			 AvgSect = Convert::ToString(Access->DBDT->Rows[0]["AvgSect"]);
+			 MaxSect = Convert::ToString(Access->DBDT->Rows[0]->default["MaxSect"]);
+			 MinSect = Convert::ToString(Access->DBDT->Rows[0]->default["MinSect"]);
+			 AvgSect = Convert::ToString(Access->DBDT->Rows[0]->default["AvgSect"]);
 			 if (MaxSect->Length != 0 && MinSect->Length != 0){
 				 MaxSectStr = MaxSect->Split(delimiters1, StringSplitOptions::RemoveEmptyEntries);
 				 MinSectStr = MinSect->Split(delimiters1, StringSplitOptions::RemoveEmptyEntries);
