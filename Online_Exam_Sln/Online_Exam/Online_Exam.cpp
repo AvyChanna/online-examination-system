@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "Login.h"
 #include"displayAnswer.h"
+#include "ExamPaper.h"
 using namespace Online_Exam;
 
 [STAThreadAttribute]
@@ -13,7 +14,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew StudentForm());
+	Application::Run(gcnew ExamPaper(11,1));
 
 	return 0;
 }

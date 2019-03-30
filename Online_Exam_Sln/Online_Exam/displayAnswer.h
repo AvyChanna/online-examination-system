@@ -1,5 +1,3 @@
-//TO DO: Normalized Score Calc
-
 #pragma once
 #include"Database.h"
 #include"json.h"
@@ -516,7 +514,7 @@ private: System::Void displayAnswer_Load(System::Object^  sender, System::EventA
 			 }*/
 
 			 lblTotScore->Text = Convert::ToString(Access1->DBDT->Rows[0]->default["ObtainedMarks"]);
-			 //TO DO: Normalized Score Calc
+			 lblNormScore->Text = Convert::ToString(Access1->DBDT->Rows[0]->default["NormalizedScore"]);
 
 			 for (int i = 0; i < QSet->Data->Count; ++i)
 			 {

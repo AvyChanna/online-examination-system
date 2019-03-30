@@ -23,6 +23,7 @@ namespace Online_Exam {
 	{
 	public:
 		Int32 ExamCode;
+		Int32 sessionNumber;
 		Int32 MinRem;	//In minutes
 		JsonSerializerSettings ^s;
 		JExam^ QSet;
@@ -37,7 +38,7 @@ namespace Online_Exam {
 		RadioButton ^rd2;
 		TextBox ^ answerText;
 		int obtainedMarks;
-		int fullMarks;
+		Int32 fullMarks;
 		String^ sectionMark;
 		List<List<QuestionStruc ^>^>^ QuestionAns;
 		String^ questionStr;
@@ -77,10 +78,11 @@ namespace Online_Exam {
 
 
 			 Int32 SecRem;
-		ExamPaper(int ExCode)
+		ExamPaper(Int32 ExCode,Int32 sesNumber)
 		{
 			InitializeComponent();
 			ExamCode = ExCode;
+			sessionNumber = sesNumber;
 			TotalAttempted = 0;
 			fullMarks = 0;
 			
@@ -1272,6 +1274,12 @@ private: System::Void endTest_Utility()
 
 			 OES ^Access1 = gcnew OES();
 			 Access1->ExecQuery("Select * from Exam where ExamCode = " + ExamCode.ToString());
+			 
+			 Int32 totSess = Convert::ToInt32(Access1->DBDT->Rows[0]->default["NumSessions"]);
+			 String^ MaxSess = "";
+			 array<String ^> ^MaxSessStr = gcnew array<String^>(totSess);
+			 List<int>^ MaxSessList = gcnew List<int>();
+			 
 			 String^ MaxSect = "";
 			 array<String ^> ^MaxSectStr = gcnew array<String^>(QSet->Data->Count);
 			 List<int>^ MaxSectList = gcnew List<int>();
@@ -1289,14 +1297,21 @@ private: System::Void endTest_Utility()
 
 			 if (Access1->RecordCount)
 			 {
+				 fullMarks = Convert::ToInt32(Access1->DBDT->Rows[0]->default["MaxScore"]);
 				 StudAppeared = (static_cast<int>(Convert::ToInt32(Access1->DBDT->Rows[0]["StudAppeared"])));
+				 MaxSess = Convert::ToString(Access1->DBDT->Rows[0]["MaxSess"]);
 				 MaxSect = Convert::ToString(Access1->DBDT->Rows[0]["MaxSect"]);
 				 MinSect = Convert::ToString(Access1->DBDT->Rows[0]["MinSect"]);
 				 AvgSect = Convert::ToString(Access1->DBDT->Rows[0]["AvgSect"]);
 				 if (MaxSect->Length != 0 && MinSect->Length != 0){
+					 MaxSessStr = MaxSess->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
 					 MaxSectStr = MaxSect->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
 					 MinSectStr = MinSect->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
 					 AvgSectStr = AvgSect->Split(delimiters, StringSplitOptions::RemoveEmptyEntries);
+					 for (int i = 0; i < MaxSessStr->Length; i++){
+						 MaxSessList->Add(static_cast<int>(Convert::ToInt32(MaxSessStr[i])));
+					 }
+					 
 					 for (int i = 0; i < MaxSectStr->Length; ++i)
 					 {
 						 try{
@@ -1309,6 +1324,13 @@ private: System::Void endTest_Utility()
 						 }
 						 //Console::WriteLine(MaxSect);
 						 //std::cout << MaxSectList[i] << "\n";
+					 }
+				 }
+				 else{
+					 Console::WriteLine("Success");
+					 for (int i = 0; i < totSess; i++){
+						 MaxSessStr[i] = "0";
+						 MaxSessList->Add(0);
 					 }
 				 }
 				
@@ -1337,7 +1359,6 @@ private: System::Void endTest_Utility()
 					 String^ t1 = Convert::ToString(QuestionAns[i][j]->attemptAns);
 					 String^ t2 = Convert::ToString(QuestionAns[i][j]->correctAns);
 					 Console::WriteLine("Question "+j.ToString()+ " Attempted:" + t1->ToUpper() + " Correct:" + t2->ToUpper() + " -->Score:");
-					 fullMarks += sectionScore;
 					 if (t1->Length == 0){
 						 UnattemptSect[i]++;
 						 Console::WriteLine("0\n");
@@ -1373,15 +1394,28 @@ private: System::Void endTest_Utility()
 
 				 
 			 }
+			 //Max per session Recalculation
+			 if (obtainedMarks > MaxSessList[sessionNumber - 1]){
+				 MaxSessList[sessionNumber - 1] = obtainedMarks;
+				 MaxSessStr[sessionNumber - 1] = obtainedMarks.ToString();
+			 }
+			 double Percentage = (static_cast<double>(obtainedMarks) / static_cast<double>(fullMarks)) * 100;
+			 int Passed = 0;
+			 if (Percentage > static_cast<double>(Convert::ToInt32(Access1->DBDT->Rows[0]->default["PassPercentage"])))
+				 Passed = 1;
 
 			 StudAppeared++;
+			 MaxSess = String::Join(",", MaxSessStr);
 			 MaxSect = String::Join(",", MaxSectStr);
 			 MinSect = String::Join(",", MinSectStr);
 			 AvgSect = String::Join(",", AvgSectStr);
+			 MaxSess = "," + MaxSess;
 			 MaxSect = "," + MaxSect;
 			 MinSect = "," + MinSect;
 			 AvgSect = "," + AvgSect;
-			 Access1->ExecQuery("Update Exam set MaxSect = '" + MaxSect + "', MinSect = '" + MinSect + "', AvgSect = '" + AvgSect + "', StudAppeared = " + StudAppeared.ToString() + " Where ExamCode = " + ExamCode.ToString());
+			 Access1->ExecQuery("Update Exam set MaxSect = '" + MaxSect + "', MinSect = '" + MinSect + "', AvgSect = '" + AvgSect + "', StudAppeared = " + StudAppeared.ToString() + ", MaxSess = '" + MaxSess + "' Where ExamCode = " + ExamCode.ToString());
+
+			
 
 
 			 Console::WriteLine(MaxSect);
@@ -1422,10 +1456,24 @@ private: System::Void endTest_Utility()
 			 Access->AddParam("@CorrectSect", CorrectSectStr);
 			 Access->AddParam("@IncorrectSect", IncorrectSectStr);
 			 Access->AddParam("@UnattemptSect", UnattemptSectStr);
-
-			 Access->ExecQuery("INSERT Into Performance (ExamCode, Username, FullMarks, QuesGiven, AttemptedAns, CorrectAns, ObtainedMarks, SectionMarks, CorrectSect, IncorrectSect, UnattemptSect) Values (@ExamCode,@UserName ,@FullMarks ,@QuesGiven,@AttemptedAns,@CorrectAns,@ObtainedMarks,@SectionMarks, @CorrectSect, @IncorrectSect, @UnattemptSect)");
+			 Access->AddParam("@sessionNumber", sessionNumber);
+			 Access->AddParam("@Passed", Passed);
+			 
+			 Access->ExecQuery("INSERT Into Performance (ExamCode, Username, FullMarks, QuesGiven, AttemptedAns, CorrectAns, ObtainedMarks, SectionMarks, CorrectSect, IncorrectSect, UnattemptSect,SessionNumber, Passed) Values (@ExamCode,@UserName ,@FullMarks ,@QuesGiven,@AttemptedAns,@CorrectAns,@ObtainedMarks,@SectionMarks, @CorrectSect, @IncorrectSect, @UnattemptSect, @sessionNumber, @Passed)");
 			 //	 MessageBox::Show("Test " + txtName->Text + " successfully created!");
-			// this->Close(); //currently commented for debugging console
+
+			 Access1->ExecQuery("Select * from Performance where SessionNumber =" + sessionNumber);
+			 if (Access1->RecordCount){
+				 for (int i = 0; i < Access1->RecordCount; i++){
+					 OES^ Access2 = gcnew OES();
+					 double norm = static_cast<double>(Convert::ToInt32(Access1->DBDT->Rows[i]->default["ObtainedMarks"]));
+					 norm = norm / static_cast<double>(MaxSessList[sessionNumber - 1]);
+					 norm = norm*static_cast<double>(fullMarks);
+					 String^ uname = Convert::ToString(Access1->DBDT->Rows[i]->default["Username"]);
+					 Access2->ExecQuery("Update Performance set NormalizedScore = " + norm.ToString() + " where Username = '" + uname + "'");
+				 }
+			 }
+			  this->Close(); //currently commented for debugging console
 }
 private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^  e) {
 			 
