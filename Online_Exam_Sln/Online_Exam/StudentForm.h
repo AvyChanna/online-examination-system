@@ -1,8 +1,6 @@
 #pragma once
-#ifndef __studentform__
-#define __studentform__
-#include "Database.h"
-#include "ProfForm.h"
+//#include "Database.h"
+//#include "ProfForm.h"
 #include "StudentProfile.h"
 #include "StudentEditProfile.h"
 #include "GroupEnroll.h"
@@ -13,18 +11,18 @@
 
 namespace Online_Exam {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-	//using namespace StudentProfile;
-	/// <summary>
-	/// Summary for StudentForm
-	/// </summary>
-	public ref class StudentForm : public System::Windows::Forms::Form
-	{
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
+//using namespace StudentProfile;
+/// <summary>
+/// Summary for StudentForm
+/// </summary>
+public ref class StudentForm : public System::Windows::Forms::Form
+{
 	public:
 		StudentForm(void)
 		{
@@ -46,8 +44,8 @@ namespace Online_Exam {
 			}
 		}
 	private: System::Windows::Forms::Label^  label1;
-	protected:
-	private: System::Windows::Forms::Panel^  panel1;
+	private:
+		System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Button^  btnEditProfileStudent;
 
 	private: System::Windows::Forms::Button^  btnPastTests;
@@ -91,20 +89,20 @@ namespace Online_Exam {
 			this->contentPanel = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
-			// 
+			//
 			// label1
-			// 
+			//
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+									static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(893, 23);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(216, 44);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"WELCOME";
-			// 
+			//
 			// panel1
-			// 
+			//
 			this->panel1->Controls->Add(this->btnEnroll);
 			this->panel1->Controls->Add(this->btnCertificates);
 			this->panel1->Controls->Add(this->btnLogOut);
@@ -118,11 +116,10 @@ namespace Online_Exam {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(200, 533);
 			this->panel1->TabIndex = 1;
-			// 
+			//
 			// btnEnroll
-			// 
-			this->btnEnroll->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->btnEnroll->Location = System::Drawing::Point(0, 200);
+			//
+			this->btnEnroll->Location = System::Drawing::Point(3, 199);
 			this->btnEnroll->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnEnroll->Name = L"btnEnroll";
 			this->btnEnroll->Size = System::Drawing::Size(200, 46);
@@ -130,10 +127,9 @@ namespace Online_Exam {
 			this->btnEnroll->Text = L"Enroll to a Group";
 			this->btnEnroll->UseVisualStyleBackColor = true;
 			this->btnEnroll->Click += gcnew System::EventHandler(this, &StudentForm::btnEnroll_Click);
-			// 
+			//
 			// btnCertificates
-			// 
-			this->btnCertificates->Cursor = System::Windows::Forms::Cursors::Hand;
+			//
 			this->btnCertificates->Location = System::Drawing::Point(0, 300);
 			this->btnCertificates->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnCertificates->Name = L"btnCertificates";
@@ -141,10 +137,9 @@ namespace Online_Exam {
 			this->btnCertificates->TabIndex = 9;
 			this->btnCertificates->Text = L"Certificates";
 			this->btnCertificates->UseVisualStyleBackColor = true;
-			// 
+			//
 			// btnLogOut
-			// 
-			this->btnLogOut->Cursor = System::Windows::Forms::Cursors::Hand;
+			//
 			this->btnLogOut->Location = System::Drawing::Point(0, 400);
 			this->btnLogOut->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnLogOut->Name = L"btnLogOut";
@@ -153,10 +148,9 @@ namespace Online_Exam {
 			this->btnLogOut->Text = L"Log Out";
 			this->btnLogOut->UseVisualStyleBackColor = true;
 			this->btnLogOut->Click += gcnew System::EventHandler(this, &StudentForm::btnLogOut_Click);
-			// 
+			//
 			// btnHelp
-			// 
-			this->btnHelp->Cursor = System::Windows::Forms::Cursors::Hand;
+			//
 			this->btnHelp->Location = System::Drawing::Point(0, 350);
 			this->btnHelp->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnHelp->Name = L"btnHelp";
@@ -164,11 +158,9 @@ namespace Online_Exam {
 			this->btnHelp->TabIndex = 7;
 			this->btnHelp->Text = L"Help";
 			this->btnHelp->UseVisualStyleBackColor = true;
-			this->btnHelp->Click += gcnew System::EventHandler(this, &StudentForm::btnHelp_Click);
 			// 
 			// btnEditProfileStudent
-			// 
-			this->btnEditProfileStudent->Cursor = System::Windows::Forms::Cursors::Hand;
+			//
 			this->btnEditProfileStudent->Location = System::Drawing::Point(0, 50);
 			this->btnEditProfileStudent->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnEditProfileStudent->Name = L"btnEditProfileStudent";
@@ -177,10 +169,9 @@ namespace Online_Exam {
 			this->btnEditProfileStudent->Text = L"Edit Profile";
 			this->btnEditProfileStudent->UseVisualStyleBackColor = true;
 			this->btnEditProfileStudent->Click += gcnew System::EventHandler(this, &StudentForm::btnEditProfileStudent_Click);
-			// 
+			//
 			// btnPastTests
-			// 
-			this->btnPastTests->Cursor = System::Windows::Forms::Cursors::Hand;
+			//
 			this->btnPastTests->Location = System::Drawing::Point(0, 150);
 			this->btnPastTests->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnPastTests->Name = L"btnPastTests";
@@ -189,11 +180,10 @@ namespace Online_Exam {
 			this->btnPastTests->Text = L"Past Tests";
 			this->btnPastTests->UseVisualStyleBackColor = true;
 			this->btnPastTests->Click += gcnew System::EventHandler(this, &StudentForm::btnPastTests_Click);
-			// 
+			//
 			// btnUnenroll
-			// 
-			this->btnUnenroll->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->btnUnenroll->Location = System::Drawing::Point(-1, 250);
+			//
+			this->btnUnenroll->Location = System::Drawing::Point(3, 250);
 			this->btnUnenroll->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnUnenroll->Name = L"btnUnenroll";
 			this->btnUnenroll->Size = System::Drawing::Size(200, 46);
@@ -201,10 +191,9 @@ namespace Online_Exam {
 			this->btnUnenroll->Text = L"Unenroll me from a Group";
 			this->btnUnenroll->UseVisualStyleBackColor = true;
 			this->btnUnenroll->Click += gcnew System::EventHandler(this, &StudentForm::btnUnenroll_Click);
-			// 
+			//
 			// btnUpcomingTests
-			// 
-			this->btnUpcomingTests->Cursor = System::Windows::Forms::Cursors::Hand;
+			//
 			this->btnUpcomingTests->Location = System::Drawing::Point(0, 100);
 			this->btnUpcomingTests->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnUpcomingTests->Name = L"btnUpcomingTests";
@@ -213,10 +202,9 @@ namespace Online_Exam {
 			this->btnUpcomingTests->Text = L"Upcoming Tests";
 			this->btnUpcomingTests->UseVisualStyleBackColor = true;
 			this->btnUpcomingTests->Click += gcnew System::EventHandler(this, &StudentForm::btnUpcomingTests_Click);
-			// 
+			//
 			// btnMyProfileStudent
-			// 
-			this->btnMyProfileStudent->Cursor = System::Windows::Forms::Cursors::Hand;
+			//
 			this->btnMyProfileStudent->Location = System::Drawing::Point(0, 0);
 			this->btnMyProfileStudent->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnMyProfileStudent->Name = L"btnMyProfileStudent";
@@ -225,18 +213,18 @@ namespace Online_Exam {
 			this->btnMyProfileStudent->Text = L"My Profile";
 			this->btnMyProfileStudent->UseVisualStyleBackColor = true;
 			this->btnMyProfileStudent->Click += gcnew System::EventHandler(this, &StudentForm::btnMyProfileStudent_Click);
-			// 
+			//
 			// contentPanel
-			// 
+			//
 			this->contentPanel->Location = System::Drawing::Point(205, 96);
 			this->contentPanel->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->contentPanel->Name = L"contentPanel";
 			this->contentPanel->Size = System::Drawing::Size(903, 423);
 			this->contentPanel->TabIndex = 3;
 			this->contentPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &StudentForm::contentPanel_Paint);
-			// 
+			//
 			// StudentForm
-			// 
+			//
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1121, 532);
@@ -255,50 +243,50 @@ namespace Online_Exam {
 		}
 #pragma endregion
 private: System::Void btnEditProfileStudent_Click(System::Object^  sender, System::EventArgs^  e) {
-			 contentPanel->Controls->Clear();
-			 StudentEditProfile ^ usr = gcnew StudentEditProfile();
-			 contentPanel->Controls->Add(usr);
-}
+		contentPanel->Controls->Clear();
+		StudentEditProfile ^ usr = gcnew StudentEditProfile();
+		contentPanel->Controls->Add(usr);
+	}
 
 private: System::Void btnMyProfileStudent_Click(System::Object^  sender, System::EventArgs^  e) {
-			 contentPanel->Controls->Clear();
-			 StudentProfile ^ usr = gcnew StudentProfile();
-			 contentPanel->Controls->Add(usr);
-}
+		contentPanel->Controls->Clear();
+		StudentProfile ^ usr = gcnew StudentProfile();
+		contentPanel->Controls->Add(usr);
+	}
 private: System::Void btnUpcomingTests_Click(System::Object^  sender, System::EventArgs^  e) {
-			 contentPanel->Controls->Clear();
-			 UpcomingTests ^ usr = gcnew UpcomingTests();
-			 contentPanel->Controls->Add(usr);
-}
+		contentPanel->Controls->Clear();
+		UpcomingTests ^ usr = gcnew UpcomingTests();
+		contentPanel->Controls->Add(usr);
+	}
 private: System::Void btnPastTests_Click(System::Object^  sender, System::EventArgs^  e) {
-			 contentPanel->Controls->Clear();
-}
+		contentPanel->Controls->Clear();
+	}
 private: System::Void btnUnenroll_Click(System::Object^  sender, System::EventArgs^  e) {
-			 contentPanel->Controls->Clear();
-			 Unenroll ^ usr = gcnew Unenroll();
-			 contentPanel->Controls->Add(usr);
-}
+		contentPanel->Controls->Clear();
+		Unenroll ^ usr = gcnew Unenroll();
+		contentPanel->Controls->Add(usr);
+	}
 public: System::Void refreshUnenroll() {
-			contentPanel->Controls->Clear();
-			contentPanel->Controls->Add(gcnew Unenroll);
-}
+		contentPanel->Controls->Clear();
+		contentPanel->Controls->Add(gcnew Unenroll);
+	}
 
 private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-}
+	}
 private: System::Void StudentForm_Load(System::Object^  sender, System::EventArgs^  e) {
-			 contentPanel->Controls->Clear();
-			 StudentProfile ^ usr = gcnew StudentProfile();
-			 contentPanel->Controls->Add(usr);
-}
+		contentPanel->Controls->Clear();
+		StudentProfile ^ usr = gcnew StudentProfile();
+		contentPanel->Controls->Add(usr);
+	}
 private: System::Void btnEnroll_Click(System::Object^  sender, System::EventArgs^  e) {
-			 contentPanel->Controls->Clear();
-			 GroupEnroll ^ grp = gcnew GroupEnroll();
-			 contentPanel->Controls->Add(grp);
-}
+		contentPanel->Controls->Clear();
+		GroupEnroll ^ grp = gcnew GroupEnroll();
+		contentPanel->Controls->Add(grp);
+	}
 private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs^  e) {
-		
-}
-private: System::Void btnHelp_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	}
+	};
 }
 };
 }

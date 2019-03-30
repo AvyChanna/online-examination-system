@@ -39,7 +39,6 @@ namespace Online_Exam {
 			}
 		}
 	private: System::Windows::Forms::Label^  label1;
-	protected:
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  label4;
@@ -57,57 +56,6 @@ namespace Online_Exam {
 	private: System::Windows::Forms::TextBox^  passTxt;
 	private: System::Windows::Forms::TextBox^  nameTxt;
 	private: System::Windows::Forms::ComboBox^  branchCb;
-
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.

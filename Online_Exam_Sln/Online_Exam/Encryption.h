@@ -14,7 +14,7 @@ namespace Encryption{
 		//ShaObj->Dispose();
 		return res;
 	}
-	String ^MakeSalt(int n){
+	String ^MakeSalt(int n) {
 		String ^Salt = L"";
 		String ^Charset = L"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-";
 		array<Char> ^Chars = Charset->ToCharArray();

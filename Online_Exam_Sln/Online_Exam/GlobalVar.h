@@ -23,8 +23,24 @@ namespace Global_Var{
 		static String^ IITG = L"";
 		static String^ Branch = L"";
 		static String^ Designation = L"";
-		gVar(){}	   
-		~gVar(){}	   
+		gVar() {}
+		~gVar() {}
+		static void ClearGvars()
+		{
+			Username = L"tushar";
+			Fullname = L"";
+			Passhash = L"";
+			Passsalt = L"";
+			Tokenhash = L"";
+			Tokensalt = L"";
+			Email = L"";
+			Phone = L"";
+			Rollno = L"";
+			Groups = L"";
+			IITG = L"";
+			Branch = L"";
+			Designation = L"";
+		}
 	};
 
 }

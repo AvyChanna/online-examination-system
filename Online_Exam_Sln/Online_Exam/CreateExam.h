@@ -6,6 +6,8 @@
 #include <string>
 #include <ctime>
 #include "GlobalVar.h"
+#include "ProfForm.h"
+#include "AddQuestions.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -92,7 +94,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::TextBox^  txtSectNo;
 	private: System::Windows::Forms::ComboBox^  cmbStr;
 	private: System::Windows::Forms::DateTimePicker^  calStr;
-	private: System::Windows::Forms::Button^  btnAddQ;
+
 
 
 
@@ -139,7 +141,6 @@ namespace Online_Exam {
 			this->txtSectNo = (gcnew System::Windows::Forms::TextBox());
 			this->cmbStr = (gcnew System::Windows::Forms::ComboBox());
 			this->calStr = (gcnew System::Windows::Forms::DateTimePicker());
-			this->btnAddQ = (gcnew System::Windows::Forms::Button());
 			this->lstUnsel = (gcnew System::Windows::Forms::ListBox());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->btnRem = (gcnew System::Windows::Forms::Button());
@@ -286,15 +287,6 @@ namespace Online_Exam {
 			this->calStr->TabIndex = 19;
 			this->calStr->ValueChanged += gcnew System::EventHandler(this, &CreateExam::dateTimePicker1_ValueChanged);
 			// 
-			// btnAddQ
-			// 
-			this->btnAddQ->Location = System::Drawing::Point(203, 301);
-			this->btnAddQ->Name = L"btnAddQ";
-			this->btnAddQ->Size = System::Drawing::Size(108, 23);
-			this->btnAddQ->TabIndex = 20;
-			this->btnAddQ->Text = L"Add Questions";
-			this->btnAddQ->UseVisualStyleBackColor = true;
-			// 
 			// lstUnsel
 			// 
 			this->lstUnsel->FormattingEnabled = true;
@@ -333,11 +325,11 @@ namespace Online_Exam {
 			// 
 			// btnCreate
 			// 
-			this->btnCreate->Location = System::Drawing::Point(355, 301);
+			this->btnCreate->Location = System::Drawing::Point(284, 301);
 			this->btnCreate->Name = L"btnCreate";
 			this->btnCreate->Size = System::Drawing::Size(108, 23);
 			this->btnCreate->TabIndex = 28;
-			this->btnCreate->Text = L"Create Exam";
+			this->btnCreate->Text = L"Add Questions";
 			this->btnCreate->UseVisualStyleBackColor = true;
 			this->btnCreate->Click += gcnew System::EventHandler(this, &CreateExam::btnCreate_Click);
 			// 
@@ -423,7 +415,6 @@ namespace Online_Exam {
 			this->Controls->Add(this->btnRem);
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->lstUnsel);
-			this->Controls->Add(this->btnAddQ);
 			this->Controls->Add(this->calStr);
 			this->Controls->Add(this->cmbStr);
 			this->Controls->Add(this->txtSectNo);
@@ -615,7 +606,11 @@ namespace Online_Exam {
 				 for (int i = 0; i < lstSel->Items->Count; i++){
 					 SelGrp = SelGrp + "-" + Convert::ToString(gID[Convert::ToString(lstSel->Items[i])]) + "-";
 				 }
-				 
+				 ///////////////////////////////////////////////////////////////////
+				 Hide();
+				 AddQuestions ^aq = gcnew AddQuestions();
+				 //this->FindForm->profContentPanel->Controls->Add(aq);
+				 Show();
 				 
 				 OES^ Access = gcnew OES();
 				 Access->AddParam("@ExamName", txtName->Text->Trim());

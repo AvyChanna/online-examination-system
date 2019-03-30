@@ -1315,6 +1315,15 @@ private: System::Void endTest_Utility()
 			 }
 
 			 //calculating total marks of the student
+			 array<int> ^CorrectSect = gcnew array<int>(QSet->Data->Count);
+			 array<int> ^IncorrectSect = gcnew array<int>(QSet->Data->Count);
+			 array<int> ^UnattemptSect = gcnew array<int>(QSet->Data->Count);
+			 for (int i = 0; i < QSet->Data->Count; i++){
+				 CorrectSect[i] = 0;
+				 IncorrectSect[i] = 0;
+				 UnattemptSect[i] = 0;
+			 }
+
 			 Console::WriteLine("*****************Calculations********************\n");
 			 obtainedMarks = 0;
 			 sectionMark = "";
@@ -1329,15 +1338,20 @@ private: System::Void endTest_Utility()
 					 String^ t2 = Convert::ToString(QuestionAns[i][j]->correctAns);
 					 Console::WriteLine("Question "+j.ToString()+ " Attempted:" + t1->ToUpper() + " Correct:" + t2->ToUpper() + " -->Score:");
 					 fullMarks += sectionScore;
-					 if (t1->ToUpper() == t2->ToUpper())
+					 if (t1->Length == 0){
+						 UnattemptSect[i]++;
+						 Console::WriteLine("0\n");
+						 continue;
+					 }
+					 else if (t1->ToUpper() == t2->ToUpper())
 					 {
-
 						 sectionScore += questionFullMark;
 						 Console::WriteLine(questionFullMark.ToString() + "\n");
-						 
+						 CorrectSect[i]++;
 					 }
 					 else
 					 {
+						 IncorrectSect[i]++;
 						 Console::WriteLine("0\n");
 					 }
 				 }
@@ -1359,6 +1373,7 @@ private: System::Void endTest_Utility()
 
 				 
 			 }
+
 			 StudAppeared++;
 			 MaxSect = String::Join(",", MaxSectStr);
 			 MinSect = String::Join(",", MinSectStr);
@@ -1376,6 +1391,24 @@ private: System::Void endTest_Utility()
 			 Console::WriteLine(sectionMark);
 
 
+//              performance calculations .............
+			 
+			 /*for (int i = 0; i < QSet->Data->Count; i++){
+				 Console::WriteLine( CorrectSect[i].ToString() + "\t" + IncorrectSect[i].ToString() + "\t" + UnattemptSect[i].ToString() + "\n");
+			 }*/
+			 
+			 String ^CorrectSectStr = "";
+			 String ^IncorrectSectStr = "";
+			 String ^UnattemptSectStr = "";
+			 for (int i = 0; i < QSet->Data->Count; i++){
+				 CorrectSectStr = CorrectSectStr + "," + CorrectSect[i].ToString();
+				 IncorrectSectStr = IncorrectSectStr + "," + IncorrectSect[i].ToString();
+				 UnattemptSectStr = UnattemptSectStr + "," + UnattemptSect[i].ToString();
+			 }
+//   .............performance calculation ends
+
+
+
 			 OES^ Access = gcnew OES();
 
 			 Access->AddParam("@ExamCode", ExamCode);
@@ -1386,8 +1419,11 @@ private: System::Void endTest_Utility()
 			 Access->AddParam("@CorrectAns", correctStr);
 			 Access->AddParam("@ObtainedMarks", obtainedMarks);
 			 Access->AddParam("@SectionMarks", sectionMark);
+			 Access->AddParam("@CorrectSect", CorrectSectStr);
+			 Access->AddParam("@IncorrectSect", IncorrectSectStr);
+			 Access->AddParam("@UnattemptSect", UnattemptSectStr);
 
-			 Access->ExecQuery("INSERT Into Performance (ExamCode, Username, FullMarks, QuesGiven, AttemptedAns, CorrectAns, ObtainedMarks,SectionMarks) Values (@ExamCode,@UserName ,@FullMarks ,@QuesGiven,@AttemptedAns,@CorrectAns,@ObtainedMarks,@SectionMarks)");
+			 Access->ExecQuery("INSERT Into Performance (ExamCode, Username, FullMarks, QuesGiven, AttemptedAns, CorrectAns, ObtainedMarks, SectionMarks, CorrectSect, IncorrectSect, UnattemptSect) Values (@ExamCode,@UserName ,@FullMarks ,@QuesGiven,@AttemptedAns,@CorrectAns,@ObtainedMarks,@SectionMarks, @CorrectSect, @IncorrectSect, @UnattemptSect)");
 			 //	 MessageBox::Show("Test " + txtName->Text + " successfully created!");
 			// this->Close(); //currently commented for debugging console
 }
