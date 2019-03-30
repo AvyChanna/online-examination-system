@@ -65,10 +65,10 @@ namespace Online_Exam {
 			// contentPanel
 			// 
 			this->contentPanel->AutoScroll = true;
-			this->contentPanel->Location = System::Drawing::Point(15, 16);
+			this->contentPanel->Location = System::Drawing::Point(37, 30);
 			this->contentPanel->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->contentPanel->Name = L"contentPanel";
-			this->contentPanel->Size = System::Drawing::Size(875, 395);
+			this->contentPanel->Size = System::Drawing::Size(875, 472);
 			this->contentPanel->TabIndex = 0;
 			this->contentPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &PastTest::contentPanel_Paint);
 			// 
@@ -76,10 +76,11 @@ namespace Online_Exam {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::Control;
 			this->Controls->Add(this->contentPanel);
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"PastTest";
-			this->Size = System::Drawing::Size(647, 463);
+			this->Size = System::Drawing::Size(915, 532);
 			this->Load += gcnew System::EventHandler(this, &PastTest::PastTest_Load);
 			this->ResumeLayout(false);
 
@@ -111,15 +112,28 @@ namespace Online_Exam {
 						 Label ^lblProf = gcnew Label();
 						 //creating session buttons
 
-						 border->Width = 300;
+						 border->Width = 500;
 						 border->Height = 100;
-						 lblExamName->BackColor = Color::White;
-						 lblProfName->BackColor = Color::White;
-						 lblExam->BackColor = Color::White;
-						 lblProf->BackColor = Color::White;
-						 border->BackColor = Color::Moccasin;
+						 lblExamName->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+						 lblProfName->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+						 lblExam->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+						 lblProf->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+						 border->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+						 lblExamName->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+						 lblProfName->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+						 lblExam->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+						 lblProf->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+					
 						 //border->ForeColor = Color::Red;
-						 lblProfName->Width = 100;
+						 lblProf->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+							 static_cast<System::Byte>(0)));
+						 lblProfName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+							 static_cast<System::Byte>(0)));
+						 lblExam->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+							 static_cast<System::Byte>(0)));
+						 lblExamName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+							 static_cast<System::Byte>(0)));
+						 lblProfName->Width = 150;
 						 lblProfName->Height = 20;
 						 lblProf->Width = 150;
 						 lblProf->Height = 20;
@@ -155,16 +169,27 @@ namespace Online_Exam {
 						 //contentPanel->Controls->Add(border);
 						 contentPanel->Controls->Add(lblExam);
 						 contentPanel->Controls->Add(lblProf);
-						 contentPanel->Controls->Add(border);
+						
 						 y += 120;
 
 						 Button^ btnViewResult = gcnew Button();
-						 btnViewResult->Location = Point(button_x, button_y);
+						 btnViewResult->Location = Point(button_x+10, button_y+5); 
 						 btnViewResult->Width = 100;
 						 btnViewResult->Height = 30;
 						 button_y += 21;
 						 btnViewResult->Text = "View Result";
+						 btnViewResult->FlatAppearance->BorderSize = 0;
+						 btnViewResult->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+						 btnViewResult->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+							 static_cast<System::Byte>(0)));
+						 btnViewResult->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+						 btnViewResult->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+						 btnViewResult->TabIndex = 4;
+						 btnViewResult->BackColor = System::Drawing::Color::FromArgb(43, 50, 82);
+						 btnViewResult->ForeColor = System::Drawing::Color::FromArgb(255,255,255);
+						 btnViewResult->UseVisualStyleBackColor = true;
 						 contentPanel->Controls->Add(btnViewResult);
+						 contentPanel->Controls->Add(border);
 
 					 }
 					 //String ^ grp = Convert::ToString(Access->DBDT->Rows[0]["Groups"]);

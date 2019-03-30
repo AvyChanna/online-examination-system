@@ -366,9 +366,6 @@ private: System::Void btnPastTestsSet_Click(System::Object^  sender, System::Eve
 			 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(229, 178, 11);
 }
 	private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs^  e) {
-				 this->Hide();
-				 AdminForm ^ af = gcnew AdminForm();
-				 af->Show();
 				 btnEditProfileProf->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				 btnMyProfileProf->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				 btnAddGroup->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
