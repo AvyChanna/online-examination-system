@@ -43,7 +43,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -54,13 +54,15 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <EnablePREfast>true</EnablePREfast>
+      <EnablePREfast>false</EnablePREfast>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>C:\Users\Avneet\Desktop\CS243_Lab3_Online_Examination_System\Online_Exam_Sln\Online_Exam\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>
       </AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -69,6 +71,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -79,6 +82,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -91,8 +97,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="GlobalSuppressions.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Online_Exam.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -105,25 +116,56 @@
     <ClInclude Include="ApproveProf.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="ChangePassword.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="CreateExam.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="CreateGroup.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="Encryption.h" />
+    <ClInclude Include="ExamPaper.h">
+        <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ExamList.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Form1.h">
-      <FileType>CppForm</FileType>
+       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Database.h" />
     <ClInclude Include="GlobalVar.h" />
     <ClInclude Include="Leaderboard.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    
+    <ClInclude Include="AddQuestions.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="GroupEnroll.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="PastTest.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="NewPass.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Instructions.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PastTestsSet.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="json.h" />
+    <ClInclude Include="Questions.h" />
     <ClInclude Include="ProfEditProfile.h">
       <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="Login.h">
+      <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ProfForm.h">
       <FileType>CppForm</FileType>
@@ -131,7 +173,17 @@
     <ClInclude Include="ProfProfile.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="prof_signup.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="QuestionStructure.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Signup.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="signup_student.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StudentEditAdmin.h">
       <FileType>CppControl</FileType>
@@ -145,6 +197,12 @@
     <ClInclude Include="StudentProfile.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="Unenroll.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="UpcomingTests.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -156,11 +214,15 @@
     <EmbeddedResource Include="ApproveProf.resx">
       <DependentUpon>ApproveProf.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateExam.resx">
       <DependentUpon>CreateExam.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateGroup.resx">
       <DependentUpon>CreateGroup.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ExamList.resx">
       <DependentUpon>ExamList.h</DependentUpon>
@@ -169,17 +231,49 @@
       <DependentUpon>Form1.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExamPaper.resx">
+      <DependentUpon>ExamPaper.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupEnroll.resx">
+      <DependentUpon>GroupEnroll.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddQuestions.resx">
+      <DependentUpon>AddQuestions.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Leaderboard.resx">
       <DependentUpon>Leaderboard.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Instructions.resx">
+      <DependentUpon>Instructions.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PastTest.resx">
+      <DependentUpon>PastTest.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PastTestsSet.resx">
+      <DependentUpon>PastTestsSet.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProfEditProfile.resx">
       <DependentUpon>ProfEditProfile.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfForm.resx">
       <DependentUpon>ProfForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfProfile.resx">
       <DependentUpon>ProfProfile.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="prof_signup.resx">
+      <DependentUpon>prof_signup.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Signup.resx">
+      <DependentUpon>Signup.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="signup_student.resx">
+      <DependentUpon>signup_student.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentEditAdmin.resx">
       <DependentUpon>StudentEditAdmin.h</DependentUpon>
@@ -193,6 +287,18 @@
     <EmbeddedResource Include="StudentProfile.resx">
       <DependentUpon>StudentProfile.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Unenroll.resx">
+      <DependentUpon>Unenroll.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpcomingTests.resx">
+      <DependentUpon>UpcomingTests.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\iitg.png" />
+    <Image Include="..\..\..\Logo\logo_medium.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

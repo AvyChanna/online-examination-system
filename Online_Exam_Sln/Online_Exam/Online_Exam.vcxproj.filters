@@ -4,10 +4,9 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Online_Exam.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="GlobalSuppressions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Form1.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="ProfForm.h" />
     <ClInclude Include="ProfProfile.h" />
@@ -20,17 +19,34 @@
     <ClInclude Include="ProfEditProfile.h" />
     <ClInclude Include="CreateGroup.h" />
     <ClInclude Include="CreateExam.h" />
+    <ClInclude Include="AddQuestions.h" />
+    <ClInclude Include="Signup.h" />
+    <ClInclude Include="signup_student.h" />
+    <ClInclude Include="prof_signup.h" />
+    <ClInclude Include="GroupEnroll.h" />
+    <ClInclude Include="Unenroll.h" />
+    <ClInclude Include="Login.h" />
+    <ClInclude Include="Encryption.h" />
+    <ClInclude Include="UpcomingTests.h" />
+    <ClInclude Include="PastTestsSet.h" />
     <ClInclude Include="AdminForm.h" />
     <ClInclude Include="ApproveProf.h" />
     <ClInclude Include="StudentEditAdmin.h" />
     <ClInclude Include="Leaderboard.h" />
     <ClInclude Include="ExamList.h" />
+    <ClInclude Include="Questions.h" />
+    <ClInclude Include="json.h" />
+    <ClInclude Include="ExamPaper.h" />
+    <ClInclude Include="PastTest.h" />
+    <ClInclude Include="NewPass.h" />
+    <ClInclude Include="QuestionStructure.h" />
+    <ClInclude Include="Instructions.h" />
+    <ClInclude Include="ChangePassword.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resX" />
     <EmbeddedResource Include="ProfForm.resx" />
     <EmbeddedResource Include="ProfProfile.resx" />
     <EmbeddedResource Include="StudentForm.resx" />
@@ -39,12 +55,31 @@
     <EmbeddedResource Include="CreateExam.resx" />
     <EmbeddedResource Include="CreateGroup.resx" />
     <EmbeddedResource Include="ProfEditProfile.resx" />
+    <EmbeddedResource Include="GroupEnroll.resx" />
+    <EmbeddedResource Include="Login.resx" />
+    <EmbeddedResource Include="prof_signup.resx" />
+    <EmbeddedResource Include="Signup.resx" />
+    <EmbeddedResource Include="signup_student.resx" />
+    <EmbeddedResource Include="Unenroll.resx" />
+    <EmbeddedResource Include="AddQuestions.resx" />
+    <EmbeddedResource Include="UpcomingTests.resx" />
     <EmbeddedResource Include="AdminForm.resx" />
     <EmbeddedResource Include="ApproveProf.resx" />
     <EmbeddedResource Include="StudentEditAdmin.resx" />
+    <EmbeddedResource Include="AddQuestions.resx" />
+    <EmbeddedResource Include="PastTestsSet.resx" />
+    <EmbeddedResource Include="StudentEditAdmin.resx" />
+    <EmbeddedResource Include="ExamPaper.resx" />
+    <EmbeddedResource Include="Instructions.resx" />
+    <EmbeddedResource Include="ChangePassword.resx" />
+    <EmbeddedResource Include="PastTest.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
     <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Logo\logo_medium.png" />
+    <Image Include="..\..\..\iitg.png" />
   </ItemGroup>
 </Project>

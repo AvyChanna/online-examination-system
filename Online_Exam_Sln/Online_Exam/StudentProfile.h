@@ -101,33 +101,39 @@ namespace Online_Exam {
 			// lblUsername
 			// 
 			this->lblUsername->AutoSize = true;
-			this->lblUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblUsername->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblUsername->Location = System::Drawing::Point(100, 50);
+			this->lblUsername->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblUsername->Location = System::Drawing::Point(112, 93);
 			this->lblUsername->Name = L"lblUsername";
-			this->lblUsername->Size = System::Drawing::Size(102, 25);
+			this->lblUsername->Size = System::Drawing::Size(93, 21);
 			this->lblUsername->TabIndex = 0;
 			this->lblUsername->Text = L"Username";
 			// 
 			// lblEmail
 			// 
 			this->lblEmail->AutoSize = true;
-			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblEmail->Location = System::Drawing::Point(100, 200);
+			this->lblEmail->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblEmail->Location = System::Drawing::Point(112, 253);
 			this->lblEmail->Name = L"lblEmail";
-			this->lblEmail->Size = System::Drawing::Size(60, 25);
+			this->lblEmail->Size = System::Drawing::Size(52, 21);
 			this->lblEmail->TabIndex = 1;
 			this->lblEmail->Text = L"Email";
 			// 
 			// lblRoll
 			// 
 			this->lblRoll->AutoSize = true;
-			this->lblRoll->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblRoll->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblRoll->Location = System::Drawing::Point(100, 150);
+			this->lblRoll->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblRoll->Location = System::Drawing::Point(430, 170);
 			this->lblRoll->Name = L"lblRoll";
-			this->lblRoll->Size = System::Drawing::Size(79, 25);
+			this->lblRoll->Size = System::Drawing::Size(71, 21);
 			this->lblRoll->TabIndex = 2;
 			this->lblRoll->Text = L"Roll No.";
 			this->lblRoll->Click += gcnew System::EventHandler(this, &StudentProfile::label3_Click);
@@ -135,77 +141,83 @@ namespace Online_Exam {
 			// lblPhone
 			// 
 			this->lblPhone->AutoSize = true;
-			this->lblPhone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblPhone->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblPhone->Location = System::Drawing::Point(100, 250);
+			this->lblPhone->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblPhone->Location = System::Drawing::Point(430, 253);
 			this->lblPhone->Name = L"lblPhone";
-			this->lblPhone->Size = System::Drawing::Size(143, 25);
+			this->lblPhone->Size = System::Drawing::Size(133, 21);
 			this->lblPhone->TabIndex = 3;
 			this->lblPhone->Text = L"Phone Number";
 			// 
 			// lblFullName
 			// 
 			this->lblFullName->AutoSize = true;
-			this->lblFullName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblFullName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblFullName->Location = System::Drawing::Point(100, 100);
+			this->lblFullName->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblFullName->Location = System::Drawing::Point(430, 93);
 			this->lblFullName->Name = L"lblFullName";
-			this->lblFullName->Size = System::Drawing::Size(100, 25);
+			this->lblFullName->Size = System::Drawing::Size(90, 21);
 			this->lblFullName->TabIndex = 4;
 			this->lblFullName->Text = L"Full Name";
 			// 
 			// lblIITG
 			// 
 			this->lblIITG->AutoSize = true;
-			this->lblIITG->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblIITG->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblIITG->Location = System::Drawing::Point(100, 300);
+			this->lblIITG->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblIITG->Location = System::Drawing::Point(112, 343);
 			this->lblIITG->Name = L"lblIITG";
-			this->lblIITG->Size = System::Drawing::Size(123, 25);
+			this->lblIITG->Size = System::Drawing::Size(113, 21);
 			this->lblIITG->TabIndex = 5;
 			this->lblIITG->Text = L"IITG Student";
 			// 
 			// lblIITGDetail
 			// 
 			this->lblIITGDetail->AutoSize = true;
-			this->lblIITGDetail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblIITGDetail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblIITGDetail->Location = System::Drawing::Point(275, 300);
+			this->lblIITGDetail->Location = System::Drawing::Point(112, 363);
 			this->lblIITGDetail->Name = L"lblIITGDetail";
-			this->lblIITGDetail->Size = System::Drawing::Size(102, 25);
+			this->lblIITGDetail->Size = System::Drawing::Size(125, 27);
 			this->lblIITGDetail->TabIndex = 6;
 			this->lblIITGDetail->Text = L"Username";
 			// 
 			// lblPhoneDetail
 			// 
 			this->lblPhoneDetail->AutoSize = true;
-			this->lblPhoneDetail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblPhoneDetail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblPhoneDetail->Location = System::Drawing::Point(275, 250);
+			this->lblPhoneDetail->Location = System::Drawing::Point(430, 273);
 			this->lblPhoneDetail->Name = L"lblPhoneDetail";
-			this->lblPhoneDetail->Size = System::Drawing::Size(102, 25);
+			this->lblPhoneDetail->Size = System::Drawing::Size(125, 27);
 			this->lblPhoneDetail->TabIndex = 7;
 			this->lblPhoneDetail->Text = L"Username";
 			// 
 			// lblEmailDetail
 			// 
 			this->lblEmailDetail->AutoSize = true;
-			this->lblEmailDetail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblEmailDetail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblEmailDetail->Location = System::Drawing::Point(275, 200);
+			this->lblEmailDetail->Location = System::Drawing::Point(112, 273);
 			this->lblEmailDetail->Name = L"lblEmailDetail";
-			this->lblEmailDetail->Size = System::Drawing::Size(102, 25);
+			this->lblEmailDetail->Size = System::Drawing::Size(125, 27);
 			this->lblEmailDetail->TabIndex = 8;
 			this->lblEmailDetail->Text = L"Username";
 			// 
 			// lblRollDetail
 			// 
 			this->lblRollDetail->AutoSize = true;
-			this->lblRollDetail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblRollDetail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblRollDetail->Location = System::Drawing::Point(275, 150);
+			this->lblRollDetail->Location = System::Drawing::Point(430, 190);
 			this->lblRollDetail->Name = L"lblRollDetail";
-			this->lblRollDetail->Size = System::Drawing::Size(102, 25);
+			this->lblRollDetail->Size = System::Drawing::Size(125, 27);
 			this->lblRollDetail->TabIndex = 9;
 			this->lblRollDetail->Text = L"Username";
 			this->lblRollDetail->Click += gcnew System::EventHandler(this, &StudentProfile::lblRollDetail_Click);
@@ -213,44 +225,46 @@ namespace Online_Exam {
 			// lblFullNameDetail
 			// 
 			this->lblFullNameDetail->AutoSize = true;
-			this->lblFullNameDetail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblFullNameDetail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblFullNameDetail->Location = System::Drawing::Point(275, 100);
+			this->lblFullNameDetail->Location = System::Drawing::Point(430, 113);
 			this->lblFullNameDetail->Name = L"lblFullNameDetail";
-			this->lblFullNameDetail->Size = System::Drawing::Size(102, 25);
+			this->lblFullNameDetail->Size = System::Drawing::Size(125, 27);
 			this->lblFullNameDetail->TabIndex = 10;
 			this->lblFullNameDetail->Text = L"Username";
 			// 
 			// lblUsernameDetail
 			// 
 			this->lblUsernameDetail->AutoSize = true;
-			this->lblUsernameDetail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblUsernameDetail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblUsernameDetail->Location = System::Drawing::Point(275, 50);
+			this->lblUsernameDetail->Location = System::Drawing::Point(112, 113);
 			this->lblUsernameDetail->Name = L"lblUsernameDetail";
-			this->lblUsernameDetail->Size = System::Drawing::Size(102, 25);
+			this->lblUsernameDetail->Size = System::Drawing::Size(125, 27);
 			this->lblUsernameDetail->TabIndex = 11;
 			this->lblUsernameDetail->Text = L"Username";
 			// 
 			// lblBranch
 			// 
 			this->lblBranch->AutoSize = true;
-			this->lblBranch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblBranch->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblBranch->Location = System::Drawing::Point(100, 350);
+			this->lblBranch->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblBranch->Location = System::Drawing::Point(112, 170);
 			this->lblBranch->Name = L"lblBranch";
-			this->lblBranch->Size = System::Drawing::Size(74, 25);
+			this->lblBranch->Size = System::Drawing::Size(68, 21);
 			this->lblBranch->TabIndex = 12;
 			this->lblBranch->Text = L"Branch";
 			// 
 			// lblBranchDetail
 			// 
 			this->lblBranchDetail->AutoSize = true;
-			this->lblBranchDetail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblBranchDetail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblBranchDetail->Location = System::Drawing::Point(275, 350);
+			this->lblBranchDetail->Location = System::Drawing::Point(112, 190);
 			this->lblBranchDetail->Name = L"lblBranchDetail";
-			this->lblBranchDetail->Size = System::Drawing::Size(102, 25);
+			this->lblBranchDetail->Size = System::Drawing::Size(125, 27);
 			this->lblBranchDetail->TabIndex = 13;
 			this->lblBranchDetail->Text = L"Username";
 			// 
@@ -273,7 +287,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->lblEmail);
 			this->Controls->Add(this->lblUsername);
 			this->Name = L"StudentProfile";
-			this->Size = System::Drawing::Size(903, 424);
+			this->Size = System::Drawing::Size(915, 532);
 			this->Load += gcnew System::EventHandler(this, &StudentProfile::StudentProfile_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -290,7 +304,7 @@ private: System::Void StudentProfile_Load(System::Object^  sender, System::Event
 			
 
 			 OES ^Access = gcnew OES();
-			 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::b +"'");
+			 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::Username +"'");
 			 if (Access->RecordCount == 1 ){
 				 
 				 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Username"]);
