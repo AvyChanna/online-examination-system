@@ -16,12 +16,13 @@ namespace Online_Exam {
 	/// <summary>
 	/// Summary for Leaderboard
 	/// </summary>
-	public ref class Leaderboard : public System::Windows::Forms::Form
+	public ref class Leaderboard : public System::Windows::Forms::UserControl
 	{
 	private:
 		OES ^ Access;
 		DataSet ^dsa;
-		String^ examCode;
+	private: System::Windows::Forms::Label^  label1;
+			 String^ examCode;
 	public:
 		Leaderboard(void)
 		{
@@ -66,6 +67,7 @@ namespace Online_Exam {
 		void InitializeComponent(void)
 		{
 			this->standings = (gcnew System::Windows::Forms::DataGridView());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->standings))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -75,25 +77,44 @@ namespace Online_Exam {
 			this->standings->AllowUserToDeleteRows = false;
 			this->standings->AllowUserToResizeColumns = false;
 			this->standings->AllowUserToResizeRows = false;
+			this->standings->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->standings->BackgroundColor = System::Drawing::Color::White;
 			this->standings->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->standings->Location = System::Drawing::Point(28, 96);
+			this->standings->GridColor = System::Drawing::SystemColors::Control;
+			this->standings->Location = System::Drawing::Point(22, 67);
+			this->standings->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->standings->Name = L"standings";
 			this->standings->ReadOnly = true;
 			this->standings->RowTemplate->Height = 24;
-			this->standings->Size = System::Drawing::Size(853, 565);
+			this->standings->Size = System::Drawing::Size(640, 342);
 			this->standings->TabIndex = 0;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(298, 23);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(118, 24);
+			this->label1->TabIndex = 1;
+			this->label1->Text = L"Leaderboard";
+			this->label1->Click += gcnew System::EventHandler(this, &Leaderboard::label1_Click);
 			// 
 			// Leaderboard
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(928, 736);
+			this->BackColor = System::Drawing::SystemColors::Control;
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->standings);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"Leaderboard";
-			this->Text = L"Leaderboard";
+			this->Size = System::Drawing::Size(686, 432);
 			this->Load += gcnew System::EventHandler(this, &Leaderboard::Leaderboard_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->standings))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -123,5 +144,7 @@ namespace Online_Exam {
 				 }
 				 
 	}
-	};
+	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }
