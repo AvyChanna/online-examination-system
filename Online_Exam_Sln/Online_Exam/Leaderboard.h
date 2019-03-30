@@ -73,7 +73,6 @@ namespace Online_Exam {
 			// 
 			this->standings->AllowUserToAddRows = false;
 			this->standings->AllowUserToDeleteRows = false;
-			this->standings->AllowUserToOrderColumns = true;
 			this->standings->AllowUserToResizeColumns = false;
 			this->standings->AllowUserToResizeRows = false;
 			this->standings->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -83,7 +82,6 @@ namespace Online_Exam {
 			this->standings->RowTemplate->Height = 24;
 			this->standings->Size = System::Drawing::Size(853, 565);
 			this->standings->TabIndex = 0;
-			this->standings->RowPrePaint += gcnew System::Windows::Forms::DataGridViewRowPrePaintEventHandler(this, &Leaderboard::standings_RowPrePaint);
 			// 
 			// Leaderboard
 			// 
@@ -101,21 +99,29 @@ namespace Online_Exam {
 #pragma endregion
 	private: System::Void Leaderboard_Load(System::Object^  sender, System::EventArgs^  e) {
 				 Access = gcnew OES();
-				 Access->ExecQuery("SELECT Performance.Username,Performance.Username, Performance.ObtainedMarks\
-					 FROM Performance\
-					 WHERE(("+this->examCode+"))\
-					 ORDER BY Performance.ObtainedMarks DESC;");
+				 Access->ExecQuery("SELECT ExamCode, Username, ObtainedMarks\
+					 FROM     Performance\
+					 WHERE(ExamCode = "+ this->examCode +" )\
+					 ORDER BY ObtainedMarks DESC");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Performance");
 				 standings->DataSource = dsa->Tables[0];
 				 standings->Columns[0]->HeaderText = "Rank";
-				 
-	}
-	private: System::Void standings_RowPrePaint(System::Object^  sender, System::Windows::Forms::DataGridViewRowPrePaintEventArgs^  e) {
-				 if (e->RowIndex>=0)
-				 {
-					 standings->Rows[e->RowIndex]->Cells[0]->Value = e->RowIndex + 1;
+				 if (Access->RecordCount >= 1){
+					 standings->Rows[0]->Cells[0]->Value = 1;
 				 }
+				 for (int i = 1; i < Access->RecordCount; i++){
+					 
+					 if (standings->Rows[i]->Cells[2]->Value->ToString() == standings->Rows[i - 1]->Cells[2]->Value->ToString())
+					 {
+						 standings->Rows[i]->Cells[0]->Value = standings->Rows[i - 1]->Cells[0]->Value;
+					 }
+					 else
+					 {
+						 standings->Rows[i]->Cells[0]->Value = i + 1;
+					 }
+				 }
+				 
 	}
 	};
 }
