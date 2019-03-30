@@ -2,6 +2,7 @@
 #include "Database.h"
 #include "ApproveProf.h"
 #include "StudentEditAdmin.h"
+#include "ExamList.h"
 
 namespace Online_Exam {
 
@@ -41,6 +42,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  BtnApproveProf;
 	private: System::Windows::Forms::Panel^  adminPanel;
 	private: System::Windows::Forms::Button^  Students;
+	private: System::Windows::Forms::Button^  examDetails;
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Button^  buttonlogout;
 	protected:
@@ -65,6 +67,7 @@ namespace Online_Exam {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->buttonlogout = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
+			this->examDetails = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// BtnApproveProf
@@ -112,6 +115,16 @@ namespace Online_Exam {
 			this->Students->MouseLeave += gcnew System::EventHandler(this, &AdminForm::Students_MouseLeave);
 			this->Students->MouseHover += gcnew System::EventHandler(this, &AdminForm::Students_MouseHover);
 			// 
+			// examDetails
+			// 
+			this->examDetails->Location = System::Drawing::Point(63, 266);
+			this->examDetails->Name = L"examDetails";
+			this->examDetails->Size = System::Drawing::Size(121, 62);
+			this->examDetails->TabIndex = 3;
+			this->examDetails->Text = L"Exam Details";
+			this->examDetails->UseVisualStyleBackColor = true;
+			this->examDetails->Click += gcnew System::EventHandler(this, &AdminForm::examDetails_Click);
+			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
@@ -148,7 +161,9 @@ namespace Online_Exam {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(995, 482);
+			this->Controls->Add(this->examDetails);
+			this->Controls->Add(this->Students);
+			this->ClientSize = System::Drawing::Size(1327, 593);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->adminPanel);
 			this->Margin = System::Windows::Forms::Padding(2);
@@ -175,11 +190,17 @@ namespace Online_Exam {
 				 
 	}
 	private: System::Void BtnApproveProf_MouseHover(System::Object^  sender, System::EventArgs^  e) {
-				 BtnApproveProf->ForeColor = System::Drawing::Color::FromArgb(229, 178, 11);
+				 BtnApproveProf->ForeColor = System::Drawing::Color::FromArgb(229, 178, 11); // MIGHT BE BRACKET PROBLEM HERE ! 
 	}
 private: System::Void BtnApproveProf_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
 			 BtnApproveProf->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-}
+    }
+	private: System::Void examDetails_Click(System::Object^  sender, System::EventArgs^  e) {
+				 adminPanel->Controls->Clear();
+				 ExamList ^ usr = gcnew ExamList();
+				 adminPanel->Controls->Add(usr);
+	}
+
 	private: System::Void Students_MouseHover(System::Object^  sender, System::EventArgs^  e) {
 					  Students->ForeColor = System::Drawing::Color::FromArgb(229, 178, 11);
 		 }
