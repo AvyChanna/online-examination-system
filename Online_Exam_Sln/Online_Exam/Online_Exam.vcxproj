@@ -89,6 +89,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +117,12 @@
     <ClInclude Include="ApproveProf.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="ChangePassword.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="charts.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CreateExam.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -129,21 +136,39 @@
     <ClInclude Include="ExamPaper.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ExamList.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="Form1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Database.h" />
     <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="Leaderboard.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AddQuestions.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="GroupEnroll.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="PastTest.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="NewPass.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Instructions.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PastTestsSet.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="json.h" />
+    <ClInclude Include="PieChartAnalysis.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Questions.h" />
     <ClInclude Include="ProfEditProfile.h">
       <FileType>CppControl</FileType>
@@ -162,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="QuestionStructure.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="sectionAnalysis.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Signup.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -198,6 +226,12 @@
     <EmbeddedResource Include="ApproveProf.resx">
       <DependentUpon>ApproveProf.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="charts.resx">
+      <DependentUpon>charts.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateExam.resx">
       <DependentUpon>CreateExam.h</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +241,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="displayAnswer.resx">
       <DependentUpon>displayAnswer.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamList.resx">
+      <DependentUpon>ExamList.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resX">
+      <DependentUpon>Form1.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ExamPaper.resx">
       <DependentUpon>ExamPaper.h</DependentUpon>
@@ -218,17 +259,27 @@
       <DependentUpon>AddQuestions.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewPass.resx">
-      <DependentUpon>NewPass.h</DependentUpon>
+    <EmbeddedResource Include="Leaderboard.resx">
+      <DependentUpon>Leaderboard.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructions.resx">
+      <DependentUpon>Instructions.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PastTest.resx">
+      <DependentUpon>PastTest.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PastTestsSet.resx">
       <DependentUpon>PastTestsSet.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieChartAnalysis.resx">
+      <DependentUpon>PieChartAnalysis.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfEditProfile.resx">
       <DependentUpon>ProfEditProfile.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfForm.resx">
       <DependentUpon>ProfForm.h</DependentUpon>
@@ -238,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="prof_signup.resx">
       <DependentUpon>prof_signup.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sectionAnalysis.resx">
+      <DependentUpon>sectionAnalysis.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.h</DependentUpon>

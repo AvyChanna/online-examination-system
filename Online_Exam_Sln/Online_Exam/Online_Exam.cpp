@@ -3,6 +3,7 @@
 #include "Login.h"
 #include"displayAnswer.h"
 #include "ExamPaper.h"
+#include "charts.h"
 using namespace Online_Exam;
 
 [STAThreadAttribute]

@@ -24,12 +24,14 @@ namespace Online_Exam
 	public ref class Login : public System::Windows::Forms::Form
 	{
 		public:
+
 			String ^Username;
 			String ^Password;
 			String ^Email;
 			Login(void)
 			{
 				InitializeComponent();
+				
 				Username = "";
 				Password = "";
 				Email = "";
@@ -37,159 +39,206 @@ namespace Online_Exam
 				//TODO: Add the constructor code here
 				//
 			}
+		
 
-		protected:
-			/// <summary>
-			/// Clean up any resources being used.
-			/// </summary>
-			~Login()
+	private: System::Windows::Forms::TextBox^  textUsername;
+	private: System::Windows::Forms::TextBox^  textPassword;
+	private: System::Windows::Forms::Button^  btnLogin;
+	protected:
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		~Login()
+		{
+			if (components)
 			{
-				if (components)
-				{
-					delete components;
-				}
+				delete components;
 			}
-		private:
-			System::Windows::Forms::Label^  label1;
-		private:
-			System::Windows::Forms::TextBox^  textUsername;
-		protected:
-
-		private:
-			System::Windows::Forms::Label^  label2;
-		private:
-			System::Windows::Forms::TextBox^  textPassword;
-		private:
-			System::Windows::Forms::Button^  btnLogin;
+		}
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::LinkLabel^  linkLabel1;
+	private: System::Windows::Forms::LinkLabel^  linkLabel2;
+	private: System::Windows::Forms::Panel^  panel3;
+	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
 
 
-		private:
-			System::Windows::Forms::LinkLabel^  linkLabel1;
-		private:
-			System::Windows::Forms::LinkLabel^  linkLabel2;
-		private:
-			System::Windows::Forms::PictureBox^  pictureBox1;
+	private:
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		System::ComponentModel::Container ^components;
 
-		private:
-			/// <summary>
-			/// Required designer variable.
-			/// </summary>
-			System::ComponentModel::Container ^components;
+#pragma region Windows Form Designer generated code
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Login::typeid));
+			this->textUsername = (gcnew System::Windows::Forms::TextBox());
+			this->textPassword = (gcnew System::Windows::Forms::TextBox());
+			this->btnLogin = (gcnew System::Windows::Forms::Button());
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
+			this->linkLabel2 = (gcnew System::Windows::Forms::LinkLabel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->SuspendLayout();
+			// 
+			// textUsername
+			// 
+			this->textUsername->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(184)),
+				static_cast<System::Int32>(static_cast<System::Byte>(2)));
+			this->textUsername->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textUsername->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textUsername->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->textUsername->Location = System::Drawing::Point(228, 154);
+			this->textUsername->Name = L"textUsername";
+			this->textUsername->Size = System::Drawing::Size(273, 27);
+			this->textUsername->TabIndex = 0;
+			this->textUsername->Text = L"Username";
+			this->textUsername->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textUsername->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Login::textUsername_MouseClick);
+			this->textUsername->TextChanged += gcnew System::EventHandler(this, &Login::textUsername_TextChanged);
+			this->textUsername->Leave += gcnew System::EventHandler(this, &Login::textUsername_Leave);
+			// 
+			// textPassword
+			// 
+			this->textPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(238)), static_cast<System::Int32>(static_cast<System::Byte>(180)),
+				static_cast<System::Int32>(static_cast<System::Byte>(2)));
+			this->textPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textPassword->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textPassword->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->textPassword->Location = System::Drawing::Point(228, 214);
+			this->textPassword->Name = L"textPassword";
+			this->textPassword->Size = System::Drawing::Size(273, 27);
+			this->textPassword->TabIndex = 1;
+			this->textPassword->Text = L"Password";
+			this->textPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textPassword->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Login::textPassword_MouseClick);
+			this->textPassword->TextChanged += gcnew System::EventHandler(this, &Login::textPassword_TextChanged);
+			this->textPassword->Enter += gcnew System::EventHandler(this, &Login::textPassword_Enter);
+			this->textPassword->Leave += gcnew System::EventHandler(this, &Login::textPassword_Leave);
+			// 
+			// btnLogin
+			// 
+			this->btnLogin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->btnLogin->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->btnLogin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnLogin->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnLogin->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(231)), static_cast<System::Int32>(static_cast<System::Byte>(173)),
+				static_cast<System::Int32>(static_cast<System::Byte>(1)));
+			this->btnLogin->Location = System::Drawing::Point(224, 272);
+			this->btnLogin->Name = L"btnLogin";
+			this->btnLogin->Size = System::Drawing::Size(277, 38);
+			this->btnLogin->TabIndex = 2;
+			this->btnLogin->Text = L"Login";
+			this->btnLogin->UseVisualStyleBackColor = false;
+			this->btnLogin->Click += gcnew System::EventHandler(this, &Login::btnLogin_Click);
+			// 
+			// linkLabel1
+			// 
+			this->linkLabel1->AutoSize = true;
+			this->linkLabel1->BackColor = System::Drawing::Color::Transparent;
+			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->linkLabel1->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->linkLabel1->Location = System::Drawing::Point(226, 328);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(110, 16);
+			this->linkLabel1->TabIndex = 5;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"Forgot Password\?";
+			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel1_LinkClicked);
+			// 
+			// linkLabel2
+			// 
+			this->linkLabel2->AutoSize = true;
+			this->linkLabel2->BackColor = System::Drawing::Color::Transparent;
+			this->linkLabel2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->linkLabel2->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->linkLabel2->Location = System::Drawing::Point(226, 354);
+			this->linkLabel2->Name = L"linkLabel2";
+			this->linkLabel2->Size = System::Drawing::Size(219, 16);
+			this->linkLabel2->TabIndex = 6;
+			this->linkLabel2->TabStop = true;
+			this->linkLabel2->Text = L"Don\'t have an account\? Signup here";
+			this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel2_LinkClicked);
+			// 
+			// panel3
+			// 
+			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->panel3->Location = System::Drawing::Point(228, 181);
+			this->panel3->Margin = System::Windows::Forms::Padding(2);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(273, 2);
+			this->panel3->TabIndex = 9;
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->panel1->Location = System::Drawing::Point(228, 242);
+			this->panel1->Margin = System::Windows::Forms::Padding(2);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(273, 2);
+			this->panel1->TabIndex = 10;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->pictureBox1->Location = System::Drawing::Point(293, 61);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(137, 69);
+			this->pictureBox1->TabIndex = 11;
+			this->pictureBox1->TabStop = false;
+			// 
+			// Login
+			// 
+			this->AcceptButton = this->btnLogin;
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(238)), static_cast<System::Int32>(static_cast<System::Byte>(180)),
+				static_cast<System::Int32>(static_cast<System::Byte>(2)));
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(580, 419);
+			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->textPassword);
+			this->Controls->Add(this->textUsername);
+			this->Controls->Add(this->panel3);
+			this->Controls->Add(this->linkLabel2);
+			this->Controls->Add(this->linkLabel1);
+			this->Controls->Add(this->btnLogin);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
+			this->Name = L"Login";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
+			this->Text = L"Login";
+			this->TopMost = true;
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->ResumeLayout(false);
+			this->PerformLayout();
 
-			#pragma region Windows Form Designer generated code
-			/// <summary>
-			/// Required method for Designer support - do not modify
-			/// the contents of this method with the code editor.
-			/// </summary>
-			void InitializeComponent(void)
-			{
-				System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Login::typeid));
-				this->label1 = (gcnew System::Windows::Forms::Label());
-				this->textUsername = (gcnew System::Windows::Forms::TextBox());
-				this->label2 = (gcnew System::Windows::Forms::Label());
-				this->textPassword = (gcnew System::Windows::Forms::TextBox());
-				this->btnLogin = (gcnew System::Windows::Forms::Button());
-				this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
-				this->linkLabel2 = (gcnew System::Windows::Forms::LinkLabel());
-				this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-				(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-				this->SuspendLayout();
-				this->label1->AutoSize = true;
-				this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-					static_cast<System::Byte>(0)));
-				this->label1->Location = System::Drawing::Point(377, 10);
-				this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-				this->label1->Name = L"label1";
-				this->label1->Size = System::Drawing::Size(139, 31);
-				this->label1->TabIndex = 3;
-				this->label1->Text = L"Username";
-				this->textUsername->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-				this->textUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-					static_cast<System::Byte>(0)));
-				this->textUsername->Location = System::Drawing::Point(384, 46);
-				this->textUsername->Margin = System::Windows::Forms::Padding(4);
-				this->textUsername->Name = L"textUsername";
-				this->textUsername->Size = System::Drawing::Size(363, 30);
-				this->textUsername->TabIndex = 0;
-				this->label2->AutoSize = true;
-				this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-					static_cast<System::Byte>(0)));
-				this->label2->Location = System::Drawing::Point(377, 101);
-				this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-				this->label2->Name = L"label2";
-				this->label2->Size = System::Drawing::Size(134, 31);
-				this->label2->TabIndex = 4;
-				this->label2->Text = L"Password";
-				this->textPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-				this->textPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-					static_cast<System::Byte>(0)));
-				this->textPassword->Location = System::Drawing::Point(384, 137);
-				this->textPassword->Margin = System::Windows::Forms::Padding(4);
-				this->textPassword->Name = L"textPassword";
-				this->textPassword->Size = System::Drawing::Size(363, 30);
-				this->textPassword->TabIndex = 1;
-				this->textPassword->UseSystemPasswordChar = true;
-				this->btnLogin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-				this->btnLogin->Location = System::Drawing::Point(516, 235);
-				this->btnLogin->Margin = System::Windows::Forms::Padding(4);
-				this->btnLogin->Name = L"btnLogin";
-				this->btnLogin->Size = System::Drawing::Size(100, 28);
-				this->btnLogin->TabIndex = 2;
-				this->btnLogin->Text = L"Login";
-				this->btnLogin->UseVisualStyleBackColor = true;
-				this->btnLogin->Click += gcnew System::EventHandler(this, &Login::btnLogin_Click);
-				this->linkLabel1->AutoSize = true;
-				this->linkLabel1->Location = System::Drawing::Point(625, 172);
-				this->linkLabel1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-				this->linkLabel1->Name = L"linkLabel1";
-				this->linkLabel1->Size = System::Drawing::Size(122, 17);
-				this->linkLabel1->TabIndex = 5;
-				this->linkLabel1->TabStop = true;
-				this->linkLabel1->Text = L"Forgot Password\?";
-				this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel1_LinkClicked);
-				this->linkLabel2->AutoSize = true;
-				this->linkLabel2->Location = System::Drawing::Point(444, 290);
-				this->linkLabel2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-				this->linkLabel2->Name = L"linkLabel2";
-				this->linkLabel2->Size = System::Drawing::Size(239, 17);
-				this->linkLabel2->TabIndex = 6;
-				this->linkLabel2->TabStop = true;
-				this->linkLabel2->Text = L"Don\'t have an account\? Signup here";
-				this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel2_LinkClicked);
-				this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-				this->pictureBox1->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.InitialImage")));
-				this->pictureBox1->Location = System::Drawing::Point(40, 18);
-				this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
-				this->pictureBox1->Name = L"pictureBox1";
-				this->pictureBox1->Size = System::Drawing::Size(315, 273);
-				this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-				this->pictureBox1->TabIndex = 7;
-				this->pictureBox1->TabStop = false;
-				this->AcceptButton = this->btnLogin;
-				this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
-				this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-				this->ClientSize = System::Drawing::Size(775, 319);
-				this->Controls->Add(this->pictureBox1);
-				this->Controls->Add(this->linkLabel2);
-				this->Controls->Add(this->linkLabel1);
-				this->Controls->Add(this->btnLogin);
-				this->Controls->Add(this->textPassword);
-				this->Controls->Add(this->textUsername);
-				this->Controls->Add(this->label2);
-				this->Controls->Add(this->label1);
-				this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-				this->Margin = System::Windows::Forms::Padding(4);
-				this->MaximizeBox = false;
-				this->MinimizeBox = false;
-				this->Name = L"Login";
-				this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-				this->Text = L"Login";
-				this->TopMost = true;
-				(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-				this->ResumeLayout(false);
-				this->PerformLayout();
-
-			}
+		}
 			#pragma endregion
 		private:
 			System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^  e)
@@ -244,15 +293,17 @@ namespace Online_Exam
 					gVar::Designation = DBDesignation;
 					if (DBDesignation == "Student")
 					{
+						Hide();
 						StudentForm^ form = gcnew StudentForm();
 						form->ShowDialog();
-						Close();
+						Show();
 					}
 					else
 					{
+						Hide();
 						ProfForm^ form = gcnew ProfForm();
 						form->ShowDialog();
-						Close();
+						Show();
 					}
 					return;
 				}
@@ -282,6 +333,7 @@ namespace Online_Exam
 							MessageBox::Show("Error in processing token");
 							return;
 						}
+
 						(gcnew NewPass(DBUsername))->ShowDialog();
 					}
 					else
@@ -294,18 +346,23 @@ namespace Online_Exam
 			{
 				Hide();
 				(gcnew Signup())->ShowDialog();
+					
 				Show();
 			}
 		private:
 			System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e)
 			{
-				// TODO: open mailer
+				if (Username->Trim() == "")
+				{
+					MessageBox::Show("Please Enter your Username", "Invalid Username");
+					return;
+				}
 				OES ^Access = gcnew OES();
 				Access->AddParam("@Username", Username);
 				Access->ExecQuery("Select Email from Users where Username = @Username");
 				if (Access->DBDT->Rows->Count == 0 || Access->Exception->Length)
 				{
-					MessageBox::Show("Username does not exist");
+					MessageBox::Show("Username does not exist", "Invalid Username");
 					return;
 				}
 			Email = Access->DBDT->Rows[0]->default[0]->ToString();
@@ -353,6 +410,31 @@ namespace Online_Exam
 				Username = textUsername->Text;
 				Password = textPassword->Text;
 			}
+private: System::Void textUsername_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+			 textUsername->Text = "";
+}
+private: System::Void textPassword_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+			 textPassword->Text = "";
+			 textPassword->UseSystemPasswordChar = true;
 
-	};
+}
+private: System::Void textUsername_Leave(System::Object^  sender, System::EventArgs^  e) {
+			 if (textUsername->Text == "")
+				 textUsername->Text = "Username";
+}
+private: System::Void textPassword_Leave(System::Object^  sender, System::EventArgs^  e) {
+			 if (textPassword->Text == ""){
+				 textPassword->Text = "Password";
+				 textPassword->UseSystemPasswordChar = false;
+			 }
+}
+private: System::Void textPassword_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 Username = textUsername->Text;
+			 Password = textPassword->Text;
+}
+private: System::Void textPassword_Enter(System::Object^  sender, System::EventArgs^  e) {
+			 textPassword->Text = "";
+			 textPassword->UseSystemPasswordChar = true;
+}
+};
 }

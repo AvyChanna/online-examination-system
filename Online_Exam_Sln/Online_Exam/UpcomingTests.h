@@ -66,21 +66,21 @@ namespace Online_Exam {
 			// contentPanel
 			// 
 			this->contentPanel->AutoScroll = true;
-			this->contentPanel->Location = System::Drawing::Point(11, 13);
-			this->contentPanel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->contentPanel->Location = System::Drawing::Point(15, 16);
+			this->contentPanel->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->contentPanel->Name = L"contentPanel";
-			this->contentPanel->Size = System::Drawing::Size(656, 321);
+			this->contentPanel->Size = System::Drawing::Size(875, 395);
 			this->contentPanel->TabIndex = 0;
-			
+			this->contentPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &UpcomingTests::contentPanel_Paint);
 			// 
 			// UpcomingTests
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->contentPanel);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"UpcomingTests";
-			this->Size = System::Drawing::Size(677, 344);
+			this->Size = System::Drawing::Size(903, 423);
 			this->Load += gcnew System::EventHandler(this, &UpcomingTests::UpcomingTests_Load);
 			this->ResumeLayout(false);
 
@@ -365,5 +365,7 @@ namespace Online_Exam {
 				 String ^newDate = associatedDate.ToString(format);
 				 MessageBox::Show(newDate);
 	}
+private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+}
 };
 }

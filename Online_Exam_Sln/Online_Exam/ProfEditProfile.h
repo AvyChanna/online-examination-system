@@ -56,6 +56,11 @@ namespace Online_Exam {
 	private: System::Windows::Forms::TextBox^  txtBranch;
 	private: System::Windows::Forms::Button^  btnUpdate;
 
+	private: System::Windows::Forms::Panel^  panel2;
+	private: System::Windows::Forms::Panel^  panel3;
+	private: System::Windows::Forms::Panel^  panel4;
+
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -80,115 +85,180 @@ namespace Online_Exam {
 			this->lblUsername = (gcnew System::Windows::Forms::Label());
 			this->txtBranch = (gcnew System::Windows::Forms::TextBox());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->SuspendLayout();
 			// 
 			// txtPhone
 			// 
-			this->txtPhone->Location = System::Drawing::Point(493, 202);
+			this->txtPhone->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtPhone->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtPhone->Location = System::Drawing::Point(111, 291);
 			this->txtPhone->Name = L"txtPhone";
-			this->txtPhone->Size = System::Drawing::Size(173, 22);
+			this->txtPhone->Size = System::Drawing::Size(232, 27);
 			this->txtPhone->TabIndex = 39;
+			this->txtPhone->TextChanged += gcnew System::EventHandler(this, &ProfEditProfile::txtPhone_TextChanged);
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(493, 155);
+			this->txtEmail->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtEmail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtEmail->Location = System::Drawing::Point(111, 193);
 			this->txtEmail->Name = L"txtEmail";
-			this->txtEmail->Size = System::Drawing::Size(173, 22);
+			this->txtEmail->Size = System::Drawing::Size(232, 27);
 			this->txtEmail->TabIndex = 38;
 			// 
 			// txtFullName
 			// 
-			this->txtFullName->Location = System::Drawing::Point(493, 106);
+			this->txtFullName->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtFullName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtFullName->Location = System::Drawing::Point(111, 87);
 			this->txtFullName->Name = L"txtFullName";
-			this->txtFullName->Size = System::Drawing::Size(173, 22);
+			this->txtFullName->Size = System::Drawing::Size(232, 27);
 			this->txtFullName->TabIndex = 36;
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(493, 56);
+			this->txtUsername->BackColor = System::Drawing::Color::White;
+			this->txtUsername->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtUsername->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtUsername->Location = System::Drawing::Point(494, 87);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->ReadOnly = true;
-			this->txtUsername->Size = System::Drawing::Size(173, 22);
+			this->txtUsername->Size = System::Drawing::Size(232, 27);
 			this->txtUsername->TabIndex = 35;
 			// 
 			// lblBranch
 			// 
 			this->lblBranch->AutoSize = true;
-			this->lblBranch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblBranch->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblBranch->Location = System::Drawing::Point(243, 250);
+			this->lblBranch->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblBranch->Location = System::Drawing::Point(490, 169);
 			this->lblBranch->Name = L"lblBranch";
-			this->lblBranch->Size = System::Drawing::Size(74, 25);
+			this->lblBranch->Size = System::Drawing::Size(68, 21);
 			this->lblBranch->TabIndex = 34;
 			this->lblBranch->Text = L"Branch";
 			// 
 			// lblFullName
 			// 
 			this->lblFullName->AutoSize = true;
-			this->lblFullName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblFullName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblFullName->Location = System::Drawing::Point(243, 106);
+			this->lblFullName->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblFullName->Location = System::Drawing::Point(107, 63);
 			this->lblFullName->Name = L"lblFullName";
-			this->lblFullName->Size = System::Drawing::Size(100, 25);
+			this->lblFullName->Size = System::Drawing::Size(90, 21);
 			this->lblFullName->TabIndex = 32;
 			this->lblFullName->Text = L"Full Name";
 			// 
 			// lblPhone
 			// 
 			this->lblPhone->AutoSize = true;
-			this->lblPhone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblPhone->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblPhone->Location = System::Drawing::Point(243, 202);
+			this->lblPhone->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblPhone->Location = System::Drawing::Point(107, 267);
 			this->lblPhone->Name = L"lblPhone";
-			this->lblPhone->Size = System::Drawing::Size(143, 25);
+			this->lblPhone->Size = System::Drawing::Size(133, 21);
 			this->lblPhone->TabIndex = 31;
 			this->lblPhone->Text = L"Phone Number";
 			// 
 			// lblEmail
 			// 
 			this->lblEmail->AutoSize = true;
-			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblEmail->Location = System::Drawing::Point(243, 155);
+			this->lblEmail->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblEmail->Location = System::Drawing::Point(107, 169);
 			this->lblEmail->Name = L"lblEmail";
-			this->lblEmail->Size = System::Drawing::Size(60, 25);
+			this->lblEmail->Size = System::Drawing::Size(52, 21);
 			this->lblEmail->TabIndex = 29;
 			this->lblEmail->Text = L"Email";
 			// 
 			// lblUsername
 			// 
 			this->lblUsername->AutoSize = true;
-			this->lblUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblUsername->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblUsername->Location = System::Drawing::Point(243, 56);
+			this->lblUsername->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
+				static_cast<System::Int32>(static_cast<System::Byte>(152)));
+			this->lblUsername->Location = System::Drawing::Point(490, 63);
 			this->lblUsername->Name = L"lblUsername";
-			this->lblUsername->Size = System::Drawing::Size(102, 25);
+			this->lblUsername->Size = System::Drawing::Size(93, 21);
 			this->lblUsername->TabIndex = 28;
 			this->lblUsername->Text = L"Username";
 			// 
 			// txtBranch
 			// 
-			this->txtBranch->Location = System::Drawing::Point(493, 250);
+			this->txtBranch->BackColor = System::Drawing::Color::White;
+			this->txtBranch->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtBranch->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtBranch->Location = System::Drawing::Point(494, 193);
 			this->txtBranch->Name = L"txtBranch";
 			this->txtBranch->ReadOnly = true;
-			this->txtBranch->Size = System::Drawing::Size(173, 22);
+			this->txtBranch->Size = System::Drawing::Size(232, 27);
 			this->txtBranch->TabIndex = 41;
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->btnUpdate->Location = System::Drawing::Point(388, 323);
+			this->btnUpdate->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnUpdate->FlatAppearance->BorderSize = 0;
+			this->btnUpdate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnUpdate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnUpdate->ForeColor = System::Drawing::Color::White;
+			this->btnUpdate->Location = System::Drawing::Point(339, 405);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(149, 35);
+			this->btnUpdate->Size = System::Drawing::Size(175, 47);
 			this->btnUpdate->TabIndex = 42;
 			this->btnUpdate->Text = L"UPDATE";
-			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->UseVisualStyleBackColor = false;
 			this->btnUpdate->Click += gcnew System::EventHandler(this, &ProfEditProfile::btnUpdate_Click);
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->panel2->Location = System::Drawing::Point(111, 120);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(232, 1);
+			this->panel2->TabIndex = 44;
+			// 
+			// panel3
+			// 
+			this->panel3->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->panel3->Location = System::Drawing::Point(111, 324);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(232, 1);
+			this->panel3->TabIndex = 45;
+			// 
+			// panel4
+			// 
+			this->panel4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->panel4->Location = System::Drawing::Point(111, 226);
+			this->panel4->Name = L"panel4";
+			this->panel4->Size = System::Drawing::Size(232, 1);
+			this->panel4->TabIndex = 46;
 			// 
 			// ProfEditProfile
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::White;
+			this->Controls->Add(this->panel4);
+			this->Controls->Add(this->panel3);
+			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->txtBranch);
 			this->Controls->Add(this->txtPhone);
@@ -201,7 +271,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->lblEmail);
 			this->Controls->Add(this->lblUsername);
 			this->Name = L"ProfEditProfile";
-			this->Size = System::Drawing::Size(903, 424);
+			this->Size = System::Drawing::Size(914, 532);
 			this->Load += gcnew System::EventHandler(this, &ProfEditProfile::ProfEditProfile_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -273,6 +343,9 @@ private: System::Void btnUpdate_Click(System::Object^  sender, System::EventArgs
 				 //MessageBox::Show("UPDATE Users SET FullName='" + txtFullName->Text + "' WHERE Username = '" + txtUsername->Text + "'");
 				 MessageBox::Show("Profile Updated Successfully");
 			 }
+}
+private: System::Void txtPhone_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		
 }
 };
 }

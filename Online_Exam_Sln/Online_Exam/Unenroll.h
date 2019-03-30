@@ -69,27 +69,30 @@ namespace Online_Exam {
 			// flowLayoutBtn
 			// 
 			this->flowLayoutBtn->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
-			this->flowLayoutBtn->Location = System::Drawing::Point(357, 37);
+			this->flowLayoutBtn->Location = System::Drawing::Point(719, 509);
+			this->flowLayoutBtn->Margin = System::Windows::Forms::Padding(4);
 			this->flowLayoutBtn->Name = L"flowLayoutBtn";
-			this->flowLayoutBtn->Size = System::Drawing::Size(188, 290);
+			this->flowLayoutBtn->Size = System::Drawing::Size(192, 10);
 			this->flowLayoutBtn->TabIndex = 0;
 			// 
 			// flowLayoutGroups
 			// 
-			this->flowLayoutGroups->Location = System::Drawing::Point(163, 37);
+			this->flowLayoutGroups->Location = System::Drawing::Point(142, 91);
+			this->flowLayoutGroups->Margin = System::Windows::Forms::Padding(4);
 			this->flowLayoutGroups->Name = L"flowLayoutGroups";
-			this->flowLayoutGroups->Size = System::Drawing::Size(188, 290);
+			this->flowLayoutGroups->Size = System::Drawing::Size(589, 370);
 			this->flowLayoutGroups->TabIndex = 1;
 			// 
 			// Unenroll
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
 			this->Controls->Add(this->flowLayoutGroups);
 			this->Controls->Add(this->flowLayoutBtn);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Unenroll";
-			this->Size = System::Drawing::Size(677, 344);
+			this->Size = System::Drawing::Size(915, 532);
 			this->Load += gcnew System::EventHandler(this, &Unenroll::Unenroll_Load);
 			this->ResumeLayout(false);
 
@@ -102,6 +105,7 @@ namespace Online_Exam {
 				 {
 					 String ^grp = Convert::ToString(Access->DBDT->Rows[0]["Groups"]);
 					 int len = grp->Length;
+					 int y = 100;
 					 for (int i = 0; i < len - 1;)
 					 {
 						 if (grp[i] == '-'&&grp[i + 1] != '-')
@@ -116,16 +120,35 @@ namespace Online_Exam {
 							 OES ^Access1 = gcnew OES();
 							 Access1->ExecQuery("Select * from Groups where GroupID = " + Convert::ToInt32(temp) + "");
 							 Label ^lbl = gcnew Label();
+							 lbl->Location = Point(10, y+5);
+							 lbl->BackColor = System::Drawing::Color::White;
+							 lbl->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 lbl->ForeColor = System::Drawing::Color::Black;
+							 lbl->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+							 lbl->TabIndex = 0;
 							 lbl->Text = Convert::ToString(Access1->DBDT->Rows[0]["GroupName"]);
 							 Button ^ btn = gcnew Button();
-							 btn->Width = 200;
-							 btn->Text = "Unenroll from this group";
+							 btn->Location = Point(200, y);
+							 btn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+								 static_cast<System::Int32>(static_cast<System::Byte>(72)));
+							 btn->FlatAppearance->BorderSize = 0;
+							 btn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+							 btn->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 btn->ForeColor = System::Drawing::Color::White;
+							 btn->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+							btn->Size = System::Drawing::Size(150, 25);
+							 btn->TabIndex = 27;
+							 btn->UseVisualStyleBackColor = false;
+							 btn->Text = "Unenroll from " + lbl->Text;
 							 lbl->Size = btn->Size;
 							 flowLayoutGroups->Controls->Add(lbl);
-							 flowLayoutBtn->Controls->Add(btn);
+							 flowLayoutGroups->Controls->Add(btn);
 							 btn->Tag = i;
 							 btn->Click += gcnew System::EventHandler(this, &Unenroll::btnClick);
 							 i = j;
+							 y+=100;
 						 }
 						 else i++;
 					 }
@@ -163,5 +186,6 @@ namespace Online_Exam {
 					 }
 		}
 	
+
 };
 }

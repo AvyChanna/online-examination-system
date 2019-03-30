@@ -60,6 +60,9 @@ namespace Online_Exam {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->profList = (gcnew System::Windows::Forms::DataGridView());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
@@ -71,29 +74,62 @@ namespace Online_Exam {
 			// 
 			this->profList->AllowUserToAddRows = false;
 			this->profList->AllowUserToDeleteRows = false;
+			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Control;
+			this->profList->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+			this->profList->BackgroundColor = System::Drawing::Color::White;
+			this->profList->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)),
+				static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(11)));
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->profList->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this->profList->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->profList->Location = System::Drawing::Point(58, 109);
+			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle6->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::ControlDark;
+			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->profList->DefaultCellStyle = dataGridViewCellStyle6;
+			this->profList->Location = System::Drawing::Point(33, 73);
 			this->profList->Name = L"profList";
 			this->profList->RowTemplate->Height = 24;
-			this->profList->Size = System::Drawing::Size(542, 281);
+			this->profList->Size = System::Drawing::Size(1056, 415);
 			this->profList->TabIndex = 1;
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(58, 442);
+			this->btnUpdate->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnUpdate->FlatAppearance->BorderSize = 0;
+			this->btnUpdate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnUpdate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnUpdate->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->btnUpdate->Location = System::Drawing::Point(471, 513);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(94, 26);
+			this->btnUpdate->Size = System::Drawing::Size(181, 47);
 			this->btnUpdate->TabIndex = 2;
 			this->btnUpdate->Text = L"Update";
-			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->UseVisualStyleBackColor = false;
 			this->btnUpdate->Click += gcnew System::EventHandler(this, &StudentEditAdmin::btnUpdate_Click);
 			// 
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(100, 63);
+			this->radioButton1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->radioButton1->Location = System::Drawing::Point(125, 21);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(78, 21);
+			this->radioButton1->Size = System::Drawing::Size(126, 35);
 			this->radioButton1->TabIndex = 3;
 			this->radioButton1->TabStop = true;
 			this->radioButton1->Text = L"Student";
@@ -103,9 +139,11 @@ namespace Online_Exam {
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(431, 63);
+			this->radioButton2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->radioButton2->Location = System::Drawing::Point(733, 21);
 			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(97, 21);
+			this->radioButton2->Size = System::Drawing::Size(152, 35);
 			this->radioButton2->TabIndex = 4;
 			this->radioButton2->TabStop = true;
 			this->radioButton2->Text = L"Professors";
@@ -116,12 +154,13 @@ namespace Online_Exam {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::White;
 			this->Controls->Add(this->radioButton2);
 			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->profList);
 			this->Name = L"StudentEditAdmin";
-			this->Size = System::Drawing::Size(658, 499);
+			this->Size = System::Drawing::Size(1122, 593);
 			this->Load += gcnew System::EventHandler(this, &StudentEditAdmin::StudentEditAdmin_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profList))->EndInit();
 			this->ResumeLayout(false);
