@@ -469,8 +469,7 @@ private: System::Void btnMyProfileStudent_MouseHover(System::Object^  sender, Sy
 			 btnMyProfileStudent->ForeColor = System::Drawing::Color::FromArgb(229, 178, 11);
 }
 private: System::Void btnMyProfileStudent_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
-			 btnMyProfileStudent->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			 
+			 btnMyProfileStudent->ForeColor = System::Drawing::SystemColors::ButtonHighlight;			 
 }
 private: System::Void btnEditProfileStudent_MouseHover(System::Object^  sender, System::EventArgs^  e) {
 			 btnEditProfileStudent->ForeColor = System::Drawing::Color::FromArgb(229, 178, 11);

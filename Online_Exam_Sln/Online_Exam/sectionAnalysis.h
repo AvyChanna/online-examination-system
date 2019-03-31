@@ -85,6 +85,8 @@ namespace Online_Exam {
 			// 
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
+			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->tabControl1->Location = System::Drawing::Point(17, 8);
 			this->tabControl1->Margin = System::Windows::Forms::Padding(2);
 			this->tabControl1->Name = L"tabControl1";
@@ -94,22 +96,24 @@ namespace Online_Exam {
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Location = System::Drawing::Point(4, 25);
+			this->tabPage1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tabPage1->Location = System::Drawing::Point(4, 26);
 			this->tabPage1->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage1->Size = System::Drawing::Size(832, 415);
+			this->tabPage1->Size = System::Drawing::Size(832, 414);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"tabPage1";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
 			// tabPage2
 			// 
-			this->tabPage2->Location = System::Drawing::Point(4, 25);
+			this->tabPage2->Location = System::Drawing::Point(4, 26);
 			this->tabPage2->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage2->Size = System::Drawing::Size(832, 415);
+			this->tabPage2->Size = System::Drawing::Size(832, 414);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -131,6 +135,9 @@ namespace Online_Exam {
 			this->barGraph->TabIndex = 0;
 			this->barGraph->Text = L"chart1";
 			this->barGraph->Visible = false;
+			this->barGraph->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+
 			// 
 			// sectionAnalysis
 			// 
@@ -144,6 +151,8 @@ namespace Online_Exam {
 			this->tabControl1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->barGraph))->EndInit();
 			this->ResumeLayout(false);
+			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 
 		}
 #pragma endregion

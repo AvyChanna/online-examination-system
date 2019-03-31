@@ -186,11 +186,11 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// 
 			this->lblTestName->AutoEllipsis = true;
 			this->lblTestName->AutoSize = true;
-			this->lblTestName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblTestName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblTestName->Location = System::Drawing::Point(149, 3);
+			this->lblTestName->Location = System::Drawing::Point(243, 13);
 			this->lblTestName->Name = L"lblTestName";
-			this->lblTestName->Size = System::Drawing::Size(144, 29);
+			this->lblTestName->Size = System::Drawing::Size(129, 23);
 			this->lblTestName->TabIndex = 0;
 			this->lblTestName->Text = L"Exam Name";
 			// 
@@ -200,33 +200,33 @@ private: System::Windows::Forms::Label^  lblLegend;
 			this->tc1->Controls->Add(this->tabPage1);
 			this->tc1->Controls->Add(this->tabPage2);
 			this->tc1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->tc1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->tc1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tc1->HotTrack = true;
 			this->tc1->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->tc1->Location = System::Drawing::Point(3, 120);
+			this->tc1->Location = System::Drawing::Point(0, 136);
 			this->tc1->Name = L"tc1";
 			this->tc1->SelectedIndex = 0;
-			this->tc1->Size = System::Drawing::Size(668, 25);
+			this->tc1->Size = System::Drawing::Size(913, 37);
 			this->tc1->SizeMode = System::Windows::Forms::TabSizeMode::FillToRight;
 			this->tc1->TabIndex = 25;
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Location = System::Drawing::Point(4, 27);
+			this->tabPage1->Location = System::Drawing::Point(4, 30);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(660, 0);
+			this->tabPage1->Size = System::Drawing::Size(905, 3);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"tabPage1";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
 			// tabPage2
 			// 
-			this->tabPage2->Location = System::Drawing::Point(4, 27);
+			this->tabPage2->Location = System::Drawing::Point(4, 30);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(660, 0);
+			this->tabPage2->Size = System::Drawing::Size(905, 3);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -234,18 +234,20 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// flowLayoutPanel1
 			// 
 			this->flowLayoutPanel1->AutoScroll = true;
+			this->flowLayoutPanel1->BackColor = System::Drawing::Color::Gainsboro;
 			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 147);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 179);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(686, 285);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(916, 353);
 			this->flowLayoutPanel1->TabIndex = 27;
+			this->flowLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &displayAnswer::flowLayoutPanel1_Paint);
 			// 
 			// label3
 			// 
 			this->label3->BackColor = System::Drawing::Color::White;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(516, 3);
+			this->label3->Location = System::Drawing::Point(654, 14);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(155, 22);
 			this->label3->TabIndex = 28;
@@ -257,157 +259,173 @@ private: System::Windows::Forms::Label^  lblLegend;
 			this->markingFlowPanel->AutoScroll = true;
 			this->markingFlowPanel->BackColor = System::Drawing::Color::White;
 			this->markingFlowPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->markingFlowPanel->Location = System::Drawing::Point(513, 29);
+			this->markingFlowPanel->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->markingFlowPanel->Location = System::Drawing::Point(651, 49);
 			this->markingFlowPanel->Name = L"markingFlowPanel";
-			this->markingFlowPanel->Size = System::Drawing::Size(158, 89);
+			this->markingFlowPanel->Size = System::Drawing::Size(158, 80);
 			this->markingFlowPanel->TabIndex = 29;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(157, 46);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(193, 49);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(84, 13);
+			this->label1->Size = System::Drawing::Size(114, 17);
 			this->label1->TabIndex = 30;
 			this->label1->Text = L"Session Number";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(157, 64);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(193, 67);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(94, 13);
+			this->label2->Size = System::Drawing::Size(138, 17);
 			this->label2->TabIndex = 31;
 			this->label2->Text = L"Exam Length (min)";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(157, 100);
+			this->label7->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->Location = System::Drawing::Point(193, 103);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(90, 13);
+			this->label7->Size = System::Drawing::Size(128, 17);
 			this->label7->TabIndex = 32;
 			this->label7->Text = L"Normalized Score";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(353, 100);
+			this->label8->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->Location = System::Drawing::Point(421, 106);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(78, 13);
+			this->label8->Size = System::Drawing::Size(109, 19);
 			this->label8->TabIndex = 35;
 			this->label8->Text = L"Average Score";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(353, 82);
+			this->label9->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->Location = System::Drawing::Point(421, 88);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(55, 13);
+			this->label9->Size = System::Drawing::Size(76, 19);
 			this->label9->TabIndex = 34;
 			this->label9->Text = L"Min Score";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(353, 64);
+			this->label10->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Location = System::Drawing::Point(421, 67);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(58, 13);
+			this->label10->Size = System::Drawing::Size(81, 19);
 			this->label10->TabIndex = 33;
 			this->label10->Text = L"Max Score";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+			this->label11->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(359, 46);
+			this->label11->Location = System::Drawing::Point(411, 49);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(102, 13);
+			this->label11->Size = System::Drawing::Size(142, 17);
 			this->label11->TabIndex = 36;
 			this->label11->Text = L"Section-wise Details";
 			// 
 			// lblSesNo
 			// 
 			this->lblSesNo->AutoSize = true;
-			this->lblSesNo->Location = System::Drawing::Point(258, 46);
+			this->lblSesNo->Location = System::Drawing::Point(337, 53);
 			this->lblSesNo->Name = L"lblSesNo";
-			this->lblSesNo->Size = System::Drawing::Size(13, 13);
+			this->lblSesNo->Size = System::Drawing::Size(16, 17);
 			this->lblSesNo->TabIndex = 38;
 			this->lblSesNo->Text = L"0";
 			// 
 			// lblExLen
 			// 
 			this->lblExLen->AutoSize = true;
-			this->lblExLen->Location = System::Drawing::Point(258, 64);
+			this->lblExLen->Location = System::Drawing::Point(337, 69);
 			this->lblExLen->Name = L"lblExLen";
-			this->lblExLen->Size = System::Drawing::Size(13, 13);
+			this->lblExLen->Size = System::Drawing::Size(16, 17);
 			this->lblExLen->TabIndex = 39;
 			this->lblExLen->Text = L"0";
 			// 
 			// lblNormScore
 			// 
 			this->lblNormScore->AutoSize = true;
-			this->lblNormScore->Location = System::Drawing::Point(258, 100);
+			this->lblNormScore->Location = System::Drawing::Point(337, 104);
 			this->lblNormScore->Name = L"lblNormScore";
-			this->lblNormScore->Size = System::Drawing::Size(13, 13);
+			this->lblNormScore->Size = System::Drawing::Size(16, 17);
 			this->lblNormScore->TabIndex = 40;
 			this->lblNormScore->Text = L"0";
 			// 
 			// lblTotScore
 			// 
 			this->lblTotScore->AutoSize = true;
-			this->lblTotScore->Location = System::Drawing::Point(258, 82);
+			this->lblTotScore->Location = System::Drawing::Point(337, 87);
 			this->lblTotScore->Name = L"lblTotScore";
-			this->lblTotScore->Size = System::Drawing::Size(13, 13);
+			this->lblTotScore->Size = System::Drawing::Size(16, 17);
 			this->lblTotScore->TabIndex = 42;
 			this->lblTotScore->Text = L"0";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(157, 82);
+			this->label13->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label13->Location = System::Drawing::Point(193, 85);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(62, 13);
+			this->label13->Size = System::Drawing::Size(84, 17);
 			this->label13->TabIndex = 41;
 			this->label13->Text = L"Total Score";
 			// 
 			// lblAvgSect
 			// 
 			this->lblAvgSect->AutoSize = true;
-			this->lblAvgSect->Location = System::Drawing::Point(448, 100);
+			this->lblAvgSect->Location = System::Drawing::Point(537, 108);
 			this->lblAvgSect->Name = L"lblAvgSect";
-			this->lblAvgSect->Size = System::Drawing::Size(13, 13);
+			this->lblAvgSect->Size = System::Drawing::Size(16, 17);
 			this->lblAvgSect->TabIndex = 45;
 			this->lblAvgSect->Text = L"0";
 			// 
 			// lblMinSect
 			// 
 			this->lblMinSect->AutoSize = true;
-			this->lblMinSect->Location = System::Drawing::Point(448, 82);
+			this->lblMinSect->Location = System::Drawing::Point(537, 90);
 			this->lblMinSect->Name = L"lblMinSect";
-			this->lblMinSect->Size = System::Drawing::Size(13, 13);
+			this->lblMinSect->Size = System::Drawing::Size(16, 17);
 			this->lblMinSect->TabIndex = 44;
 			this->lblMinSect->Text = L"0";
 			// 
 			// lblMaxSect
 			// 
 			this->lblMaxSect->AutoSize = true;
-			this->lblMaxSect->Location = System::Drawing::Point(448, 64);
+			this->lblMaxSect->Location = System::Drawing::Point(537, 72);
 			this->lblMaxSect->Name = L"lblMaxSect";
-			this->lblMaxSect->Size = System::Drawing::Size(13, 13);
+			this->lblMaxSect->Size = System::Drawing::Size(16, 17);
 			this->lblMaxSect->TabIndex = 43;
 			this->lblMaxSect->Text = L"0";
 			// 
 			// label6
 			// 
 			this->label6->BackColor = System::Drawing::Color::White;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label6->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(23, 96);
+			this->label6->Location = System::Drawing::Point(39, 99);
 			this->label6->Margin = System::Windows::Forms::Padding(1);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(123, 17);
+			this->label6->Size = System::Drawing::Size(103, 21);
 			this->label6->TabIndex = 52;
 			this->label6->Text = L"Unattempted Question";
 			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -415,9 +433,9 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// label5
 			// 
 			this->label5->BackColor = System::Drawing::Color::White;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label5->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(23, 72);
+			this->label5->Location = System::Drawing::Point(36, 76);
 			this->label5->Margin = System::Windows::Forms::Padding(1);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(123, 17);
@@ -428,12 +446,12 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// label4
 			// 
 			this->label4->BackColor = System::Drawing::Color::White;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(20, 48);
+			this->label4->Location = System::Drawing::Point(36, 52);
 			this->label4->Margin = System::Windows::Forms::Padding(1);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(123, 17);
+			this->label4->Size = System::Drawing::Size(112, 22);
 			this->label4->TabIndex = 50;
 			this->label4->Text = L"Correct Answer";
 			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -441,7 +459,7 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// pbInc
 			// 
 			this->pbInc->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pbInc->Location = System::Drawing::Point(4, 73);
+			this->pbInc->Location = System::Drawing::Point(17, 77);
 			this->pbInc->Margin = System::Windows::Forms::Padding(1);
 			this->pbInc->Name = L"pbInc";
 			this->pbInc->Size = System::Drawing::Size(13, 15);
@@ -451,7 +469,7 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// pbUnat
 			// 
 			this->pbUnat->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pbUnat->Location = System::Drawing::Point(4, 96);
+			this->pbUnat->Location = System::Drawing::Point(17, 100);
 			this->pbUnat->Margin = System::Windows::Forms::Padding(1);
 			this->pbUnat->Name = L"pbUnat";
 			this->pbUnat->Size = System::Drawing::Size(13, 15);
@@ -461,9 +479,9 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// lblLegend
 			// 
 			this->lblLegend->BackColor = System::Drawing::Color::White;
-			this->lblLegend->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lblLegend->Location = System::Drawing::Point(4, 3);
+			this->lblLegend->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblLegend->Location = System::Drawing::Point(3, 14);
 			this->lblLegend->Name = L"lblLegend";
 			this->lblLegend->Size = System::Drawing::Size(139, 23);
 			this->lblLegend->TabIndex = 47;
@@ -473,7 +491,7 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// pbCor
 			// 
 			this->pbCor->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pbCor->Location = System::Drawing::Point(4, 49);
+			this->pbCor->Location = System::Drawing::Point(17, 53);
 			this->pbCor->Margin = System::Windows::Forms::Padding(1);
 			this->pbCor->Name = L"pbCor";
 			this->pbCor->Size = System::Drawing::Size(13, 15);
@@ -482,7 +500,7 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// 
 			// displayAnswer
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 17);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->Controls->Add(this->label6);
@@ -515,7 +533,7 @@ private: System::Windows::Forms::Label^  lblLegend;
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Name = L"displayAnswer";
-			this->Size = System::Drawing::Size(686, 432);
+			this->Size = System::Drawing::Size(916, 532);
 			this->Load += gcnew System::EventHandler(this, &displayAnswer::displayAnswer_Load);
 			this->tc1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbInc))->EndInit();
@@ -825,6 +843,8 @@ private: System::Void displayAnswer_Load(System::Object^  sender, System::EventA
 			 
 
 
+}
+private: System::Void flowLayoutPanel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 }
 };
 }
