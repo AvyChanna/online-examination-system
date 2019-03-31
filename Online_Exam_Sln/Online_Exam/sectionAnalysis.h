@@ -57,9 +57,13 @@ namespace Online_Exam {
 		array<Int32> ^ maxMarks;
 		array<Int32> ^ minMarks;
 		array<Double> ^ avgMarks;
+		array<Int32> ^ yourMarks;
+		System::Windows::Forms::DataVisualization::Charting::Series^  Smax = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+		System::Windows::Forms::DataVisualization::Charting::Series^  Smin = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+		System::Windows::Forms::DataVisualization::Charting::Series^  Savg = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 
-			 array<Int32> ^ yourMarks;
 
+			 System::Windows::Forms::DataVisualization::Charting::Series^  Syour = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			 
 
 
@@ -116,6 +120,8 @@ namespace Online_Exam {
 			// 
 			// barGraph
 			// 
+			chartArea1->AxisX->MajorGrid->LineWidth = 0;
+			chartArea1->AxisY->Title = L"Marks";
 			chartArea1->Name = L"ChartArea1";
 			this->barGraph->ChartAreas->Add(chartArea1);
 			this->barGraph->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -130,7 +136,6 @@ namespace Online_Exam {
 			this->barGraph->Size = System::Drawing::Size(600, 300);
 			this->barGraph->TabIndex = 0;
 			this->barGraph->Text = L"chart1";
-			this->barGraph->Visible = false;
 			// 
 			// sectionAnalysis
 			// 
@@ -211,33 +216,78 @@ namespace Online_Exam {
 
 				 int selInd = 0;
 				 this->barGraph->Series->Clear();
-				 this->barGraph->Series->Add("Max Marks");
-				 this->barGraph->Series->Add("Avg Marks");
-				 this->barGraph->Series->Add("Min Marks");
-				 this->barGraph->Series->Add("Your Marks");
-				 this->barGraph->Series["Max Marks"]->Points->AddXY("Max Marks", maxMarks[selInd]);
-				 this->barGraph->Series["Avg Marks"]->Points->AddXY("Avg Marks", avgMarks[selInd]);
-				 this->barGraph->Series["Min Marks"]->Points->AddXY("Min Marks", minMarks[selInd]);
-				 this->barGraph->Series["Your Marks"]->Points->AddXY("Your Marks", yourMarks[selInd]);
+
+				 Smax->IsValueShownAsLabel = true;
+				 Smax->LabelFormat = L"{N1}";
+				 Smax->Name = L"Max Marks";
+				 Smax->LabelBackColor = System::Drawing::Color::White;
+				 Smax->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 Smax["PixelPointWidth"] = "300";
+
+				 Smin->IsValueShownAsLabel = true;
+				 Smin->LabelFormat = L"{N1}";
+				 Smin->Name = L"Min Marks";
+				 Smin->LabelBackColor = System::Drawing::Color::White;
+				 Smin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 Smin["PixelPointWidth"] = "300";
+
+				 Savg->IsValueShownAsLabel = true;
+				 Savg->LabelFormat = L"#.##";
+				 Savg->Name = L"Avg Marks";
+				 Savg->LabelBackColor = System::Drawing::Color::White;
+				 Savg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 Savg["PixelPointWidth"] = "300";
+
+				 Syour->IsValueShownAsLabel = true;
+				 Syour->LabelFormat = L"{N1}";
+				 Syour->Name = L"Your Marks";
+				 Syour->LabelBackColor = System::Drawing::Color::White;
+				 Syour->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 Syour["PixelPointWidth"] = "300";
+
+				 this->barGraph->Series->Add(Smax);
+				 this->barGraph->Series->Add(Smin);
+				 this->barGraph->Series->Add(Savg);
+				 this->barGraph->Series->Add(Syour);
+
+				 Smax->Points->Clear();
+				 Smin->Points->Clear();
+				 Savg->Points->Clear();
+				 Syour->Points->Clear();
+
+				 Smax->Points->AddXY("", maxMarks[selInd]);
+				 Smin->Points->AddXY("", minMarks[selInd]);
+				 Savg->Points->AddXY("", avgMarks[selInd]);
+				 Syour->Points->AddXY("", yourMarks[selInd]);
+
 				 tabControl1->TabPages[selInd]->Controls->Add(this->barGraph);
-				 this->barGraph->Show();
 				 
 
 	}
 
 	private: System::Void TabSelect(System::Object^ sender, EventArgs^ e) {
 				 int selInd = static_cast<int>(static_cast<TabControl^>(sender)->SelectedIndex);
+				 
 				 this->barGraph->Series->Clear();
-				 this->barGraph->Series->Add("Max Marks");
-				 this->barGraph->Series->Add("Avg Marks");
-				 this->barGraph->Series->Add("Min Marks");
-				 this->barGraph->Series->Add("Your Marks");
-				 this->barGraph->Series["Max Marks"]->Points->AddXY("Max Marks", maxMarks[selInd]);
-				 this->barGraph->Series["Avg Marks"]->Points->AddXY("Avg Marks", avgMarks[selInd]);
-				 this->barGraph->Series["Min Marks"]->Points->AddXY("Min Marks", minMarks[selInd]);
-				 this->barGraph->Series["Your Marks"]->Points->AddXY("Your Marks", yourMarks[selInd]);
+				 this->barGraph->Series->Add(Smax);
+				 this->barGraph->Series->Add(Smin);
+				 this->barGraph->Series->Add(Savg);
+				 this->barGraph->Series->Add(Syour);
+				 Smax->Points->Clear();
+				 Smin->Points->Clear();
+				 Savg->Points->Clear();
+				 Syour->Points->Clear();
+				 Smax->Points->AddXY("", maxMarks[selInd]);
+				 Smin->Points->AddXY("", minMarks[selInd]);
+				 Savg->Points->AddXY("", avgMarks[selInd]);
+				 Syour->Points->AddXY("", yourMarks[selInd]);
+
 				 tabControl1->TabPages[selInd]->Controls->Add(this->barGraph);
-				 this->barGraph->Show();
+
 
 	}
 				 
