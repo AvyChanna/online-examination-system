@@ -46,6 +46,11 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Panel^  panel1;
+
+	private: System::Windows::Forms::Panel^  panel4;
+	private: System::Windows::Forms::Panel^  panel3;
+	private: System::Windows::Forms::Panel^  panel2;
 
 	private:
 		/// <summary>
@@ -65,63 +70,131 @@ namespace Online_Exam {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel1->SuspendLayout();
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(428, 121);
+			this->txtPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtPassword->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtPassword->Location = System::Drawing::Point(70, 100);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->PasswordChar = '*';
-			this->txtPassword->Size = System::Drawing::Size(179, 22);
+			this->txtPassword->Size = System::Drawing::Size(286, 21);
 			this->txtPassword->TabIndex = 0;
 			// 
 			// txtConfirmPassword
 			// 
-			this->txtConfirmPassword->Location = System::Drawing::Point(428, 175);
+			this->txtConfirmPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtConfirmPassword->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtConfirmPassword->Location = System::Drawing::Point(70, 220);
 			this->txtConfirmPassword->Name = L"txtConfirmPassword";
 			this->txtConfirmPassword->PasswordChar = '*';
-			this->txtConfirmPassword->Size = System::Drawing::Size(179, 22);
+			this->txtConfirmPassword->Size = System::Drawing::Size(286, 21);
 			this->txtConfirmPassword->TabIndex = 1;
 			// 
 			// label1
 			// 
-			this->label1->Location = System::Drawing::Point(203, 121);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(66, 61);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(140, 22);
+			this->label1->Size = System::Drawing::Size(258, 36);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Enter new password";
 			// 
 			// label2
 			// 
-			this->label2->Location = System::Drawing::Point(203, 175);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(65, 192);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(140, 22);
+			this->label2->Size = System::Drawing::Size(233, 36);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Confirm Password";
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(333, 269);
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::Color::White;
+			this->button1->Location = System::Drawing::Point(339, 464);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(205, 65);
+			this->button1->Size = System::Drawing::Size(224, 42);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"Change Password";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &ChangePassword::button1_Click);
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(178)),
+				static_cast<System::Int32>(static_cast<System::Byte>(11)));
+			this->panel1->Controls->Add(this->button1);
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(630, 532);
+			this->panel1->TabIndex = 5;
+			// 
+			// panel3
+			// 
+			this->panel3->BackColor = System::Drawing::Color::Black;
+			this->panel3->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->panel3->Location = System::Drawing::Point(70, 126);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(286, 1);
+			this->panel3->TabIndex = 4;
+			// 
+			// panel4
+			// 
+			this->panel4->BackColor = System::Drawing::Color::Black;
+			this->panel4->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->panel4->Location = System::Drawing::Point(70, 245);
+			this->panel4->Name = L"panel4";
+			this->panel4->Size = System::Drawing::Size(286, 1);
+			this->panel4->TabIndex = 5;
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::White;
+			this->panel2->Controls->Add(this->panel4);
+			this->panel2->Controls->Add(this->panel3);
+			this->panel2->Controls->Add(this->label1);
+			this->panel2->Controls->Add(this->txtConfirmPassword);
+			this->panel2->Controls->Add(this->label2);
+			this->panel2->Controls->Add(this->txtPassword);
+			this->panel2->Location = System::Drawing::Point(152, 84);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(615, 345);
+			this->panel2->TabIndex = 6;
+			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &ChangePassword::panel2_Paint);
 			// 
 			// ChangePassword
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->txtConfirmPassword);
-			this->Controls->Add(this->txtPassword);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(193)), static_cast<System::Int32>(static_cast<System::Byte>(189)),
+				static_cast<System::Int32>(static_cast<System::Byte>(174)));
+			this->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->Controls->Add(this->panel2);
+			this->Controls->Add(this->panel1);
 			this->Name = L"ChangePassword";
-			this->Size = System::Drawing::Size(903, 423);
+			this->Size = System::Drawing::Size(913, 530);
+			this->panel1->ResumeLayout(false);
+			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -145,5 +218,7 @@ namespace Online_Exam {
 				 txtPassword->Text = "";
 				 txtConfirmPassword->Text = "";
 	}
-	};
+	private: System::Void panel2_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+	}
+};
 }

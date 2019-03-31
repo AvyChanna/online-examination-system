@@ -265,6 +265,9 @@
     <EmbeddedResource Include="Instructions.resx">
       <DependentUpon>Instructions.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewPass.resx">
+      <DependentUpon>NewPass.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PastTest.resx">
       <DependentUpon>PastTest.h</DependentUpon>
     </EmbeddedResource>
