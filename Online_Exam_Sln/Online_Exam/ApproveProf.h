@@ -20,6 +20,8 @@ namespace Online_Exam {
 	public:
 		OES ^ Access; 
 		DataSet ^dsa;
+	private: System::Windows::Forms::Label^  label1;
+	public:
 		OleDbCommandBuilder^ cmdb;
 		ApproveProf(void)
 		{
@@ -63,6 +65,7 @@ namespace Online_Exam {
 			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->profList = (gcnew System::Windows::Forms::DataGridView());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profList))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -119,11 +122,21 @@ namespace Online_Exam {
 			this->btnUpdate->UseVisualStyleBackColor = false;
 			this->btnUpdate->Click += gcnew System::EventHandler(this, &ApproveProf::btnUpdate_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(468, 228);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(164, 17);
+			this->label1->TabIndex = 2;
+			this->label1->Text = L"No Professor to Approve";
+			// 
 			// ApproveProf
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->profList);
 			this->Name = L"ApproveProf";
@@ -131,6 +144,7 @@ namespace Online_Exam {
 			this->Load += gcnew System::EventHandler(this, &ApproveProf::ApproveProf_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profList))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -138,7 +152,17 @@ namespace Online_Exam {
 				 cmdb = gcnew OleDbCommandBuilder(Access->DBDA);
 				 Access->DBDA->Update(dsa, "Users");
 				 dsa->Clear();
+				 OES ^ Access1 = gcnew OES();			 
 				 Access->DBDA->Fill(dsa, "Users");
+				 Access1->ExecQuery("SELECT Username FROM Users WHERE(Designation = 'Professor') AND(isApproved = False)");
+				 if (Access1->RecordCount == 0){
+					 this->profList->Hide();
+					 label1->Show();
+				 }
+				 else{
+					 this->profList->Show();
+					 label1->Hide();
+				 }
 				 //this->profList->Columns["isApproved"]->ReadOnly = false;
 				 
 	}
@@ -154,7 +178,14 @@ namespace Online_Exam {
 				 this->profList->Columns["PhoneNo"]->ReadOnly = true;
 				 this->profList->Columns["IITG"]->ReadOnly = true;
 				 this->profList->Columns["Branch"]->ReadOnly = true;
-
+				 if (Access->RecordCount == 0){
+					 this->profList->Hide();
+					 label1->Show();
+				 }
+				 else{
+					 this->profList->Show();
+					 label1->Hide();
+				 }
 	}
 };
 }

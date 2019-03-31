@@ -64,8 +64,8 @@ namespace Online_Exam {
 			this->adminPanel = (gcnew System::Windows::Forms::Panel());
 			this->Students = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->panel1->SuspendLayout();
 			this->examDetails = (gcnew System::Windows::Forms::Button());
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// BtnApproveProf
@@ -104,11 +104,22 @@ namespace Online_Exam {
 			this->Students->Name = L"Students";
 			this->Students->Size = System::Drawing::Size(121, 39);
 			this->Students->TabIndex = 2;
-			this->Students->Text = L"Students";
+			this->Students->Text = L"Users";
 			this->Students->UseVisualStyleBackColor = true;
 			this->Students->Click += gcnew System::EventHandler(this, &AdminForm::Students_Click);
 			this->Students->MouseLeave += gcnew System::EventHandler(this, &AdminForm::Students_MouseLeave);
 			this->Students->MouseHover += gcnew System::EventHandler(this, &AdminForm::Students_MouseHover);
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->panel1->Controls->Add(this->BtnApproveProf);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(200, 593);
+			this->panel1->TabIndex = 3;
 			// 
 			// examDetails
 			// 
@@ -120,25 +131,13 @@ namespace Online_Exam {
 			this->examDetails->UseVisualStyleBackColor = true;
 			this->examDetails->Click += gcnew System::EventHandler(this, &AdminForm::examDetails_Click);
 			// 
-			// panel1
-			// 
-			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->panel1->Controls->Add(this->Students);
-			this->panel1->Controls->Add(this->BtnApproveProf);
-			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
-			this->panel1->Location = System::Drawing::Point(0, 0);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(200, 593);
-			this->panel1->TabIndex = 3;
-			// 
 			// AdminForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(1327, 593);
 			this->Controls->Add(this->examDetails);
 			this->Controls->Add(this->Students);
-			this->ClientSize = System::Drawing::Size(1327, 593);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->adminPanel);
 			this->Name = L"AdminForm";
