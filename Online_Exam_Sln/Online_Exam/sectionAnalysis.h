@@ -224,10 +224,16 @@ namespace Online_Exam {
 				 this->barGraph->Series->Add("Avg Marks");
 				 this->barGraph->Series->Add("Min Marks");
 				 this->barGraph->Series->Add("Your Marks");
-				 this->barGraph->Series["Max Marks"]->Points->AddXY("Max Marks", maxMarks[selInd]);
-				 this->barGraph->Series["Avg Marks"]->Points->AddXY("Avg Marks", avgMarks[selInd]);
-				 this->barGraph->Series["Min Marks"]->Points->AddXY("Min Marks", minMarks[selInd]);
-				 this->barGraph->Series["Your Marks"]->Points->AddXY("Your Marks", yourMarks[selInd]);
+				 this->barGraph->Series["Max Marks"]->Points->AddXY("", maxMarks[selInd]);
+				 this->barGraph->Series["Avg Marks"]->Points->AddXY("", avgMarks[selInd]);
+				 this->barGraph->Series["Min Marks"]->Points->AddXY("", minMarks[selInd]);
+				 this->barGraph->Series["Your Marks"]->Points->AddXY("", yourMarks[selInd]);
+				 this->barGraph->ChartAreas["ChartArea1"]->AxisY->Title = "Marks";
+				 this->barGraph->ChartAreas["ChartArea1"]->AxisY->TitleFont = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 this->barGraph->Titles->Clear();
+				 this->barGraph->Titles->Add("Last Performace Across Section")->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
 				 tabControl1->TabPages[selInd]->Controls->Add(this->barGraph);
 				 this->barGraph->Show();
 				 
@@ -241,10 +247,16 @@ namespace Online_Exam {
 				 this->barGraph->Series->Add("Avg Marks");
 				 this->barGraph->Series->Add("Min Marks");
 				 this->barGraph->Series->Add("Your Marks");
-				 this->barGraph->Series["Max Marks"]->Points->AddXY("Max Marks", maxMarks[selInd]);
-				 this->barGraph->Series["Avg Marks"]->Points->AddXY("Avg Marks", avgMarks[selInd]);
-				 this->barGraph->Series["Min Marks"]->Points->AddXY("Min Marks", minMarks[selInd]);
-				 this->barGraph->Series["Your Marks"]->Points->AddXY("Your Marks", yourMarks[selInd]);
+				 this->barGraph->Series["Max Marks"]->Points->AddXY("", maxMarks[selInd]);
+				 this->barGraph->Series["Avg Marks"]->Points->AddXY("", avgMarks[selInd]);
+				 this->barGraph->Series["Min Marks"]->Points->AddXY("", minMarks[selInd]);
+				 this->barGraph->Series["Your Marks"]->Points->AddXY("", yourMarks[selInd]);
+				 this->barGraph->ChartAreas["ChartArea1"]->AxisY->Title = "Marks";
+				 this->barGraph->ChartAreas["ChartArea1"]->AxisY->TitleFont = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 this->barGraph->Titles->Clear();
+				 this->barGraph->Titles->Add("Last Performace Across Section")->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
 				 tabControl1->TabPages[selInd]->Controls->Add(this->barGraph);
 				 this->barGraph->Show();
 

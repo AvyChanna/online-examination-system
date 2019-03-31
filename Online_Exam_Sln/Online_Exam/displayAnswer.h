@@ -188,7 +188,7 @@ private: System::Windows::Forms::Label^  lblLegend;
 			this->lblTestName->AutoSize = true;
 			this->lblTestName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblTestName->Location = System::Drawing::Point(243, 13);
+			this->lblTestName->Location = System::Drawing::Point(268, 15);
 			this->lblTestName->Name = L"lblTestName";
 			this->lblTestName->Size = System::Drawing::Size(129, 23);
 			this->lblTestName->TabIndex = 0;
@@ -245,21 +245,22 @@ private: System::Windows::Forms::Label^  lblLegend;
 			// label3
 			// 
 			this->label3->BackColor = System::Drawing::Color::White;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(654, 14);
+			this->label3->Location = System::Drawing::Point(632, 17);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(155, 22);
+			this->label3->Size = System::Drawing::Size(200, 25);
 			this->label3->TabIndex = 28;
 			this->label3->Text = L"Marking Scheme";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->label3->Click += gcnew System::EventHandler(this, &displayAnswer::label3_Click);
 			// 
 			// markingFlowPanel
 			// 
 			this->markingFlowPanel->AutoScroll = true;
 			this->markingFlowPanel->BackColor = System::Drawing::Color::White;
 			this->markingFlowPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->markingFlowPanel->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->markingFlowPanel->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->markingFlowPanel->Location = System::Drawing::Point(651, 49);
 			this->markingFlowPanel->Name = L"markingFlowPanel";
@@ -422,10 +423,10 @@ private: System::Windows::Forms::Label^  lblLegend;
 			this->label6->BackColor = System::Drawing::Color::White;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(39, 99);
+			this->label6->Location = System::Drawing::Point(32, 99);
 			this->label6->Margin = System::Windows::Forms::Padding(1);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(103, 21);
+			this->label6->Size = System::Drawing::Size(120, 21);
 			this->label6->TabIndex = 52;
 			this->label6->Text = L"Unattempted Question";
 			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -435,10 +436,10 @@ private: System::Windows::Forms::Label^  lblLegend;
 			this->label5->BackColor = System::Drawing::Color::White;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(36, 76);
+			this->label5->Location = System::Drawing::Point(32, 76);
 			this->label5->Margin = System::Windows::Forms::Padding(1);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(123, 17);
+			this->label5->Size = System::Drawing::Size(80, 17);
 			this->label5->TabIndex = 51;
 			this->label5->Text = L"Incorrect Answer";
 			this->label5->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -448,10 +449,10 @@ private: System::Windows::Forms::Label^  lblLegend;
 			this->label4->BackColor = System::Drawing::Color::White;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(36, 52);
+			this->label4->Location = System::Drawing::Point(32, 52);
 			this->label4->Margin = System::Windows::Forms::Padding(1);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(112, 22);
+			this->label4->Size = System::Drawing::Size(80, 22);
 			this->label4->TabIndex = 50;
 			this->label4->Text = L"Correct Answer";
 			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -481,7 +482,7 @@ private: System::Windows::Forms::Label^  lblLegend;
 			this->lblLegend->BackColor = System::Drawing::Color::White;
 			this->lblLegend->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblLegend->Location = System::Drawing::Point(3, 14);
+			this->lblLegend->Location = System::Drawing::Point(0, 17);
 			this->lblLegend->Name = L"lblLegend";
 			this->lblLegend->Size = System::Drawing::Size(139, 23);
 			this->lblLegend->TabIndex = 47;
@@ -845,6 +846,8 @@ private: System::Void displayAnswer_Load(System::Object^  sender, System::EventA
 
 }
 private: System::Void flowLayoutPanel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+}
+private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
