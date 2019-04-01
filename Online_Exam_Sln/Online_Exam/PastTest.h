@@ -235,7 +235,7 @@ namespace Online_Exam {
 				 String ^ExamCode = Convert::ToString(btn->Tag);
 				 
 				 charts^ examCharts = gcnew charts(ExamCode,gVar::Username);
-				 this->Hide();
+				 //this->Hide();
 				 examCharts->ShowDialog();
 	}
 

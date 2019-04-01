@@ -258,13 +258,16 @@ private: System::Void btnCreate_Click(System::Object^  sender, System::EventArgs
 			 {
 
 				 OES ^Access = gcnew OES();
-				 Access->ExecQuery("insert into Groups (GroupID, EnrollmentKey) values('" + txtGroupName->Text + "', '" + txtEnroll->Text + "')");
+				 Access->AddParam("@GroupName", txtGroupName->Text);
+				 Access->AddParam("@EnrollmentKey", txtEnroll->Text);
+				 Access->ExecQuery("insert into Groups (GroupName, EnrollmentKey) values(@GroupName, @EnrollmentKey)");
 
 			 }
 			 else
 			 {
 				 OES ^Access = gcnew OES();
-				 Access->ExecQuery("insert into Groups (GroupID) values('" + txtGroupName->Text + "')");
+				 Access->AddParam("@GroupName", txtGroupName->Text);
+				 Access->ExecQuery("insert into Groups (GroupName) values(@GroupName)");
 
 			 }
 

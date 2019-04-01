@@ -47,6 +47,7 @@
     <ClInclude Include="charts.h" />
     <ClInclude Include="sectionAnalysis.h" />
     <ClInclude Include="PieChartAnalysis.h" />
+    <ClInclude Include="Cert.h" />
     <ClInclude Include="Standings.h" />
   </ItemGroup>
   <ItemGroup>
@@ -94,5 +95,6 @@
   <ItemGroup>
     <Image Include="..\..\..\Logo\logo_medium.png" />
     <Image Include="..\..\..\iitg.png" />
+    <Image Include="..\..\Cert.png" />
   </ItemGroup>
 </Project>

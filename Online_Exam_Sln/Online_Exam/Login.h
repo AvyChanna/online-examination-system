@@ -283,6 +283,9 @@ private: System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^
 				{
 
 					//login successful
+					textUsername->Text = "Username";
+					textPassword->Text = "Password";
+					textPassword->UseSystemPasswordChar = false;
 					gVar::Username = DBUsername;
 					gVar::Fullname = DBFullname;
 					gVar::Passhash = DBPasshash;
@@ -313,7 +316,7 @@ private: System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^
 						}
 						else
 						{
-							MessageBox::Show("Your account is not verified yet.");
+							MessageBox::Show("Your account is not verified yet.", "Error");
 							return;
 						}
 					}
@@ -352,14 +355,14 @@ private: System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^
 						Access2->ExecQuery("Update Users set TokenHash = NULL , TokenSalt = NULL where Username = @Username");
 						if (Access2->Exception->Length)
 						{
-							MessageBox::Show("Error in processing token");
+							MessageBox::Show("Error in processing token", "Error");
 							return;
 						}
 
 						(gcnew NewPass(DBUsername))->ShowDialog();
 					}
 					else
-						MessageBox::Show("Username\\Password is wrong");
+						MessageBox::Show("Username\\Password is wrong", "Error");
 				}
 			}
 
@@ -400,7 +403,7 @@ private:
 		Access->ExecQuery("Update Users set TokenHash = @TokenHash , TokenSalt = @TokenSalt where Username = @Username");
 		if (Access->Exception->Length)
 		{
-			MessageBox::Show("Could not edit Database");
+			MessageBox::Show("Could not edit Database", "Error");
 			return;
 		}
 		try

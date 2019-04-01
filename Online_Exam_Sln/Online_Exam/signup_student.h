@@ -448,13 +448,13 @@ namespace Online_Exam {
 					 Access->AddParam("@userName", str);
 					 Access->ExecQuery("SELECT * FROM Users WHERE Username =@userName");
 					 if (Access->DBDT->Rows->Count != 0 || Access->Exception->Length){
-						 MessageBox::Show("UserName exist Already or error Occurs");
+						 MessageBox::Show("Username already exists", "Error");
 						 return false;
 					 }
 
 
 					 if (passTxt->Text != confirmPassTxt->Text){
-						 MessageBox::Show("Password do not match");
+						 MessageBox::Show("Password do not match", "Error");
 						 passTxt->Clear();
 						 confirmPassTxt->Clear();
 						 return false;
@@ -501,12 +501,12 @@ namespace Online_Exam {
 					 }
 					 if (pNumTxt->Text->Trim() == "")
 					 {
-						 MessageBox::Show("Please enter Phone Number", "Wroong Details");
+						 MessageBox::Show("Please enter Phone Number", "Wrong Details");
 						 return false;
 					 }
 					 if (rNumTxt->Text->Trim() == "")
 					 {
-						 MessageBox::Show("Please enter Roll Number", "Wroong Details");
+						 MessageBox::Show("Please enter Roll Number", "Wrong Details");
 						 return false;
 					 }
 					 str = nameTxt->Text;
@@ -553,7 +553,7 @@ namespace Online_Exam {
 							 //Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[RollNo],[Branch],[Designation] ) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@RollNo,@Branch,@Designation)");// , "+check+" )");
 							 Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[RollNo],[Branch],[Designation],[IITG]) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@RollNo,@Branch,@Designation, "+check+" )");
 							 		
-						MessageBox::Show("Signup Successfull");
+						MessageBox::Show("Signup Successful", "Success");
 					 }
 		}
 

@@ -267,8 +267,8 @@ private: System::Void BtnApproveProf_MouseLeave(System::Object^  sender, System:
 private: System::Void Students_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
 			 Students->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 }
-
-private: System::Void button_logout_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void button_logout_Click(System::Object^  sender, System::EventArgs^  e) {
+				 gVar::ClearGvars();
 				 if (this->Owner != nullptr)
 				 {
 					 this->Owner->Show();
