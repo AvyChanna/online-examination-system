@@ -443,7 +443,7 @@ namespace Online_Exam {
 					 dt->DefaultView->RowFilter = "Username like '%" + textBox1->Text + "%'";
 				 }
 				 else{
-					 dt->DefaultView->RowFilter = "Username ='" + textBox1->Text + "'";
+					 dt->DefaultView->RowFilter = "Username like '%" + textBox1->Text + "%'";
 				 }
 	}
 };
