@@ -8,7 +8,7 @@
 #include "GlobalVar.h"
 #include "ProfForm.h"
 #include "AddQuestions.h"
-
+#include"ProfForm.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -30,7 +30,7 @@ namespace Online_Exam {
 	{
 	public:
 		Map gID;
-		CreateExam(void)
+		CreateExam()
 		{
 
 			start = gcnew array<System::String ^>{"2000-01-01 00:00:00", "2000-01-01 00:00:00", "2000-01-01 00:00:00", "2000-01-01 00:00:00", "2000-01-01 00:00:00", "2000-01-01 00:00:00"};
@@ -39,23 +39,16 @@ namespace Online_Exam {
 			//TODO: Add the constructor code here
 			//
 		}
+	public: Map gSel;
+	public: array<System::String ^>^ start;
 	private: System::Windows::Forms::Button^  btnCreate;
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::TextBox^  txtExamLen;
-
 	private: System::Windows::Forms::Button^  btnSlot;
 	private: System::Windows::Forms::Label^  label9;
-	public:
-		Map gSel;
 	private: System::Windows::Forms::TextBox^  txtNoQDB;
-	public:
-
-	public:
-
-	public:
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::TextBox^  txtNoQAsk;
-
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::Panel^  panel2;
 	private: System::Windows::Forms::Panel^  panel1;
@@ -65,10 +58,30 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Panel^  panel6;
 	private: System::Windows::Forms::Panel^  panel7;
 	private: System::Windows::Forms::Panel^  panel8;
-			 array<System::String ^>^ start;
-
-		
-
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::Label^  label7;
+	private: System::Windows::Forms::Label^  lblP;
+	private: System::Windows::Forms::TextBox^  txtName;
+	private: System::Windows::Forms::TextBox^  txtPass;
+	private: System::Windows::Forms::TextBox^  txtSesNo;
+	private: System::Windows::Forms::TextBox^  txtSectWgt;
+	private: System::Windows::Forms::TextBox^  txtSectNo;
+	private: System::Windows::Forms::ComboBox^  cmbStr;
+	private: System::Windows::Forms::DateTimePicker^  calStr;
+	private: System::Windows::Forms::ListBox^  lstUnsel;
+	private: System::Windows::Forms::Button^  btnAdd;
+	private: System::Windows::Forms::Button^  btnRem;
+	private: System::Windows::Forms::ListBox^  lstSel;
+	private:
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		System::ComponentModel::Container ^components;
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -80,53 +93,6 @@ namespace Online_Exam {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::Label^  label7;
-	private: System::Windows::Forms::Label^  lblP;
-
-
-	private: System::Windows::Forms::TextBox^  txtName;
-	private: System::Windows::Forms::TextBox^  txtPass;
-
-
-
-	private: System::Windows::Forms::TextBox^  txtSesNo;
-
-	private: System::Windows::Forms::TextBox^  txtSectWgt;
-
-	private: System::Windows::Forms::TextBox^  txtSectNo;
-	private: System::Windows::Forms::ComboBox^  cmbStr;
-	private: System::Windows::Forms::DateTimePicker^  calStr;
-
-
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::ListBox^  lstUnsel;
-	private: System::Windows::Forms::Button^  btnAdd;
-	private: System::Windows::Forms::Button^  btnRem;
-	private: System::Windows::Forms::ListBox^  lstSel;
-
-
-	protected:
-
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
-
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
@@ -220,9 +186,9 @@ namespace Online_Exam {
 			// 
 			this->label5->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(23, 114);
+			this->label5->Location = System::Drawing::Point(23, 111);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(150, 36);
+			this->label5->Size = System::Drawing::Size(150, 35);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Section Weightage (Hyphen Separated):";
 			// 
@@ -398,7 +364,7 @@ namespace Online_Exam {
 			this->btnCreate->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnCreate->ForeColor = System::Drawing::Color::White;
-			this->btnCreate->Location = System::Drawing::Point(380, 384);
+			this->btnCreate->Location = System::Drawing::Point(283, 384);
 			this->btnCreate->Name = L"btnCreate";
 			this->btnCreate->Size = System::Drawing::Size(120, 29);
 			this->btnCreate->TabIndex = 28;
@@ -498,7 +464,7 @@ namespace Online_Exam {
 			// 
 			this->panel2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel2->Location = System::Drawing::Point(26, 107);
-			this->panel2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel2->Margin = System::Windows::Forms::Padding(2);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(135, 1);
 			this->panel2->TabIndex = 45;
@@ -507,7 +473,7 @@ namespace Online_Exam {
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel1->Location = System::Drawing::Point(189, 107);
-			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(135, 1);
 			this->panel1->TabIndex = 46;
@@ -516,7 +482,7 @@ namespace Online_Exam {
 			// 
 			this->panel3->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel3->Location = System::Drawing::Point(190, 167);
-			this->panel3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel3->Margin = System::Windows::Forms::Padding(2);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(135, 1);
 			this->panel3->TabIndex = 47;
@@ -525,7 +491,7 @@ namespace Online_Exam {
 			// 
 			this->panel4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel4->Location = System::Drawing::Point(26, 167);
-			this->panel4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel4->Margin = System::Windows::Forms::Padding(2);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(135, 1);
 			this->panel4->TabIndex = 47;
@@ -534,7 +500,7 @@ namespace Online_Exam {
 			// 
 			this->panel5->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel5->Location = System::Drawing::Point(26, 232);
-			this->panel5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel5->Margin = System::Windows::Forms::Padding(2);
 			this->panel5->Name = L"panel5";
 			this->panel5->Size = System::Drawing::Size(299, 1);
 			this->panel5->TabIndex = 48;
@@ -543,7 +509,7 @@ namespace Online_Exam {
 			// 
 			this->panel6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel6->Location = System::Drawing::Point(26, 306);
-			this->panel6->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel6->Margin = System::Windows::Forms::Padding(2);
 			this->panel6->Name = L"panel6";
 			this->panel6->Size = System::Drawing::Size(299, 1);
 			this->panel6->TabIndex = 49;
@@ -552,7 +518,7 @@ namespace Online_Exam {
 			// 
 			this->panel7->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel7->Location = System::Drawing::Point(561, 240);
-			this->panel7->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel7->Margin = System::Windows::Forms::Padding(2);
 			this->panel7->Name = L"panel7";
 			this->panel7->Size = System::Drawing::Size(99, 1);
 			this->panel7->TabIndex = 50;
@@ -561,7 +527,7 @@ namespace Online_Exam {
 			// 
 			this->panel8->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel8->Location = System::Drawing::Point(561, 273);
-			this->panel8->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel8->Margin = System::Windows::Forms::Padding(2);
 			this->panel8->Name = L"panel8";
 			this->panel8->Size = System::Drawing::Size(99, 1);
 			this->panel8->TabIndex = 51;
@@ -730,7 +696,7 @@ namespace Online_Exam {
 				 int SectNo, ExamLen, Pass;
 				 try{
 					 SectNo = Convert::ToInt32(txtSectNo->Text);
-					 ExamLen = Convert::ToInt32(txtExamLen->Text);
+					 ExamLen = Convert::ToUInt32(txtExamLen->Text);
 					 Pass = Convert::ToUInt32(txtPass->Text);
 					 if (Pass > 100){
 						 MessageBox::Show("Please enter pass percentage less than 100.", "Error");
@@ -776,34 +742,27 @@ namespace Online_Exam {
 					 MessageBox::Show("Enter correct number of weights, questions", "Error");
 					 return;
 				 }
-
-
 				 //Add condition to check Excel sheet is filled in
 				 String ^ SelGrp = "";
 				 for (int i = 0; i < lstSel->Items->Count; i++){
 					 SelGrp = SelGrp + "-" + Convert::ToString(gID[Convert::ToString(lstSel->Items[i])]) + "-";
 				 }
-				 ///////////////////////////////////////////////////////////////////
-				 Hide();
-				 AddQuestions ^aq = gcnew AddQuestions();
-				 //this->FindForm->profContentPanel->Controls->Add(aq);
-				 Show();
+				 Int32 Isno = SectNo;
+				 array<Int32>^ Iwgt = gcnew  array<Int32>(wgt->Length);
+				 array<Int32>^ IqDB = gcnew array<Int32>(qDB->Length);
+				 array<Int32>^ IqAsk = gcnew array<Int32>(qAsk->Length);
+				 for (int i = 0; i < wgt->Length; i++)
+					 Iwgt[i] = Convert::ToInt32(wgt[i]);
+				 for (int i = 0; i < qDB->Length; i++)
+					 IqDB[i] = Convert::ToInt32(qDB[i]);
+				 for (int i = 0; i < qAsk->Length; i ++)
+					 IqAsk[i] = Convert::ToInt32(qAsk[i]);
+				 // TODO: clear contents
 				 
-				 OES^ Access = gcnew OES();
-				 Access->AddParam("@ExamName", txtName->Text->Trim());
-				 Access->AddParam("@GroupID", SelGrp);
-				 Access->AddParam("@WgtSections", txtSectWgt->Text->Trim());
-				 //Add link to QuestionSet
-				 Access->AddParam("@Ses1", start[0]);
-				 Access->AddParam("@Ses2", start[1]);
-				 Access->AddParam("@Ses3", start[2]);
-				 Access->AddParam("@Ses4", start[3]);
-				 Access->AddParam("@Ses5", start[4]);
+				 AddQuestions ^aq = gcnew AddQuestions(Isno, IqDB, Iwgt, IqAsk, txtName->Text->Trim(), SelGrp, txtSectWgt->Text->Trim(), start[0], start[1], start[2], start[3], start[4], ExamLen.ToString(), MaxScore.ToString(), Pass.ToString(), SesNo.ToString());
+				 aq->ShowDialog();
 				 
-#pragma warning(suppress: 6011)
-				 Access->ExecQuery("INSERT Into Exam (ExamName, Professor, GroupID, NumSections, WgtSections, ExamLength, MaxScore, PassPercentage, NumSessions, StartTimeSes1, StartTimeSes2, StartTimeSes3, StartTimeSes4, StartTimeSes5) Values (@ExamName,'" + gVar::Username + "',@GroupID, " + SectNo.ToString() + ", @WgtSections, " + ExamLen.ToString() + "," + MaxScore.ToString() + "," + Pass.ToString() + "," + SesNo.ToString() + ",@Ses1, @Ses2, @Ses3, @Ses4, @Ses5)");
-				 MessageBox::Show("Test " + txtName->Text + " successfully created!");
-
+				 
 	}
 	private: System::Void btnSlot_Click(System::Object^  sender, System::EventArgs^  e) {
 				 DateTime dt = calStr->Value;

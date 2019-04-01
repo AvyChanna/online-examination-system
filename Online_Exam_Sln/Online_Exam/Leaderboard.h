@@ -244,7 +244,7 @@ namespace Online_Exam {
 				 dt = gcnew DataTable();
 				 Session_Num = gcnew OES();
 				 Session_Num->ExecQuery("SELECT NumSessions FROM  Exam WHERE(ExamCode = "+this->examCode+" )");
-				 Int32 num_ses = Convert::ToInt32(Session_Num->DBDT->Rows[0]["NumSessions"]);
+				 Int32 num_ses = Convert::ToInt32(Session_Num->DBDT->Rows[0]->default["NumSessions"]);
 				 if (num_ses < 1){
 					 btnSession1->Hide();
 				 }
@@ -262,15 +262,16 @@ namespace Online_Exam {
 				 }
 	
 				 Access = gcnew OES();
-				 Access->ExecQuery("SELECT ExamCode, Username, ObtainedMarks\
+				 Access->ExecQuery("SELECT ExamCode, Username, NormalizedScore\
 					 FROM     Performance\
 					 WHERE(ExamCode = "+ this->examCode +" )\
-					 ORDER BY ObtainedMarks DESC");
+					 ORDER BY NormalizedScore DESC");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Performance");
 				 standings->DataSource = dsa->Tables[0];
 				 
 				 standings->Columns[0]->HeaderText = "Rank";
+				 standings->Columns[2]->HeaderText = "Normalized Score";
 				 if (Access->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
 				 }
@@ -300,7 +301,8 @@ namespace Online_Exam {
 				 Access1->DBDA->Fill(dsa1, "Performance");
 				 standings->DataSource = dsa1->Tables[0];
 				 
-				 standings->Columns[0]->HeaderText = "Rank";
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access1->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -330,7 +332,8 @@ namespace Online_Exam {
 				 Access2->DBDA->Fill(dsa2, "Performance");
 				 dt = dsa2->Tables[0];
 				 standings->DataSource = dsa2->Tables[0];
-				 standings->Columns[0]->HeaderText = "Rank";
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access2->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -359,7 +362,8 @@ namespace Online_Exam {
 				 Access3->DBDA->Fill(dsa3, "Performance");
 				 standings->DataSource = dsa3->Tables[0];
 				 
-				 standings->Columns[0]->HeaderText = "Rank";
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access3->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -388,7 +392,8 @@ namespace Online_Exam {
 				 Access4->DBDA->Fill(dsa4, "Performance");
 				 standings->DataSource = dsa4->Tables[0];
 				 
-				 standings->Columns[0]->HeaderText = "Rank";
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access4->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -417,7 +422,8 @@ namespace Online_Exam {
 				 Access5->DBDA->Fill(dsa5, "Performance");
 				 standings->DataSource = dsa5->Tables[0];
 				 
-				 standings->Columns[0]->HeaderText = "Rank";
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access5->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;

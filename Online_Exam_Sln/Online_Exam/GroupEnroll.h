@@ -224,7 +224,7 @@ namespace Online_Exam {
 
 				 for (int i = 0; i < numRecords; ++i)
 				 {
-					 comboGroupName->Items->Add(Convert::ToString(Access->DBDT->Rows[i]["GroupName"]));
+					 comboGroupName->Items->Add(Convert::ToString(Access->DBDT->Rows[i]->default["GroupName"]));
 				 }
 				 
 	}
@@ -236,7 +236,7 @@ namespace Online_Exam {
 				 String ^cur_group;
 				 if (Access->RecordCount > 0)
 				 {
-					  studGroup = Convert::ToString(Access->DBDT->Rows[0]["GroupID"]);
+					 studGroup = Convert::ToString(Access->DBDT->Rows[0]->default["GroupID"]);
 					  Access1->ExecQuery("Select * from Users where Username = '" + gVar::Username + "' and Groups Like '%-" + studGroup + "-%'");
 					//  MessageBox::Show("Select * from Users where Username = '" + gVar::b + "' and Groups Like '%-" + studGroup + "-%'");
 					  if (Access1->RecordCount > 0)
@@ -244,10 +244,10 @@ namespace Online_Exam {
 						  MessageBox::Show("You are already enrolled to the group");
 					  }
 					  else{
-						  if (txtEnroll->Text == Convert::ToString(Access->DBDT->Rows[0]["EnrollmentKey"]))
+						  if (txtEnroll->Text == Convert::ToString(Access->DBDT->Rows[0]->default["EnrollmentKey"]))
 						  {
 							  Access->ExecQuery("Select * from Users where Username= '" + gVar::Username + "'");
-							  cur_group = Convert::ToString(Access->DBDT->Rows[0]["Groups"]);
+							  cur_group = Convert::ToString(Access->DBDT->Rows[0]->default["Groups"]);
 							  cur_group = cur_group + "-" + studGroup + "-";
 							  Access->ExecQuery("UPDATE Users SET Groups='" + cur_group + "' WHERE Username = '" + gVar::Username + "'");
 							  MessageBox::Show("successfully enrolled!");

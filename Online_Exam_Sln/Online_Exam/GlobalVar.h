@@ -10,7 +10,7 @@ namespace Global_Var{
 	public ref class gVar
 	{
 	public:
-		static String^ Username = L"tushar";		//Default value added temporarily to test other modules, remove when Login.h and Signup.h properly working
+		static String^ Username = L"";
 		static String^ Fullname = L"";
 		static String^ Passhash = L"";
 		static String^ Passsalt = L"";
@@ -23,11 +23,9 @@ namespace Global_Var{
 		static String^ IITG = L"";
 		static String^ Branch = L"";
 		static String^ Designation = L"";
-		gVar() {}
-		~gVar() {}
 		static void ClearGvars()
 		{
-			Username = L"tushar";
+			Username = L"";
 			Fullname = L"";
 			Passhash = L"";
 			Passsalt = L"";
@@ -42,6 +40,9 @@ namespace Global_Var{
 			Designation = L"";
 		}
 	};
-
+	public ref class CE_Faltu{
+	public:
+		static int createExamDone = 0;
+	};
 }
 #endif

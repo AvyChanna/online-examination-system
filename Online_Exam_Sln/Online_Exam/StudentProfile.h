@@ -307,13 +307,13 @@ private: System::Void StudentProfile_Load(System::Object^  sender, System::Event
 			 Access->ExecQuery("SELECT * FROM Users WHERE Username='" + gVar::Username +"'");
 			 if (Access->RecordCount == 1 ){
 				 
-				 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Username"]);
-				 lblFullNameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["FullName"]);
-				 lblRollDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["RollNo"]);
-				 lblEmailDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Email"]);
-				 lblPhoneDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["PhoneNo"]);
-				 lblBranchDetail->Text = Convert::ToString(Access->DBDT->Rows[0]["Branch"]);
-				 String ^s = Convert::ToString(Access->DBDT->Rows[0]["IITG"]);
+				 lblUsernameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["Username"]);
+				 lblFullNameDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["FullName"]);
+				 lblRollDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["RollNo"]);
+				 lblEmailDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["Email"]);
+				 lblPhoneDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["PhoneNo"]);
+				 lblBranchDetail->Text = Convert::ToString(Access->DBDT->Rows[0]->default["Branch"]);
+				 String ^s = Convert::ToString(Access->DBDT->Rows[0]->default["IITG"]);
 				 if (s->CompareTo("True")==0)
 				 {
 					 lblIITGDetail->Text = "Yes";
