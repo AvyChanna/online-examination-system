@@ -1,6 +1,6 @@
 #pragma once
 #include "Database.h"
-#include "Leaderboard.h"
+#include "Standings.h"
 #include <iostream>
 
 using namespace std;
@@ -123,18 +123,18 @@ namespace Online_Exam {
 		}
 #pragma endregion
 	private: System::Void previous_Click(System::Object^  sender, System::EventArgs^  e) {
-				 I = I - 5;
+				 I = I - 10;
 				 if (I < 0){
 					 I = 0;
 				 }
 				 dsa->Clear();
-				 Access->DBDA->Fill(dsa, I, 5, "Exam");
+				 Access->DBDA->Fill(dsa, I, 10, "Exam");
 	}
 	private: System::Void ExamList_Load(System::Object^  sender, System::EventArgs^  e) {
 				 Access = gcnew OES();
-				 Access->ExecQuery("SELECT Exam.ExamCode, Exam.ExamName, Exam.Professor FROM Exam;");
+				 Access->ExecQuery("SELECT Exam.ExamCode, Exam.ExamName, Exam.Professor FROM Exam WHERE(StudAppeared > 0);");
 				 dsa = gcnew DataSet();
-				 Access->DBDA->Fill(dsa,I,5, "Exam");
+				 Access->DBDA->Fill(dsa,I,10, "Exam");
 
 				 DataGridViewButtonColumn ^ dgbvt = gcnew DataGridViewButtonColumn();
 				 dgbvt->HeaderText = "Standings";
@@ -149,12 +149,12 @@ namespace Online_Exam {
 
 	}
 	private: System::Void next_Click(System::Object^  sender, System::EventArgs^  e) {
-				 I = I + 5;
+				 I = I + 10;
 				 if (I > Access->RecordCount){
-					 I -= 5;
+					 I -= 10;
 				 }
 				 dsa->Clear();
-				 Access->DBDA->Fill(dsa, I, 5, "Exam");
+				 Access->DBDA->Fill(dsa, I, 10, "Exam");
 			
 	}
 	private: System::Void exams_CellClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
@@ -162,7 +162,7 @@ namespace Online_Exam {
 				 if (e->ColumnIndex==0)
 				 {
 					 String^ examCode = exams->Rows[e->RowIndex]->Cells[1]->Value->ToString();
-					 Leaderboard^ af = gcnew Leaderboard(examCode);
+					 Standings^ af = gcnew Standings(examCode);
 					 af->Show();
 				 }
 	}

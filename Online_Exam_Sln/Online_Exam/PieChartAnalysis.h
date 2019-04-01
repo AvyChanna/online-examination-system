@@ -56,8 +56,10 @@ namespace Online_Exam {
 		array<Int32> ^ correct;
 		array<Int32> ^ unattempted;
 		array<Int32> ^ incorrect;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^  pieChart;
 
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^  pieChart;
+			 System::Windows::Forms::DataVisualization::Charting::Series^  Scorrect = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			 
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
@@ -191,12 +193,19 @@ namespace Online_Exam {
 
 				 int selInd = 0;
 				 this->pieChart->Series->Clear();
-				 this->pieChart->Series->Add("Correct")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-				 this->pieChart->Series->Add("Incorrect")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-				 this->pieChart->Series->Add("UnAttempted")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-				 array<String^>^ xValue = { "Correct", "Incorrect", "Unattempted" };
-				 array<Int32>^ yValue = { correct[selInd], incorrect[selInd], unattempted[selInd] };
-				 this->pieChart->Series["Correct"]->Points->DataBindXY(xValue, yValue);//DataBindXY({1, 2, 3}, { "a", "b", "c" });
+				 //Define Series
+				 Scorrect->IsValueShownAsLabel = true;
+				 Scorrect->LabelFormat = L"#";
+				 Scorrect->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+				 Scorrect->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+
+				 array<String^>^ xValue = { "Unattempted", "Correct", "Incorrect" };
+				 array<Int32>^ yValue = { unattempted[selInd], correct[selInd], incorrect[selInd] };
+				 Scorrect->Points->DataBindXY(xValue, yValue);//DataBindXY({1, 2, 3}, { "a", "b", "c" });
+
+				 this->pieChart->Series->Add(Scorrect);
+
 				 tabControl1->TabPages[selInd]->Controls->Add(this->pieChart);
 				 this->pieChart->Show();
 	}
@@ -204,12 +213,13 @@ namespace Online_Exam {
 	private: System::Void TabSelect(System::Object^ sender, EventArgs^ e) {
 				 int selInd = static_cast<int>(static_cast<TabControl^>(sender)->SelectedIndex);
 				 this->pieChart->Series->Clear();
-				 this->pieChart->Series->Add("Correct")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-				 this->pieChart->Series->Add("Incorrect")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-				 this->pieChart->Series->Add("UnAttempted")->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-				 array<String^>^ xValue = {"Correct","Incorrect","Unattempted"};
-				 array<Int32>^ yValue = { correct[selInd], incorrect[selInd], unattempted[selInd] };
-				 this->pieChart->Series["Correct"]->Points->DataBindXY(xValue,yValue);//DataBindXY({1, 2, 3}, { "a", "b", "c" });
+				
+				 array<String^>^ xValue = { "Unattempted", "Correct", "Incorrect" };
+				 array<Int32>^ yValue = { unattempted[selInd], correct[selInd], incorrect[selInd] };
+				 Scorrect->Points->DataBindXY(xValue, yValue);//DataBindXY({1, 2, 3}, { "a", "b", "c" });
+
+				 this->pieChart->Series->Add(Scorrect); 
+				 
 				 tabControl1->TabPages[selInd]->Controls->Add(this->pieChart);
 				 this->pieChart->Show();
 
