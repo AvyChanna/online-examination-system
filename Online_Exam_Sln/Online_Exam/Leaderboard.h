@@ -66,6 +66,9 @@ namespace Online_Exam {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->standings = (gcnew System::Windows::Forms::DataGridView());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->standings))->BeginInit();
@@ -77,40 +80,63 @@ namespace Online_Exam {
 			this->standings->AllowUserToDeleteRows = false;
 			this->standings->AllowUserToResizeColumns = false;
 			this->standings->AllowUserToResizeRows = false;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
+			this->standings->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this->standings->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->standings->BackgroundColor = System::Drawing::Color::White;
+			this->standings->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle2->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->standings->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this->standings->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::ControlDark;
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->standings->DefaultCellStyle = dataGridViewCellStyle3;
 			this->standings->GridColor = System::Drawing::SystemColors::Control;
-			this->standings->Location = System::Drawing::Point(22, 67);
-			this->standings->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->standings->Location = System::Drawing::Point(31, 83);
+			this->standings->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->standings->Name = L"standings";
 			this->standings->ReadOnly = true;
 			this->standings->RowTemplate->Height = 24;
-			this->standings->Size = System::Drawing::Size(640, 342);
+			this->standings->Size = System::Drawing::Size(853, 421);
 			this->standings->TabIndex = 0;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(298, 23);
+			this->label1->Location = System::Drawing::Point(340, 19);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(118, 24);
+			this->label1->Size = System::Drawing::Size(230, 40);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Leaderboard";
 			this->label1->Click += gcnew System::EventHandler(this, &Leaderboard::label1_Click);
 			// 
 			// Leaderboard
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::Control;
+			this->BackColor = System::Drawing::Color::White;
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->standings);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"Leaderboard";
-			this->Size = System::Drawing::Size(686, 432);
+			this->Size = System::Drawing::Size(915, 532);
 			this->Load += gcnew System::EventHandler(this, &Leaderboard::Leaderboard_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->standings))->EndInit();
 			this->ResumeLayout(false);

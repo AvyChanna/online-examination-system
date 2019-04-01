@@ -75,7 +75,6 @@
     <EmbeddedResource Include="PastTestsSet.resx" />
     <EmbeddedResource Include="StudentEditAdmin.resx" />
     <EmbeddedResource Include="ExamPaper.resx" />
-    <EmbeddedResource Include="NewPass.resx" />
     <EmbeddedResource Include="displayAnswer.resx" />
     <EmbeddedResource Include="Instructions.resx" />
     <EmbeddedResource Include="ChangePassword.resx" />
@@ -85,6 +84,7 @@
     <EmbeddedResource Include="Leaderboard.resx" />
     <EmbeddedResource Include="charts.resx" />
     <EmbeddedResource Include="sectionAnalysis.resx" />
+    <EmbeddedResource Include="PieChartAnalysis.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
