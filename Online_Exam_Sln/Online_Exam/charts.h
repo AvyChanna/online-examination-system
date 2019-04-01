@@ -77,8 +77,8 @@ namespace Online_Exam {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
@@ -100,10 +100,10 @@ namespace Online_Exam {
 			this->btnSectionAnalysis->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnSectionAnalysis->ForeColor = System::Drawing::Color::White;
-			this->btnSectionAnalysis->Location = System::Drawing::Point(1, 139);
+			this->btnSectionAnalysis->Location = System::Drawing::Point(11, 139);
 			this->btnSectionAnalysis->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnSectionAnalysis->Name = L"btnSectionAnalysis";
-			this->btnSectionAnalysis->Size = System::Drawing::Size(203, 46);
+			this->btnSectionAnalysis->Size = System::Drawing::Size(179, 46);
 			this->btnSectionAnalysis->TabIndex = 1;
 			this->btnSectionAnalysis->Text = L"Section Wise Analysis";
 			this->btnSectionAnalysis->UseVisualStyleBackColor = true;
@@ -118,10 +118,10 @@ namespace Online_Exam {
 			this->btnPieChart->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnPieChart->ForeColor = System::Drawing::Color::White;
-			this->btnPieChart->Location = System::Drawing::Point(1, 216);
+			this->btnPieChart->Location = System::Drawing::Point(11, 216);
 			this->btnPieChart->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnPieChart->Name = L"btnPieChart";
-			this->btnPieChart->Size = System::Drawing::Size(203, 46);
+			this->btnPieChart->Size = System::Drawing::Size(179, 46);
 			this->btnPieChart->TabIndex = 2;
 			this->btnPieChart->Text = L"Pie Chart";
 			this->btnPieChart->UseVisualStyleBackColor = true;
@@ -136,10 +136,10 @@ namespace Online_Exam {
 			this->btnQbyQ->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnQbyQ->ForeColor = System::Drawing::Color::White;
-			this->btnQbyQ->Location = System::Drawing::Point(1, 295);
+			this->btnQbyQ->Location = System::Drawing::Point(11, 295);
 			this->btnQbyQ->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnQbyQ->Name = L"btnQbyQ";
-			this->btnQbyQ->Size = System::Drawing::Size(201, 46);
+			this->btnQbyQ->Size = System::Drawing::Size(177, 46);
 			this->btnQbyQ->TabIndex = 3;
 			this->btnQbyQ->Text = L"Question by Question Analysis";
 			this->btnQbyQ->UseVisualStyleBackColor = true;
@@ -154,10 +154,10 @@ namespace Online_Exam {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(1, 371);
+			this->button1->Location = System::Drawing::Point(11, 371);
 			this->button1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(201, 46);
+			this->button1->Size = System::Drawing::Size(177, 46);
 			this->button1->TabIndex = 4;
 			this->button1->Tag = L"";
 			this->button1->Text = L"Standings";
@@ -191,15 +191,6 @@ namespace Online_Exam {
 			this->panel1->Size = System::Drawing::Size(200, 532);
 			this->panel1->TabIndex = 14;
 			// 
-			// panel2
-			// 
-			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(193)), static_cast<System::Int32>(static_cast<System::Byte>(189)),
-				static_cast<System::Int32>(static_cast<System::Byte>(174)));
-			this->panel2->Location = System::Drawing::Point(197, 0);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(10, 534);
-			this->panel2->TabIndex = 15;
-			// 
 			// pictureBox2
 			// 
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
@@ -209,6 +200,15 @@ namespace Online_Exam {
 			this->pictureBox2->Size = System::Drawing::Size(60, 57);
 			this->pictureBox2->TabIndex = 13;
 			this->pictureBox2->TabStop = false;
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(193)), static_cast<System::Int32>(static_cast<System::Byte>(189)),
+				static_cast<System::Int32>(static_cast<System::Byte>(174)));
+			this->panel2->Location = System::Drawing::Point(197, 0);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(10, 534);
+			this->panel2->TabIndex = 15;
 			// 
 			// charts
 			// 

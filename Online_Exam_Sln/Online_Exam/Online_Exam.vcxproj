@@ -196,6 +196,9 @@
     <ClInclude Include="signup_student.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="Standings.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StudentEditAdmin.h">
       <FileType>CppControl</FileType>
@@ -301,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="signup_student.resx">
       <DependentUpon>signup_student.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Standings.resx">
+      <DependentUpon>Standings.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentEditAdmin.resx">
       <DependentUpon>StudentEditAdmin.h</DependentUpon>

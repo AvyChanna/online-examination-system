@@ -57,9 +57,14 @@ namespace Online_Exam {
 		array<Int32> ^ maxMarks;
 		array<Int32> ^ minMarks;
 		array<Double> ^ avgMarks;
+		array<Int32> ^ yourMarks;
+		System::Windows::Forms::DataVisualization::Charting::Series^  Smax = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+		System::Windows::Forms::DataVisualization::Charting::Series^  Smin = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+		System::Windows::Forms::DataVisualization::Charting::Series^  Savg = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+	private: System::Windows::Forms::Label^  label1;
 
-			 array<Int32> ^ yourMarks;
 
+			 System::Windows::Forms::DataVisualization::Charting::Series^  Syour = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			 
 
 
@@ -70,13 +75,14 @@ namespace Online_Exam {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^  legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->barGraph = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tabControl1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->barGraph))->BeginInit();
 			this->SuspendLayout();
@@ -85,9 +91,7 @@ namespace Online_Exam {
 			// 
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
-			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->tabControl1->Location = System::Drawing::Point(17, 8);
+			this->tabControl1->Location = System::Drawing::Point(38, 71);
 			this->tabControl1->Margin = System::Windows::Forms::Padding(2);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -96,63 +100,70 @@ namespace Online_Exam {
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->tabPage1->Location = System::Drawing::Point(4, 26);
+			this->tabPage1->Location = System::Drawing::Point(4, 25);
 			this->tabPage1->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage1->Size = System::Drawing::Size(832, 414);
+			this->tabPage1->Size = System::Drawing::Size(832, 415);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"tabPage1";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
 			// tabPage2
 			// 
-			this->tabPage2->Location = System::Drawing::Point(4, 26);
+			this->tabPage2->Location = System::Drawing::Point(4, 25);
 			this->tabPage2->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage2->Size = System::Drawing::Size(832, 414);
+			this->tabPage2->Size = System::Drawing::Size(832, 415);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
 			// barGraph
 			// 
-			chartArea1->Name = L"ChartArea1";
-			this->barGraph->ChartAreas->Add(chartArea1);
+			chartArea3->AxisX->MajorGrid->LineWidth = 0;
+			chartArea3->AxisY->Title = L"Marks";
+			chartArea3->Name = L"ChartArea1";
+			this->barGraph->ChartAreas->Add(chartArea3);
 			this->barGraph->Dock = System::Windows::Forms::DockStyle::Fill;
-			legend1->Name = L"Legend1";
-			this->barGraph->Legends->Add(legend1);
+			legend3->Name = L"Legend1";
+			this->barGraph->Legends->Add(legend3);
 			this->barGraph->Location = System::Drawing::Point(15, 15);
 			this->barGraph->Name = L"barGraph";
-			series1->ChartArea = L"ChartArea1";
-			series1->Legend = L"Legend1";
-			series1->Name = L"Series1";
-			this->barGraph->Series->Add(series1);
+			series3->ChartArea = L"ChartArea1";
+			series3->Legend = L"Legend1";
+			series3->Name = L"Series1";
+			this->barGraph->Series->Add(series3);
 			this->barGraph->Size = System::Drawing::Size(600, 300);
 			this->barGraph->TabIndex = 0;
 			this->barGraph->Text = L"chart1";
-			this->barGraph->Visible = false;
-			this->barGraph->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-
+			this->label1->Location = System::Drawing::Point(37, 22);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(383, 28);
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"Section-wise Class Performance";
 			// 
 			// sectionAnalysis
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->tabControl1);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"sectionAnalysis";
-			this->Size = System::Drawing::Size(881, 464);
+			this->Size = System::Drawing::Size(916, 532);
 			this->Load += gcnew System::EventHandler(this, &sectionAnalysis::sectionAnalysis_Load);
 			this->tabControl1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->barGraph))->EndInit();
 			this->ResumeLayout(false);
-			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -220,45 +231,78 @@ namespace Online_Exam {
 
 				 int selInd = 0;
 				 this->barGraph->Series->Clear();
-				 this->barGraph->Series->Add("Max Marks");
-				 this->barGraph->Series->Add("Avg Marks");
-				 this->barGraph->Series->Add("Min Marks");
-				 this->barGraph->Series->Add("Your Marks");
-				 this->barGraph->Series["Max Marks"]->Points->AddXY("", maxMarks[selInd]);
-				 this->barGraph->Series["Avg Marks"]->Points->AddXY("", avgMarks[selInd]);
-				 this->barGraph->Series["Min Marks"]->Points->AddXY("", minMarks[selInd]);
-				 this->barGraph->Series["Your Marks"]->Points->AddXY("", yourMarks[selInd]);
-				 this->barGraph->ChartAreas["ChartArea1"]->AxisY->Title = "Marks";
-				 this->barGraph->ChartAreas["ChartArea1"]->AxisY->TitleFont = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+
+				 Smax->IsValueShownAsLabel = true;
+				 Smax->LabelFormat = L"{N1}";
+				 Smax->Name = L"Max Marks";
+				 Smax->LabelBackColor = System::Drawing::Color::White;
+				 Smax->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					 static_cast<System::Byte>(0)));
-				 this->barGraph->Titles->Clear();
-				 this->barGraph->Titles->Add("Last Performace Across Section")->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				 Smax["PixelPointWidth"] = "300";
+
+				 Smin->IsValueShownAsLabel = true;
+				 Smin->LabelFormat = L"{N1}";
+				 Smin->Name = L"Min Marks";
+				 Smin->LabelBackColor = System::Drawing::Color::White;
+				 Smin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					 static_cast<System::Byte>(0)));
+				 Smin["PixelPointWidth"] = "300";
+
+				 Savg->IsValueShownAsLabel = true;
+				 Savg->LabelFormat = L"#.##";
+				 Savg->Name = L"Avg Marks";
+				 Savg->LabelBackColor = System::Drawing::Color::White;
+				 Savg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 Savg["PixelPointWidth"] = "300";
+
+				 Syour->IsValueShownAsLabel = true;
+				 Syour->LabelFormat = L"{N1}";
+				 Syour->Name = L"Your Marks";
+				 Syour->LabelBackColor = System::Drawing::Color::White;
+				 Syour->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 Syour["PixelPointWidth"] = "300";
+
+				 this->barGraph->Series->Add(Smax);
+				 this->barGraph->Series->Add(Smin);
+				 this->barGraph->Series->Add(Savg);
+				 this->barGraph->Series->Add(Syour);
+
+				 Smax->Points->Clear();
+				 Smin->Points->Clear();
+				 Savg->Points->Clear();
+				 Syour->Points->Clear();
+
+				 Smax->Points->AddXY("", maxMarks[selInd]);
+				 Smin->Points->AddXY("", minMarks[selInd]);
+				 Savg->Points->AddXY("", avgMarks[selInd]);
+				 Syour->Points->AddXY("", yourMarks[selInd]);
+
 				 tabControl1->TabPages[selInd]->Controls->Add(this->barGraph);
-				 this->barGraph->Show();
 				 
 
 	}
 
 	private: System::Void TabSelect(System::Object^ sender, EventArgs^ e) {
 				 int selInd = static_cast<int>(static_cast<TabControl^>(sender)->SelectedIndex);
+				 
 				 this->barGraph->Series->Clear();
-				 this->barGraph->Series->Add("Max Marks");
-				 this->barGraph->Series->Add("Avg Marks");
-				 this->barGraph->Series->Add("Min Marks");
-				 this->barGraph->Series->Add("Your Marks");
-				 this->barGraph->Series["Max Marks"]->Points->AddXY("", maxMarks[selInd]);
-				 this->barGraph->Series["Avg Marks"]->Points->AddXY("", avgMarks[selInd]);
-				 this->barGraph->Series["Min Marks"]->Points->AddXY("", minMarks[selInd]);
-				 this->barGraph->Series["Your Marks"]->Points->AddXY("", yourMarks[selInd]);
-				 this->barGraph->ChartAreas["ChartArea1"]->AxisY->Title = "Marks";
-				 this->barGraph->ChartAreas["ChartArea1"]->AxisY->TitleFont = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-					 static_cast<System::Byte>(0)));
-				 this->barGraph->Titles->Clear();
-				 this->barGraph->Titles->Add("Last Performace Across Section")->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-					 static_cast<System::Byte>(0)));
+				 this->barGraph->Series->Add(Smax);
+				 this->barGraph->Series->Add(Smin);
+				 this->barGraph->Series->Add(Savg);
+				 this->barGraph->Series->Add(Syour);
+				 Smax->Points->Clear();
+				 Smin->Points->Clear();
+				 Savg->Points->Clear();
+				 Syour->Points->Clear();
+				 Smax->Points->AddXY("", maxMarks[selInd]);
+				 Smin->Points->AddXY("", minMarks[selInd]);
+				 Savg->Points->AddXY("", avgMarks[selInd]);
+				 Syour->Points->AddXY("", yourMarks[selInd]);
+
 				 tabControl1->TabPages[selInd]->Controls->Add(this->barGraph);
-				 this->barGraph->Show();
+
 
 	}
 				 

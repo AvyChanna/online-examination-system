@@ -47,6 +47,7 @@
     <ClInclude Include="charts.h" />
     <ClInclude Include="sectionAnalysis.h" />
     <ClInclude Include="PieChartAnalysis.h" />
+    <ClInclude Include="Standings.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
