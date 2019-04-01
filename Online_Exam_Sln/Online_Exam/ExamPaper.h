@@ -46,7 +46,8 @@ namespace Online_Exam {
 		String^ correctStr;
 		int TotalAttempted;
 		int TotalQuestions;
-	private: System::Windows::Forms::TabControl^  tc1;
+	public: System::Windows::Forms::TabControl^  tc1;
+
 	public:
 
 	public:
@@ -198,37 +199,40 @@ namespace Online_Exam {
 			// buttonFlowPanel
 			// 
 			this->buttonFlowPanel->AutoScroll = true;
-			this->buttonFlowPanel->BackColor = System::Drawing::Color::White;
+			this->buttonFlowPanel->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->buttonFlowPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->buttonFlowPanel->Location = System::Drawing::Point(3, 298);
+			this->buttonFlowPanel->Location = System::Drawing::Point(4, 367);
+			this->buttonFlowPanel->Margin = System::Windows::Forms::Padding(4);
 			this->buttonFlowPanel->Name = L"buttonFlowPanel";
-			this->buttonFlowPanel->Size = System::Drawing::Size(200, 431);
+			this->buttonFlowPanel->Size = System::Drawing::Size(266, 530);
 			this->buttonFlowPanel->TabIndex = 0;
 			// 
 			// commandButtonPanel
 			// 
-			this->commandButtonPanel->BackColor = System::Drawing::SystemColors::Control;
+			this->commandButtonPanel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->commandButtonPanel->Controls->Add(this->btnClear);
 			this->commandButtonPanel->Controls->Add(this->btnSaveResponse);
 			this->commandButtonPanel->Controls->Add(this->btnEndTest);
 			this->commandButtonPanel->Controls->Add(this->btnReview);
 			this->commandButtonPanel->Controls->Add(this->btnNext);
 			this->commandButtonPanel->Controls->Add(this->btnPrev);
-			this->commandButtonPanel->Location = System::Drawing::Point(206, 673);
+			this->commandButtonPanel->Location = System::Drawing::Point(275, 828);
+			this->commandButtonPanel->Margin = System::Windows::Forms::Padding(4);
 			this->commandButtonPanel->Name = L"commandButtonPanel";
-			this->commandButtonPanel->Size = System::Drawing::Size(799, 58);
+			this->commandButtonPanel->Size = System::Drawing::Size(1065, 71);
 			this->commandButtonPanel->TabIndex = 1;
 			// 
 			// btnClear
 			// 
-			this->btnClear->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnClear->BackColor = System::Drawing::Color::SkyBlue;
 			this->btnClear->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnClear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnClear->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnClear->Location = System::Drawing::Point(440, 3);
+			this->btnClear->Location = System::Drawing::Point(587, 4);
+			this->btnClear->Margin = System::Windows::Forms::Padding(4);
 			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(104, 53);
+			this->btnClear->Size = System::Drawing::Size(139, 65);
 			this->btnClear->TabIndex = 10;
 			this->btnClear->Text = L"Clear Answer";
 			this->btnClear->UseVisualStyleBackColor = false;
@@ -236,14 +240,15 @@ namespace Online_Exam {
 			// 
 			// btnSaveResponse
 			// 
-			this->btnSaveResponse->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnSaveResponse->BackColor = System::Drawing::Color::SkyBlue;
 			this->btnSaveResponse->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnSaveResponse->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnSaveResponse->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSaveResponse->Location = System::Drawing::Point(333, 3);
+			this->btnSaveResponse->Location = System::Drawing::Point(444, 4);
+			this->btnSaveResponse->Margin = System::Windows::Forms::Padding(4);
 			this->btnSaveResponse->Name = L"btnSaveResponse";
-			this->btnSaveResponse->Size = System::Drawing::Size(104, 53);
+			this->btnSaveResponse->Size = System::Drawing::Size(139, 65);
 			this->btnSaveResponse->TabIndex = 9;
 			this->btnSaveResponse->Text = L"Save Response";
 			this->btnSaveResponse->UseVisualStyleBackColor = false;
@@ -251,14 +256,15 @@ namespace Online_Exam {
 			// 
 			// btnEndTest
 			// 
-			this->btnEndTest->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnEndTest->BackColor = System::Drawing::Color::SkyBlue;
 			this->btnEndTest->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnEndTest->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnEndTest->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnEndTest->Location = System::Drawing::Point(626, 2);
+			this->btnEndTest->Location = System::Drawing::Point(835, 2);
+			this->btnEndTest->Margin = System::Windows::Forms::Padding(4);
 			this->btnEndTest->Name = L"btnEndTest";
-			this->btnEndTest->Size = System::Drawing::Size(170, 53);
+			this->btnEndTest->Size = System::Drawing::Size(227, 65);
 			this->btnEndTest->TabIndex = 7;
 			this->btnEndTest->Text = L"End Test";
 			this->btnEndTest->UseVisualStyleBackColor = false;
@@ -266,14 +272,15 @@ namespace Online_Exam {
 			// 
 			// btnReview
 			// 
-			this->btnReview->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnReview->BackColor = System::Drawing::Color::SkyBlue;
 			this->btnReview->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnReview->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnReview->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnReview->Location = System::Drawing::Point(223, 3);
+			this->btnReview->Location = System::Drawing::Point(297, 4);
+			this->btnReview->Margin = System::Windows::Forms::Padding(4);
 			this->btnReview->Name = L"btnReview";
-			this->btnReview->Size = System::Drawing::Size(104, 53);
+			this->btnReview->Size = System::Drawing::Size(139, 65);
 			this->btnReview->TabIndex = 8;
 			this->btnReview->Text = L"Mark For Review";
 			this->btnReview->UseVisualStyleBackColor = false;
@@ -281,14 +288,15 @@ namespace Online_Exam {
 			// 
 			// btnNext
 			// 
-			this->btnNext->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnNext->BackColor = System::Drawing::Color::SkyBlue;
 			this->btnNext->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnNext->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnNext->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnNext->Location = System::Drawing::Point(113, 3);
+			this->btnNext->Location = System::Drawing::Point(151, 4);
+			this->btnNext->Margin = System::Windows::Forms::Padding(4);
 			this->btnNext->Name = L"btnNext";
-			this->btnNext->Size = System::Drawing::Size(104, 53);
+			this->btnNext->Size = System::Drawing::Size(139, 65);
 			this->btnNext->TabIndex = 7;
 			this->btnNext->Text = L"Next";
 			this->btnNext->UseVisualStyleBackColor = false;
@@ -296,14 +304,15 @@ namespace Online_Exam {
 			// 
 			// btnPrev
 			// 
-			this->btnPrev->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnPrev->BackColor = System::Drawing::Color::SkyBlue;
 			this->btnPrev->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnPrev->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnPrev->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnPrev->Location = System::Drawing::Point(3, 3);
+			this->btnPrev->Location = System::Drawing::Point(4, 4);
+			this->btnPrev->Margin = System::Windows::Forms::Padding(4);
 			this->btnPrev->Name = L"btnPrev";
-			this->btnPrev->Size = System::Drawing::Size(104, 53);
+			this->btnPrev->Size = System::Drawing::Size(139, 65);
 			this->btnPrev->TabIndex = 4;
 			this->btnPrev->Text = L"Previous";
 			this->btnPrev->UseVisualStyleBackColor = false;
@@ -311,7 +320,7 @@ namespace Online_Exam {
 			// 
 			// questionPanel
 			// 
-			this->questionPanel->BackColor = System::Drawing::Color::White;
+			this->questionPanel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->questionPanel->Controls->Add(this->loda);
 			this->questionPanel->Controls->Add(this->answerFlowPanel);
 			this->questionPanel->Controls->Add(this->tc1);
@@ -319,17 +328,20 @@ namespace Online_Exam {
 			this->questionPanel->Controls->Add(this->txtQuesText);
 			this->questionPanel->Controls->Add(this->lblQuesNum);
 			this->questionPanel->Controls->Add(this->label);
-			this->questionPanel->Location = System::Drawing::Point(206, 223);
+			this->questionPanel->Location = System::Drawing::Point(275, 274);
+			this->questionPanel->Margin = System::Windows::Forms::Padding(4);
 			this->questionPanel->Name = L"questionPanel";
-			this->questionPanel->Size = System::Drawing::Size(799, 447);
+			this->questionPanel->Size = System::Drawing::Size(1065, 550);
 			this->questionPanel->TabIndex = 2;
 			// 
 			// answerFlowPanel
 			// 
+			this->answerFlowPanel->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->answerFlowPanel->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
-			this->answerFlowPanel->Location = System::Drawing::Point(16, 295);
+			this->answerFlowPanel->Location = System::Drawing::Point(21, 363);
+			this->answerFlowPanel->Margin = System::Windows::Forms::Padding(4);
 			this->answerFlowPanel->Name = L"answerFlowPanel";
-			this->answerFlowPanel->Size = System::Drawing::Size(774, 139);
+			this->answerFlowPanel->Size = System::Drawing::Size(1032, 171);
 			this->answerFlowPanel->TabIndex = 14;
 			// 
 			// tc1
@@ -342,29 +354,32 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->tc1->HotTrack = true;
 			this->tc1->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->tc1->Location = System::Drawing::Point(16, 3);
+			this->tc1->Location = System::Drawing::Point(21, 4);
+			this->tc1->Margin = System::Windows::Forms::Padding(4);
 			this->tc1->Name = L"tc1";
 			this->tc1->SelectedIndex = 0;
-			this->tc1->Size = System::Drawing::Size(780, 33);
+			this->tc1->Size = System::Drawing::Size(1040, 41);
 			this->tc1->SizeMode = System::Windows::Forms::TabSizeMode::FillToRight;
 			this->tc1->TabIndex = 10;
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Location = System::Drawing::Point(4, 32);
+			this->tabPage1->Location = System::Drawing::Point(4, 37);
+			this->tabPage1->Margin = System::Windows::Forms::Padding(4);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(772, 0);
+			this->tabPage1->Padding = System::Windows::Forms::Padding(4);
+			this->tabPage1->Size = System::Drawing::Size(1032, 0);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"tabPage1";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
 			// tabPage2
 			// 
-			this->tabPage2->Location = System::Drawing::Point(4, 32);
+			this->tabPage2->Location = System::Drawing::Point(4, 37);
+			this->tabPage2->Margin = System::Windows::Forms::Padding(4);
 			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(772, 0);
+			this->tabPage2->Padding = System::Windows::Forms::Padding(4);
+			this->tabPage2->Size = System::Drawing::Size(1032, 0);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -374,24 +389,28 @@ namespace Online_Exam {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(17, 274);
+			this->label2->Location = System::Drawing::Point(23, 337);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(63, 18);
+			this->label2->Size = System::Drawing::Size(80, 24);
 			this->label2->TabIndex = 12;
 			this->label2->Text = L"Answer";
 			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// txtQuesText
 			// 
-			this->txtQuesText->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->txtQuesText->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->txtQuesText->CausesValidation = false;
+			this->txtQuesText->Cursor = System::Windows::Forms::Cursors::Default;
 			this->txtQuesText->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtQuesText->Location = System::Drawing::Point(16, 75);
+			this->txtQuesText->Location = System::Drawing::Point(21, 92);
+			this->txtQuesText->Margin = System::Windows::Forms::Padding(4);
 			this->txtQuesText->Multiline = true;
 			this->txtQuesText->Name = L"txtQuesText";
 			this->txtQuesText->ReadOnly = true;
 			this->txtQuesText->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
-			this->txtQuesText->Size = System::Drawing::Size(774, 186);
+			this->txtQuesText->Size = System::Drawing::Size(1031, 228);
 			this->txtQuesText->TabIndex = 11;
 			// 
 			// lblQuesNum
@@ -399,9 +418,10 @@ namespace Online_Exam {
 			this->lblQuesNum->AutoSize = true;
 			this->lblQuesNum->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblQuesNum->Location = System::Drawing::Point(163, 48);
+			this->lblQuesNum->Location = System::Drawing::Point(217, 59);
+			this->lblQuesNum->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblQuesNum->Name = L"lblQuesNum";
-			this->lblQuesNum->Size = System::Drawing::Size(17, 18);
+			this->lblQuesNum->Size = System::Drawing::Size(21, 24);
 			this->lblQuesNum->TabIndex = 10;
 			this->lblQuesNum->Text = L"1";
 			this->lblQuesNum->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -412,9 +432,10 @@ namespace Online_Exam {
 			this->label->AutoSize = true;
 			this->label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label->Location = System::Drawing::Point(17, 48);
+			this->label->Location = System::Drawing::Point(23, 59);
+			this->label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label->Name = L"label";
-			this->label->Size = System::Drawing::Size(140, 18);
+			this->label->Size = System::Drawing::Size(175, 24);
 			this->label->TabIndex = 10;
 			this->label->Text = L"Question Number";
 			this->label->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -427,12 +448,13 @@ namespace Online_Exam {
 			// 
 			// lblTimer
 			// 
-			this->lblTimer->BackColor = System::Drawing::Color::White;
+			this->lblTimer->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->lblTimer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblTimer->Location = System::Drawing::Point(486, 117);
+			this->lblTimer->Location = System::Drawing::Point(605, 126);
+			this->lblTimer->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblTimer->Name = L"lblTimer";
-			this->lblTimer->Size = System::Drawing::Size(213, 48);
+			this->lblTimer->Size = System::Drawing::Size(284, 59);
 			this->lblTimer->TabIndex = 4;
 			this->lblTimer->Text = L"120:00";
 			this->lblTimer->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -440,12 +462,13 @@ namespace Online_Exam {
 			// 
 			// label1
 			// 
-			this->label1->BackColor = System::Drawing::Color::White;
+			this->label1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(219, 186);
+			this->label1->Location = System::Drawing::Point(292, 229);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(173, 34);
+			this->label1->Size = System::Drawing::Size(231, 42);
 			this->label1->TabIndex = 5;
 			this->label1->Text = L"Questions Attempted:";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -453,24 +476,27 @@ namespace Online_Exam {
 			// 
 			// lblTestName
 			// 
-			this->lblTestName->BackColor = System::Drawing::Color::White;
-			this->lblTestName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 27.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lblTestName->AutoEllipsis = true;
+			this->lblTestName->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->lblTestName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblTestName->Location = System::Drawing::Point(249, 1);
+			this->lblTestName->Location = System::Drawing::Point(302, 23);
+			this->lblTestName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblTestName->Name = L"lblTestName";
-			this->lblTestName->Size = System::Drawing::Size(501, 55);
+			this->lblTestName->Size = System::Drawing::Size(725, 68);
 			this->lblTestName->TabIndex = 6;
 			this->lblTestName->Text = L"TEST NAME";
 			this->lblTestName->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblAttempted
 			// 
-			this->lblAttempted->BackColor = System::Drawing::Color::White;
+			this->lblAttempted->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->lblAttempted->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblAttempted->Location = System::Drawing::Point(398, 186);
+			this->lblAttempted->Location = System::Drawing::Point(531, 229);
+			this->lblAttempted->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblAttempted->Name = L"lblAttempted";
-			this->lblAttempted->Size = System::Drawing::Size(55, 34);
+			this->lblAttempted->Size = System::Drawing::Size(73, 42);
 			this->lblAttempted->TabIndex = 7;
 			this->lblAttempted->Text = L"0/100";
 			this->lblAttempted->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -478,23 +504,26 @@ namespace Online_Exam {
 			// 
 			// lblTimeRemaining
 			// 
-			this->lblTimeRemaining->BackColor = System::Drawing::Color::White;
+			this->lblTimeRemaining->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->lblTimeRemaining->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblTimeRemaining->Location = System::Drawing::Point(388, 117);
+			this->lblTimeRemaining->Location = System::Drawing::Point(474, 126);
+			this->lblTimeRemaining->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblTimeRemaining->Name = L"lblTimeRemaining";
-			this->lblTimeRemaining->Size = System::Drawing::Size(111, 51);
+			this->lblTimeRemaining->Size = System::Drawing::Size(148, 63);
 			this->lblTimeRemaining->TabIndex = 8;
 			this->lblTimeRemaining->Text = L"Time Remaining";
 			this->lblTimeRemaining->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->lblTimeRemaining->Click += gcnew System::EventHandler(this, &ExamPaper::lblTimeRemaining_Click);
 			// 
 			// picLogo
 			// 
-			this->picLogo->BackColor = System::Drawing::Color::White;
+			this->picLogo->BackColor = System::Drawing::Color::Transparent;
 			this->picLogo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picLogo.Image")));
-			this->picLogo->Location = System::Drawing::Point(3, 12);
+			this->picLogo->Location = System::Drawing::Point(22, 13);
+			this->picLogo->Margin = System::Windows::Forms::Padding(4);
 			this->picLogo->Name = L"picLogo";
-			this->picLogo->Size = System::Drawing::Size(200, 200);
+			this->picLogo->Size = System::Drawing::Size(230, 200);
 			this->picLogo->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->picLogo->TabIndex = 9;
 			this->picLogo->TabStop = false;
@@ -502,22 +531,23 @@ namespace Online_Exam {
 			// markingFlowPanel
 			// 
 			this->markingFlowPanel->AutoScroll = true;
-			this->markingFlowPanel->BackColor = System::Drawing::Color::White;
-			this->markingFlowPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->markingFlowPanel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->markingFlowPanel->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
-			this->markingFlowPanel->Location = System::Drawing::Point(790, 35);
+			this->markingFlowPanel->Location = System::Drawing::Point(1035, 43);
+			this->markingFlowPanel->Margin = System::Windows::Forms::Padding(4);
 			this->markingFlowPanel->Name = L"markingFlowPanel";
-			this->markingFlowPanel->Size = System::Drawing::Size(215, 177);
+			this->markingFlowPanel->Size = System::Drawing::Size(304, 217);
 			this->markingFlowPanel->TabIndex = 10;
 			// 
 			// label3
 			// 
-			this->label3->BackColor = System::Drawing::Color::White;
+			this->label3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(802, 1);
+			this->label3->Location = System::Drawing::Point(1056, 1);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(203, 31);
+			this->label3->Size = System::Drawing::Size(271, 38);
 			this->label3->TabIndex = 0;
 			this->label3->Text = L"Marking Scheme";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -525,21 +555,22 @@ namespace Online_Exam {
 			// visitedPB
 			// 
 			this->visitedPB->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->visitedPB->Location = System::Drawing::Point(3, 241);
+			this->visitedPB->Location = System::Drawing::Point(4, 284);
 			this->visitedPB->Margin = System::Windows::Forms::Padding(1);
 			this->visitedPB->Name = L"visitedPB";
-			this->visitedPB->Size = System::Drawing::Size(13, 15);
+			this->visitedPB->Size = System::Drawing::Size(17, 18);
 			this->visitedPB->TabIndex = 11;
 			this->visitedPB->TabStop = false;
 			// 
 			// lblLegend
 			// 
-			this->lblLegend->BackColor = System::Drawing::Color::White;
+			this->lblLegend->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->lblLegend->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lblLegend->Location = System::Drawing::Point(3, 215);
+			this->lblLegend->Location = System::Drawing::Point(4, 243);
+			this->lblLegend->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblLegend->Name = L"lblLegend";
-			this->lblLegend->Size = System::Drawing::Size(197, 23);
+			this->lblLegend->Size = System::Drawing::Size(263, 28);
 			this->lblLegend->TabIndex = 12;
 			this->lblLegend->Text = L"Legend";
 			this->lblLegend->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -547,58 +578,58 @@ namespace Online_Exam {
 			// reviewPB
 			// 
 			this->reviewPB->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->reviewPB->Location = System::Drawing::Point(3, 275);
+			this->reviewPB->Location = System::Drawing::Point(4, 338);
 			this->reviewPB->Margin = System::Windows::Forms::Padding(1);
 			this->reviewPB->Name = L"reviewPB";
-			this->reviewPB->Size = System::Drawing::Size(13, 15);
+			this->reviewPB->Size = System::Drawing::Size(17, 18);
 			this->reviewPB->TabIndex = 13;
 			this->reviewPB->TabStop = false;
 			// 
 			// attemptedPB
 			// 
 			this->attemptedPB->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->attemptedPB->Location = System::Drawing::Point(3, 258);
+			this->attemptedPB->Location = System::Drawing::Point(4, 312);
 			this->attemptedPB->Margin = System::Windows::Forms::Padding(1);
 			this->attemptedPB->Name = L"attemptedPB";
-			this->attemptedPB->Size = System::Drawing::Size(13, 15);
+			this->attemptedPB->Size = System::Drawing::Size(17, 18);
 			this->attemptedPB->TabIndex = 14;
 			this->attemptedPB->TabStop = false;
 			// 
 			// label4
 			// 
-			this->label4->BackColor = System::Drawing::Color::White;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(20, 241);
+			this->label4->Location = System::Drawing::Point(27, 281);
 			this->label4->Margin = System::Windows::Forms::Padding(1);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(180, 15);
+			this->label4->Size = System::Drawing::Size(240, 31);
 			this->label4->TabIndex = 15;
 			this->label4->Text = L"Visited question";
 			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label5
 			// 
-			this->label5->BackColor = System::Drawing::Color::White;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label5->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(22, 258);
+			this->label5->Location = System::Drawing::Point(29, 309);
 			this->label5->Margin = System::Windows::Forms::Padding(1);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(180, 15);
+			this->label5->Size = System::Drawing::Size(240, 31);
 			this->label5->TabIndex = 16;
 			this->label5->Text = L"Attempted question";
 			this->label5->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label6
 			// 
-			this->label6->BackColor = System::Drawing::Color::White;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label6->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(23, 275);
+			this->label6->Location = System::Drawing::Point(31, 335);
 			this->label6->Margin = System::Windows::Forms::Padding(1);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(180, 15);
+			this->label6->Size = System::Drawing::Size(240, 31);
 			this->label6->TabIndex = 17;
 			this->label6->Text = L"Marked for Review";
 			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -616,10 +647,10 @@ namespace Online_Exam {
 			// 
 			// ExamPaper
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(1008, 729);
+			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->ClientSize = System::Drawing::Size(1344, 897);
 			this->ControlBox = false;
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
@@ -639,6 +670,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->questionPanel);
 			this->Controls->Add(this->commandButtonPanel);
 			this->Controls->Add(this->buttonFlowPanel);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"ExamPaper";
@@ -671,7 +703,7 @@ namespace Online_Exam {
 				this->Close();
 				return;
 			}
-
+			
 			//JsonSerializerSettings ^s = gcnew JsonSerializerSettings();
 			s = gcnew JsonSerializerSettings();
 			//JExam^ QSet = JsonConvert::DeserializeObject<JExam^>(Convert::ToString(Access->DBDT->Rows[0]->default["QuestionSet"]), s);
@@ -685,11 +717,16 @@ namespace Online_Exam {
 			Console::WriteLine(SectNo);
 			lblTestName->Text = Convert::ToString(Access->DBDT->Rows[0]->default["ExamName"]);
 			tc1->Controls->Clear();
+			/*tc1->SetStyle(ControlStyles::SupportsTransparentBackColor, true);
+			tc1->BackColor = Color::Transparent;*/
 			for (int i = 0; i < SectNo; i++){
 				TabPage^ Section = gcnew TabPage();
+				//Section-> = Color::Yellow;
 				Section->Text = "Section" + (i + 1).ToString();
 				tc1->Controls->Add(Section);
 			}
+			/*tc1->SetStyle(ControlStyles::SupportsTransparentBackColor, true);
+			tc1->BackColor = Color::Transparent;*/
 			tc1->SelectedIndexChanged += gcnew EventHandler(this, &ExamPaper::TabSelect);
 			tc1->SelectedIndex = 0;
 			//tc1->BackColor = Color::Yellow;
@@ -789,6 +826,7 @@ namespace Online_Exam {
 					btn->Text = Convert::ToString(j + 1);
 					btn->FlatStyle = FlatStyle::Flat;
 					btn->FlatAppearance->BorderSize = 2;
+					btn->Cursor = Cursors::Hand;
 					//btn->Cursor = Cursor->Handl
 					
 					btn->Font = (gcnew System::Drawing::Font(L"Arial", 13));
@@ -1596,6 +1634,8 @@ private: System::Void btnReview_Click(System::Object^  sender, System::EventArgs
 
 
 	
+private: System::Void lblTimeRemaining_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }
 

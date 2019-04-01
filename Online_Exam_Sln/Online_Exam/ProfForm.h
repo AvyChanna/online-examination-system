@@ -122,6 +122,7 @@ namespace Online_Exam {
 			this->pictureBox1->Size = System::Drawing::Size(60, 65);
 			this->pictureBox1->TabIndex = 11;
 			this->pictureBox1->TabStop = false;
+			//this->pictureBox1->Click += gcnew System::EventHandler(this, &ProfForm::pictureBox1_Click);
 			// 
 			// btn_changepass
 			// 

@@ -3,6 +3,7 @@
 #include "ApproveProf.h"
 #include "StudentEditAdmin.h"
 #include "ExamList.h"
+#include "ChangePassword.h"
 
 namespace Online_Exam {
 
@@ -45,6 +46,7 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  examDetails;
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Button^  buttonlogout;
+	private: System::Windows::Forms::Button^  btnChangePasswd;
 	protected:
 
 
@@ -68,6 +70,8 @@ namespace Online_Exam {
 			this->buttonlogout = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->examDetails = (gcnew System::Windows::Forms::Button());
+			this->btnChangePasswd = (gcnew System::Windows::Forms::Button());
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// BtnApproveProf
@@ -109,21 +113,11 @@ namespace Online_Exam {
 			this->Students->Name = L"Students";
 			this->Students->Size = System::Drawing::Size(91, 32);
 			this->Students->TabIndex = 2;
-			this->Students->Text = L"Students";
+			this->Students->Text = L"Users";
 			this->Students->UseVisualStyleBackColor = true;
 			this->Students->Click += gcnew System::EventHandler(this, &AdminForm::Students_Click);
 			this->Students->MouseLeave += gcnew System::EventHandler(this, &AdminForm::Students_MouseLeave);
 			this->Students->MouseHover += gcnew System::EventHandler(this, &AdminForm::Students_MouseHover);
-			// 
-			// examDetails
-			// 
-			this->examDetails->Location = System::Drawing::Point(63, 266);
-			this->examDetails->Name = L"examDetails";
-			this->examDetails->Size = System::Drawing::Size(121, 62);
-			this->examDetails->TabIndex = 3;
-			this->examDetails->Text = L"Exam Details";
-			this->examDetails->UseVisualStyleBackColor = true;
-			this->examDetails->Click += gcnew System::EventHandler(this, &AdminForm::examDetails_Click);
 			// 
 			// panel1
 			// 
@@ -131,6 +125,8 @@ namespace Online_Exam {
 				static_cast<System::Int32>(static_cast<System::Byte>(72)));
 			this->panel1->Controls->Add(this->buttonlogout);
 			this->panel1->Controls->Add(this->Students);
+			this->panel1->Controls->Add(this->examDetails);
+			this->panel1->Controls->Add(this->btnChangePasswd);
 			this->panel1->Controls->Add(this->BtnApproveProf);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panel1->Location = System::Drawing::Point(0, 0);
@@ -156,14 +152,32 @@ namespace Online_Exam {
 			this->buttonlogout->Click += gcnew System::EventHandler(this, &AdminForm::button_logout_Click);
 			this->buttonlogout->MouseLeave += gcnew System::EventHandler(this, &AdminForm::Students_MouseLeave);
 			this->buttonlogout->MouseHover += gcnew System::EventHandler(this, &AdminForm::Students_MouseHover);
+			// examDetails
+			// 
+			this->examDetails->Location = System::Drawing::Point(31, 265);
+			this->examDetails->Name = L"examDetails";
+			this->examDetails->Size = System::Drawing::Size(121, 62);
+			this->examDetails->TabIndex = 3;
+			this->examDetails->Text = L"Exam Details";
+			this->examDetails->UseVisualStyleBackColor = true;
+			this->examDetails->Click += gcnew System::EventHandler(this, &AdminForm::examDetails_Click);
+			// 
+			// btnChangePasswd
+			// 
+			this->btnChangePasswd->Location = System::Drawing::Point(31, 391);
+			this->btnChangePasswd->Name = L"btnChangePasswd";
+			this->btnChangePasswd->Size = System::Drawing::Size(121, 56);
+			this->btnChangePasswd->TabIndex = 1;
+			this->btnChangePasswd->Text = L"Change Password";
+			this->btnChangePasswd->UseVisualStyleBackColor = true;
+			this->btnChangePasswd->Click += gcnew System::EventHandler(this, &AdminForm::btnChangePasswd_Click);
 			// 
 			// AdminForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Controls->Add(this->examDetails);
-			this->Controls->Add(this->Students);
 			this->ClientSize = System::Drawing::Size(1327, 593);
+			this->Controls->Add(this->Students);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->adminPanel);
 			this->Margin = System::Windows::Forms::Padding(2);
@@ -213,6 +227,10 @@ private: System::Void button_logout_Click(System::Object^  sender, System::Event
 					this->Owner->Show();
 					this->Close();
 				}
+private: System::Void btnChangePasswd_Click(System::Object^  sender, System::EventArgs^  e) {
+			 adminPanel->Controls->Clear();
+			 ChangePassword ^ usr = gcnew ChangePassword();
+			 adminPanel->Controls->Add(usr);
 }
 };
 }

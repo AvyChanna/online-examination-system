@@ -16,12 +16,34 @@ namespace Online_Exam {
 	/// <summary>
 	/// Summary for Leaderboard
 	/// </summary>
-	public ref class Leaderboard : public System::Windows::Forms::Form
+	public ref class Leaderboard : public System::Windows::Forms::UserControl
 	{
 	private:
 		OES ^ Access;
+		OES ^ Session_Num;
+		OES ^ Access1;
+		OES ^ Access2;
+		OES ^ Access3;
+		OES ^ Access4;
+		OES ^ Access5;
+		OES ^ Access6;
 		DataSet ^dsa;
-		String^ examCode;
+		DataSet ^dsa1;
+		DataSet ^dsa2;
+		DataSet ^dsa3;
+		DataSet ^dsa4;
+		DataSet ^dsa5;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Button^  btnOverall;
+
+	private: System::Windows::Forms::Button^  btnSession1;
+	private: System::Windows::Forms::Button^  btnSession2;
+	private: System::Windows::Forms::Button^  btnSession3;
+	private: System::Windows::Forms::Button^  btnSession4;
+	private: System::Windows::Forms::Button^  btnSession5;
+	private: System::Windows::Forms::TextBox^  textBox1;
+			 String^ examCode;
+			 DataTable^ dt;
 	public:
 		Leaderboard(void)
 		{
@@ -66,6 +88,14 @@ namespace Online_Exam {
 		void InitializeComponent(void)
 		{
 			this->standings = (gcnew System::Windows::Forms::DataGridView());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->btnOverall = (gcnew System::Windows::Forms::Button());
+			this->btnSession1 = (gcnew System::Windows::Forms::Button());
+			this->btnSession2 = (gcnew System::Windows::Forms::Button());
+			this->btnSession3 = (gcnew System::Windows::Forms::Button());
+			this->btnSession4 = (gcnew System::Windows::Forms::Button());
+			this->btnSession5 = (gcnew System::Windows::Forms::Button());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->standings))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -75,29 +105,144 @@ namespace Online_Exam {
 			this->standings->AllowUserToDeleteRows = false;
 			this->standings->AllowUserToResizeColumns = false;
 			this->standings->AllowUserToResizeRows = false;
+			this->standings->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->standings->BackgroundColor = System::Drawing::Color::White;
 			this->standings->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->standings->Location = System::Drawing::Point(28, 96);
+			this->standings->GridColor = System::Drawing::SystemColors::Control;
+			this->standings->Location = System::Drawing::Point(29, 82);
+			this->standings->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->standings->Name = L"standings";
 			this->standings->ReadOnly = true;
 			this->standings->RowTemplate->Height = 24;
-			this->standings->Size = System::Drawing::Size(853, 565);
+			this->standings->Size = System::Drawing::Size(697, 435);
 			this->standings->TabIndex = 0;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(397, 28);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(152, 29);
+			this->label1->TabIndex = 1;
+			this->label1->Text = L"Leaderboard";
+			this->label1->Click += gcnew System::EventHandler(this, &Leaderboard::label1_Click);
+			// 
+			// btnOverall
+			// 
+			this->btnOverall->Location = System::Drawing::Point(768, 82);
+			this->btnOverall->Name = L"btnOverall";
+			this->btnOverall->Size = System::Drawing::Size(120, 49);
+			this->btnOverall->TabIndex = 2;
+			this->btnOverall->Text = L"Overall";
+			this->btnOverall->UseVisualStyleBackColor = true;
+			this->btnOverall->Click += gcnew System::EventHandler(this, &Leaderboard::btnOverall_Click);
+			// 
+			// btnSession1
+			// 
+			this->btnSession1->Location = System::Drawing::Point(768, 155);
+			this->btnSession1->Name = L"btnSession1";
+			this->btnSession1->Size = System::Drawing::Size(120, 53);
+			this->btnSession1->TabIndex = 3;
+			this->btnSession1->Text = L"Session1";
+			this->btnSession1->UseVisualStyleBackColor = true;
+			this->btnSession1->Click += gcnew System::EventHandler(this, &Leaderboard::btnSession1_Click);
+			// 
+			// btnSession2
+			// 
+			this->btnSession2->Location = System::Drawing::Point(768, 224);
+			this->btnSession2->Name = L"btnSession2";
+			this->btnSession2->Size = System::Drawing::Size(120, 55);
+			this->btnSession2->TabIndex = 4;
+			this->btnSession2->Text = L"Session 2";
+			this->btnSession2->UseVisualStyleBackColor = true;
+			this->btnSession2->Click += gcnew System::EventHandler(this, &Leaderboard::btnSession2_Click_1);
+			// 
+			// btnSession3
+			// 
+			this->btnSession3->Location = System::Drawing::Point(768, 298);
+			this->btnSession3->Name = L"btnSession3";
+			this->btnSession3->Size = System::Drawing::Size(120, 55);
+			this->btnSession3->TabIndex = 5;
+			this->btnSession3->Text = L"Session3";
+			this->btnSession3->UseVisualStyleBackColor = true;
+			this->btnSession3->Click += gcnew System::EventHandler(this, &Leaderboard::btnSession3_Click);
+			// 
+			// btnSession4
+			// 
+			this->btnSession4->Location = System::Drawing::Point(768, 373);
+			this->btnSession4->Name = L"btnSession4";
+			this->btnSession4->Size = System::Drawing::Size(120, 54);
+			this->btnSession4->TabIndex = 6;
+			this->btnSession4->Text = L"Session4";
+			this->btnSession4->UseVisualStyleBackColor = true;
+			this->btnSession4->Click += gcnew System::EventHandler(this, &Leaderboard::btnSession4_Click);
+			// 
+			// btnSession5
+			// 
+			this->btnSession5->Location = System::Drawing::Point(768, 447);
+			this->btnSession5->Name = L"btnSession5";
+			this->btnSession5->Size = System::Drawing::Size(120, 56);
+			this->btnSession5->TabIndex = 7;
+			this->btnSession5->Text = L"Session5";
+			this->btnSession5->UseVisualStyleBackColor = true;
+			this->btnSession5->Click += gcnew System::EventHandler(this, &Leaderboard::BtnSession5_Click);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(66, 28);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(267, 22);
+			this->textBox1->TabIndex = 8;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Leaderboard::textBox1_TextChanged);
 			// 
 			// Leaderboard
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(928, 736);
+			this->BackColor = System::Drawing::SystemColors::Control;
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->btnSession5);
+			this->Controls->Add(this->btnSession4);
+			this->Controls->Add(this->btnSession3);
+			this->Controls->Add(this->btnSession2);
+			this->Controls->Add(this->btnSession1);
+			this->Controls->Add(this->btnOverall);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->standings);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"Leaderboard";
-			this->Text = L"Leaderboard";
+			this->Size = System::Drawing::Size(915, 532);
 			this->Load += gcnew System::EventHandler(this, &Leaderboard::Leaderboard_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->standings))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void Leaderboard_Load(System::Object^  sender, System::EventArgs^  e) {
+				 dt = gcnew DataTable();
+				 Session_Num = gcnew OES();
+				 Session_Num->ExecQuery("SELECT NumSessions FROM  Exam WHERE(ExamCode = "+this->examCode+" )");
+				 Int32 num_ses = Convert::ToInt32(Session_Num->DBDT->Rows[0]["NumSessions"]);
+				 if (num_ses < 1){
+					 btnSession1->Hide();
+				 }
+				 if (num_ses < 2){
+					 btnSession2->Hide();
+				 }
+				 if (num_ses < 3){
+					 btnSession3->Hide();
+				 }
+				 if (num_ses < 4){
+					 btnSession4->Hide();
+				 }
+				 if (num_ses < 5){
+					 btnSession5->Hide();
+				 }
+	
 				 Access = gcnew OES();
 				 Access->ExecQuery("SELECT ExamCode, Username, ObtainedMarks\
 					 FROM     Performance\
@@ -106,6 +251,7 @@ namespace Online_Exam {
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Performance");
 				 standings->DataSource = dsa->Tables[0];
+				 
 				 standings->Columns[0]->HeaderText = "Rank";
 				 if (Access->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -120,8 +266,185 @@ namespace Online_Exam {
 					 {
 						 standings->Rows[i]->Cells[0]->Value = i + 1;
 					 }
-				 }
-				 
+				 }	
+				 dt = dsa->Tables[0];
 	}
-	};
+	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void btnSession1_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Access1 = gcnew OES();
+				 Access1->ExecQuery("SELECT ExamCode, Username, ObtainedMarks\
+								   	FROM     Performance\
+									WHERE(ExamCode = " + this->examCode + " AND SessionNumber = 1 )\
+									ORDER BY ObtainedMarks DESC");
+
+				 dsa1 = gcnew DataSet();
+				 Access1->DBDA->Fill(dsa1, "Performance");
+				 standings->DataSource = dsa1->Tables[0];
+				 
+				 standings->Columns[0]->HeaderText = "Rank";
+
+				 if (Access1->RecordCount >= 1){
+					 standings->Rows[0]->Cells[0]->Value = 1;
+				 }
+				 for (int i = 1; i < Access1->RecordCount; i++){
+
+					 if (standings->Rows[i]->Cells[2]->Value->ToString() == standings->Rows[i - 1]->Cells[2]->Value->ToString())
+					 {
+						 standings->Rows[i]->Cells[0]->Value = standings->Rows[i - 1]->Cells[0]->Value;
+					 }
+					 else
+					 {
+						 standings->Rows[i]->Cells[0]->Value = i + 1;
+					 }
+				 }
+				 dt = dsa1->Tables[0];
+
+	}
+	private: System::Void btnSession2_Click_1(System::Object^  sender, System::EventArgs^  e) {
+				 Access2 = gcnew OES();
+				 Access2->ExecQuery("SELECT ExamCode, Username, ObtainedMarks\
+								   	FROM  Performance\
+									WHERE(ExamCode = " + this->examCode + ") AND (SessionNumber = 2)\
+									ORDER BY ObtainedMarks DESC");
+
+				 dsa2 = gcnew DataSet();
+				 Access2->DBDA->Fill(dsa2, "Performance");
+				 dt = dsa2->Tables[0];
+				 standings->DataSource = dsa2->Tables[0];
+				 standings->Columns[0]->HeaderText = "Rank";
+
+				 if (Access2->RecordCount >= 1){
+					 standings->Rows[0]->Cells[0]->Value = 1;
+				 }
+				 for (int i = 1; i < Access2->RecordCount; i++){
+
+					 if (standings->Rows[i]->Cells[2]->Value->ToString() == standings->Rows[i - 1]->Cells[2]->Value->ToString())
+					 {
+						 standings->Rows[i]->Cells[0]->Value = standings->Rows[i - 1]->Cells[0]->Value;
+					 }
+					 else
+					 {
+						 standings->Rows[i]->Cells[0]->Value = i + 1;
+					 }
+				 }
+				 dt = dsa2->Tables[0];
+	}
+	private: System::Void btnSession3_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Access3 = gcnew OES();
+				 Access3->ExecQuery("SELECT ExamCode, Username, ObtainedMarks\
+								   	FROM  Performance\
+									WHERE(ExamCode = " + this->examCode + " AND SessionNumber = 3 )\
+									ORDER BY ObtainedMarks DESC");
+
+				 dsa3 = gcnew DataSet();
+				 Access3->DBDA->Fill(dsa3, "Performance");
+				 standings->DataSource = dsa3->Tables[0];
+				 
+				 standings->Columns[0]->HeaderText = "Rank";
+
+				 if (Access3->RecordCount >= 1){
+					 standings->Rows[0]->Cells[0]->Value = 1;
+				 }
+				 for (int i = 1; i < Access3->RecordCount; i++){
+
+					 if (standings->Rows[i]->Cells[2]->Value->ToString() == standings->Rows[i - 1]->Cells[2]->Value->ToString())
+					 {
+						 standings->Rows[i]->Cells[0]->Value = standings->Rows[i - 1]->Cells[0]->Value;
+					 }
+					 else
+					 {
+						 standings->Rows[i]->Cells[0]->Value = i + 1;
+					 }
+				 }
+				 dt = dsa3->Tables[0];
+	}
+	private: System::Void btnSession4_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Access4 = gcnew OES();
+				 Access4->ExecQuery("SELECT ExamCode, Username, ObtainedMarks\
+								   	FROM  Performance\
+									WHERE(ExamCode = " + this->examCode + " AND SessionNumber = 4 )\
+									ORDER BY ObtainedMarks DESC");
+
+				 dsa4 = gcnew DataSet();
+				 Access4->DBDA->Fill(dsa4, "Performance");
+				 standings->DataSource = dsa4->Tables[0];
+				 
+				 standings->Columns[0]->HeaderText = "Rank";
+
+				 if (Access4->RecordCount >= 1){
+					 standings->Rows[0]->Cells[0]->Value = 1;
+				 }
+				 for (int i = 1; i < Access4->RecordCount; i++){
+
+					 if (standings->Rows[i]->Cells[2]->Value->ToString() == standings->Rows[i - 1]->Cells[2]->Value->ToString())
+					 {
+						 standings->Rows[i]->Cells[0]->Value = standings->Rows[i - 1]->Cells[0]->Value;
+					 }
+					 else
+					 {
+						 standings->Rows[i]->Cells[0]->Value = i + 1;
+					 }
+				 }
+				 dt = dsa4->Tables[0];
+	}
+	private: System::Void BtnSession5_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Access5 = gcnew OES();
+				 Access5->ExecQuery("SELECT ExamCode, Username, ObtainedMarks\
+								   FROM  Performance\
+								   WHERE(ExamCode = " + this->examCode + " AND SessionNumber = 5 )\
+								   ORDER BY ObtainedMarks DESC");
+
+				 dsa5 = gcnew DataSet();
+				 Access5->DBDA->Fill(dsa5, "Performance");
+				 standings->DataSource = dsa5->Tables[0];
+				 
+				 standings->Columns[0]->HeaderText = "Rank";
+
+				 if (Access5->RecordCount >= 1){
+					 standings->Rows[0]->Cells[0]->Value = 1;
+				 }
+				 for (int i = 1; i < Access5->RecordCount; i++){
+
+					 if (standings->Rows[i]->Cells[2]->Value->ToString() == standings->Rows[i - 1]->Cells[2]->Value->ToString())
+					 {
+						 standings->Rows[i]->Cells[0]->Value = standings->Rows[i - 1]->Cells[0]->Value;
+					 }
+					 else
+					 {
+						 standings->Rows[i]->Cells[0]->Value = i + 1;
+					 }
+				 }
+				 dt = dsa5->Tables[0];
+	}
+	private: System::Void btnOverall_Click(System::Object^  sender, System::EventArgs^  e) {
+				 standings->DataSource = dsa->Tables[0];
+				 standings->Columns[0]->HeaderText = "Rank";
+
+				 if (Access->RecordCount >= 1){
+					 standings->Rows[0]->Cells[0]->Value = 1;
+				 }
+				 for (int i = 1; i < Access->RecordCount; i++){
+
+					 if (standings->Rows[i]->Cells[2]->Value->ToString() == standings->Rows[i - 1]->Cells[2]->Value->ToString())
+					 {
+						 standings->Rows[i]->Cells[0]->Value = standings->Rows[i - 1]->Cells[0]->Value;
+					 }
+					 else
+					 {
+						 standings->Rows[i]->Cells[0]->Value = i + 1;
+					 }
+				 }
+				 dt = dsa->Tables[0];
+	}
+
+	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 if (textBox1->Text == ""){
+					 dt->DefaultView->RowFilter = "Username like '%" + textBox1->Text + "%'";
+				 }
+				 else{
+					 dt->DefaultView->RowFilter = "Username like '%" + textBox1->Text + "%'";
+				 }
+	}
+};
 }

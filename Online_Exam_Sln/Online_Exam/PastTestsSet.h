@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Leaderboard.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -166,6 +166,8 @@ namespace Online_Exam {
 						 btnStandings->TabIndex = 4;
 						 btnStandings->BackColor = System::Drawing::Color::FromArgb(43, 50, 82);
 						 btnStandings->ForeColor = System::Drawing::Color::FromArgb(255, 255, 255);
+						 btnStandings->Click += gcnew System::EventHandler(this, &PastTestsSet::btnClick);
+						 btnStandings->Tag = Convert::ToString(Access->DBDT->Rows[j]["ExamCode"]);
 						 {
 
 						 }
@@ -224,6 +226,17 @@ namespace Online_Exam {
 				 }
 	}
 	private: System::Void contentPanel_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+	}
+
+	private: System::Void btnClick(System::Object^  sender, System::EventArgs^  e)
+	{
+				 Button ^ btn = gcnew Button();
+				 btn = static_cast<Button^>(sender);
+				 String ^ExamCode = Convert::ToString(btn->Tag);
+
+				 Leaderboard^ ldrBoard = gcnew Leaderboard(ExamCode);
+				 contentPanel->Controls->Clear();
+				 contentPanel->Controls->Add(ldrBoard);
 	}
 };
 }
