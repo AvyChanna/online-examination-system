@@ -41,12 +41,6 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  btnSession3;
 	private: System::Windows::Forms::Button^  btnSession4;
 	private: System::Windows::Forms::Button^  btnSession5;
-
-
-
-
-
-
 			 String^ examCode;
 	public:
 		Leaderboard(void)
