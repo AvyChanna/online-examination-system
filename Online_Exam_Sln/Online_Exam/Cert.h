@@ -251,7 +251,10 @@ namespace Online_Exam {
 				 printDocument1->DefaultPageSettings->Landscape = true;
 				 printDocument1->DefaultPageSettings->Margins = gcnew Margins(0, 0, 0, 0);
 				 printDocument1->DefaultPageSettings->PaperSize = gcnew PaperSize("827 x 1169 hth of Inch (a4)", 827, 1169);
+				 this->ParentForm->Hide();
 				 printDocument1->Print();
+				 this->ParentForm->Show();
+
 	}
 	private: System::Void printDocument1_PrintPage(System::Object^  sender, System::Drawing::Printing::PrintPageEventArgs^  e) {
 				 System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Cert::typeid));
