@@ -58,19 +58,22 @@ namespace Online_Exam {
 			// 
 			// panel1
 			// 
-			this->panel1->Location = System::Drawing::Point(7, 9);
+			this->panel1->Location = System::Drawing::Point(5, 7);
+			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(915, 532);
+			this->panel1->Size = System::Drawing::Size(686, 432);
 			this->panel1->TabIndex = 0;
 			// 
 			// Standings
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(928, 553);
+			this->ClientSize = System::Drawing::Size(696, 449);
 			this->Controls->Add(this->panel1);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"Standings";
 			this->Text = L"Standings";
+			this->TopMost = true;
 			this->Load += gcnew System::EventHandler(this, &Standings::Standings_Load);
 			this->ResumeLayout(false);
 

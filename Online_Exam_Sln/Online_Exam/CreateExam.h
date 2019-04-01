@@ -730,7 +730,7 @@ namespace Online_Exam {
 				 int SectNo, ExamLen, Pass;
 				 try{
 					 SectNo = Convert::ToInt32(txtSectNo->Text);
-					 ExamLen = Convert::ToInt32(txtExamLen->Text);
+					 ExamLen = Convert::ToUInt32(txtExamLen->Text);
 					 Pass = Convert::ToUInt32(txtPass->Text);
 					 if (Pass > 100){
 						 MessageBox::Show("Please enter pass percentage less than 100.", "Error");

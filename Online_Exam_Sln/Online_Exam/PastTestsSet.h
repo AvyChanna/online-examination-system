@@ -1,5 +1,5 @@
 #pragma once
-#include "Leaderboard.h"
+#include "Standings.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -234,9 +234,9 @@ namespace Online_Exam {
 				 btn = static_cast<Button^>(sender);
 				 String ^ExamCode = Convert::ToString(btn->Tag);
 
-				 Leaderboard^ ldrBoard = gcnew Leaderboard(ExamCode);
-				 contentPanel->Controls->Clear();
-				 contentPanel->Controls->Add(ldrBoard);
+				 Standings ^ std = gcnew Standings(ExamCode);
+				 this->Hide();
+				 std->ShowDialog();
 	}
 };
 }
