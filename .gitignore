@@ -1,7 +1,8 @@
 # Access db
 *.ldb
 *.laccdb
-
+*.acdb
+*.mdl
 ### C++ ###
 *.d
 

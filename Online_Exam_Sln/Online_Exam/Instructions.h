@@ -171,7 +171,7 @@ namespace Online_Exam {
 				 txtInstruction->Text = str;
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				
+				 Close();
 				 /*Application::Run(gcnew ExamPaper(11));*/
 	}
 };

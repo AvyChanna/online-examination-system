@@ -16,6 +16,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew Cert());
+	Application::Run(gcnew Login());
+
 	return 0;
 }

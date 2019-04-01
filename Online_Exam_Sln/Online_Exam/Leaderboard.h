@@ -41,13 +41,9 @@ namespace Online_Exam {
 	private: System::Windows::Forms::Button^  btnSession3;
 	private: System::Windows::Forms::Button^  btnSession4;
 	private: System::Windows::Forms::Button^  btnSession5;
-
-
-
-
-
-
+	private: System::Windows::Forms::TextBox^  textBox1;
 			 String^ examCode;
+			 DataTable^ dt;
 	public:
 		Leaderboard(void)
 		{
@@ -99,6 +95,7 @@ namespace Online_Exam {
 			this->btnSession3 = (gcnew System::Windows::Forms::Button());
 			this->btnSession4 = (gcnew System::Windows::Forms::Button());
 			this->btnSession5 = (gcnew System::Windows::Forms::Button());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->standings))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -193,11 +190,20 @@ namespace Online_Exam {
 			this->btnSession5->UseVisualStyleBackColor = true;
 			this->btnSession5->Click += gcnew System::EventHandler(this, &Leaderboard::BtnSession5_Click);
 			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(66, 28);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(267, 22);
+			this->textBox1->TabIndex = 8;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Leaderboard::textBox1_TextChanged);
+			// 
 			// Leaderboard
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->btnSession5);
 			this->Controls->Add(this->btnSession4);
 			this->Controls->Add(this->btnSession3);
@@ -217,9 +223,10 @@ namespace Online_Exam {
 		}
 #pragma endregion
 	private: System::Void Leaderboard_Load(System::Object^  sender, System::EventArgs^  e) {
+				 dt = gcnew DataTable();
 				 Session_Num = gcnew OES();
 				 Session_Num->ExecQuery("SELECT NumSessions FROM  Exam WHERE(ExamCode = "+this->examCode+" )");
-				 Int32 num_ses = Convert::ToInt32(Session_Num->DBDT->Rows[0]["NumSessions"]);
+				 Int32 num_ses = Convert::ToInt32(Session_Num->DBDT->Rows[0]->default["NumSessions"]);
 				 if (num_ses < 1){
 					 btnSession1->Hide();
 				 }
@@ -237,14 +244,16 @@ namespace Online_Exam {
 				 }
 	
 				 Access = gcnew OES();
-				 Access->ExecQuery("SELECT ExamCode, Username, ObtainedMarks\
+				 Access->ExecQuery("SELECT ExamCode, Username, NormalizedScore\
 					 FROM     Performance\
 					 WHERE(ExamCode = "+ this->examCode +" )\
-					 ORDER BY ObtainedMarks DESC");
+					 ORDER BY NormalizedScore DESC");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Performance");
 				 standings->DataSource = dsa->Tables[0];
+				 
 				 standings->Columns[0]->HeaderText = "Rank";
+				 standings->Columns[2]->HeaderText = "Normalized Score";
 				 if (Access->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
 				 }
@@ -258,7 +267,8 @@ namespace Online_Exam {
 					 {
 						 standings->Rows[i]->Cells[0]->Value = i + 1;
 					 }
-				 }			 
+				 }	
+				 dt = dsa->Tables[0];
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -272,7 +282,9 @@ namespace Online_Exam {
 				 dsa1 = gcnew DataSet();
 				 Access1->DBDA->Fill(dsa1, "Performance");
 				 standings->DataSource = dsa1->Tables[0];
-				 standings->Columns[0]->HeaderText = "Rank";
+				 
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access1->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -288,6 +300,7 @@ namespace Online_Exam {
 						 standings->Rows[i]->Cells[0]->Value = i + 1;
 					 }
 				 }
+				 dt = dsa1->Tables[0];
 
 	}
 	private: System::Void btnSession2_Click_1(System::Object^  sender, System::EventArgs^  e) {
@@ -299,8 +312,10 @@ namespace Online_Exam {
 
 				 dsa2 = gcnew DataSet();
 				 Access2->DBDA->Fill(dsa2, "Performance");
+				 dt = dsa2->Tables[0];
 				 standings->DataSource = dsa2->Tables[0];
-				 standings->Columns[0]->HeaderText = "Rank";
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access2->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -316,6 +331,7 @@ namespace Online_Exam {
 						 standings->Rows[i]->Cells[0]->Value = i + 1;
 					 }
 				 }
+				 dt = dsa2->Tables[0];
 	}
 	private: System::Void btnSession3_Click(System::Object^  sender, System::EventArgs^  e) {
 				 Access3 = gcnew OES();
@@ -327,7 +343,9 @@ namespace Online_Exam {
 				 dsa3 = gcnew DataSet();
 				 Access3->DBDA->Fill(dsa3, "Performance");
 				 standings->DataSource = dsa3->Tables[0];
-				 standings->Columns[0]->HeaderText = "Rank";
+				 
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access3->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -343,6 +361,7 @@ namespace Online_Exam {
 						 standings->Rows[i]->Cells[0]->Value = i + 1;
 					 }
 				 }
+				 dt = dsa3->Tables[0];
 	}
 	private: System::Void btnSession4_Click(System::Object^  sender, System::EventArgs^  e) {
 				 Access4 = gcnew OES();
@@ -354,7 +373,9 @@ namespace Online_Exam {
 				 dsa4 = gcnew DataSet();
 				 Access4->DBDA->Fill(dsa4, "Performance");
 				 standings->DataSource = dsa4->Tables[0];
-				 standings->Columns[0]->HeaderText = "Rank";
+				 
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access4->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -370,6 +391,7 @@ namespace Online_Exam {
 						 standings->Rows[i]->Cells[0]->Value = i + 1;
 					 }
 				 }
+				 dt = dsa4->Tables[0];
 	}
 	private: System::Void BtnSession5_Click(System::Object^  sender, System::EventArgs^  e) {
 				 Access5 = gcnew OES();
@@ -381,7 +403,9 @@ namespace Online_Exam {
 				 dsa5 = gcnew DataSet();
 				 Access5->DBDA->Fill(dsa5, "Performance");
 				 standings->DataSource = dsa5->Tables[0];
-				 standings->Columns[0]->HeaderText = "Rank";
+				 
+				 standings->Columns[0]->HeaderText = "Session Rank";
+				 standings->Columns[2]->HeaderText = "Session Score";
 
 				 if (Access5->RecordCount >= 1){
 					 standings->Rows[0]->Cells[0]->Value = 1;
@@ -397,6 +421,7 @@ namespace Online_Exam {
 						 standings->Rows[i]->Cells[0]->Value = i + 1;
 					 }
 				 }
+				 dt = dsa5->Tables[0];
 	}
 	private: System::Void btnOverall_Click(System::Object^  sender, System::EventArgs^  e) {
 				 standings->DataSource = dsa->Tables[0];
@@ -416,7 +441,16 @@ namespace Online_Exam {
 						 standings->Rows[i]->Cells[0]->Value = i + 1;
 					 }
 				 }
+				 dt = dsa->Tables[0];
 	}
 
+	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 if (textBox1->Text == ""){
+					 dt->DefaultView->RowFilter = "Username like '%" + textBox1->Text + "%'";
+				 }
+				 else{
+					 dt->DefaultView->RowFilter = "Username like '%" + textBox1->Text + "%'";
+				 }
+	}
 };
 }
