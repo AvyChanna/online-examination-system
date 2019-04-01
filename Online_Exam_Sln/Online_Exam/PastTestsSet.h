@@ -117,7 +117,7 @@ namespace Online_Exam {
                          Label ^ lblExamName = gcnew Label();
 						 Button^ btnStandings = gcnew Button();
  						 lblExamName->Width = 100;
-						 lblExamName->Text = Convert::ToString(Access->DBDT->Rows[j]["ExamName"]);
+						 lblExamName->Text = Convert::ToString(Access->DBDT->Rows[j]->default["ExamName"]);
 						 lblExamName->Height = 20;
 						 btnStandings->Width = 180;
 						 btnStandings->Height = 30;
@@ -172,7 +172,7 @@ namespace Online_Exam {
 
 						 }
 						 //PictureBox ^ border = gcnew PictureBox();
-						 String ^ grp = Convert::ToString(Access->DBDT->Rows[j]["GroupID"]);
+						 String ^ grp = Convert::ToString(Access->DBDT->Rows[j]->default["GroupID"]);
 						 String ^ query = "";
 						 String ^ tempstr = "";
 						 for (int i = 0; i < grp->Length - 1; i++)
@@ -201,7 +201,7 @@ namespace Online_Exam {
 							 for (int k = 0; k < Access1->RecordCount; k++)
 							 {
 								 Label ^ lblGroupName = gcnew Label();
-								 lblGroupName->Text = Convert::ToString(Access1->DBDT->Rows[k]["GroupName"]);
+								 lblGroupName->Text = Convert::ToString(Access1->DBDT->Rows[k]->default["GroupName"]);
 								 lblGroupName->Width = 100;
 								 lblGroupName->Height = 20;
 								 lblGroupName->Location = Point(x + 220, temp);
