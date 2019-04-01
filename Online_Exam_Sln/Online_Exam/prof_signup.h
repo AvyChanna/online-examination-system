@@ -417,14 +417,14 @@ protected:
 				Access->ExecQuery("SELECT * FROM Users WHERE Username =@userName");
 				if (Access->DBDT->Rows->Count != 0 || Access->Exception->Length)
 				{
-					MessageBox::Show("UserName exist Already or error Occurs");
+					MessageBox::Show("Username already exists", "Error");
 					return false;
 				}
 
 
 				if (passTxt->Text != confirmPassTxt->Text)
 				{
-					MessageBox::Show("Password do not match");
+					MessageBox::Show("Password do not match", "Error");
 					passTxt->Clear();
 					confirmPassTxt->Clear();
 					return false;
@@ -465,7 +465,7 @@ protected:
 				}
 				if (pNumTxt->Text->Trim() == "")
 				{
-					MessageBox::Show("Please enter Phone Number", "Wroong Details");
+					MessageBox::Show("Please enter Phone Number", "Wrong Details");
 					return false;
 				}
 				str = nameTxt->Text;
@@ -518,7 +518,7 @@ protected:
 						Access->ExecQuery("insert into [Users] ( [Username],[FullName],[PasswordHash],[PasswordSalt],[Email],[PhoneNo],[Branch],[Designation],[IITG]) Values ( @Username,@Fullname,@PasswordHash,@PasswordSalt,@Email,@PhoneNo,@Branch,@Designation, " + check + " )");
 
 
-						MessageBox::Show("Signup Successful");
+						MessageBox::Show("Signup Successful", "Success");
 					}
 					catch (Exception^ ex)
 					{
@@ -536,21 +536,6 @@ protected:
 		private:
 			System::Void pNumTxt_TextChanged(System::Object^  sender, System::EventArgs^  e)
 			{
-				try
-				{
-					if (pNumTxt->Text != "")
-						int  SectNo = Convert::ToInt32(pNumTxt->Text);
-
-				}
-				catch (Exception ^ ex)
-				{
-
-					MessageBox::Show("Please enter integer values in required fields.", "Error");
-					pNumTxt->Clear();
-					return;
-				}
-
-
 
 			}
 	};

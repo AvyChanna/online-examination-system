@@ -452,6 +452,7 @@ private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs
 			 btnChangePass->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 if (MessageBox::Show("Are you sure you want to logout?", "Confirm", MessageBoxButtons::YesNo) == ::DialogResult::Yes)
 			 {
+				 gVar::ClearGvars();
 				 if (this->Owner != nullptr)
 				 {
 					 this->Owner->Show();
