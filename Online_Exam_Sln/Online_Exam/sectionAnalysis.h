@@ -249,7 +249,7 @@ namespace Online_Exam {
 				 Smin["PixelPointWidth"] = "300";
 
 				 Savg->IsValueShownAsLabel = true;
-				 Savg->LabelFormat = L"#.##";
+				 Savg->LabelFormat = L"{N2}";
 				 Savg->Name = L"Avg Marks";
 				 Savg->LabelBackColor = System::Drawing::Color::White;
 				 Savg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
