@@ -10,7 +10,7 @@ namespace Global_Var{
 	public ref class gVar
 	{
 	public:
-		static String^ Username = L"tushar";		//Default value added temporarily to test other modules, remove when Login.h and Signup.h properly working
+		static String^ Username = L"";
 		static String^ Fullname = L"";
 		static String^ Passhash = L"";
 		static String^ Passsalt = L"";
@@ -27,7 +27,7 @@ namespace Global_Var{
 		~gVar() {}
 		static void ClearGvars()
 		{
-			Username = L"tushar";
+			Username = L"";
 			Fullname = L"";
 			Passhash = L"";
 			Passsalt = L"";
