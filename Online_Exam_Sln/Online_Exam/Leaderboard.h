@@ -141,12 +141,12 @@ namespace Online_Exam {
 			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
 			this->standings->DefaultCellStyle = dataGridViewCellStyle6;
 			this->standings->GridColor = System::Drawing::SystemColors::Control;
-			this->standings->Location = System::Drawing::Point(31, 83);
+			this->standings->Location = System::Drawing::Point(31, 123);
 			this->standings->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->standings->Name = L"standings";
 			this->standings->ReadOnly = true;
 			this->standings->RowTemplate->Height = 24;
-			this->standings->Size = System::Drawing::Size(665, 421);
+			this->standings->Size = System::Drawing::Size(706, 381);
 			this->standings->TabIndex = 0;
 			// 
 			// label1
@@ -154,7 +154,7 @@ namespace Online_Exam {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(24, 24);
+			this->label1->Location = System::Drawing::Point(24, 13);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(227, 39);
@@ -164,83 +164,124 @@ namespace Online_Exam {
 			// 
 			// btnOverall
 			// 
-			this->btnOverall->Location = System::Drawing::Point(741, 83);
+			this->btnOverall->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnOverall->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->btnOverall->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnOverall->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnOverall->ForeColor = System::Drawing::Color::White;
+			this->btnOverall->Location = System::Drawing::Point(764, 123);
 			this->btnOverall->Name = L"btnOverall";
-			this->btnOverall->Size = System::Drawing::Size(108, 44);
+			this->btnOverall->Size = System::Drawing::Size(172, 44);
 			this->btnOverall->TabIndex = 2;
 			this->btnOverall->Text = L"Overall Standings";
-			this->btnOverall->UseVisualStyleBackColor = true;
+			this->btnOverall->UseVisualStyleBackColor = false;
 			this->btnOverall->Click += gcnew System::EventHandler(this, &Leaderboard::btnOverall_Click);
 			// 
 			// btnSession1
 			// 
-			this->btnSession1->Location = System::Drawing::Point(741, 143);
+			this->btnSession1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnSession1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->btnSession1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSession1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSession1->ForeColor = System::Drawing::Color::White;
+			this->btnSession1->Location = System::Drawing::Point(764, 183);
 			this->btnSession1->Name = L"btnSession1";
-			this->btnSession1->Size = System::Drawing::Size(108, 44);
+			this->btnSession1->Size = System::Drawing::Size(172, 44);
 			this->btnSession1->TabIndex = 3;
 			this->btnSession1->Text = L"Session1";
-			this->btnSession1->UseVisualStyleBackColor = true;
+			this->btnSession1->UseVisualStyleBackColor = false;
 			this->btnSession1->Click += gcnew System::EventHandler(this, &Leaderboard::btnSession1_Click);
-
 			// 
 			// btnSession2
 			// 
-			this->btnSession2->Location = System::Drawing::Point(741, 202);
+			this->btnSession2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnSession2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->btnSession2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSession2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSession2->ForeColor = System::Drawing::Color::White;
+			this->btnSession2->Location = System::Drawing::Point(764, 242);
 			this->btnSession2->Name = L"btnSession2";
-			this->btnSession2->Size = System::Drawing::Size(108, 44);
+			this->btnSession2->Size = System::Drawing::Size(172, 44);
 			this->btnSession2->TabIndex = 4;
 			this->btnSession2->Text = L"Session2";
-			this->btnSession2->UseVisualStyleBackColor = true;
+			this->btnSession2->UseVisualStyleBackColor = false;
 			this->btnSession2->Click += gcnew System::EventHandler(this, &Leaderboard::btnSession2_Click);
-
 			// 
 			// btnSession3
 			// 
-			this->btnSession3->Location = System::Drawing::Point(741, 262);
+			this->btnSession3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnSession3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->btnSession3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSession3->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSession3->ForeColor = System::Drawing::Color::White;
+			this->btnSession3->Location = System::Drawing::Point(764, 302);
 			this->btnSession3->Name = L"btnSession3";
-			this->btnSession3->Size = System::Drawing::Size(108, 44);
+			this->btnSession3->Size = System::Drawing::Size(172, 44);
 			this->btnSession3->TabIndex = 5;
 			this->btnSession3->Text = L"Session3";
-			this->btnSession3->UseVisualStyleBackColor = true;
+			this->btnSession3->UseVisualStyleBackColor = false;
 			this->btnSession3->Click += gcnew System::EventHandler(this, &Leaderboard::btnSession3_Click);
-
 			// 
 			// btnSession4
 			// 
-			this->btnSession4->Location = System::Drawing::Point(741, 325);
+			this->btnSession4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnSession4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->btnSession4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSession4->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSession4->ForeColor = System::Drawing::Color::White;
+			this->btnSession4->Location = System::Drawing::Point(764, 365);
 			this->btnSession4->Name = L"btnSession4";
-			this->btnSession4->Size = System::Drawing::Size(108, 44);
+			this->btnSession4->Size = System::Drawing::Size(172, 44);
 			this->btnSession4->TabIndex = 6;
 			this->btnSession4->Text = L"Session4";
-			this->btnSession4->UseVisualStyleBackColor = true;
+			this->btnSession4->UseVisualStyleBackColor = false;
 			this->btnSession4->Click += gcnew System::EventHandler(this, &Leaderboard::btnSession4_Click);
-
 			// 
 			// btnSession5
 			// 
-			this->btnSession5->Location = System::Drawing::Point(741, 394);
+			this->btnSession5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->btnSession5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->btnSession5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSession5->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSession5->ForeColor = System::Drawing::Color::White;
+			this->btnSession5->Location = System::Drawing::Point(764, 434);
 			this->btnSession5->Name = L"btnSession5";
-			this->btnSession5->Size = System::Drawing::Size(108, 44);
+			this->btnSession5->Size = System::Drawing::Size(172, 44);
 			this->btnSession5->TabIndex = 7;
 			this->btnSession5->Text = L"Session5";
-			this->btnSession5->UseVisualStyleBackColor = true;
+			this->btnSession5->UseVisualStyleBackColor = false;
 			this->btnSession5->Click += gcnew System::EventHandler(this, &Leaderboard::btnSession5_Click);
-
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(360, 40);
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox1->Location = System::Drawing::Point(140, 72);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(270, 22);
+			this->textBox1->Size = System::Drawing::Size(535, 28);
 			this->textBox1->TabIndex = 8;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Leaderboard::textBox1_TextChanged);
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(301, 44);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(27, 79);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(53, 17);
+			this->label2->Size = System::Drawing::Size(67, 21);
 			this->label2->TabIndex = 9;
 			this->label2->Text = L"Search";
 			// 
@@ -261,7 +302,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->standings);
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"Leaderboard";
-			this->Size = System::Drawing::Size(915, 532);
+			this->Size = System::Drawing::Size(978, 532);
 			this->Load += gcnew System::EventHandler(this, &Leaderboard::Leaderboard_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->standings))->EndInit();
 			this->ResumeLayout(false);

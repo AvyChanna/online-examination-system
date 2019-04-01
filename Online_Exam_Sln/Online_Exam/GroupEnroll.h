@@ -143,7 +143,7 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->comboGroupName->ForeColor = System::Drawing::Color::Black;
 			this->comboGroupName->FormattingEnabled = true;
-			this->comboGroupName->Location = System::Drawing::Point(95, 104);
+			this->comboGroupName->Location = System::Drawing::Point(95, 111);
 			this->comboGroupName->Margin = System::Windows::Forms::Padding(4);
 			this->comboGroupName->Name = L"comboGroupName";
 			this->comboGroupName->Size = System::Drawing::Size(180, 27);

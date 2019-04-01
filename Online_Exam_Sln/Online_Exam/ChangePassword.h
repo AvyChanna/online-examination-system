@@ -85,20 +85,20 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->txtPassword->Location = System::Drawing::Point(70, 100);
 			this->txtPassword->Name = L"txtPassword";
-			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(286, 21);
 			this->txtPassword->TabIndex = 0;
+			this->txtPassword->UseSystemPasswordChar = true;
 			// 
 			// txtConfirmPassword
 			// 
 			this->txtConfirmPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->txtConfirmPassword->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtConfirmPassword->Location = System::Drawing::Point(70, 220);
+			this->txtConfirmPassword->Location = System::Drawing::Point(70, 244);
 			this->txtConfirmPassword->Name = L"txtConfirmPassword";
-			this->txtConfirmPassword->PasswordChar = '*';
 			this->txtConfirmPassword->Size = System::Drawing::Size(286, 21);
 			this->txtConfirmPassword->TabIndex = 1;
+			this->txtConfirmPassword->UseSystemPasswordChar = true;
 			// 
 			// label1
 			// 
@@ -122,16 +122,15 @@ namespace Online_Exam {
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(178)),
+				static_cast<System::Int32>(static_cast<System::Byte>(11)));
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(339, 464);
+			this->button1->ForeColor = System::Drawing::Color::Black;
+			this->button1->Location = System::Drawing::Point(342, 454);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(224, 42);
+			this->button1->Size = System::Drawing::Size(250, 56);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"Change Password";
 			this->button1->UseVisualStyleBackColor = false;
@@ -160,7 +159,7 @@ namespace Online_Exam {
 			// 
 			this->panel4->BackColor = System::Drawing::Color::Black;
 			this->panel4->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->panel4->Location = System::Drawing::Point(70, 245);
+			this->panel4->Location = System::Drawing::Point(70, 269);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(286, 1);
 			this->panel4->TabIndex = 5;
@@ -190,7 +189,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Name = L"ChangePassword";
-			this->Size = System::Drawing::Size(913, 530);
+			this->Size = System::Drawing::Size(978, 532);
 			this->panel1->ResumeLayout(false);
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();

@@ -23,6 +23,7 @@ namespace Online_Exam {
 		DataTable ^dt;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::Label^  label2;
 	public:
 		OleDbCommandBuilder^ cmdb;
 		ApproveProf(void)
@@ -69,6 +70,7 @@ namespace Online_Exam {
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profList))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -79,6 +81,7 @@ namespace Online_Exam {
 			this->profList->AllowUserToResizeRows = false;
 			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
 			this->profList->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this->profList->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->profList->BackgroundColor = System::Drawing::Color::White;
 			this->profList->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
@@ -102,10 +105,10 @@ namespace Online_Exam {
 			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
 			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
 			this->profList->DefaultCellStyle = dataGridViewCellStyle3;
-			this->profList->Location = System::Drawing::Point(37, 72);
+			this->profList->Location = System::Drawing::Point(34, 94);
 			this->profList->Name = L"profList";
 			this->profList->RowTemplate->Height = 24;
-			this->profList->Size = System::Drawing::Size(1056, 415);
+			this->profList->Size = System::Drawing::Size(911, 357);
 			this->profList->TabIndex = 0;
 			// 
 			// btnUpdate
@@ -117,7 +120,7 @@ namespace Online_Exam {
 			this->btnUpdate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnUpdate->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnUpdate->Location = System::Drawing::Point(471, 503);
+			this->btnUpdate->Location = System::Drawing::Point(391, 468);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(181, 47);
 			this->btnUpdate->TabIndex = 1;
@@ -128,31 +131,47 @@ namespace Online_Exam {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(468, 228);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(374, 249);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(164, 17);
+			this->label1->Size = System::Drawing::Size(214, 21);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"No Professor to Approve";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(401, 19);
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox1->Location = System::Drawing::Point(148, 34);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(286, 22);
+			this->textBox1->Size = System::Drawing::Size(754, 32);
 			this->textBox1->TabIndex = 3;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &ApproveProf::textBox1_TextChanged);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(34, 35);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(98, 31);
+			this->label2->TabIndex = 4;
+			this->label2->Text = L"Search";
 			// 
 			// ApproveProf
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->profList);
 			this->Name = L"ApproveProf";
-			this->Size = System::Drawing::Size(1122, 593);
+			this->Size = System::Drawing::Size(978, 532);
 			this->Load += gcnew System::EventHandler(this, &ApproveProf::ApproveProf_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profList))->EndInit();
 			this->ResumeLayout(false);
@@ -172,11 +191,15 @@ namespace Online_Exam {
 					 this->profList->Hide();
 					 this->textBox1->Hide();
 					 label1->Show();
+					 label2->Hide();
+					 btnUpdate->Hide();
 				 }
 				 else{
 					 this->profList->Show();
 					 this->textBox1->Show();
 					 label1->Hide();
+					 label2->Show();
+					 btnUpdate->Show();
 				 }
 				 //this->profList->Columns["isApproved"]->ReadOnly = false;
 				 
@@ -201,11 +224,15 @@ namespace Online_Exam {
 					 this->profList->Hide();
 					 this->textBox1->Hide();
 					 label1->Show();
+					 label2->Hide();
+					 btnUpdate->Hide();
 				 }
 				 else{
 					 this->profList->Show();
 					 this->textBox1->Show();
 					 label1->Hide();
+					 label2->Show();
+					 btnUpdate->Show();
 				 }
 	}
 	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {

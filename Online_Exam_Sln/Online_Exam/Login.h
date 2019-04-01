@@ -98,9 +98,10 @@ namespace Online_Exam
 				static_cast<System::Byte>(0)));
 			this->textUsername->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->textUsername->Location = System::Drawing::Point(228, 154);
+			this->textUsername->Location = System::Drawing::Point(304, 190);
+			this->textUsername->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textUsername->Name = L"textUsername";
-			this->textUsername->Size = System::Drawing::Size(273, 27);
+			this->textUsername->Size = System::Drawing::Size(364, 34);
 			this->textUsername->TabIndex = 0;
 			this->textUsername->Text = L"Username";
 			this->textUsername->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -117,9 +118,10 @@ namespace Online_Exam
 				static_cast<System::Byte>(0)));
 			this->textPassword->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->textPassword->Location = System::Drawing::Point(228, 214);
+			this->textPassword->Location = System::Drawing::Point(304, 263);
+			this->textPassword->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textPassword->Name = L"textPassword";
-			this->textPassword->Size = System::Drawing::Size(273, 27);
+			this->textPassword->Size = System::Drawing::Size(364, 34);
 			this->textPassword->TabIndex = 1;
 			this->textPassword->Text = L"Password";
 			this->textPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -138,9 +140,10 @@ namespace Online_Exam
 				static_cast<System::Byte>(0)));
 			this->btnLogin->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(231)), static_cast<System::Int32>(static_cast<System::Byte>(173)),
 				static_cast<System::Int32>(static_cast<System::Byte>(1)));
-			this->btnLogin->Location = System::Drawing::Point(224, 272);
+			this->btnLogin->Location = System::Drawing::Point(299, 335);
+			this->btnLogin->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnLogin->Name = L"btnLogin";
-			this->btnLogin->Size = System::Drawing::Size(277, 38);
+			this->btnLogin->Size = System::Drawing::Size(369, 47);
 			this->btnLogin->TabIndex = 2;
 			this->btnLogin->Text = L"Login";
 			this->btnLogin->UseVisualStyleBackColor = false;
@@ -154,9 +157,10 @@ namespace Online_Exam
 				static_cast<System::Byte>(0)));
 			this->linkLabel1->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->linkLabel1->Location = System::Drawing::Point(226, 328);
+			this->linkLabel1->Location = System::Drawing::Point(301, 404);
+			this->linkLabel1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(110, 16);
+			this->linkLabel1->Size = System::Drawing::Size(133, 18);
 			this->linkLabel1->TabIndex = 5;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"Forgot Password\?";
@@ -170,9 +174,10 @@ namespace Online_Exam
 				static_cast<System::Byte>(0)));
 			this->linkLabel2->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->linkLabel2->Location = System::Drawing::Point(226, 354);
+			this->linkLabel2->Location = System::Drawing::Point(301, 436);
+			this->linkLabel2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->linkLabel2->Name = L"linkLabel2";
-			this->linkLabel2->Size = System::Drawing::Size(219, 16);
+			this->linkLabel2->Size = System::Drawing::Size(275, 18);
 			this->linkLabel2->TabIndex = 6;
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"Don\'t have an account\? Signup here";
@@ -182,20 +187,20 @@ namespace Online_Exam
 			// 
 			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->panel3->Location = System::Drawing::Point(228, 181);
-			this->panel3->Margin = System::Windows::Forms::Padding(2);
+			this->panel3->Location = System::Drawing::Point(304, 223);
+			this->panel3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(273, 2);
+			this->panel3->Size = System::Drawing::Size(364, 2);
 			this->panel3->TabIndex = 9;
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(54)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->panel1->Location = System::Drawing::Point(228, 242);
-			this->panel1->Margin = System::Windows::Forms::Padding(2);
+			this->panel1->Location = System::Drawing::Point(304, 298);
+			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(273, 2);
+			this->panel1->Size = System::Drawing::Size(364, 2);
 			this->panel1->TabIndex = 10;
 			// 
 			// pictureBox1
@@ -203,23 +208,23 @@ namespace Online_Exam
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox1->Location = System::Drawing::Point(293, 61);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox1->Location = System::Drawing::Point(391, 75);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(137, 69);
+			this->pictureBox1->Size = System::Drawing::Size(183, 85);
 			this->pictureBox1->TabIndex = 11;
 			this->pictureBox1->TabStop = false;
 			// 
 			// Login
 			// 
 			this->AcceptButton = this->btnLogin;
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(238)), static_cast<System::Int32>(static_cast<System::Byte>(180)),
 				static_cast<System::Int32>(static_cast<System::Byte>(2)));
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(580, 419);
+			this->ClientSize = System::Drawing::Size(773, 516);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->textPassword);
@@ -228,13 +233,16 @@ namespace Online_Exam
 			this->Controls->Add(this->linkLabel2);
 			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->btnLogin);
+			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"Login";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Login";
 			this->TopMost = true;
+			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -273,6 +281,7 @@ private: System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^
 			String ^IsApproved = Access->DBDT->Rows[0]->default[13]->ToString();
 				if (DBPasshash == EncryptPassword(Password, DBPasssalt))
 				{
+
 					//login successful
 					gVar::Username = DBUsername;
 					gVar::Fullname = DBFullname;
@@ -314,6 +323,10 @@ private: System::Void btnLogin_Click(System::Object^  sender, System::EventArgs^
 						AdminForm^ form = gcnew AdminForm();
 						form->Show(this);
 					}
+					
+					textPassword->UseSystemPasswordChar = false;
+					textPassword->Text = "Password";
+					textUsername->Text = "Username";
 					return;
 				}
 				else
@@ -443,6 +456,11 @@ private: System::Void textPassword_TextChanged(System::Object^  sender, System::
 private: System::Void textPassword_Enter(System::Object^  sender, System::EventArgs^  e) {
 			 textPassword->Text = "";
 			 textPassword->UseSystemPasswordChar = true;
+}
+private: System::Void Login_Load(System::Object^  sender, System::EventArgs^  e) {
+			 textPassword->Text = "Password";
+			 textUsername->Text = "Username";
+
 }
 };
 }

@@ -68,10 +68,10 @@ namespace Online_Exam {
 			// contentPanel
 			// 
 			this->contentPanel->AutoScroll = true;
-			this->contentPanel->Location = System::Drawing::Point(15, 16);
+			this->contentPanel->Location = System::Drawing::Point(12, 15);
 			this->contentPanel->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->contentPanel->Name = L"contentPanel";
-			this->contentPanel->Size = System::Drawing::Size(875, 395);
+			this->contentPanel->Size = System::Drawing::Size(891, 504);
 			this->contentPanel->TabIndex = 0;
 			this->contentPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &UpcomingTests::contentPanel_Paint);
 			// 
@@ -82,7 +82,7 @@ namespace Online_Exam {
 			this->Controls->Add(this->contentPanel);
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"UpcomingTests";
-			this->Size = System::Drawing::Size(903, 423);
+			this->Size = System::Drawing::Size(915, 532);
 			this->Load += gcnew System::EventHandler(this, &UpcomingTests::UpcomingTests_Load);
 			this->ResumeLayout(false);
 
@@ -106,19 +106,33 @@ namespace Online_Exam {
 				 lbl1->Width = 150;
 				 lbl1->Height = 20;
 				 lbl1->Location = Point(x + 310, button_y);
+
+				 lbl1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 lbl1->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+				 lbl->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 lbl->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+
 				 Button^ btnSession = gcnew Button();
-				 btnSession->Location = Point(x + 460, button_y);
+				 btnSession->Location = Point(x + 490, button_y);
 				 btnSession->Width = 150;
-				 btnSession->Height = 20;
+				 btnSession->Height = 30;
 				 btnSession->TextAlign = ContentAlignment::MiddleLeft;
 				 btnSession->Tag = gcnew Point(en,i);
 				 btnSession->Click += gcnew System::EventHandler(this, &UpcomingTests::Handler_for_button);
 				 //btnSession->Padding =Padding(0, 0, 0, 0);
 				 //button_y += 25;
 				 btnSession->Text = "Appear For this session now";
-				 lbl->BackColor = Color::White;
-				 lbl1->BackColor = Color::White;
-				 btnSession->BackColor = Color::White;
+				 btnSession->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+				 lbl->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+				 lbl1->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
+				 btnSession->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
+				 btnSession->FlatAppearance->BorderSize = 0;
+				 btnSession->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+				 btnSession->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+					 static_cast<System::Byte>(0)));
+				 btnSession->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 				 contentPanel->Controls->Add(lbl);
 				 contentPanel->Controls->Add(lbl1);
 				 contentPanel->Controls->Add(btnSession);
@@ -177,16 +191,40 @@ namespace Online_Exam {
 							 Label ^ lblExamLengthVal = gcnew Label();
 							
 							 //Text of components
-
+							 
 							 lblExam->Text = "Exam Name: ";
 							 lblProf->Text = "Set By: ";
 							 lblExamLength->Text = "Exam Duration: ";
 							 lblGroup->Text = "Eligible Groups: ";
 							 lblExamName->Text = Convert::ToString(Access->DBDT->Rows[i]->default["ExamName"]);
 							 lblProfName->Text = Convert::ToString(Access->DBDT->Rows[i]->default["Professor"]);
+
+							 lblProf->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 lblProf->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+							 lblExam->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 lblExam->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+							 lblProfName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 lblProfName->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+							 lblExamLength->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 lblExamLength->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+							 lblGroup->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 lblGroup->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+							 lblExamName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 lblExamName->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+
 							 String^ str1 = Convert::ToString(Access->DBDT->Rows[i]->default["ExamLength"]);
 							 str1 += " Minutes";
 							 lblExamLengthVal->Text = str1;
+							 lblExamLengthVal->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 lblExamLengthVal->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
+
 							 String ^ str2 = Convert::ToString(Access->DBDT->Rows[i]->default["GroupID"]);
 							 //Console::WriteLine(str2);
 							 String ^ ans1 = "";
@@ -212,6 +250,9 @@ namespace Online_Exam {
 							 tempquer->ExecQuery("Select * From Groups WHERE GroupID = " + Convert::ToInt32(curtemp));
 							 ans1 += Convert::ToString(tempquer->DBDT->Rows[0]->default["GroupName"]);
 							 lblGroupsList->Text = ans1;
+							 lblGroupsList->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+								 static_cast<System::Byte>(0)));
+							 lblGroupsList->ForeColor = System::Drawing::Color::FromArgb(43, 50, 82);
 							 //Console::WriteLine(ans1);
 							 //Properties of labels
 
@@ -239,22 +280,21 @@ namespace Online_Exam {
 
 							 /*lblExamName->Text = Convert::ToString(Access->DBDT->Rows[i]["ExamName"]);
 							 lblProfName->Text = Convert::ToString(Access->DBDT->Rows[i]["Professor"]);*/
-							 border->BackColor = Color::White;
-							 lblProf->BackColor = Color::White;
+							 lblProf->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
 							 //lblProf->ForeColor = Color::White;
-							 lblProfName->BackColor = Color::White;
+							 lblProfName->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
 							 //lblProfName->ForeColor = Color::White;
-							 lblExamName->BackColor = Color::White;
+							 lblExamName->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
 							 //lblExamName->ForeColor = Color::White;
-							 lblExam->BackColor = Color::White;
+							 lblExam->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
 							 //lblExam->ForeColor = Color::White;
-							 lblGroup->BackColor = Color::White;
+							 lblGroup->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
 							 //lblGroup->ForeColor = Color::White;
-							 lblGroupsList->BackColor = Color::White;
+							 lblGroupsList->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
 							 //lblGroupsList->ForeColor = Color::White;
-							 lblExamLength->BackColor = Color::White;
+							 lblExamLength->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
 							 //lblExamLength->ForeColor = Color::White;
-							 lblExamLengthVal->BackColor = Color::White;
+							 lblExamLengthVal->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
 							 //lblExamLengthVal->ForeColor = Color::White;
 							 //MessageBox::Show(lblExamName->Text);
 							 //Point ^ pt = gcnew Point(x + 50, y + 5);
@@ -273,6 +313,7 @@ namespace Online_Exam {
 							 tempy += lblExamLengthVal->Height+10;
 							 lblGroup->Location = Point(x + 5, tempy );
 							 lblGroupsList->Location = Point(x + 110, tempy);
+							 border->BackColor = System::Drawing::Color::FromArgb(239, 84, 84);
 							 //Console::WriteLine("Done till here");
 							 int button_x = x + 400;
 							 int button_y = y+10;

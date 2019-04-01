@@ -83,6 +83,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 		{
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(StudentForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->btnChangePass = (gcnew System::Windows::Forms::Button());
 			this->btnEnroll = (gcnew System::Windows::Forms::Button());
 			this->btnMyProfileStudent = (gcnew System::Windows::Forms::Button());
@@ -94,7 +95,6 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnUpcomingTests = (gcnew System::Windows::Forms::Button());
 			this->contentPanel = (gcnew System::Windows::Forms::Panel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -115,10 +115,20 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->panel1->Controls->Add(this->btnUpcomingTests);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panel1->Location = System::Drawing::Point(0, 0);
-			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(200, 532);
 			this->panel1->TabIndex = 1;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->pictureBox1->Location = System::Drawing::Point(54, 12);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(60, 57);
+			this->pictureBox1->TabIndex = 12;
+			this->pictureBox1->TabStop = false;
 			// 
 			// btnChangePass
 			// 
@@ -127,7 +137,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnChangePass->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnChangePass->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnChangePass->Location = System::Drawing::Point(15, 174);
+			this->btnChangePass->Location = System::Drawing::Point(15, 429);
 			this->btnChangePass->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnChangePass->Name = L"btnChangePass";
 			this->btnChangePass->Size = System::Drawing::Size(150, 46);
@@ -145,7 +155,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnEnroll->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnEnroll->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnEnroll->Location = System::Drawing::Point(15, 324);
+			this->btnEnroll->Location = System::Drawing::Point(15, 123);
 			this->btnEnroll->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnEnroll->Name = L"btnEnroll";
 			this->btnEnroll->Size = System::Drawing::Size(150, 46);
@@ -163,7 +173,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnMyProfileStudent->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnMyProfileStudent->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnMyProfileStudent->Location = System::Drawing::Point(12, 74);
+			this->btnMyProfileStudent->Location = System::Drawing::Point(15, 74);
 			this->btnMyProfileStudent->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnMyProfileStudent->Name = L"btnMyProfileStudent";
 			this->btnMyProfileStudent->Size = System::Drawing::Size(150, 46);
@@ -181,7 +191,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnCertificates->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnCertificates->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnCertificates->Location = System::Drawing::Point(15, 434);
+			this->btnCertificates->Location = System::Drawing::Point(15, 342);
 			this->btnCertificates->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnCertificates->Name = L"btnCertificates";
 			this->btnCertificates->Size = System::Drawing::Size(150, 46);
@@ -199,7 +209,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnLogOut->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnLogOut->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnLogOut->Location = System::Drawing::Point(15, 484);
+			this->btnLogOut->Location = System::Drawing::Point(15, 479);
 			this->btnLogOut->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnLogOut->Name = L"btnLogOut";
 			this->btnLogOut->Size = System::Drawing::Size(150, 46);
@@ -217,7 +227,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnEditProfileStudent->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnEditProfileStudent->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnEditProfileStudent->Location = System::Drawing::Point(12, 124);
+			this->btnEditProfileStudent->Location = System::Drawing::Point(15, 385);
 			this->btnEditProfileStudent->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnEditProfileStudent->Name = L"btnEditProfileStudent";
 			this->btnEditProfileStudent->Size = System::Drawing::Size(150, 46);
@@ -235,7 +245,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnPastTests->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnPastTests->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnPastTests->Location = System::Drawing::Point(15, 274);
+			this->btnPastTests->Location = System::Drawing::Point(15, 293);
 			this->btnPastTests->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnPastTests->Name = L"btnPastTests";
 			this->btnPastTests->Size = System::Drawing::Size(150, 46);
@@ -253,7 +263,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnUnenroll->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnUnenroll->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnUnenroll->Location = System::Drawing::Point(15, 374);
+			this->btnUnenroll->Location = System::Drawing::Point(15, 169);
 			this->btnUnenroll->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnUnenroll->Name = L"btnUnenroll";
 			this->btnUnenroll->Size = System::Drawing::Size(150, 69);
@@ -271,7 +281,7 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->btnUpcomingTests->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnUpcomingTests->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnUpcomingTests->Location = System::Drawing::Point(12, 224);
+			this->btnUpcomingTests->Location = System::Drawing::Point(15, 245);
 			this->btnUpcomingTests->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnUpcomingTests->Name = L"btnUpcomingTests";
 			this->btnUpcomingTests->Size = System::Drawing::Size(150, 46);
@@ -300,16 +310,6 @@ public ref class StudentForm : public System::Windows::Forms::Form
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(10, 532);
 			this->panel2->TabIndex = 4;
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
-			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox1->Location = System::Drawing::Point(54, 12);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(60, 57);
-			this->pictureBox1->TabIndex = 12;
-			this->pictureBox1->TabStop = false;
 			// 
 			// StudentForm
 			// 
@@ -456,6 +456,7 @@ private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs
 				 {
 					 this->Owner->Show();
 					 this->Close();
+					 
 				 }
 			 }
 }
