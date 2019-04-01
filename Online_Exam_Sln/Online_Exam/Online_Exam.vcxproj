@@ -153,6 +153,9 @@
     <ClInclude Include="GroupEnroll.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="Cert.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="PastTest.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -265,6 +268,9 @@
     <EmbeddedResource Include="Instructions.resx">
       <DependentUpon>Instructions.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cert.resx">
+      <DependentUpon>Cert.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PastTest.resx">
       <DependentUpon>PastTest.h</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +329,7 @@
   <ItemGroup>
     <Image Include="..\..\..\iitg.png" />
     <Image Include="..\..\..\Logo\logo_medium.png" />
+    <Image Include="..\..\Cert.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

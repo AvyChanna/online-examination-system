@@ -4,6 +4,7 @@
 #include"displayAnswer.h"
 #include "ExamPaper.h"
 #include "charts.h"
+#include"Cert.h"
 using namespace Online_Exam;
 
 [STAThreadAttribute]
@@ -15,7 +16,6 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 
-	Application::Run(gcnew charts("11","tushar"));
-
+	Application::Run(gcnew Cert());
 	return 0;
 }
