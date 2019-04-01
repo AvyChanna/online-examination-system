@@ -27,6 +27,7 @@ namespace Online_Exam {
 			 OleDbCommandBuilder^ cmdb;
 	private: System::Windows::Forms::Label^  label1;
 			 String ^ designation = "Student";
+			 DataTable ^ dt;
 	public:
 		StudentEditAdmin(void)
 		{
@@ -194,24 +195,30 @@ namespace Online_Exam {
 		}
 #pragma endregion
 	private: System::Void StudentEditAdmin_Load(System::Object^  sender, System::EventArgs^  e) {
+				 dt = gcnew DataTable();
 				 Access = gcnew OES();
-				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(Designation = 'Student')");
+				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch FROM Users WHERE(Designation = 'Student')");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Users");
 				 profList->DataSource = dsa->Tables[0];
+				 dt = dsa->Tables[0];
+				 this->profList->Columns["Username"]->ReadOnly = true;
 	}
 	private: System::Void btnUpdate_Click(System::Object^  sender, System::EventArgs^  e) {
 				 cmdb = gcnew OleDbCommandBuilder(Access->DBDA);
 				 Access->DBDA->Update(dsa, "Users");
+				 dt = dsa->Tables[0];
 	}
 	private: System::Void radioButton1_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 				 textBox1->Clear();
 				 designation = "Student";
 				 Access = gcnew OES();
-				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(Designation = 'Student')");
+				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch FROM Users WHERE(Designation = 'Student')");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Users");
 				 profList->DataSource = dsa->Tables[0];
+				 dt = dsa->Tables[0];
+				 this->profList->Columns["Username"]->ReadOnly = true;
 	}
 	private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 				 textBox1->Clear();
@@ -221,13 +228,11 @@ namespace Online_Exam {
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Users");
 				 profList->DataSource = dsa->Tables[0];
+				 dt = dsa->Tables[0];
+				 this->profList->Columns["Username"]->ReadOnly = true;
 	}
 	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				Access = gcnew OES();
-				Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(Designation = '" + designation + "' AND (FullName like '%" + textBox1->Text + "%' OR Username like '%" + textBox1->Text + "%'))");
-				dsa = gcnew DataSet();
-				Access->DBDA->Fill(dsa, "Users");
-				profList->DataSource = dsa->Tables[0];
+				dt->DefaultView->RowFilter = "FullName like '%" + textBox1->Text + "%' OR Username like '%" + textBox1->Text + "%'";
 	}
 };
 }

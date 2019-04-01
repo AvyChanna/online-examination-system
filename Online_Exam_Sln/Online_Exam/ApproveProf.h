@@ -17,10 +17,12 @@ namespace Online_Exam {
 	/// </summary>
 	public ref class ApproveProf : public System::Windows::Forms::UserControl
 	{
-	public:
+	private:
 		OES ^ Access; 
 		DataSet ^dsa;
+		DataTable ^dt;
 	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::TextBox^  textBox1;
 	public:
 		OleDbCommandBuilder^ cmdb;
 		ApproveProf(void)
@@ -66,6 +68,7 @@ namespace Online_Exam {
 			this->profList = (gcnew System::Windows::Forms::DataGridView());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profList))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -99,7 +102,7 @@ namespace Online_Exam {
 			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
 			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
 			this->profList->DefaultCellStyle = dataGridViewCellStyle3;
-			this->profList->Location = System::Drawing::Point(33, 48);
+			this->profList->Location = System::Drawing::Point(37, 72);
 			this->profList->Name = L"profList";
 			this->profList->RowTemplate->Height = 24;
 			this->profList->Size = System::Drawing::Size(1056, 415);
@@ -131,11 +134,20 @@ namespace Online_Exam {
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"No Professor to Approve";
 			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(401, 19);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(286, 22);
+			this->textBox1->TabIndex = 3;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &ApproveProf::textBox1_TextChanged);
+			// 
 			// ApproveProf
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->profList);
@@ -153,39 +165,51 @@ namespace Online_Exam {
 				 Access->DBDA->Update(dsa, "Users");
 				 dsa->Clear();
 				 OES ^ Access1 = gcnew OES();			 
-				 Access->DBDA->Fill(dsa, "Users");
-				 Access1->ExecQuery("SELECT Username FROM Users WHERE(Designation = 'Professor') AND(isApproved = False)");
-				 if (Access1->RecordCount == 0){
+				 Access->RecordCount = Access->DBDA->Fill(dsa, "Users");
+				 dt = dsa->Tables[0];
+
+				 if (Access->RecordCount == 0){
 					 this->profList->Hide();
+					 this->textBox1->Hide();
 					 label1->Show();
 				 }
 				 else{
 					 this->profList->Show();
+					 this->textBox1->Show();
 					 label1->Hide();
 				 }
 				 //this->profList->Columns["isApproved"]->ReadOnly = false;
 				 
 	}
 	private: System::Void ApproveProf_Load(System::Object^  sender, System::EventArgs^  e) {
+				 dt = gcnew DataTable();
 				 Access = gcnew OES(); 
 				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(Designation = 'Professor') AND(isApproved = False)");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Users");
 				 profList->DataSource = dsa->Tables[0];
+				 
 				 this->profList->Columns["Username"]->ReadOnly = true;
 				 this->profList->Columns["FullName"]->ReadOnly = true; 
 				 this->profList->Columns["Email"]->ReadOnly = true;
 				 this->profList->Columns["PhoneNo"]->ReadOnly = true;
 				 this->profList->Columns["IITG"]->ReadOnly = true;
 				 this->profList->Columns["Branch"]->ReadOnly = true;
+
+				 dt = dsa->Tables[0];
 				 if (Access->RecordCount == 0){
 					 this->profList->Hide();
+					 this->textBox1->Hide();
 					 label1->Show();
 				 }
 				 else{
 					 this->profList->Show();
+					 this->textBox1->Show();
 					 label1->Hide();
 				 }
+	}
+	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 dt->DefaultView->RowFilter = "FullName like '%" + textBox1->Text + "%' OR Username like '%" + textBox1->Text + "%'";
 	}
 };
 }
