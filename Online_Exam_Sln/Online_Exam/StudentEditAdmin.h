@@ -224,7 +224,7 @@ namespace Online_Exam {
 				 textBox1->Clear();
 				 designation = "Professor";
 				 Access = gcnew OES();
-				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch, isApproved FROM Users WHERE(Designation = 'Professor')");
+				 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch FROM Users WHERE(Designation = 'Professor' AND (isApproved = True) )");
 				 dsa = gcnew DataSet();
 				 Access->DBDA->Fill(dsa, "Users");
 				 profList->DataSource = dsa->Tables[0];
@@ -234,12 +234,5 @@ namespace Online_Exam {
 	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 				dt->DefaultView->RowFilter = "FullName like '%" + textBox1->Text + "%' OR Username like '%" + textBox1->Text + "%'";
 	}
-private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-			 Access = gcnew OES();
-			 Access->ExecQuery("SELECT Username, FullName, Email, PhoneNo, IITG, Branch FROM Users WHERE(Designation = 'Professor') AND (isApproved = True)");
-			 dsa = gcnew DataSet();
-			 Access->DBDA->Fill(dsa, "Users");
-			 profList->DataSource = dsa->Tables[0];
-}
 };
 }

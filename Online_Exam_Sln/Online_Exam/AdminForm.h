@@ -221,12 +221,13 @@ private: System::Void BtnApproveProf_MouseLeave(System::Object^  sender, System:
 private: System::Void Students_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
 			 Students->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 }
-private: System::Void button_logout_Click(System::Object^  sender, System::EventArgs^  e) {
-				if (this->Owner != nullptr)
-				{
-					this->Owner->Show();
-					this->Close();
-				}
+	private: System::Void button_logout_Click(System::Object^  sender, System::EventArgs^  e) {
+				 if (this->Owner != nullptr)
+				 {
+					 this->Owner->Show();
+					 this->Close();
+				 }
+	}
 private: System::Void btnChangePasswd_Click(System::Object^  sender, System::EventArgs^  e) {
 			 adminPanel->Controls->Clear();
 			 ChangePassword ^ usr = gcnew ChangePassword();
