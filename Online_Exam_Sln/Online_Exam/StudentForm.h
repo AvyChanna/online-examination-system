@@ -11,6 +11,7 @@
 #include"displayAnswer.h"
 #include "ChangePassword.h"
 #include "Instructions.h"
+#include "Cert.h"
 
 namespace Online_Exam {
 
@@ -461,6 +462,9 @@ private: System::Void btnLogOut_Click(System::Object^  sender, System::EventArgs
 }
 
 private: System::Void btnCertificates_Click(System::Object^  sender, System::EventArgs^  e) {
+			 contentPanel->Controls->Clear();
+			 Cert ^ grp = gcnew Cert();
+			 contentPanel->Controls->Add(grp);
 			 btnEditProfileStudent->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnMyProfileStudent->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 			 btnUpcomingTests->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
