@@ -375,6 +375,7 @@ private: System::Void btnPastTestsSet_Click(System::Object^  sender, System::Eve
 				 btnPastTestsSet->BackColor = System::Drawing::Color::FromArgb(56, 60, 72);
 				 if (MessageBox::Show("Are you sure you want to logout?", "Confirm", MessageBoxButtons::YesNo) == ::DialogResult::Yes)
 				 {
+					 gVar::ClearGvars();
 					 if (this->Owner != nullptr)
 					 {
 						 this->Owner->Show();
