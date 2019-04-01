@@ -145,7 +145,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			Access->AddParam("@PassHash", PassHash);
 			Access->AddParam("@PassSalt", PassSalt);
 			Access->AddParam("@Username", Username);
-			Access->ExecQuery("Update Users set PassHash = @PassHash , PassSalt = @PassSalt where Username = @Username");
+			Access->ExecQuery("Update Users set PasswordHash = @PassHash , PasswordSalt = @PassSalt where Username = @Username");
 			Close();
 		}
 };
