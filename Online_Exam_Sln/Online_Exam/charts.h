@@ -138,6 +138,7 @@ namespace Online_Exam {
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"charts";
 			this->Text = L"charts";
+			this->TopMost = true;
 			this->ResumeLayout(false);
 
 		}

@@ -689,6 +689,7 @@ private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^ 
 			cbSection->SelectedIndex = i;
 			CurrentSection = i;
 			CurrentQuestion = j;
+			LoadData(CurrentSection, CurrentQuestion);
 			return;
 		}
 		if (data[i][j]->type == -1)
@@ -697,6 +698,7 @@ private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^ 
 			cbSection->SelectedIndex = i;
 			CurrentSection = i;
 			CurrentQuestion = j;
+			LoadData(CurrentSection, CurrentQuestion);
 			return;
 		}
 		if (data[i][j]->type == 0 && (!((data[i][j]->lc->Count + data[i][j]->li->Count) >= 2 && (data[i][j]->lc->Count))))
@@ -705,6 +707,7 @@ private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^ 
 			cbSection->SelectedIndex = i;
 			CurrentSection = i;
 			CurrentQuestion = j;
+			LoadData(CurrentSection, CurrentQuestion);
 			return;
 		}
 		if (data[i][j]->type == 2 && String::IsNullOrEmpty(data[i][j]->ow->Trim()))
@@ -713,6 +716,7 @@ private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^ 
 			cbSection->SelectedIndex = i;
 			CurrentSection = i;
 			CurrentQuestion = j;
+			LoadData(CurrentSection, CurrentQuestion);
 			return;
 		}
 	}
@@ -752,8 +756,8 @@ private: System::Void btnDone_Click(System::Object^  sender, System::EventArgs^ 
 					temp1 = arr[k];
 					arr[k] = arr[a];
 					arr[a] = temp1;
-					String ^ temp2 = jsq->Options[i];
-					jsq->Options[i] = jsq->Options[k];
+					String ^ temp2 = jsq->Options[a];
+					jsq->Options[a] = jsq->Options[k];
 					jsq->Options[k] = temp2;
 				}
 				for (int k = 0; k < m;k++)

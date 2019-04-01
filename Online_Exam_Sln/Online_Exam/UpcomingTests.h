@@ -92,7 +92,7 @@ namespace Online_Exam {
 		int SessNo;
 		int ExamNo;
 
-	private: System::Void Utitlity(int i,int x,int button_y,String ^ tim, int en)
+	private: System::Void Utitlity(int i,int x,int button_y,String ^ tim, Int32 en)
 	{
 				 Label ^ lbl = gcnew Label();
 				 String ^ tempstr = "Session ";
@@ -278,7 +278,8 @@ namespace Online_Exam {
 							 int button_y = y+10;
 							 int flag1 = 0;
 							 int temp_len = 10;
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes1"])) >= 0)
+							 Int32 ExLen = Convert::ToInt32(Access->DBDT->Rows[i]->default["ExamLength"]);
+							 if (CompareDates(ExLen,Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes1"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes1"]);
 								 Utitlity(1, x, button_y,tim, zver);
@@ -286,7 +287,7 @@ namespace Online_Exam {
 								 flag1 = 1;
 								 temp_len += 25;
 							 }
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes2"])) >= 0)
+							 if (CompareDates(ExLen, Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes2"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes2"]);
 								 Utitlity(2, x, button_y, tim, zver);
@@ -294,7 +295,7 @@ namespace Online_Exam {
 								 flag1 = 1;
 								 temp_len += 25;
 							 }
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes3"])) >= 0)
+							 if (CompareDates(ExLen, Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes3"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes3"]);
 								 Utitlity(3, x, button_y, tim, zver);
@@ -302,7 +303,7 @@ namespace Online_Exam {
 								 flag1= 1;
 								 temp_len += 25;
 							 }
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes4"])) >= 0)
+							 if (CompareDates(ExLen, Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes4"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes4"]);
 								 Utitlity(4, x, button_y, tim, zver);
@@ -310,7 +311,7 @@ namespace Online_Exam {
 								 flag1 = 1;
 								 temp_len += 25;
 							 }
-							 if (CompareDates(Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes5"])) >= 0)
+							 if (CompareDates(ExLen, Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes5"])) >= 0)
 							 {
 								 String ^ tim = Convert::ToString(Access->DBDT->Rows[i]->default["StartTimeSes5"]);
 								 Utitlity(5, x, button_y, tim, zver);
@@ -350,7 +351,7 @@ namespace Online_Exam {
 				 }
 				
 	}
-	private: System::Int32 CompareDates(String ^sesDate)
+	private: System::Int32 CompareDates(Int32 ExLen, String ^sesDate)
 	{
 				 DateTime sessionDate;
 				 //= Convert::ToDateTime(Access->DBDT->Rows[i]["StartTimeSes1"], ));
@@ -361,6 +362,8 @@ namespace Online_Exam {
 
 				 DateTime curDate = DateTime::Now;
 				 //Console::WriteLine(DateTime::Compare(sessionDate, curDate));
+				 sessionDate = sessionDate.AddMinutes(Math::Min(ExLen,5));
+				 
 				 int z = DateTime::Compare(sessionDate, curDate);
 				 return z;
 	}
@@ -369,9 +372,32 @@ namespace Online_Exam {
 				 /////////////////
 				 Point ^point = static_cast<Point^>(static_cast<Button^>(sender)->Tag);
 				 OES ^Access1 = gcnew OES();
-				 Access1->ExecQuery("Select StartTimeSes1, StartTimeSes2, StartTimeSes3, StartTimeSes4, StartTimeSes15, ExamLength from Exam where ExamCode = " + (point->X).ToString());
+				 Access1->ExecQuery("Select StartTimeSes1, StartTimeSes2, StartTimeSes3, StartTimeSes4, StartTimeSes5, ExamLength from Exam where ExamCode = " + (point->X).ToString());
 				 //////////////////
 
+				 if (Access1->RecordCount == 0){
+					 MessageBox::Show("Exam does not exist", "Error");
+					 return;
+				 }
+				 
+				 DateTime sessionDate;
+				 String^ Sess = "StartTimeSes" + point->Y.ToString();
+				 String^ SessTime = Convert::ToString(Access1->DBDT->Rows[0]->default[Sess]);
+				 if (DateTime::TryParseExact(Convert::ToString(SessTime), "yyyy-MM-dd HH:mm:ss", nullptr, DateTimeStyles::None, sessionDate))
+					 Console::WriteLine("Converted '{0}' to {1:O}.", SessTime, sessionDate);
+				 else
+					 Console::WriteLine("Unable to convert '{0}' to a date and time.", SessTime);
+				 
+				 
+				 Int32 ExLen = Convert::ToInt32(Access1->DBDT->Rows[0]->default["ExamLength"]);
+				 DateTime sessLate = sessionDate.AddMinutes(Math::Min(ExLen, 5));
+
+				 DateTime curDate = DateTime::Now;
+				 if ((DateTime::Compare(curDate, sessionDate)<0 || DateTime::Compare(sessLate, curDate)<0)){
+					 MessageBox::Show("You can't appear for the exam now.", "Error");
+					 return;
+				 }
+				 
 				 Instructions ^ins = gcnew Instructions();
 				 ins->TopMost = true;
 				 ins->ShowDialog();
