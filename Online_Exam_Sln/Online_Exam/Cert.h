@@ -1,5 +1,6 @@
 #pragma once
 #include "Database.h"
+#include"GlobalVar.h"
 namespace Online_Exam {
 
 	using namespace System;
@@ -12,6 +13,7 @@ namespace Online_Exam {
 	using namespace System::Drawing::Drawing2D;
 	using namespace System::Drawing::Imaging;
 	using namespace Database;
+	using namespace Global_Var;
 	/// <summary>
 	/// Summary for Cert
 	/// </summary>
@@ -153,6 +155,7 @@ namespace Online_Exam {
 		
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Date = "";
 				 if (cbExam->Text == "")
 				 {
 					 MessageBox::Show("Select an exam first");
