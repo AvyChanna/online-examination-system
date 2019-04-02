@@ -49,6 +49,7 @@
     <ClInclude Include="PieChartAnalysis.h" />
     <ClInclude Include="Cert.h" />
     <ClInclude Include="Standings.h" />
+    <ClInclude Include="Captcha.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
@@ -87,6 +88,9 @@
     <EmbeddedResource Include="charts.resx" />
     <EmbeddedResource Include="sectionAnalysis.resx" />
     <EmbeddedResource Include="PieChartAnalysis.resx" />
+    <EmbeddedResource Include="NewPass.resx" />
+    <EmbeddedResource Include="Cert.resx" />
+    <EmbeddedResource Include="Standings.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />

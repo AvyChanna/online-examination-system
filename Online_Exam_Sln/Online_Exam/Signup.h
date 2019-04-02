@@ -63,9 +63,9 @@ namespace Online_Exam {
 		void InitializeComponent(void)
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->studBtn = (gcnew System::Windows::Forms::Button());
 			this->loginBtn = (gcnew System::Windows::Forms::Button());
 			this->profBtn = (gcnew System::Windows::Forms::Button());
-			this->studBtn = (gcnew System::Windows::Forms::Button());
 			this->signupPanel = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
@@ -76,9 +76,27 @@ namespace Online_Exam {
 			this->panel1->Controls->Add(this->loginBtn);
 			this->panel1->Controls->Add(this->profBtn);
 			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(781, 48);
+			this->panel1->Size = System::Drawing::Size(586, 39);
 			this->panel1->TabIndex = 40;
+			// 
+			// studBtn
+			// 
+			this->studBtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->studBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->studBtn->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->studBtn->ForeColor = System::Drawing::Color::White;
+			this->studBtn->Location = System::Drawing::Point(135, 0);
+			this->studBtn->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->studBtn->Name = L"studBtn";
+			this->studBtn->Size = System::Drawing::Size(225, 39);
+			this->studBtn->TabIndex = 41;
+			this->studBtn->Text = L"Student";
+			this->studBtn->UseVisualStyleBackColor = false;
+			this->studBtn->Click += gcnew System::EventHandler(this, &Signup::studBtn_Click);
 			// 
 			// loginBtn
 			// 
@@ -89,10 +107,11 @@ namespace Online_Exam {
 				static_cast<System::Byte>(0)));
 			this->loginBtn->ForeColor = System::Drawing::Color::White;
 			this->loginBtn->Location = System::Drawing::Point(0, 0);
+			this->loginBtn->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->loginBtn->Name = L"loginBtn";
-			this->loginBtn->Size = System::Drawing::Size(180, 48);
+			this->loginBtn->Size = System::Drawing::Size(135, 39);
 			this->loginBtn->TabIndex = 43;
-			this->loginBtn->Text = L"      Login";
+			this->loginBtn->Text = L"Login";
 			this->loginBtn->UseVisualStyleBackColor = false;
 			this->loginBtn->Click += gcnew System::EventHandler(this, &Signup::loginBtn_Click);
 			// 
@@ -104,46 +123,33 @@ namespace Online_Exam {
 			this->profBtn->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->profBtn->ForeColor = System::Drawing::Color::White;
-			this->profBtn->Location = System::Drawing::Point(480, 0);
+			this->profBtn->Location = System::Drawing::Point(360, 0);
+			this->profBtn->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->profBtn->Name = L"profBtn";
-			this->profBtn->Size = System::Drawing::Size(300, 48);
+			this->profBtn->Size = System::Drawing::Size(225, 39);
 			this->profBtn->TabIndex = 42;
 			this->profBtn->Text = L"Professor";
 			this->profBtn->UseVisualStyleBackColor = false;
 			this->profBtn->Click += gcnew System::EventHandler(this, &Signup::profBtn_Click);
 			// 
-			// studBtn
-			// 
-			this->studBtn->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(56)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->studBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->studBtn->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->studBtn->ForeColor = System::Drawing::Color::White;
-			this->studBtn->Location = System::Drawing::Point(180, 0);
-			this->studBtn->Name = L"studBtn";
-			this->studBtn->Size = System::Drawing::Size(300, 48);
-			this->studBtn->TabIndex = 41;
-			this->studBtn->Text = L"Student";
-			this->studBtn->UseVisualStyleBackColor = false;
-			this->studBtn->Click += gcnew System::EventHandler(this, &Signup::studBtn_Click);
-			// 
 			// signupPanel
 			// 
 			this->signupPanel->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->signupPanel->Location = System::Drawing::Point(0, 49);
+			this->signupPanel->Location = System::Drawing::Point(0, 40);
+			this->signupPanel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->signupPanel->Name = L"signupPanel";
-			this->signupPanel->Size = System::Drawing::Size(780, 441);
+			this->signupPanel->Size = System::Drawing::Size(585, 358);
 			this->signupPanel->TabIndex = 41;
 			// 
 			// Signup
 			// 
 			this->AllowDrop = true;
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(780, 490);
+			this->ClientSize = System::Drawing::Size(585, 398);
 			this->Controls->Add(this->signupPanel);
 			this->Controls->Add(this->panel1);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"Signup";
 			this->Text = L"Signup";
 			this->panel1->ResumeLayout(false);

@@ -117,6 +117,7 @@
     <ClInclude Include="ApproveProf.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="Captcha.h" />
     <ClInclude Include="ChangePassword.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -273,7 +274,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewPass.resx">
       <DependentUpon>NewPass.h</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cert.resx">
       <DependentUpon>Cert.h</DependentUpon>
     </EmbeddedResource>

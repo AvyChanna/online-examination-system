@@ -1,6 +1,7 @@
 #pragma once
 #include "Database.h"
 #include "Encryption.h"
+#include "Captcha.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -9,7 +10,7 @@ using namespace System::Data;
 using namespace System::Drawing;
 using namespace Database;
 using namespace Encryption;
-
+using namespace Captcha;
 namespace Online_Exam
 {
 
@@ -19,12 +20,17 @@ namespace Online_Exam
 	public ref class prof_signup : public System::Windows::Forms::UserControl
 	{
 		public:
+			Void resetcap()
+			{
+				CaptchaClass ^c = gcnew CaptchaClass(139,50);
+				captchaConf = c->Text;
+				captcha->Image = c->Image;
+			}
+			String ^captchaConf;
 			prof_signup(void)
 			{
 				InitializeComponent();
-				//
-				//TODO: Add the constructor code here
-				//
+				captchaConf = "";
 			}
 protected:
 			/// <summary>
@@ -67,7 +73,11 @@ protected:
 		protected:
 		private:
 			System::Windows::Forms::TextBox^  nameTxt;
-		private:
+	private: System::Windows::Forms::TextBox^  textcaptcha;
+	private: System::Windows::Forms::Panel^  panel8;
+	private: System::Windows::Forms::PictureBox^  captcha;
+	private: System::Windows::Forms::PictureBox^  reset;
+	private:
 			System::Windows::Forms::TextBox^  passTxt;
 
 #pragma region Windows Form Designer generated code
@@ -77,6 +87,7 @@ protected:
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(prof_signup::typeid));
 			this->studBtn = (gcnew System::Windows::Forms::Button());
 			this->nameTxt = (gcnew System::Windows::Forms::TextBox());
 			this->passTxt = (gcnew System::Windows::Forms::TextBox());
@@ -99,6 +110,12 @@ protected:
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
 			this->panel6 = (gcnew System::Windows::Forms::Panel());
+			this->textcaptcha = (gcnew System::Windows::Forms::TextBox());
+			this->panel8 = (gcnew System::Windows::Forms::Panel());
+			this->captcha = (gcnew System::Windows::Forms::PictureBox());
+			this->reset = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->captcha))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->reset))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// studBtn
@@ -172,7 +189,7 @@ protected:
 			this->confirmPassTxt->Cursor = System::Windows::Forms::Cursors::IBeam;
 			this->confirmPassTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->confirmPassTxt->Location = System::Drawing::Point(321, 122);
+			this->confirmPassTxt->Location = System::Drawing::Point(321, 102);
 			this->confirmPassTxt->Margin = System::Windows::Forms::Padding(2);
 			this->confirmPassTxt->Name = L"confirmPassTxt";
 			this->confirmPassTxt->Size = System::Drawing::Size(164, 18);
@@ -198,7 +215,7 @@ protected:
 				static_cast<System::Byte>(0)));
 			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->label9->Location = System::Drawing::Point(318, 162);
+			this->label9->Location = System::Drawing::Point(318, 147);
 			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(54, 17);
@@ -212,7 +229,7 @@ protected:
 				static_cast<System::Byte>(0)));
 			this->label8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(169)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
-			this->label8->Location = System::Drawing::Point(318, 98);
+			this->label8->Location = System::Drawing::Point(318, 78);
 			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(128, 17);
@@ -225,7 +242,7 @@ protected:
 			this->memChkBox->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->memChkBox->ForeColor = System::Drawing::Color::Gray;
-			this->memChkBox->Location = System::Drawing::Point(329, 249);
+			this->memChkBox->Location = System::Drawing::Point(321, 128);
 			this->memChkBox->Margin = System::Windows::Forms::Padding(2);
 			this->memChkBox->Name = L"memChkBox";
 			this->memChkBox->Size = System::Drawing::Size(115, 21);
@@ -313,7 +330,7 @@ protected:
 				L"CSE", L"MNC", L"ECE", L"BT", L"EEE", L"ME", L"CE",
 					L"CS"
 			});
-			this->branchCb->Location = System::Drawing::Point(321, 183);
+			this->branchCb->Location = System::Drawing::Point(321, 168);
 			this->branchCb->Margin = System::Windows::Forms::Padding(2);
 			this->branchCb->Name = L"branchCb";
 			this->branchCb->Size = System::Drawing::Size(164, 25);
@@ -322,7 +339,7 @@ protected:
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::Black;
-			this->panel1->Location = System::Drawing::Point(322, 143);
+			this->panel1->Location = System::Drawing::Point(322, 123);
 			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(164, 1);
@@ -373,16 +390,58 @@ protected:
 			this->panel6->Size = System::Drawing::Size(164, 1);
 			this->panel6->TabIndex = 85;
 			// 
+			// textcaptcha
+			// 
+			this->textcaptcha->BackColor = System::Drawing::Color::White;
+			this->textcaptcha->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textcaptcha->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textcaptcha->Location = System::Drawing::Point(321, 255);
+			this->textcaptcha->Name = L"textcaptcha";
+			this->textcaptcha->Size = System::Drawing::Size(165, 18);
+			this->textcaptcha->TabIndex = 54;
+			// 
+			// panel8
+			// 
+			this->panel8->BackColor = System::Drawing::Color::Black;
+			this->panel8->Location = System::Drawing::Point(321, 274);
+			this->panel8->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			this->panel8->Name = L"panel8";
+			this->panel8->Size = System::Drawing::Size(165, 1);
+			this->panel8->TabIndex = 86;
+			// 
+			// captcha
+			// 
+			this->captcha->Location = System::Drawing::Point(321, 198);
+			this->captcha->Name = L"captcha";
+			this->captcha->Size = System::Drawing::Size(139, 50);
+			this->captcha->TabIndex = 91;
+			this->captcha->TabStop = false;
+			// 
+			// reset
+			// 
+			this->reset->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"reset.Image")));
+			this->reset->Location = System::Drawing::Point(466, 213);
+			this->reset->Name = L"reset";
+			this->reset->Size = System::Drawing::Size(20, 20);
+			this->reset->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->reset->TabIndex = 92;
+			this->reset->TabStop = false;
+			this->reset->Click += gcnew System::EventHandler(this, &prof_signup::reset_Click);
+			// 
 			// prof_signup
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
+			this->Controls->Add(this->reset);
 			this->Controls->Add(this->panel6);
+			this->Controls->Add(this->captcha);
 			this->Controls->Add(this->panel5);
 			this->Controls->Add(this->panel4);
 			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->panel2);
+			this->Controls->Add(this->panel8);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->branchCb);
 			this->Controls->Add(this->studBtn);
@@ -391,6 +450,7 @@ protected:
 			this->Controls->Add(this->pNumTxt);
 			this->Controls->Add(this->mailTxt);
 			this->Controls->Add(this->confirmPassTxt);
+			this->Controls->Add(this->textcaptcha);
 			this->Controls->Add(this->userTxt);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label8);
@@ -403,6 +463,9 @@ protected:
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"prof_signup";
 			this->Size = System::Drawing::Size(585, 358);
+			this->Load += gcnew System::EventHandler(this, &prof_signup::prof_signup_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->captcha))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->reset))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -468,6 +531,12 @@ protected:
 					MessageBox::Show("Please enter Phone Number", "Wrong Details");
 					return false;
 				}
+				if ((textcaptcha->Text->Trim()) != captchaConf)
+				{
+					MessageBox::Show("Please enter Correct Captcha (Case Sensitive)", "Wrong Details");
+					resetcap();
+					return false;
+				}
 				str = nameTxt->Text;
 				String ^str1 = "";
 				for (int i = 0; i < str->Length; i++)
@@ -519,6 +588,7 @@ protected:
 
 
 						MessageBox::Show("Signup Successful", "Success");
+						resetcap();
 					}
 					catch (Exception^ ex)
 					{
@@ -538,5 +608,11 @@ protected:
 			{
 
 			}
-	};
+	private: System::Void reset_Click(System::Object^  sender, System::EventArgs^  e) {
+				 resetcap();
+	}
+private: System::Void prof_signup_Load(System::Object^  sender, System::EventArgs^  e) {
+			 resetcap();
+}
+};
 }
