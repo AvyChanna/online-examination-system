@@ -824,7 +824,7 @@ private: System::Void displayAnswer_Load(System::Object^  sender, System::EventA
 					 p->Height += lblAns->Height;
 					 if (col_flag != 1)
 					 {
-						 if (AttemptAns[selInd]->default[i] == QSet->Data[selInd]->Questions[qNum]->Options[0])
+						 if (AttemptAns[selInd]->default[i]->ToUpper() == QSet->Data[selInd]->Questions[qNum]->Options[0]->ToUpper())
 						 {
 							 p->BackColor = correct_color;
 						 }

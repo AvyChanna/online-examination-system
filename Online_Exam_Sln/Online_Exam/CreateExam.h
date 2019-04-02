@@ -742,6 +742,15 @@ namespace Online_Exam {
 					 MessageBox::Show("Enter correct number of weights, questions", "Error");
 					 return;
 				 }
+				 OES^ Access = gcnew OES();
+				 Access->AddParam("@ExName", txtName->Text);
+				 Access->ExecQuery("Select * from Exam where ExamName = @ExName");
+
+				 if (Access->RecordCount > 0){
+					 MessageBox::Show("Exam name already exists", "Error");
+					 return;
+				 }
+
 				 //Add condition to check Excel sheet is filled in
 				 String ^ SelGrp = "";
 				 for (int i = 0; i < lstSel->Items->Count; i++){
