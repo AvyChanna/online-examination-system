@@ -254,9 +254,17 @@ namespace Online_Exam {
 				
 	}
 private: System::Void btnCreate_Click(System::Object^  sender, System::EventArgs^  e) {
+			 txtGroupName->Text = txtGroupName->Text->Trim();
+			 txtEnroll->Text = txtEnroll->Text->Trim();
+			 OES ^ Access1 = gcnew OES();
+			 Access1->ExecQuery("SELECT * FROM Groups WHERE GroupName='" + txtGroupName->Text + "'");
+			 if (Access1->RecordCount > 0)
+			 {
+				 MessageBox::Show("Please use another name for the Group. The current name already exists", "Error");
+				 return;
+			 }
 			 if (checkBox->Checked == true)
 			 {
-
 				 OES ^Access = gcnew OES();
 				 Access->AddParam("@GroupName", txtGroupName->Text);
 				 Access->AddParam("@EnrollmentKey", txtEnroll->Text);
